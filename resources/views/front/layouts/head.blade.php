@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="{{ asset('event/assets/css/meanmenu.min.css') }}">
 <!-- Magnific CSS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('event/assets/css/magnific-popup.css') }}">
+<!-- Magnific CSS -->
+<link rel="stylesheet" type="text/css" href="{{ asset('event/assets/css/style.css') }}">
 <!-- nivo slider CSS -->
 <link rel="stylesheet" href="{{ asset('event/assets/vendor/slider/css/nivo-slider.css') }}" type="text/css">
 <link rel="stylesheet" href="{{ asset('event/assets/vendor/slider/css/preview.css') }}" type="text/css" media="screen">
