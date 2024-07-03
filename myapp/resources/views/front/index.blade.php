@@ -439,39 +439,26 @@
             <section class="section-space-default bg-light">
                 <div class="container zoom-gallery menu-list-wrapper">
                     <div class="section-heading title-black color-dark text-center">
-                        <h2>Conference Schedule</h2>
-                        <!-- <p>Dorem ipsum dolor sit. Incidunt laborum beatae earum nihil odio consequatur</p> -->
+                        <h2>Agenda de la formation en fabrication des accessoires de décoration d'intérieur</h2>
                     </div>
                     <div class="schedule-layout2">
                         <ul class="schedule-nav nav nav-tabs">
                             <li class="nav-item">
                                 <a href="#one" data-toggle="tab" aria-expanded="false" class="active">
-                                    <div class="day-number">Day - 01</div>
-                                    <div class="schedule-date">17th Oct, 2018</div>
+                                    <div class="day-number">Jour - 01</div>
+                                    {{-- <div class="schedule-date">17th Oct, 2018</div> --}}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#two" data-toggle="tab" aria-expanded="false">
-                                    <div class="day-number">Day - 02</div>
-                                    <div class="schedule-date">18th Oct, 2018</div>
+                                    <div class="day-number">Jour - 02</div>
+                                    {{-- <div class="schedule-date">18th Oct, 2018</div> --}}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#three" data-toggle="tab" aria-expanded="false">
-                                    <div class="day-number">Day - 03</div>
-                                    <div class="schedule-date">20th Oct, 2018</div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#four" data-toggle="tab" aria-expanded="true">
-                                    <div class="day-number">Day - 04</div>
-                                    <div class="schedule-date">25th Oct, 2018</div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#five" data-toggle="tab" aria-expanded="true">
-                                    <div class="day-number">Day - 05</div>
-                                    <div class="schedule-date">27th Oct, 2018</div>
+                                    <div class="day-number">Jour - 03</div>
+                                    {{-- <div class="schedule-date">20th Oct, 2018</div> --}}
                                 </a>
                             </li>
                         </ul>
@@ -482,66 +469,75 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Topic</th>
-                                                <th>Speaker</th>
-                                                <th>Time</th>
-                                                <th>Hall</th>
+                                                <th>Activités</th>
+                                                <th>Intervenant</th>
+                                                <th>Horaire</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
                                                 <td>
-                                                    <a href="single-event.html">Introduction Business</a>
+                                                    <p>Cérémonie d'Ouverture</p>
                                                 </td>
-                                                <td>Daizy Chirs</td>
-                                                <td>09.00 am - 10.00 am</td>
-                                                <td>B.City Complex</td>
+                                                <td>EECO & Otniel’s Galerie</td>
+                                                <td>8h30' – 9h00'</td>
                                             </tr>
-                                            <tr>
                                                 <th scope="row">2</th>
                                                 <td>
-                                                    <a href="single-event.html">Introduction Business</a>
+                                                    <p>Présentation des participants</p>
                                                 </td>
-                                                <td>Ayrin Dina</td>
-                                                <td>10.30 am - 11.00 am</td>
-                                                <td>Times Complex</td>
+                                                <td>Participants</td>
+                                                <td>9h00 – 9h30</td>
                                             </tr>
-                                            <tr>
                                                 <th scope="row">3</th>
                                                 <td>
-                                                    <a href="single-event.html">Introduction Business</a>
+                                                    <p>Module 1 : Introduction aux principes de base de la conception et fabrication des accessoires de décoration d’intérieur</p>
                                                 </td>
-                                                <td>Steve John</td>
-                                                <td>11.30 am - 12.00 pm</td>
-                                                <td>Newyork Complex</td>
+                                                <td>Otniel’s Galerie</td>
+                                                <td>9h30' – 10h30'</td>
                                             </tr>
-                                            <tr>
                                                 <th scope="row">4</th>
                                                 <td>
-                                                    <a href="single-event.html">Introduction Business</a>
+                                                    <p>Pause-Café</p>
                                                 </td>
-                                                <td>Mark Willy</td>
-                                                <td>12.30 pm - 01.30 pm </td>
-                                                <td>B.City Complex</td>
+                                                <td> - </td>
+                                                <td>10h30' – 11h00'</td>
                                             </tr>
-                                            <tr>
                                                 <th scope="row">5</th>
                                                 <td>
-                                                    <a href="single-event.html">Introduction Business</a>
+                                                    <p>Module 2 : Présentation des matériaux et matériels à utiliser pour la fabrication des accessoires de décoration</p>
                                                 </td>
-                                                <td>Daizy Chirs</td>
-                                                <td>02.00 am - 02.30 pm</td>
-                                                <td>City Hutt Complex</td>
+                                                <td>Otniel’s Galerie</td>
+                                                <td>11h00' – 12h00'</td>
                                             </tr>
-                                            <tr>
                                                 <th scope="row">6</th>
                                                 <td>
-                                                    <a href="single-event.html">Introduction Business</a>
+                                                    <p>Discussion  sur les deux modules</p>
                                                 </td>
-                                                <td>Christian Zozo</td>
-                                                <td>03.00 pm - 04.00 pm</td>
-                                                <td>B.City Complex</td>
+                                                <td>Otniel’s Galerie</td>
+                                                <td>12h00' - 12h30'</td>
+                                            </tr>
+                                                <th scope="row">7</th>
+                                                <td>
+                                                    <p>Pause-Déjeuner</p>
+                                                </td>
+                                                <td> - </td>
+                                                <td>12h30' - 13h30'</td>
+                                            </tr>
+                                                <th scope="row">8</th>
+                                                <td>
+                                                    <p>Atelier Pratique : Confection de tables avec des pneus </p>
+                                                </td>
+                                                <td>Otniel’s Galerie & Encadreurs</td>
+                                                <td>13h30' - 15h45' </td>
+                                            </tr>
+                                                <th scope="row">9</th>
+                                                <td>
+                                                    <p>Synthèse de la journée et clôture</p>
+                                                </td>
+                                                <td>EECO</td>
+                                                <td>15h45' - 16h00'</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -551,58 +547,55 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Topic</th>
-                                                <th>Speaker</th>
-                                                <th>Time</th>
-                                                <th>Hall</th>
+                                                <th>Activités</th>
+                                                <th>Intervenant</th>
+                                                <th>Horaire</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td>
-                                                    <a href="single-event.html">Introduction Business</a>
-                                                </td>
-                                                <td>Daizy Chirs</td>
-                                                <td>09.00 am - 10.00 am</td>
-                                                <td>B.City Complex</td>
+                                                <td>Module 2 : Exploration des tendances actuelles des accessoires de décoration d’intérieur </td>
+                                                <td>Otniel’s Galerie</td>
+                                                <td>8h00' - 9h00'</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
-                                                <td>
-                                                    <a href="single-event.html">Introduction Business</a>
-                                                </td>
-                                                <td>Ayrin Dina</td>
-                                                <td>10.30 am - 11.00 am</td>
-                                                <td>Times Complex</td>
+                                                <td>Module 2 (suite) - Créativité et Personnalisation en Design : Techniques et innovation</td>
+                                                <td>Otniel’s Galerie</td>
+                                                <td>9h00' - 10h00'</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">3</th>
-                                                <td>
-                                                    <a href="single-event.html">Introduction Business</a>
-                                                </td>
-                                                <td>Steve John</td>
-                                                <td>11.30 am - 12.00 pm</td>
-                                                <td>Newyork Complex</td>
+                                                <td>Pause-Café</td>
+                                                <td> - </td>
+                                                <td>10h00' - 10h30'</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">4</th>
-                                                <td>
-                                                    <a href="single-event.html">Introduction Business</a>
-                                                </td>
-                                                <td>Mark Willy</td>
-                                                <td>12.30 pm - 01.30 pm </td>
-                                                <td>B.City Complex</td>
+                                                <td>Atelier Pratique : Confection de tables avec des pneus et Décoration de miroirs</td>
+                                                <td>Otniel’s Galerie & Encadreurs</td>
+                                                <td>10h30' - 12h30'</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">5</th>
-                                                <td>
-                                                    <a href="single-event.html">Introduction Business</a>
-                                                </td>
-                                                <td>Christian Zozo</td>
-                                                <td>03.00 pm - 04.00 pm</td>
-                                                <td>B.City Complex</td>
+                                                <td>Pause-Déjeuner</td>
+                                                <td> - </td>
+                                                <td>12h30' - 13h30'</td>
                                             </tr>
+                                            <tr>
+                                                <th scope="row">6</th>
+                                                <td>Atelier Pratique (suite) :Décoration de miroirs; Pot de fleur et Cadre Photo</td>
+                                                <td>Otniel’s Galerie & Encadreurs</td>
+                                                <td>13h30' - 15h45'</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">7</th>
+                                                <td>Synthèse de la journée et clôture</td>
+                                                <td>EECO</td>
+                                                <td>15h45' - 16h00'</td>
+                                            </tr>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -611,39 +604,59 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Topic</th>
-                                                <th>Speaker</th>
-                                                <th>Time</th>
-                                                <th>Hall</th>
+                                                <th>Activités</th>
+                                                <th>Intervenant </th>
+                                                <th>Horaire</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td>
-                                                    <a href="single-event.html">Introduction Business</a>
-                                                </td>
-                                                <td>Daizy Chirs</td>
-                                                <td>09.00 am - 10.00 am</td>
-                                                <td>B.City Complex</td>
+                                                <td>Module 3 - Notions de base et stratégies de marketing</td>
+                                                <td>TBD</td>
+                                                <td>8h00' - 9h00'</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
-                                                <td>
-                                                    <a href="single-event.html">Introduction Business</a>
-                                                </td>
-                                                <td>Daizy Chirs</td>
-                                                <td>02.00 am - 02.30 pm</td>
-                                                <td>City Hutt Complex</td>
+                                                <td>Module 3 (suite) : Planification financière et développement</td>
+                                                <td>TBD</td>
+                                                <td>9h00' - 10h00'</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">3</th>
-                                                <td>
-                                                    <a href="single-event.html">Introduction Business</a>
-                                                </td>
-                                                <td>Christian Zozo</td>
-                                                <td>03.00 pm - 04.00 pm</td>
-                                                <td>B.City Complex</td>
+                                                <td>Pause-Café</td>
+                                                <td> - </td>
+                                                <td>10h00' - 10h30'</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Atelier Pratique : Confection de lampes en tuyaux; PVC; Pots de fleurs; Cadre Photo</td>
+                                                <td>Otniel’s Galerie & Encadreurs</td>
+                                                <td>10h30' – 12h30'</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>Pause Déjeuner</td>
+                                                <td>-</td>
+                                                <td>12h30' - 13h30'</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">6</th>
+                                                <td>Atelier Pratique (suite) : Confection de lampes en tuyaux; PVC; Pots de fleurs; Cadre Photo</td>
+                                                <td>Otniel’s Galerie & Encadreurs</td>
+                                                <td>13h30' – 15h00'</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">7</th>
+                                                <td>Evaluation de la formation; Feedback des participants; Témoignages</td>
+                                                <td>EECO</td>
+                                                <td>15h00' - 15h30'</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">8</th>
+                                                <td>Cérémonie de Clôture : Remise des certificats; Discours de clôture</td>
+                                                <td>EECO & Otniel’s Galerie</td>
+                                                <td>15h30' - 16h00'</td>
                                             </tr>
                                         </tbody>
                                     </table>
