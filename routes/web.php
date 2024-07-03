@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*Route::get('/', function () {
@@ -14,5 +15,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name('home.about');
 Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('home.contact');
 Route::get('services', [App\Http\Controllers\HomeController::class, 'services'])->name('home.services');
+
+Route::post('contact/', [ContactController::class, 'submit'])->name('contact.submit');
 
 require __DIR__.'/auth.php';

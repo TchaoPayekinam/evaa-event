@@ -21,7 +21,7 @@
             </div>
         </div>
     </section>
-    <!-- Inne Page Banner Area End Here -->  
+    <!-- Inne Page Banner Area End Here -->
     <!-- Map Area Start Here -->
     <section class="full-width-container">
         <div class="container-fluid">
@@ -42,42 +42,82 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12 margin-b-30rem">
-                    <h2 class="title-bold color-dark size-sm title-bar">Feel Free To Drop Us A Line To Contact Us</h2>
-                    <p class="margin-b-30">Curabitur maximus feugiat velit, sed dapibus sem auctor quis. Maecenas turpis purus, tincidunt
-                        eget mattis ac, placerat sit amet dolor. Aenean vel porttitor libero, nec tempor magna. Mauris
-                        sed ex at tellus elementum tempus dignissimd dapibus sem auctor.</p>
-                    <form id="contact-form" class="contact-form">
+                    <h2 class="title-bold color-dark size-sm title-bar">PARLONS-EN...</h2>
+                    <p class="margin-b-30">Contactez notre équipe pour savoir comment nous pouvons créer l’événement de vos rêves.</p>
+                    <form id="ContactForm" class="contact-form" method="POST" action="">
+                        {{ csrf_field() }}
                         <fieldset>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" placeholder="Name*" class="form-control" name="name" id="form-name" data-error="Name field is required"
-                                            required>
-                                        <div class="help-block with-errors"></div>
+                                        <label for="form-firstName">Prénom<span style="color: red">*</span></label>
+                                        <input type="text" placeholder="" value="{{ old('firstName') }}" class="form-control" name="firstName" id="form-firstName" data-error="Le prénom est obligatoire" >
+                                        @error('firstName')
+                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
+                                        @enderror
+                                            <div class="help-block with-errors" style="color: red"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="form-lastName">Nom de famille<span style="color: red">*</span></label>
+                                        <input type="text" placeholder="" value="{{ old('lastName') }}" class="form-control" name="lastName" id="form-lastName" data-error="Le nom de famille est obligatoire" >
+                                        @error('lastName')
+                                        <span class="text-danger font-size" style="color: red">{{$message}}</span>
+                                    @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="email" placeholder="Email*" class="form-control" name="email" id="form-email" data-error="Email field is required"
-                                            required>
-                                        <div class="help-block with-errors"></div>
+                                        <label for="form-phoneNumber">Numéro de téléphone<span style="color: red">*</span></label>
+                                        <input type="text" placeholder="Ex : +228 97000001" value="{{ old('phoneNumber') }}" class="form-control" name="phoneNumber" id="form-phoneNumber" data-error="Le numéro de téléphone est obligatoire" >
+                                        @error('phoneNumber')
+                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="form-society">Nom de la societé</label>
+                                        <input type="text" placeholder="" value="{{ old('society') }}" class="form-control" name="society" id="form-society">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <textarea placeholder="Message*" class="textarea form-control" name="message" id="form-message" rows="10" cols="20" data-error="Message field is required"
-                                            required></textarea>
-                                        <div class="help-block with-errors"></div>
+                                        <label for="form-email">Email<span style="color: red">*</span></label>
+                                        <input type="email" placeholder="" value="{{ old('email') }}" class="form-control" name="email" id="form-email" data-error="L'email est obligatoire" >
+                                        @error('email')
+                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-sm-12">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="form-message">Message<span style="color: red">*</span></label>
+                                        <textarea placeholder="" class="textarea form-control" name="message" id="form-message" rows="5" cols="10" data-error="Le message est obligatoire" value="{{ old('message') }}"></textarea>
+                                            @error('message')
+                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
                                     <div class="form-group margin-b-none">
-                                        <button type="submit" class="btn-fill color-yellow border-radius-5">Send Message</button>
+                                        <button type="submit" class="btn-fill color-yellow border-radius-5">Envoyez ce message</button>
                                     </div>
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
                                 </div>
-                                <div class="col-lg-8 col-md-6 col-sm-6 col-sm-12">
-                                    <div class='form-response'></div>
+
+                                @if(session('success'))
+                                    <div class="alert alert-success auto-dismiss-alert col-lg-12 mt-3">
+                                        {{ session('success') }}
+                                    </div>
+                                @elseif (session('error'))
+                                <div class="alert alert-danger auto-dismiss-alert col-lg-12 m-5">
+                                    {{ session('error') }}
                                 </div>
+                                @endif
                             </div>
                         </fieldset>
                     </form>

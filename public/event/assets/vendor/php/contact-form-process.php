@@ -37,7 +37,7 @@ $Body .= "<p><b>Email:</b> {$email}</p>";
 $Body .= "<p><b>Subject:</b> {$subject}</p>";
 $Body .= "<p><b>Message:</b> </p><p>{$message}</p>";
 
- 
+
 
 // send email
 $headers = 'MIME-Version: 1.0' . "\r\n";
@@ -61,4 +61,4 @@ if ($success && $errorMSG == ""){
     } else {
         echo $errorMSG;
     }
-} 
+}
