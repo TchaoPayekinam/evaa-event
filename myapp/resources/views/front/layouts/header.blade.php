@@ -12,36 +12,33 @@
             </li>
         </ul>
         <ul class="nav social-icons">
-            <!-- <li>
-                 Heures d'Ouverture : Heures: Lun-Ven: 8h00 - 17h00
-            </li> -->
             <li>
-                <a href="#" target="_blank" title="facebook">
+                <a href="https://www.facebook.com/profile.php?id=61561141479602" target="_blank" title="facebook">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href="#" target="_blank" title="twitter">
+                <a href="https://x.com/EvaaEventCom" target="_blank" title="twitter">
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href="#" target="_blank" title="linkedin">
+                <a href="https://www.linkedin.com/company/evaa-event-com/?viewAsMember=true" target="_blank" title="linkedin">
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href="#" target="_blank" title="pinterest">
+                <a href="https://www.pinterest.fr/evaaevent/_created/" target="_blank" title="pinterest">
                     <i class="fa fa-pinterest" aria-hidden="true"></i>
                 </a>
             </li>
         </ul>
         <ul class="nav lang">
             <li class="nav-item">
-                <a class="nav-link" title="Lisez cette page en français" lang="fr" href="lang/fr" hreflang="fr">Français</a>
+                <a class="nav-link" title="Lisez cette page en français" lang="fr" href="{{ route('switchLang', 'fr') }}" hreflang="fr">Français</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" title="Read this page in English" lang="en" href="lang/en" hreflang="en">English</a>
+                <a class="nav-link" title="Read this page in English" lang="en" href="{{ route('switchLang', 'en') }}" hreflang="en">English</a>
             </li>
         </ul>
     </div>

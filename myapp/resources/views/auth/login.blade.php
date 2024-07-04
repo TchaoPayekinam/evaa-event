@@ -57,8 +57,7 @@
             height: 50px;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
             border-radius: 0;
-        }
-               
+        }               
     </style>
 @endsection
 
@@ -82,7 +81,7 @@
     </div>
 </section>
 <!-- Inne Page Banner Area End Here -->
-<!-- Contact Form Area Start Here -->
+<!-- Login Form Area Start Here -->
 <section class="section-space-default2-less30">
     <div class="container">
         <div class="row row-container title-black color-dark">
@@ -132,5 +131,5 @@
         </div>
     </div>
 </section>
-<!-- Contact Form Area End Here -->
+<!-- Login Form Area End Here -->
 @endsection

@@ -53,12 +53,14 @@
                                     </div>
                                     <div class="slider-sub-text third-line">
                                         <ul>
-                                            <li>17 - 25 October 2018</li>
-                                            <li>Tobacco Dock, London</li>
+                                            <!-- <li>17 - 25 October 2018</li>
+                                            <li>Tobacco Dock, London</li> -->
+                                            <li>12 - 14 Août 2024</li>
+                                            <li>15 - 17 Août 2024</li>
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="#" class="btn-ghost color-yellow border-radius-5">Buy Tickets Now!</a>
+                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
                                     </div>
                                 </div>
                             </div>
@@ -76,12 +78,14 @@
                                     </div>
                                     <div class="slider-sub-text third-line">
                                         <ul>
-                                            <li>17 - 25 October 2018</li>
-                                            <li>Tobacco Dock, London</li>
+                                            <!-- <li>17 - 25 October 2018</li>
+                                            <li>Tobacco Dock, London</li> -->
+                                            <li>12 - 14 Août 2024</li>
+                                            <li>15 - 17 Août 2024</li>
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="#" class="btn-ghost color-yellow border-radius-5">Buy Tickets Now!</a>
+                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
                                     </div>
                                 </div>
                             </div>
@@ -99,12 +103,14 @@
                                     </div>
                                     <div class="slider-sub-text third-line">
                                         <ul>
-                                            <li>17 - 25 October 2018</li>
-                                            <li>Tobacco Dock, London</li>
+                                            <!-- <li>17 - 25 October 2018</li>
+                                            <li>Tobacco Dock, London</li> -->
+                                            <li>12 - 14 Août 2024</li>
+                                            <li>15 - 17 Août 2024</li>
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="#" class="btn-ghost color-yellow border-radius-5">Buy Tickets Now!</a>
+                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
                                     </div>
                                 </div>
                             </div>
@@ -125,11 +131,12 @@
                 <div class="container">
                     <div class="about-layout1">
                         <img src="{{ asset('event/assets/img/about/about-logo.png') }}" alt="logo" class="img-fluid">
-                        <p>Emply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        <p>Former une nouvelle génération de créateurs d'accessoires de décoration d'intérieur, en leur fournissant les compétences nécessaires pour concevoir et fabriquer des produits innovants et durables, tout en stimulant la créativité et en soutenant le développement économique local et environnemental.</p>
+                        <!-- <p>Emply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
                             dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
                             simply dummy text of the rinting and typesetting industry.standard dummy text ever since.Emply
                             dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                            when an unknown printer took.</p>
+                            when an unknown printer took.</p> -->
                         <a href="#" title="Buy Your Ticket" class="btn-fill color-yellow border-radius-5">Buy Your Ticket</a>
                     </div>
                 </div>
@@ -1074,11 +1081,11 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-12 text-center">
                             <a href="#" title="More Schedule" class="loadmore-one-item btn-fill size-lg border-radius-5 color-yellow margin-t-50">More Schedule</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <!-- Schedule Area End Here -->
@@ -1208,44 +1215,48 @@
             <section class="section-space-default bg-light">
                 <div class="container">
                     <div class="section-heading title-black color-dark text-center">
-                        <h2>Offcial Sponsonrs &amp; Partner</h2>
-                        <p>Check Who Makes This Event Possible!</p>
+                        <h2>{{ trans('home.official-sponsor') }}</h2>
+                        <!-- <p>Check Who Makes This Event Possible!</p> -->
                     </div>
                     <div class="sponsonrs-layout1">
-                        <div class="sponsonrs-type-title">
+                        <!-- <div class="sponsonrs-type-title">
                             <h3>Platinum Sponsors</h3>
-                        </div>
+                        </div> -->
                         <div class="row sponsonrs-row-border">
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="sponsonrs-box">
                                     <a href="#">
-                                        <img src="{{ asset('event/assets/img/brand/brand1.png') }}" alt="brand" class="img-fluid">
+                                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="brand" class="img-fluid">
+                                        <!-- <img src="{{ asset('event/assets/img/brand/brand1.png') }}" alt="brand" class="img-fluid"> -->
                                     </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="sponsonrs-box">
                                     <a href="#">
-                                        <img src="{{ asset('event/assets/img/brand/brand2.png') }}" alt="brand" class="img-fluid">
+                                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="brand" class="img-fluid">
+                                        <!-- <img src="{{ asset('event/assets/img/brand/brand2.png') }}" alt="brand" class="img-fluid"> -->
                                     </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="sponsonrs-box">
                                     <a href="#">
-                                        <img src="{{ asset('event/assets/img/brand/brand3.png') }}" alt="brand" class="img-fluid">
+                                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="brand" class="img-fluid">
+                                        <!-- <img src="{{ asset('event/assets/img/brand/brand3.png') }}" alt="brand" class="img-fluid"> -->
                                     </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="sponsonrs-box">
                                     <a href="#">
-                                        <img src="{{ asset('event/assets/img/brand/brand4.png') }}" alt="brand" class="img-fluid">
+                                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="brand" class="img-fluid">
+                                        <!-- <img src="{{ asset('event/assets/img/brand/brand4.png') }}" alt="brand" class="img-fluid"> -->
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="sponsonrs-type-title">
+                        <!-- <div class="sponsonrs-type-title">
                             <h3>Gold Sponsors</h3>
                         </div>
                         <div class="row sponsonrs-row-border">
@@ -1277,11 +1288,11 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-12 text-center">
-                            <a href="#" title="Become a Sponsors" class="btn-fill size-lg border-radius-5 color-yellow margin-t-30">Become a Sponsors</a>
+                            <a href="#" title="Become a Sponsors" class="btn-fill size-lg border-radius-5 color-yellow margin-t-30">{{ trans('home.become-sponsor') }}</a>
                         </div>
                     </div>
                 </div>
