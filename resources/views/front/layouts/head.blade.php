@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="{{ asset('event/assets/css/meanmenu.min.css') }}">
 <!-- Magnific CSS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('event/assets/css/magnific-popup.css') }}">
-<!-- Magnific CSS -->
+<!-- Style Page CSS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('event/assets/css/style.css') }}">
 <!-- nivo slider CSS -->
 <link rel="stylesheet" href="{{ asset('event/assets/vendor/slider/css/nivo-slider.css') }}" type="text/css">
@@ -34,19 +34,19 @@
       position: relative;
       padding-left: 35px;
       font-size: 18px;
-      /*color: #646464;*/
       margin-bottom: 20px;
       line-height: 1.6;
     }
+
     .footer-contact-us ul li:last-child {
       margin-bottom: 0;
     }
+
     .footer-contact-us ul li i {
       position: absolute;
       left: 0;
       top: 5px;
       z-index: 1;
-      /*color: #8cc63e;*/
       color: #fad03b;
       font-size: 20px;
     }
@@ -73,6 +73,10 @@
     .header-toolbar-area a {
       font-size: 16px;
       font-weight: 300;
+    }
+
+    .header-toolbar-hidden {
+        display: none;
     }
 
     .left-nav {

@@ -9,10 +9,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumbs-area">
-                        <h1>Contact Us</h1>
+                        <h1>Contact</h1>
                         <ul>
                             <li>
-                                <a href="{{ route('home.index') }}">Home</a>
+                                <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
                             </li>
                             <li>Contact</li>
                         </ul>
@@ -23,16 +23,10 @@
     </section>
     <!-- Inne Page Banner Area End Here -->  
     <!-- Map Area Start Here -->
-    <section class="full-width-container">
+    <section class="container container-maps">
         <div class="container-fluid">
             <div class="google-map-area">
                 <div id="googleMap" style="width:100%; height:496px;"></div>
-                <div class="upcoming-event-layout1">
-                    <h2>Marketing
-                        <br> Conferance 2018</h2>
-                    <div class="date">17 - 25 Oct, 2018</div>
-                    <p>Tobacco Dock, London</p>
-                </div>
             </div>
         </div>
     </section>
@@ -42,16 +36,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12 margin-b-30rem">
-                    <h2 class="title-bold color-dark size-sm title-bar">Feel Free To Drop Us A Line To Contact Us</h2>
-                    <p class="margin-b-30">Curabitur maximus feugiat velit, sed dapibus sem auctor quis. Maecenas turpis purus, tincidunt
-                        eget mattis ac, placerat sit amet dolor. Aenean vel porttitor libero, nec tempor magna. Mauris
-                        sed ex at tellus elementum tempus dignissimd dapibus sem auctor.</p>
+                    <h2 class="title-bold color-dark size-sm title-bar">{{ trans('contact.contact-h2') }}</h2>
+                    <p class="margin-b-30">{{ trans('contact.contact-p') }}</p>
                     <form id="contact-form" class="contact-form">
                         <fieldset>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" placeholder="Name*" class="form-control" name="name" id="form-name" data-error="Name field is required"
+                                        <input type="text" placeholder="{{ trans('contact.form-input-name') }}*" class="form-control" name="name" id="form-name" data-error="Name field is required"
                                             required>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -72,7 +64,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-sm-12">
                                     <div class="form-group margin-b-none">
-                                        <button type="submit" class="btn-fill color-yellow border-radius-5">Send Message</button>
+                                        <button type="submit" class="btn-fill color-yellow border-radius-5">{{ trans('contact.form-button') }}</button>
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-md-6 col-sm-6 col-sm-12">

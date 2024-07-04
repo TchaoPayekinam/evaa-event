@@ -82,6 +82,22 @@ return [
 
     'locale' => 'en',
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application languages
+    |--------------------------------------------------------------------------
+    |
+    | Here are custom settings related with the application languages used by
+    | the system. This section is not related application localization
+    |
+    */
+
+    'languages' => [
+        'fr' => 'Français',
+        'en' => 'English',        
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

@@ -440,7 +440,6 @@
                 <div class="container zoom-gallery menu-list-wrapper">
                     <div class="section-heading title-black color-dark text-center">
                         <h2>Agenda de la formation en fabrication des accessoires de décoration d'intérieur</h2>
-                        <!-- <p>Dorem ipsum dolor sit. Incidunt laborum beatae earum nihil odio consequatur</p> -->
                     </div>
                     <div class="schedule-layout2">
                         <ul class="schedule-nav nav nav-tabs">

@@ -1,3 +1,33 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var toolbar = document.querySelector('.header-toolbar-area');
+        var header = document.querySelector('#header-one');
+        var toolbarHeight = toolbar.offsetHeight;
+
+        function checkScroll() {
+            if (window.scrollY > toolbarHeight) {
+                toolbar.classList.add('header-toolbar-hidden');
+                header.style.top = 0 + 'px';
+                //header.classList.add('header-fixed-top');
+            } else {
+                toolbar.classList.remove('header-toolbar-hidden');
+                header.style.top = toolbarHeight + 'px';
+                //header.classList.remove('header-fixed-top');
+            }
+        }
+
+        window.addEventListener('scroll', checkScroll);
+
+        // Set initial position of the header
+        header.style.top = toolbarHeight + 'px';
+    });
+
+    /*document.addEventListener("DOMContentLoaded", function() {
+        var toolbarHeight = document.querySelector('.header-toolbar-area').offsetHeight;
+        document.querySelector('#header-one').style.top = toolbarHeight + 'px';
+    });*/
+</script>
+
 <!-- jquery-->
 <script src="{{ asset('event/assets/js/jquery-2.2.4.min.js') }}"></script>
 <!-- Plugins js -->
