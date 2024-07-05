@@ -35,10 +35,10 @@
         </ul>
         <ul class="nav lang">
             <li class="nav-item">
-                <a class="nav-link" title="Lisez cette page en français" lang="fr" href="{{ route('switchLang', 'fr') }}" hreflang="fr">Français</a>
+                <a class="nav-link" title="Lisez cette page en français" lang="fr" href="lang/fr" hreflang="fr">Français</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" title="Read this page in English" lang="en" href="{{ route('switchLang', 'en') }}" hreflang="en">English</a>
+                <a class="nav-link" title="Read this page in English" lang="en" href="lang/en" hreflang="en">English</a>
             </li>
         </ul>
     </div>
@@ -64,7 +64,7 @@
                                         <a href="{{ route('home.about') }}">{{ trans('menu.about') }}</a>
                                     </li>
                                     <li class="{{ Request::is('services*') ? 'current' : ''}}">
-                                        <a href="#">Services</a>
+                                        <a href="{{ route('home.services') }}">Services</a>
                                         <!-- <ul class="rt-dropdown-menu">
                                             <li>
                                                 <a href="speakers1.html">Speakers 1</a>

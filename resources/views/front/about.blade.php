@@ -21,7 +21,7 @@
             </div>
         </div>
     </section>
-    <!-- Inne Page Banner Area End Here -->  
+    <!-- Inne Page Banner Area End Here -->
     <!-- About Us Start Here -->
     <section class="section-space-less30">
         <div class="container">
@@ -71,13 +71,13 @@
         <div class="container-fluid">
             <div class="row no-gutters full-width">
                 <div class="col-lg-6">
-                    <img src="{{ asset('event/assets/img/about/about-eeco.jpeg') }}" alt="about" class="img-fluid width-100">
+                    <img src="{{ asset('event/assets/img/about/about2.jpg') }}" alt="about" class="img-fluid width-100">
                 </div>
                 <div class="col-lg-6">
                     <div class="overlay-icon-layout5 height-100 d-flex align-items-center bg-accent">
                         <div class="text-left about-section-padding zindex-up">
                             <h2 class="title-black color-dark">{{ trans('about.nous-choisir') }}</h2>
-                            <p>{{ trans('about.nous-choisir-p1') }}</p>  
+                            <p>{{ trans('about.nous-choisir-p1') }}</p>
                             <p>
                                 <ul>
                                     <li>{{ trans('about.nous-choisir-l1') }}</li>
@@ -85,7 +85,7 @@
                                     <li>{{ trans('about.nous-choisir-l3') }}</li>
                                     <li>{{ trans('about.nous-choisir-l4') }}</li>
                                     <li>{{ trans('about.nous-choisir-l5') }}</li>
-                                </ul> 
+                                </ul>
                             </p>
                             <p class="text-justify">
                                 {{ trans('about.nous-choisir-p2') }}

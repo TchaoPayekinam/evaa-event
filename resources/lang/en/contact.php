@@ -1,15 +1,10 @@
 <?php
+
     return[
-        'contact-h2' => 'LET\'S TALK',
-        'contact-p' => 'Get in touch with our team to find out how we can create your dream event.',
-        'last-name' => 'Last name', 
-        'first-name' => 'First name',
-        'phone' => 'Phone number',
-        'company' => 'Company name',
-        'email' => 'Email address',
-        'message' => 'Entez your message here',
-        'send-msg' => 'Send message',
-        'contact' => 'Contact Info',
-        'map' => 'North-east junction of College d`\'Enseignement Public (CEG) de Djagblé, Lome, TOGO',
+        'contact-h2' => 'Feel Free To Drop Us A Line To Contact Us',
+        'contact-p' => 'With our strong skills and clear differentiation, we are well positioned to deliver exceptional solutions that not only meet, but exceed our customers\' expectations. We pride ourselves on our ability to innovate, collaborate and excel in everything we do, making us the partner of choice for events and communications campaigns in Africa',
+        'form-input-name' => 'Full Name',
+        'form-button' => 'Send message',
     ];
+
 ?>
