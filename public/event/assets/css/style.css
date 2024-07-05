@@ -1,0 +1,35 @@
+/*p {
+    font-size: 17px;
+}*/
+
+
+.section-heading h2{
+    font-size: 35px;
+}
+
+.schedule-nav {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.overlay-icon-layout5 .text-left ul{
+    list-style: disc;
+    margin-left: 50px;
+    font-size: 17px;
+}
+
+
+.row-2{
+    margin-top:  50px;
+}
+
+.row-1, .row-2{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.container-maps{
+    margin: 50px auto;
+}

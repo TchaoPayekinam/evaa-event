@@ -21,12 +21,12 @@
                             <div class="footer-widget-social">
                                 <ul>
                                     <li>
-                                        <a href="#" title="facebook">
+                                        <a href="https://www.facebook.com/profile.php?id=61561141479602" target="_blank" title="facebook">
                                             <i class="fa fa-facebook" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="twitter">
+                                        <a href="https://x.com/EvaaEventCom" target="_blank" title="twitter">
                                             <i class="fa fa-twitter" aria-hidden="true"></i>
                                         </a>
                                     </li>
@@ -36,12 +36,12 @@
                                         </a>
                                     </li> -->
                                     <li>
-                                        <a href="#" title="linkedin">
+                                        <a href="https://www.linkedin.com/company/evaa-event-com/?viewAsMember=true" target="_blank" title="linkedin">
                                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="pinterest">
+                                        <a href="https://www.pinterest.fr/evaaevent/_created/" target="_blank" title="pinterest">
                                             <i class="fa fa-pinterest" aria-hidden="true"></i>
                                         </a>
                                     </li> 
