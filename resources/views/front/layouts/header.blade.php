@@ -67,7 +67,7 @@
                                         <a href="{{ route('home.about') }}">{{ trans('menu.about') }}</a>
                                     </li>
                                     <li class="{{ Request::is('services*') ? 'current' : ''}}">
-                                        <a href="#">Services</a>
+                                        <a href="{{ route('home.services') }}">Services</a>
                                         <!-- <ul class="rt-dropdown-menu">
                                             <li>
                                                 <a href="speakers1.html">Speakers 1</a>

@@ -82,6 +82,7 @@
                                 <ul>
                                     <li>{{ trans('about.nous-choisir-l1') }}</li>
                                     <li>{{ trans('about.nous-choisir-l2') }}</li>
+                                    
                                     <li>{{ trans('about.nous-choisir-l3') }}</li>
                                     <li>{{ trans('about.nous-choisir-l4') }}</li>
                                     <li>{{ trans('about.nous-choisir-l5') }}</li>
