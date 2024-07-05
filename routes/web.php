@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
 
 /**
  * route used to switch locale
