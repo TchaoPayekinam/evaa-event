@@ -43,9 +43,23 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" placeholder="{{ trans('contact.form-input-name') }}*" class="form-control" name="name" id="form-name" data-error="Name field is required"
-                                            required>
-                                        <div class="help-block with-errors"></div>
+                                        <label for="form-firstName">Prénom<span style="color: red">*</span></label>
+                                        <input type="text" placeholder="" value="{{ old('firstName') }}" class="form-control" name="firstName" id="form-firstName" data-error="Le prénom est obligatoire" >
+                                        @error('firstName')
+                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
+                                        @enderror
+                                            <div class="help-block with-errors" style="color: red"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="form-lastName">Nom de famille<span style="color: red">*</span></label>
+                                        <input type="text" placeholder="" value="{{ old('lastName') }}" class="form-control" name="lastName" id="form-lastName" data-error="Le nom de famille est obligatoire" >
+                                        @error('lastName')
+                                        <span class="text-danger font-size" style="color: red">{{$message}}</span>
+                                    @enderror
+                                       
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -83,7 +97,11 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
                                     <div class="form-group margin-b-none">
+<<<<<<< HEAD
+                                        <button type="submit" class="btn-fill color-yellow border-radius-5">Envoyez ce message</button>
+=======
                                         <button type="submit" class="btn-fill color-yellow border-radius-5">{{ trans('contact.form-button') }}</button>
+>>>>>>> 0da0e6f3f6803de9c37876f6023cd3194a04bf7f
                                     </div>
                                     {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
