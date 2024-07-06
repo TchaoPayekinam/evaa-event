@@ -653,6 +653,9 @@
             h3H = h3.find('.header-top-bar').outerHeight(),
             topBar = s.prev('.header-top-bar'),
             tempMenu;
+
+        var toolbarHeight = $('.header-toolbar-area').outerHeight();
+
         if (windowWidth > 991) {
             w.css('padding-top', '');
             var topBarH, mBottom = 0;
@@ -671,13 +674,13 @@
                     }
                 }
             }
-            if (windowpos >= topBarH) {
+            if (windowpos >= topBarH + toolbarHeight) {
                 if (h3.length || h1.length) {
                     s.addClass('stick');
                 }
                 if (h3.length) {
                     if (h3.hasClass('header-fixed')) {
-                        h3.css('top', '-' + topBarH + 'px');
+                        h3.css('top', '-' + (topBarH + toolbarHeight) + 'px');
                     } else {
                         w.css('padding-top', h + 'px');
                     }

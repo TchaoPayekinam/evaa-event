@@ -21,7 +21,7 @@
             </div>
         </div>
     </section>
-    <!-- Inne Page Banner Area End Here -->  
+    <!-- Inne Page Banner Area End Here -->
     <!-- About Us Start Here -->
     <section class="section-space-less30">
         <div class="container">
@@ -76,7 +76,7 @@
                 <div class="col-lg-6">
                     <div class="overlay-icon-layout5 height-100 d-flex align-items-center bg-accent">
                         <div class="text-left about-section-padding zindex-up">
-                            <h2 class="title-black color-dark title-about">{{ trans('about.nous-choisir') }}</h2>
+                            <h2 class="title-black color-dark">{{ trans('about.nous-choisir') }}</h2>
                             <p>{{ trans('about.nous-choisir-p1') }}</p>  
                             <p>
                                 <ul>
@@ -85,7 +85,7 @@
                                     <li>{{ trans('about.nous-choisir-l3') }}</li>
                                     <li>{{ trans('about.nous-choisir-l4') }}</li>
                                     <li>{{ trans('about.nous-choisir-l5') }}</li>
-                                </ul> 
+                                </ul>
                             </p>
                             <p class="text-justify">
                                 {{ trans('about.nous-choisir-p2') }}

@@ -7,7 +7,7 @@ return [
 
     'notre-vision' => 'Our vision',
     'notre-vision-text' => 'To be Africa\'s leading event and communications agency, recognized for innovation, creativity and excellence in delivering transformative experiences and strategic communications solutions that drive remarkable engagement and sustainable success.',
-    
+
     'nous-choisir' => 'Why choose us?',
     'nous-choisir-p1' => 'From the outset, we have been guided by core values that continue to define our approach and success:',
     'nous-choisir-l1' => 'Creating Experiences',

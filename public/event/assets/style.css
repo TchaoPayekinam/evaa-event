@@ -2629,7 +2629,7 @@ body > .eventalk-tooltip .eventalk-tooltip-bottom:after {
 }
 .header-area .stick {
   background-color: rgba(17, 17, 17, 0.9);
-  border-bottom: 2px solid #4c1864;
+  /*border-bottom: 2px solid #4c1864;*/
   -webkit-transition: all 1s ease-out;
   -moz-transition: all 1s ease-out;
   -ms-transition: all 1s ease-out;
@@ -2684,7 +2684,8 @@ body > .eventalk-tooltip .eventalk-tooltip-bottom:after {
 }
 .eventalk-main-menu nav > ul > li > a {
   font-size: 15px;
-  padding: 40px 15px;
+  /*padding: 40px 15px;*/
+  padding: 20px 15px;
   display: block;
   text-transform: uppercase;
   text-decoration: none;
