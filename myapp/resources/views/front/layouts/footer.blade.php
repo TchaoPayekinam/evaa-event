@@ -15,9 +15,6 @@
                                     Heures d'Ouverture : Heures: Lun-Ven: 8h00 - 17h00
                                 </p>
                             </div>
-                            <!-- <div class="footer-widget-contact">
-                                <a href="tel:+5647-345-2224">5647-345-2224</a>
-                            </div> -->
                             <div class="footer-widget-social">
                                 <ul>
                                     <li>
@@ -30,11 +27,6 @@
                                             <i class="fa fa-twitter" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <!-- <li>
-                                        <a href="#" title="google-plus">
-                                            <i class="fa fa-google-plus" aria-hidden="true"></i>
-                                        </a>
-                                    </li> -->
                                     <li>
                                         <a href="https://www.linkedin.com/company/evaa-event-com/?viewAsMember=true" target="_blank" title="linkedin">
                                             <i class="fa fa-linkedin" aria-hidden="true"></i>
@@ -45,11 +37,6 @@
                                             <i class="fa fa-pinterest" aria-hidden="true"></i>
                                         </a>
                                     </li> 
-                                    <!-- <li>
-                                        <a href="#" title="rss">
-                                            <i class="fa fa-rss" aria-hidden="true"></i>
-                                        </a>
-                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -60,15 +47,14 @@
                             <div class="footer-contact-us">
                                 <ul>
                                     <li>
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Carrefour nord-est du Collège d’Enseignement Public (CEG) de Djagblé, Lomé, TOGO</li>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Lomé, carrefour nord-est du Collège d'Enseignement Général (CEG) de Djagblé</li>
                                     <li>
                                         <i class="fa fa-phone" aria-hidden="true"></i>(+228) 92-04-05-94 <br>
                                         (+228) 96-02-82-82
                                     </li>
                                     <li>
-                                        <i class="fa fa-envelope-o" aria-hidden="true"></i>evaa.event@gmail.com</li>
-                                    <!-- <li>
-                                        <i class="fa fa-fax" aria-hidden="true"></i>(+228) 96-02-82-82</li> -->
+                                        <i class="fa fa-envelope-o" aria-hidden="true"></i>evaa.event@gmail.com
+                                    </li>
                                 </ul>
                             </div>
                             <!-- <div class="footer-widget-menu">
@@ -142,10 +128,7 @@
             </div>
         </div>
         <div class="footer-bottom-area">
-            <p>© 2024 Eva'a Event & Com. All Rights Reserved. 
-            <!-- Designed by
-                <a target="_blank" href="https://radiustheme.com">
-                RadiusTheme</a> -->
+            <p>© 2024 Eva'a Event & Com. {{ trans('home.rights') }}. 
             </p>
         </div>
     </div>

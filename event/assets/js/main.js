@@ -245,9 +245,9 @@
     /*-------------------------------------
      jQuery MeanMenu activation code
      --------------------------------------*/
-    $('nav#dropdown').meanmenu({
+    /*$('nav#dropdown').meanmenu({
         siteLogo: "<div class='mobile-menu-nav-back'><a href='index.html'><img src='img/logo.png'/></a></div>"
-    });
+    });*/
 
     /*-------------------------------------
     // jquery zoom activation code

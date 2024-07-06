@@ -27,12 +27,6 @@
         <div class="container-fluid">
             <div class="google-map-area">
                 <div id="googleMap" style="width:100%; height:496px;"></div>
-                <!-- <div class="upcoming-event-layout1">
-                    <h2>Marketing
-                        <br> Conferance 2018</h2>
-                    <div class="date">17 - 25 Oct, 2018</div>
-                    <p>Tobacco Dock, London</p>
-                </div> -->
             </div>
         </div>
     </section>
@@ -132,9 +126,8 @@
                                     (+228) 96-02-82-82
                                 </li>
                                 <li>
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>evaa.event@gmail.com</li>
-                                <!-- <li>
-                                    <i class="fa fa-fax" aria-hidden="true"></i>(123) 123 005040</li> -->
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>evaa.event@gmail.com
+                                </li>
                             </ul>
                         </div>
                     </div>

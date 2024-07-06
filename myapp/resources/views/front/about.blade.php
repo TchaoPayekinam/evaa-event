@@ -21,7 +21,7 @@
             </div>
         </div>
     </section>
-    <!-- Inne Page Banner Area End Here -->  
+    <!-- Inne Page Banner Area End Here -->
     <!-- About Us Start Here -->
     <section class="section-space-less30">
         <div class="container">
@@ -67,11 +67,11 @@
     </section>
     <!-- About Us Area End Here -->
     <!-- Why Join Us Start Here -->
-    <section>
+       <section class="about-tablette">
         <div class="container-fluid">
-            <div class="row no-gutters full-width">
+            <div class="row row-about no-gutters full-width">
                 <div class="col-lg-6">
-                    <img src="{{ asset('event/assets/img/about/about-eeco.jpeg') }}" alt="about" class="img-fluid width-100">
+                    <img src="{{ asset('event/assets/img/about/about2.jpg') }}" alt="about" class="img-fluid width-100">
                 </div>
                 <div class="col-lg-6">
                     <div class="overlay-icon-layout5 height-100 d-flex align-items-center bg-accent">
@@ -85,7 +85,7 @@
                                     <li>{{ trans('about.nous-choisir-l3') }}</li>
                                     <li>{{ trans('about.nous-choisir-l4') }}</li>
                                     <li>{{ trans('about.nous-choisir-l5') }}</li>
-                                </ul> 
+                                </ul>
                             </p>
                             <p class="text-justify">
                                 {{ trans('about.nous-choisir-p2') }}
@@ -108,8 +108,8 @@
                 <h2>{{ trans('about.notre-equipe') }}</h2>
                 <p>{{ trans('about.notre-equipe-p') }}</p>
             </div>
-            <div class="row full-width row-1">
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class="row row-equipe">
+                <div>
                     <div class="speaker-layout2">
                         <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
                         <div class="item-title">
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+                <div>
                     <div class="speaker-layout2">
                         <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
                         <div class="item-title">
@@ -177,7 +177,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+                <div>
                     <div class="speaker-layout2">
                         <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
                         <div class="item-title">
@@ -211,7 +211,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+                <div>
                     <div class="speaker-layout2">
                         <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
                         <div class="item-title">
@@ -245,111 +245,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row full-width row-2">
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                    <div class="speaker-layout2">
-                        <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
-                        <div class="item-title">
-                            <h3 class="title-black size-md color-light hover-yellow text-underline-light">
-                                <a href="single-speaker.html">Steve John</a>
-                            </h3>
-                        </div>
-                        <div class="item-social">
-                            <ul>
-                                <li>
-                                    <a href="#" title="facebook">
-                                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="twitter">
-                                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="linkedin">
-                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="pinterest">
-                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                    <div class="speaker-layout2">
-                        <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
-                        <div class="item-title">
-                            <h3 class="title-black size-md color-light hover-yellow text-underline-light">
-                                <a href="single-speaker.html">Ayrin Dina</a>
-                            </h3>
-                        </div>
-                        <div class="item-social">
-                            <ul>
-                                <li>
-                                    <a href="#" title="facebook">
-                                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="twitter">
-                                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="linkedin">
-                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="pinterest">
-                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                    <div class="speaker-layout2">
-                        <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
-                        <div class="item-title">
-                            <h3 class="title-black size-md color-light hover-yellow text-underline-light">
-                                <a href="single-speaker.html">Cristian Zozo</a>
-                            </h3>
-                        </div>
-                        <div class="item-social">
-                            <ul>
-                                <li>
-                                    <a href="#" title="facebook">
-                                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="twitter">
-                                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="linkedin">
-                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="pinterest">
-                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+                <div>
                     <div class="speaker-layout2">
                         <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
                         <div class="item-title">
@@ -383,6 +279,110 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div class="speaker-layout2">
+                        <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
+                        <div class="item-title">
+                            <h3 class="title-black size-md color-light hover-yellow text-underline-light">
+                                <a href="single-speaker.html">Lara Quize</a>
+                            </h3>
+                        </div>
+                        <div class="item-social">
+                            <ul>
+                                <li>
+                                    <a href="#" title="facebook">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="twitter">
+                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="linkedin">
+                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="pinterest">
+                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="speaker-layout2">
+                        <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
+                        <div class="item-title">
+                            <h3 class="title-black size-md color-light hover-yellow text-underline-light">
+                                <a href="single-speaker.html">Lara Quize</a>
+                            </h3>
+                        </div>
+                        <div class="item-social">
+                            <ul>
+                                <li>
+                                    <a href="#" title="facebook">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="twitter">
+                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="linkedin">
+                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="pinterest">
+                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="speaker-layout2">
+                        <img src="{{ asset('event/assets/img/speaker/speaker1.jpg') }}" alt="speaker" class="img-fluid">
+                        <div class="item-title">
+                            <h3 class="title-black size-md color-light hover-yellow text-underline-light">
+                                <a href="single-speaker.html">Lara Quize</a>
+                            </h3>
+                        </div>
+                        <div class="item-social">
+                            <ul>
+                                <li>
+                                    <a href="#" title="facebook">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="twitter">
+                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="linkedin">
+                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="pinterest">
+                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+               
             </div>
         </div>
     </section>

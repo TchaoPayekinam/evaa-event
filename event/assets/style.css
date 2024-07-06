@@ -3508,26 +3508,35 @@ span.menu-trigger i {
 .slider-layout1 .slide-3 .slider-big-text p {
   padding: 0;
   line-height: 1.2;
-  font-size: 7rem;
+  /*font-size: 7rem;*/
+  font-size: 50px;
   text-transform: capitalize;
   margin-bottom: 0;
-  font-weight: 700;
+  /*font-weight: 700;*/
   letter-spacing: 2px;
   font-family: 'cubanoregular';
-  font-style: italic;
+  /*font-style: italic;*/
   position: relative;
   display: inline-block;
+
+  @media (max-width: 1024px) {
+    font-size: 35px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 22px;
+  }
 }
 .slider-layout1 .slide-1 .slider-big-text p:before,
 .slider-layout1 .slide-2 .slider-big-text p:before,
 .slider-layout1 .slide-3 .slider-big-text p:before {
-  position: absolute;
+  /*position: absolute;
   height: 3px;
   background-color: #ffffff;
   width: 100%;
   content: "";
   left: 0;
-  bottom: 2px;
+  bottom: 2px;*/
 }
 @media only screen and (max-width: 767px) {
   .slider-layout1 .slide-1 .slider-big-text p:before,
@@ -4118,7 +4127,8 @@ div ~ :last-child .progress-layout2:before {
 .price-table-layout1 .item-wrapper .item-price {
   margin-bottom: 20px;
   position: relative;
-  font-size: 8rem;
+  /*font-size: 8rem;*/
+  font-size: 7rem;
   color: #111111;
   font-weight: 700;
   line-height: 1;
@@ -4129,13 +4139,16 @@ div ~ :last-child .progress-layout2:before {
   font-size: 24px;
   font-weight: 500;
   position: absolute;
-  left: -12px;
-  top: 10px;
+  margin-left: 2px;
+  /*left: -12px;
+  top: 10px;*/
+  top: 8px;
 }
 @media only screen and (max-width: 991px) {
   .price-table-layout1 .item-wrapper .item-price .currency {
-    left: -15px;
-    top: 0;
+    margin-left: 2px;
+    /*left: -15px;
+    top: 0;*/
   }
 }
 .price-table-layout1 .item-wrapper .item-body {
