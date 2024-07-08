@@ -30,8 +30,8 @@
         </div>
         <!-- Preloader End Here -->
         <div id="wrapper" class="wrapper">
-            <!-- Header Area Start Here -->        
-            @include('front.layouts.header')    
+            <!-- Header Area Start Here -->
+            @include('front.layouts.header')
             <!-- Header Area End Here -->
             <!-- Slider Area Start Here -->
             <div class="slider-area slider-direction-layout1 slider-layout1 overlay-slider">
@@ -61,7 +61,7 @@
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
+                                        <a href="{{ route('inscription') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
+                                        <a href="{{ route('inscription') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
+                                        <a href="{{ route('inscription') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
                                     </div>
                                 </div>
                             </div>
@@ -606,7 +606,7 @@
                                                 <td>EECO</td>
                                                 <td>15h45' - 16h00'</td>
                                             </tr>
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -1116,7 +1116,7 @@
                                             <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>24h après l'inscription sur le site</li>
                                             <!-- <li>Certificate</li>
                                             <li>Workshop</li> -->
-                                        </ul> 
+                                        </ul>
                                     </div>
                                     <a href="#" title="Buy Ticket" class="btn-fill size-md color-yellow border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
@@ -1415,7 +1415,7 @@
                 </div>
             </section> -->
             <!-- Subscribe Area End Here -->
-            @include('front.layouts.footer')            
+            @include('front.layouts.footer')
             <!-- Footer Area End Here -->
         </div>
         <!-- Wrapper End -->
