@@ -229,7 +229,7 @@
                     <div class="col-lg-3 col-md-4 d-none d-lg-block">
                         <ul class="header-action-items">
                             <li>
-                                <a href="{{ route('user.login') }}" title="Buy Tickets" class="btn-fill size-xs color-yellow border-radius-5">Buy Tickets</a>
+                                <a href="{{ route('user.login') }}" title="Se connecter" class="btn-fill size-xs color-yellow border-radius-5">SE CONNECTER</a>
                             </li>
                         </ul>
                     </div>

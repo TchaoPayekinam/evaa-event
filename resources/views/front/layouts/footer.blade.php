@@ -44,7 +44,7 @@
                                         <a href="https://www.pinterest.fr/evaaevent/_created/" target="_blank" title="pinterest">
                                             <i class="fa fa-pinterest" aria-hidden="true"></i>
                                         </a>
-                                    </li> 
+                                    </li>
                                     <!-- <li>
                                         <a href="#" title="rss">
                                             <i class="fa fa-rss" aria-hidden="true"></i>
@@ -60,7 +60,7 @@
                             <div class="footer-contact-us">
                                 <ul>
                                     <li>
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Carrefour nord-est du Collège d’Enseignement Public (CEG) de Djagblé, Lomé, TOGO</li>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Lomé, carrefour nord-est du Collège d'Enseignement Général (CEG) de Djagblé</li>
                                     <li>
                                         <i class="fa fa-phone" aria-hidden="true"></i>(+228) 92-04-05-94 <br>
                                         (+228) 96-02-82-82
@@ -142,7 +142,7 @@
             </div>
         </div>
         <div class="footer-bottom-area">
-            <p>© 2024 Eva'a Event & Com. All Rights Reserved. 
+            <p>© 2024 Eva'a Event & Com. All Rights Reserved.
             <!-- Designed by
                 <a target="_blank" href="https://radiustheme.com">
                 RadiusTheme</a> -->
