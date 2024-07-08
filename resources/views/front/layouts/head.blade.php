@@ -1,7 +1,6 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<!-- <title>Eventalk | Home 1</title> -->
-<meta name="description" content="">
+<meta name="description" content="Solutions évènementielles sur mesure, ciblant toutes les catégories socioprofessionnelles">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset('event/assets/img/logo.png') }}">
@@ -31,34 +30,40 @@
 
 <style type="text/css">
     .footer-contact-us ul li {
-      position: relative;
-      padding-left: 35px;
-      font-size: 18px;
-      margin-bottom: 20px;
-      line-height: 1.6;
+        position: relative;
+        padding-left: 35px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        line-height: 1.6;
     }
 
     .footer-contact-us ul li:last-child {
-      margin-bottom: 0;
+        margin-bottom: 0;
     }
 
     .footer-contact-us ul li i {
-      position: absolute;
-      left: 0;
-      top: 5px;
-      z-index: 1;
-      color: #fad03b;
-      font-size: 20px;
-    }
+        position: absolute;
+        left: 0;
+        top: 5px;
+        z-index: 1;
+        color: #fad03b;
+        font-size: 20px;
+    }  
 
     .header-toolbar-area {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #f2f2f2;
-      padding-right: 15px;
-      padding-left: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f2f2f2;
+        padding-right: 15px;
+        padding-left: 15px;
     }
+
+    @media (max-width: 991px) {
+        .header-toolbar-area {
+            display: none;
+        }
+    }  
 
     .header-toolbar-area .nav {
         list-style: none;
@@ -71,8 +76,8 @@
     }
 
     .header-toolbar-area a {
-      font-size: 16px;
-      font-weight: 300;
+        font-size: 16px;
+        font-weight: 300;
     }
 
     .header-toolbar-hidden {
@@ -91,15 +96,15 @@
     }
 
     .social-icons li {
-      background-color: #fad03b;
-      --icon-padding: 0.3em;
-      width: 27.6px;
-      height: 27.6px;
-      margin-right: 15px;
-      /*margin-left: calc(13px / 2);*/
-      /*width: calc(var(--icon-size, 25px) + 2* var(--icon-padding, .5em));
-      height: calc(var(--icon-size, 25px) + 2* var(--icon-padding, .5em));*/
-      /*word-spacing: 15px;*/
+        background-color: #fad03b;
+        --icon-padding: 0.3em;
+        width: 27.6px;
+        height: 27.6px;
+        margin-right: 15px;
+        /*margin-left: calc(13px / 2);*/
+        /*width: calc(var(--icon-size, 25px) + 2* var(--icon-padding, .5em));
+        height: calc(var(--icon-size, 25px) + 2* var(--icon-padding, .5em));*/
+        /*word-spacing: 15px;*/
     }
 
     .social-icons li i { 
@@ -127,8 +132,8 @@
     }
 
     .nav-item i {
-      color: #fad03b;
-      transition: color 0.3s;
+        color: #fad03b;
+        transition: color 0.3s;
     }
 
     .header-toolbar-area li .icon-list-text {

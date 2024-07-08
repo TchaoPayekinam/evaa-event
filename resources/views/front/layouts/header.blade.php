@@ -1,5 +1,4 @@
 <header>
-    <!-- <div class="header-toolbar-area navbar"> -->
     <div class="header-toolbar-area">
         <ul class="nav left-nav">
             <li class="nav-item">
@@ -35,10 +34,10 @@
         </ul>
         <ul class="nav lang">
             <li class="nav-item">
-                <a class="nav-link" title="Lisez cette page en français" lang="fr" href="lang/fr" hreflang="fr">Français</a>
+                <a class="nav-link" title="Lisez cette page en français" lang="fr" href="{{ route('switchLang', 'fr') }}" hreflang="fr">Français</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" title="Read this page in English" lang="en" href="lang/en" hreflang="en">English</a>
+                <a class="nav-link" title="Read this page in English" lang="en" href="{{ route('switchLang', 'en') }}" hreflang="en">English</a>
             </li>
         </ul>
     </div>
@@ -65,41 +64,7 @@
                                     </li>
                                     <li class="{{ Request::is('services*') ? 'current' : ''}}">
                                         <a href="{{ route('home.services') }}">Services</a>
-                                        <!-- <ul class="rt-dropdown-menu">
-                                            <li>
-                                                <a href="speakers1.html">Speakers 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="speakers2.html">Speakers 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="speakers3.html">Speakers 3</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-speakers.html">Speaker Details</a>
-                                            </li>
-                                        </ul> -->
                                     </li>
-                                    <!-- <li>
-                                        <a href="#">Schedule</a>
-                                        <ul class="rt-dropdown-menu">
-                                            <li>
-                                                <a href="schedule1.html">Schedule 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="schedule2.html">Schedule 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="schedule3.html">Schedule 3</a>
-                                            </li>
-                                            <li>
-                                                <a href="schedule4.html">Schedule 4</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="sponsors.html">Sponsors</a>
-                                    </li> -->
                                     <li class="{{ Request::is('contact*') ? 'current' : ''}}">
                                         <a href="{{ route('home.contact') }}">Contact</a>
                                     </li>
@@ -109,117 +74,16 @@
                             <nav id="dropdown" class="d-md-none">
                                 <ul>
                                     <li>
-                                        <a href="#">Home</a>
-                                        <ul class="rt-dropdown-menu">
-                                            <li>
-                                                <a href="index.html">Home 1 (Multi Page)</a>
-                                            </li>
-                                            <li>
-                                                <a href="index2.html">Home 2 (Multi Page)</a>
-                                            </li>
-                                            <li>
-                                                <a href="index3.html">Home 3 (Multi Page)</a>
-                                            </li>
-                                            <li>
-                                                <a href="index4.html">Home 4 (Multi Page)</a>
-                                            </li>
-                                            <li>
-                                                <a href="one-page-index.html">Home 1 (One Page)</a>
-                                            </li>
-                                            <li>
-                                                <a href="one-page-index2.html">Home 2 (One Page)</a>
-                                            </li>
-                                            <li>
-                                                <a href="one-page-index3.html">Home 3 (One Page)</a>
-                                            </li>
-                                            <li>
-                                                <a href="one-page-index4.html">Home 4 (One Page)</a>
-                                            </li>
-                                        </ul>
+                                        <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Pages</a>
-                                        <ul class="rt-dropdown-menu">
-                                            <li>
-                                                <a href="about.html">About</a>
-                                            </li>
-                                            <li>
-                                                <a href="pricing-table1.html">Pricing Table 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="pricing-table2.html">Pricing Table 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="pricing-table3.html">Pricing Table 3</a>
-                                            </li>
-                                            <li>
-                                                <a href="comingsoon-event.html">Comingsoon Event</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop.html">Shop</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-shop.html">Shop Details</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-standard.html">Blog Standard</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-masonry.html">Blog Masonry</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-blog.html">Blog Details</a>
-                                            </li>
-                                            <li>
-                                                <a href="gallery.html">Gallery</a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">Contact</a>
-                                            </li>
-                                            <li>
-                                                <a href="404.html">404</a>
-                                            </li>
-                                        </ul>
+                                        <a href="{{ route('home.about') }}">{{ trans('menu.about') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Speakers</a>
-                                        <ul class="rt-dropdown-menu">
-                                            <li>
-                                                <a href="speakers1.html">Speakers 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="speakers2.html">Speakers 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="speakers3.html">Speakers 3</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-speakers.html">Speaker Details</a>
-                                            </li>
-                                        </ul>
+                                        <a href="{{ route('home.services') }}">Services</a>
                                     </li>
                                     <li>
-                                        <a href="#">Schedule</a>
-                                        <ul class="rt-dropdown-menu">
-                                            <li>
-                                                <a href="schedule1.html">Schedule 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="schedule2.html">Schedule 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="schedule3.html">Schedule 3</a>
-                                            </li>
-                                            <li>
-                                                <a href="schedule4.html">Schedule 4</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="sponsors.html">Sponsors</a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{{ route('home.contact') }}">Contact</a>
                                     </li>
                                 </ul>
                             </nav>

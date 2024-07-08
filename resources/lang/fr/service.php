@@ -11,14 +11,14 @@
         'service-l6' => 'Marketing numérique',
 
         'meilleur-service' => 'Nous offrons les meilleurs services',
-        'meilleur-service-li-1' => 'Marketing numérique',
-        'meilleur-service-li-2' => 'Conception créative',
-        'meilleur-service-li-3' => 'communication',
-        'meilleur-service-li-4' => 'Référencement',
-        'meilleur-service-li-5' => 'Maître de Cérémonie',
-        'meilleur-service-li-6' => 'Intermède musical',
+        'meilleur-service-li-1' => 'Production d’évènements innovants',
+        'meilleur-service-li-2' => 'Organisation d’évènements de bout-en-bout',
+        'meilleur-service-li-4' => 'Service à la carte',
+        'meilleur-service-li-3' => 'Stratégie de communication',
+        'meilleur-service-li-5' => 'Conception créative',
+        'meilleur-service-li-6' => 'Marketing numérique',
         'meilleur-service-li-7' => 'Décoration',
-        'meilleur-service-li-8' => 'Théâtre/Sketch ',
+        'meilleur-service-li-8' => 'Solutions personnalisées',
 
         'partie-1-title' => 'Production & Organisation d’évènements',
         'partie-1-service-p1' => 'Nous créons des évènements sur mesure, qui ciblent toutes les catégories socioprofessionnelles. Nos évènements sont à caractère : Professionnel, Éducatif, Économique, Social, Culturel, Récréatif/ludique, Sportif, Environnemental, Sanitaire',
@@ -49,8 +49,6 @@
         'partie-3-l5' => 'Création de contenu',
         'partie-3-l6' => 'Référencement',
         'partie-3-l7' => 'Publicité en ligne',
-
-
     ];
 
 ?>

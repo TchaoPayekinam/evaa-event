@@ -42,7 +42,17 @@
             <!-- Footer Area End Here -->
         </div>
         <!-- Wrapper End -->
-        @include('front.layouts.scripts')                
+        @include('front.layouts.scripts')
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var siteLogoUrl = "{{ asset('event/assets/img/logo.png') }}";
+                var siteLogoHtml = "<div class='mobile-menu-nav-back'><a href='{{ route('home.index') }}'><img style='height: 46px; width: 179px' src='" + siteLogoUrl + "'/></a></div>";
+
+                $('nav#dropdown').meanmenu({
+                    siteLogo: siteLogoHtml
+                });
+            });
+        </script>                
     </body>
 
 </html>

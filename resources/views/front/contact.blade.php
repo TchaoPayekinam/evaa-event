@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumbs-area">
-                        <h1>Contact</h1>
+                        <h1>Contact Us</h1>
                         <ul>
                             <li>
                                 <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
@@ -21,9 +21,9 @@
             </div>
         </div>
     </section>
-    <!-- Inne Page Banner Area End Here -->
+    <!-- Inne Page Banner Area End Here -->  
     <!-- Map Area Start Here -->
-    <section class="container container-maps">
+    <section class="full-width-container">
         <div class="container-fluid">
             <div class="google-map-area">
                 <div id="googleMap" style="width:100%; height:496px;"></div>
@@ -36,14 +36,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12 margin-b-30rem">
-                    <h2 class="title-bold color-dark size-sm title-bar">{{ trans('contact.contact-h2') }}</h2>
+                    <h2 class="title-bold color-dark size-sm title-bar">{{ trans('contact.contact-h2') }}...</h2>
                     <p class="margin-b-30">{{ trans('contact.contact-p') }}</p>
-                    <form id="contact-form" class="contact-form">
+                    <form id="ContactForm" class="contact-form" method="POST" action="{{ route('post_contact_form') }}">
+                        {{ csrf_field() }}
                         <fieldset>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="form-firstName">Prénom<span style="color: red">*</span></label>
+                                        <label for="form-firstName">{{ trans('contact.first-name') }}<span style="color: red">*</span></label>
                                         <input type="text" placeholder="" value="{{ old('firstName') }}" class="form-control" name="firstName" id="form-firstName" data-error="Le prénom est obligatoire" >
                                         @error('firstName')
                                             <span class="text-danger font-size" style="color: red">{{$message}}</span>
@@ -54,17 +55,16 @@
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="form-lastName">Nom de famille<span style="color: red">*</span></label>
+                                        <label for="form-lastName">{{ trans('contact.last-name') }}<span style="color: red">*</span></label>
                                         <input type="text" placeholder="" value="{{ old('lastName') }}" class="form-control" name="lastName" id="form-lastName" data-error="Le nom de famille est obligatoire" >
                                         @error('lastName')
                                         <span class="text-danger font-size" style="color: red">{{$message}}</span>
                                     @enderror
-                                       
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="form-phoneNumber">Numéro de téléphone<span style="color: red">*</span></label>
+                                        <label for="form-phoneNumber">{{ trans('contact.phone') }}<span style="color: red">*</span></label>
                                         <input type="text" placeholder="Ex : +228 97000001" value="{{ old('phoneNumber') }}" class="form-control" name="phoneNumber" id="form-phoneNumber" data-error="Le numéro de téléphone est obligatoire" >
                                         @error('phoneNumber')
                                             <span class="text-danger font-size" style="color: red">{{$message}}</span>
@@ -73,13 +73,13 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="form-society">Nom de la societé</label>
+                                        <label for="form-society">{{ trans('contact.company') }}</label>
                                         <input type="text" placeholder="" value="{{ old('society') }}" class="form-control" name="society" id="form-society">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label for="form-email">Email<span style="color: red">*</span></label>
+                                        <label for="form-email">{{ trans('contact.email') }}<span style="color: red">*</span></label>
                                         <input type="email" placeholder="" value="{{ old('email') }}" class="form-control" name="email" id="form-email" data-error="L'email est obligatoire" >
                                         @error('email')
                                             <span class="text-danger font-size" style="color: red">{{$message}}</span>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label for="form-message">Message<span style="color: red">*</span></label>
+                                        <label for="form-message">{{ trans('contact.message') }}<span style="color: red">*</span></label>
                                         <textarea placeholder="" class="textarea form-control" name="message" id="form-message" rows="5" cols="10" data-error="Le message est obligatoire" value="{{ old('message') }}"></textarea>
                                             @error('message')
                                             <span class="text-danger font-size" style="color: red">{{$message}}</span>
@@ -97,14 +97,8 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
                                     <div class="form-group margin-b-none">
-<<<<<<< HEAD
-                                        <button type="submit" class="btn-fill color-yellow border-radius-5">Envoyez ce message</button>
-=======
-                                        <button type="submit" class="btn-fill color-yellow border-radius-5">{{ trans('contact.form-button') }}</button>
->>>>>>> 0da0e6f3f6803de9c37876f6023cd3194a04bf7f
+                                        <button type="submit" class="btn-fill color-yellow border-radius-5">{{ trans('contact.send-msg') }}</button>
                                     </div>
-                                    {!! NoCaptcha::renderJs() !!}
-                                    {!! NoCaptcha::display() !!}
                                 </div>
 
                                 @if(session('success'))
@@ -122,19 +116,18 @@
                 </div>
                 <div class="sidebar-widget-area sidebar-break-md col-lg-4 col-md-12">
                     <div class="widget">
-                        <h2 class="title-bold color-dark size-sm title-bar title-bar-high">Contact Info</h2>
+                        <h2 class="title-bold color-dark size-sm title-bar title-bar-high">{{ trans('contact.contact') }}</h2>
                         <div class="contact-us-info">
                             <ul>
                                 <li>
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>Carrefour nord-est du Collège d’Enseignement Public (CEG) de Djagblé, Lomé, TOGO</li>
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>{{ trans('contact.map') }}</li>
                                 <li>
                                     <i class="fa fa-phone" aria-hidden="true"></i>(+228) 92-04-05-94 <br>
                                     (+228) 96-02-82-82
                                 </li>
                                 <li>
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>evaa.event@gmail.com</li>
-                                <!-- <li>
-                                    <i class="fa fa-fax" aria-hidden="true"></i>(123) 123 005040</li> -->
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>evaa.event@gmail.com
+                                </li>
                             </ul>
                         </div>
                     </div>

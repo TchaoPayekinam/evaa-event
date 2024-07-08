@@ -1,17 +1,12 @@
 <?php
 
-use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /**
  * route used to switch locale
  */
 Route::get('lang/{lang}', [App\Http\Controllers\LocalizationController::class, 'switchLang'])->name('switchLang');
-
-/**
- * route used to switch locale
- */
-Route::get('lang/{lang}', [App\Http\Controllers\LocalizationController::class, 'switchLang']);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name('home.about');
