@@ -132,9 +132,8 @@
                                     (+228) 96-02-82-82
                                 </li>
                                 <li>
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>evaa.event@gmail.com</li>
-                                <!-- <li>
-                                    <i class="fa fa-fax" aria-hidden="true"></i>(123) 123 005040</li> -->
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>evaa.event@gmail.com
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -30,8 +30,8 @@
         </div>
         <!-- Preloader End Here -->
         <div id="wrapper" class="wrapper">
-            <!-- Header Area Start Here -->
-            @include('front.layouts.header')
+            <!-- Header Area Start Here -->        
+            @include('front.layouts.header')    
             <!-- Header Area End Here -->
             <!-- Slider Area Start Here -->
             <div class="slider-area slider-direction-layout1 slider-layout1 overlay-slider">
@@ -46,36 +46,12 @@
                             <div class="title-container s-tb-c title-light">
                                 <div class="container text-center">
                                     <div class="slider-big-text first-line">
-                                        <p>Formation sur fabrication des accessoires</p>
+                                        <!-- <p>Marketing</p> -->
+                                        <p>Formation sur fabrication des accessoires de décoration d'intérieur</p>
                                     </div>
-                                    <div class="slider-big-text second-line">
-                                        <p>de décoration d'intérieur</p>
-                                    </div>
-                                    <div class="slider-sub-text third-line">
-                                        <ul>
-                                            <!-- <li>17 - 25 October 2018</li>
-                                            <li>Tobacco Dock, London</li> -->
-                                            <li>12 - 14 Août 2024</li>
-                                            <li>15 - 17 Août 2024</li>
-                                        </ul>
-                                    </div>
-                                    <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.inscription') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="slider-direction-2" class="t-cn slider-direction">
-                        <div class="slider-content s-tb slide-2">
-                            <div class="title-container s-tb-c title-light">
-                                <div class="container text-center">
-                                    <div class="slider-big-text first-line">
-                                        <p>Formation sur fabrication des accessoires</p>
-                                    </div>
-                                    <div class="slider-big-text second-line">
-                                        <p>de décoration d'intérieur</p>
-                                    </div>
+                                    <!-- <div class="slider-big-text second-line">
+                                        <p>Conferencee 2018</p>
+                                    </div> -->
                                     <div class="slider-sub-text third-line">
                                         <ul>
                                             <!-- <li>17 - 25 October 2018</li>
@@ -91,16 +67,43 @@
                             </div>
                         </div>
                     </div>
-                    <div id="slider-direction-3" class="t-cn slider-direction">
+                    <div id="slider-direction-2" class="t-cn slider-direction d-none">
+                        <div class="slider-content s-tb slide-2">
+                            <div class="title-container s-tb-c title-light">
+                                <div class="container text-center">
+                                    <div class="slider-big-text first-line">
+                                        <!-- <p>Marketing</p> -->
+                                        <p>Formation sur fabrication des accessoires de décoration d'intérieur</p>
+                                    </div>
+                                    <!-- <div class="slider-big-text second-line">
+                                        <p>Conferencee 2018</p>
+                                    </div> -->
+                                    <div class="slider-sub-text third-line">
+                                        <ul>
+                                            <!-- <li>17 - 25 October 2018</li>
+                                            <li>Tobacco Dock, London</li> -->
+                                            <li>12 - 14 Août 2024</li>
+                                            <li>15 - 17 Août 2024</li>
+                                        </ul>
+                                    </div>
+                                    <div class="slider-btn-area forth-line">
+                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="slider-direction-3" class="t-cn slider-direction d-none">
                         <div class="slider-content s-tb slide-3">
                             <div class="title-container s-tb-c title-light">
                                 <div class="container text-center">
                                     <div class="slider-big-text first-line">
-                                        <p>Formation sur fabrication des accessoires</p>
+                                        <!-- <p>Marketing</p> -->
+                                        <p>Formation sur fabrication des accessoires de décoration d'intérieur</p>
                                     </div>
-                                    <div class="slider-big-text second-line">
-                                        <p>de décoration d'intérieur</p>
-                                    </div>
+                                    <!-- <div class="slider-big-text second-line">
+                                        <p>Conferencee 2018</p>
+                                    </div> -->
                                     <div class="slider-sub-text third-line">
                                         <ul>
                                             <!-- <li>17 - 25 October 2018</li>
@@ -137,7 +140,7 @@
                             simply dummy text of the rinting and typesetting industry.standard dummy text ever since.Emply
                             dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
                             when an unknown printer took.</p> -->
-                        <a href="#" title="Buy Your Ticket" class="btn-fill color-yellow border-radius-5">Buy Your Ticket</a>
+                        <a href="#" title="Buy Your Ticket" class="btn-fill color-yellow border-radius-5">{{ trans('home.sign-up') }}</a>
                     </div>
                 </div>
             </section>
@@ -146,14 +149,15 @@
             <section class="section-space-default-less54 overlay-icon-layout3 bg-common bg-primary" style="background-image: url(event/assets/img/figure/figure2.png);">
                 <div class="container zindex-up">
                     <div class="section-heading title-black color-light text-center">
-                        <h2>Event Speakers</h2>
-                        <p>Dorem ipsum dolor sit. Incidunt laborum beatae earum nihil onsequuntur officia</p>
+                        <h2>{{ trans('home.event-speakers') }}</h2>
+                        <!-- <h2>Event Speakers</h2> -->
+                        <!-- <p>Dorem ipsum dolor sit. Incidunt laborum beatae earum nihil onsequuntur officia</p> -->
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-mb-12">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mb-12">
                             <div class="speaker-layout1">
                                 <div class="item-img">
-                                    <img src="{{ asset('event/assets/img/speaker/speakers1.png') }}" alt="speaker" class="img-fluid rounded-circle">
+                                    <img style="height: 257px; width: 257px" src="{{ asset('event/assets/img/speaker/othniel1.JPG') }}" alt="speaker" class="img-fluid rounded-circle">
                                     <div class="item-social">
                                         <ul>
                                             <li>
@@ -181,15 +185,15 @@
                                 </div>
                                 <div class="item-title">
                                     <h3 class="title-medium size-lg color-light hover-yellow">
-                                        <a href="single-speaker.html">Daizy Chirs</a>
+                                        <a href="#">SADIA Otniel</a>
                                     </h3>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-mb-12">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mb-12">
                             <div class="speaker-layout1">
                                 <div class="item-img">
-                                    <img src="{{ asset('event/assets/img/speaker/speakers1.png') }}" alt="speaker" class="img-fluid rounded-circle">
+                                    <img style="height: 257px; width: 257px" src="{{ asset('event/assets/img/speaker/othniel2.JPG') }}" alt="speaker" class="img-fluid rounded-circle">
                                     <div class="item-social">
                                         <ul>
                                             <li>
@@ -217,15 +221,15 @@
                                 </div>
                                 <div class="item-title">
                                     <h3 class="title-medium size-lg color-light hover-yellow">
-                                        <a href="single-speaker.html">James Morgan</a>
+                                        <a href="#">SADIA Otniel</a>
                                     </h3>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 col-mb-12">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mb-12">
                             <div class="speaker-layout1">
                                 <div class="item-img">
-                                    <img src="{{ asset('event/assets/img/speaker/speakers1.png') }}" alt="speaker" class="img-fluid rounded-circle">
+                                    <img style="height: 257px; width: 257px" src="{{ asset('event/assets/img/speaker/othniel3.JPG') }}" alt="speaker" class="img-fluid rounded-circle">
                                     <div class="item-social">
                                         <ul>
                                             <li>
@@ -253,7 +257,43 @@
                                 </div>
                                 <div class="item-title">
                                     <h3 class="title-medium size-lg color-light hover-yellow">
-                                        <a href="single-speaker.html">Carolin Rose</a>
+                                        <a href="#">SADIA Otniel</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mb-12">
+                            <div class="speaker-layout1">
+                                <div class="item-img">
+                                    <img style="height: 257px; width: 257px" src="{{ asset('event/assets/img/speaker/othniel4.JPG') }}" alt="speaker" class="img-fluid rounded-circle">
+                                    <div class="item-social">
+                                        <ul>
+                                            <li>
+                                                <a href="#" title="facebook">
+                                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="twitter">
+                                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="linkedin">
+                                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="pinterest">
+                                                    <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="item-title">
+                                    <h3 class="title-medium size-lg color-light hover-yellow">
+                                        <a href="#">SADIA Otniel</a>
                                     </h3>
                                 </div>
                             </div>
@@ -566,7 +606,7 @@
                                                 <td>EECO</td>
                                                 <td>15h45' - 16h00'</td>
                                             </tr>
-
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -1057,25 +1097,28 @@
             <section class="section-space-default-less30 bg-accent overlay-icon-layout2">
                 <div class="container zindex-up">
                     <div class="section-heading title-black color-dark text-center">
-                        <h2>Ticket Price &amp; Plan</h2>
-                        <p>Dorem ipsum dolor sit. Incidunt laborum beatae earum nihil odio consequatur officiis tempore</p>
+                        <h2>{{ trans('home.training-costs') }}</h2>
+                        <!-- <p>Dorem ipsum dolor sit. Incidunt laborum beatae earum nihil odio consequatur officiis tempore</p> -->
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-sm-12">
                             <div class="price-table-layout1">
                                 <div class="item-wrapper">
                                     <div class="item-title">
-                                        <h3 class="title-medium color-dark text-uppercase">Frais d'inscription</h3>
+                                        <h3 class="title-medium color-dark text-uppercase">Inscription</h3>
                                     </div>
-                                    <div class="item-price" style="font-size: 35px">5 000
+                                    <div class="item-price">5 000
+                                        <span class="currency">FCFA</span>
                                     </div>
-                                    <span class="currency">FCFA</span>
                                     <div class="item-body">
                                         <ul>
-                                            <li>payable 24h après l'inscription en ligne</li>
-                                        </ul>
+                                            <li>Délai de paiement</li>
+                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>24h après l'inscription sur le site</li>
+                                            <!-- <li>Certificate</li>
+                                            <li>Workshop</li> -->
+                                        </ul> 
                                     </div>
-                                    <a href="#" title="S'inscrire" class="btn-fill size-md color-yellow border-radius-5">S'inscrire</a>
+                                    <a href="#" title="Buy Ticket" class="btn-fill size-md color-yellow border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -1083,18 +1126,20 @@
                             <div class="price-table-layout1">
                                 <div class="item-wrapper">
                                     <div class="item-title">
-                                        <h3 class="title-medium color-dark text-uppercase">Frais de formation</h3>
+                                        <h3 class="title-medium color-dark text-uppercase">Offre N°1</h3>
                                     </div>
-                                    <div class="item-price" style="font-size: 35px">40 000
+                                    <div class="item-price">40 000
+                                        <span class="currency">FCFA</span>
                                     </div>
-                                    <span class="currency">FCFA</span>
                                     <div class="item-body">
                                         <ul>
-                                            <li>Paiements avant le 31 juillet 2024
-                                            </li>
+                                            <li>{{ trans('home.payment-period') }}</li>
+                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>05 - 25 juillet 2024</li>
+                                            <!-- <li>Certificate</li>
+                                            <li>Workshop</li> -->
                                         </ul>
                                     </div>
-                                    <a href="#" title="S'inscrire" class="btn-fill size-md color-primary border-radius-5">S'inscrire</a>
+                                    <a href="#" title="{{ trans('home.pay') }}" class="btn-fill size-md color-primary border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -1102,17 +1147,20 @@
                             <div class="price-table-layout1">
                                 <div class="item-wrapper">
                                     <div class="item-title">
-                                        <h3 class="title-medium color-dark text-uppercase">Frais de formation</h3>
+                                        <h3 class="title-medium color-dark text-uppercase">Offre N°2</h3>
                                     </div>
-                                    <div class="item-price" style="font-size: 35px">45 000
+                                    <div class="item-price">45 000
+                                        <span class="currency">FCFA</span>
                                     </div>
-                                    <span class="currency">FCFA</span>
                                     <div class="item-body">
                                         <ul>
-                                            <li>Paiement entre le 1 et 5 août 2024.</li>
+                                            <li>{{ trans('home.payment-period') }}</li>
+                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>26 juillet - 11 août 2024</li>
+                                            <!-- <li>Certificate</li>
+                                            <li>Workshop</li> -->
                                         </ul>
                                     </div>
-                                    <a href="#" title="S'inscrire" class="btn-fill size-md color-green border-radius-5">S'inscrire</a>
+                                    <a href="#" title="{{ trans('home.pay') }}" class="btn-fill size-md color-green border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -1121,7 +1169,7 @@
             </section>
             <!-- Pricing Plan Area End Here -->
             <!-- Progress Area Start Here -->
-            <section class="progress-section-space bg-common progress-bg-color">
+            <section class="progress-section-space bg-common progress-bg-color" style="background-image: url(event/assets/img/figure/figure6.png);">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-12">
@@ -1131,8 +1179,9 @@
                                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h3>ESBTAO (Ecole Supérieure Baptiste de Théologie de l'Afrique de l'Ouest)                                        </h3>
-                                        <p>Rue Akéi, Hountigomé, 01 BP 4860 | Lomé - Togo | Tel: +228 22 26 71 00 / 22 26 87 60</p>
+                                        <!-- Lomé, au sein de l’École supérieure Baptiste de Théologie de l'Afrique de l'Ouest (ESBTAO), sise à Hedjranawoé, Hountigomé, Rue Akéi. -->
+                                        <h3>Hountigomé, Lomé</h3>
+                                        <p>Au sein de l’École supérieure Baptiste de Théologie de l'Afrique de l'Ouest (ESBTAO) à Hedjranawoé</p>
                                     </div>
                                 </div>
                             </div>
@@ -1144,8 +1193,8 @@
                                         <i class="fa fa-users" aria-hidden="true"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h3>3 Formateurs</h3>
-                                        <p>PO Box 16122 Collins Street West Victoria 8007 Newyork</p>
+                                        <h3>30+ Speakers</h3>
+                                        <p>Formateurs qualifiés et expérimentés dans le domaine de la décoration d'intérieur et de l'artisanat</p>
                                     </div>
                                 </div>
                             </div>
@@ -1158,7 +1207,7 @@
                                     </div>
                                     <div class="media-body">
                                         <h3>15+ Main Sponsor</h3>
-                                        <p>PO Box 16122 Collins Street West Victoria 8007 Newyork</p>
+                                        <p>Au sein de l’École supérieure Baptiste de Théologie de l'Afrique de l'Ouest (ESBTAO) à Hedjranawoé</p>
                                     </div>
                                 </div>
                             </div>
@@ -1338,10 +1387,10 @@
                     <div class="google-map-area">
                         <div id="googleMap" style="width:100%; height:496px;"></div>
                         <div class="upcoming-event-layout1">
-                            <h2>Marketing
+                            <!-- <h2>Marketing
                                 <br> Conferance 2018</h2>
                             <div class="date">17 - 25 Oct, 2018</div>
-                            <p>Tobacco Dock, London</p>
+                            <p>Tobacco Dock, London</p> -->
                         </div>
                     </div>
                 </div>
@@ -1366,69 +1415,21 @@
                 </div>
             </section> -->
             <!-- Subscribe Area End Here -->
-            <!-- Footer Area Start Here -->
-            <!-- <footer>
-                <div class="footer-layout1 bg-light">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <a href="index.html" class="footer-logo">
-                                    <img src="{{ asset('event/assets/img/logo-dark.png') }}" alt="logo" class="img-fluid">
-                                </a>
-                                <p>© 2018 eventalk. All Rights Reserved. Designed by
-                                    <a target="_blank" href="https://radiustheme.com">
-                                    RadiusTheme</a>
-                                </p>
-                                <div class="footer-social">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="facebook">
-                                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="twitter">
-                                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="google-plus">
-                                                <i class="fa fa-google-plus" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="linkedin">
-                                                <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="pinterest">
-                                                <i class="fa fa-pinterest" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="rss">
-                                                <i class="fa fa-rss" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="vimeo">
-                                                <i class="fa fa-vimeo" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer> -->
-            @include('front.layouts.footer')
+            @include('front.layouts.footer')            
             <!-- Footer Area End Here -->
         </div>
         <!-- Wrapper End -->
         @include('front.layouts.scripts')
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var siteLogoUrl = "{{ asset('event/assets/img/logo.png') }}";
+                var siteLogoHtml = "<div class='mobile-menu-nav-back'><a href='{{ route('home.index') }}'><img style='height: 46px; width: 179px' src='" + siteLogoUrl + "'/></a></div>";
 
+                $('nav#dropdown').meanmenu({
+                    siteLogo: siteLogoHtml
+                });
+            });
+        </script>
     </body>
 
 </html>

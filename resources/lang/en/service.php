@@ -10,16 +10,15 @@
         'service-l5' => 'Creative design',
         'service-l6' => 'Digital Marketing ',
 
-
         'meilleur-service' => 'We Provide Best Services',
-        'meilleur-service-li-1' => 'Digital Marketing',
-        'meilleur-service-li-2' => 'Creative Design',
-        'meilleur-service-li-3' => 'Communication',
-        'meilleur-service-li-4' => 'SEO',
-        'meilleur-service-li-5' => 'Master of Ceremonies',
-        'meilleur-service-li-6' => 'Musical Interlude',
+        'meilleur-service-li-1' => 'Innovative event production',
+        'meilleur-service-li-2' => 'End-to-end event organization',
+        'meilleur-service-li-4' => 'Customized Service',
+        'meilleur-service-li-3' => 'Communication Strategy',
+        'meilleur-service-li-5' => 'Creative design',
+        'meilleur-service-li-6' => 'Digital Marketing ',
         'meilleur-service-li-7' => 'Decoration',
-        'meilleur-service-li-8' => 'Théâtre/Sketch',
+        'meilleur-service-li-8' => 'Customized Solutions',
 
         'partie-1-title' => 'event production & organization',
         'partie-1-service-p1' => 'We design tailor-made events, targeting all socio-professional categories. Our events are focused on the following areas : Professional, Educational, Economic, Social, Cultural, Recreational, Sporting, Environmental, Health',
@@ -40,7 +39,6 @@
         'partie-2-l9' => 'Strategic consulting',
         'partie-2-l10' => 'Media and brand awareness',
         'partie-2-l11' => 'Performance analysis and measurement',
-       
         'partie-3-title' => 'Creative design & Digital Marketing',
         'partie-3-p1' => 'Our creative design expertise includes visual creation and production of diverse multimedia content, as well as strategic management of social media platforms, development of engaging content, search engine optimization (SEO), and implementation. place effective online advertising campaigns.',
         'partie-3-l1' => 'Graphic design',
