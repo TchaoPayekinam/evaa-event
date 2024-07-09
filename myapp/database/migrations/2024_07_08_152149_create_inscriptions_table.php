@@ -17,13 +17,16 @@ class CreateInscriptionsTable extends Migration
             $table->id();
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('email');
+            $table->string('email')->unique('email');
+            $table->string('gender');
             $table->string('phoneNumber');
             $table->string('city');
             $table->string('country');
             $table->string('cohortJoin');
             $table->string('experienceDesign');
             $table->string('paymentOption');
+            $table->double('paymentAmount');
+            $table->string('confirmationCode');
             $table->timestamps();
         });
     }

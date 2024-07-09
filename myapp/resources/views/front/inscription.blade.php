@@ -137,7 +137,8 @@
                 <div class="card">
                     <h2 class="card-header text-center py-4 mt-0 poti-light-bg">Registration Form</h2>
                     <div class="card-body px-lg-5 pt-0">
-                        <form class="register-form" action="{{route('inscription.store')}}" method="POST" novalidate>
+                        <form class="register-form" action="{{route('inscription.submit')}}" method="POST">
+                            {{ csrf_field() }}
                             <h4 class="text-left subtitle">{{ trans('register.personal-info') }}</h4>
                             <div class="text-left mt-3">
                                 <label for="lastName">Last name</label><span style="color: red">*</span>
@@ -207,9 +208,9 @@
                                 @enderror
                                 <br>
                                 <span class="input-wrapper ml-3">
-                                    <input class="mr-2" type="radio" name="cohortJoin" value="First cohort">First cohort: August 12-14, 2024
+                                    <input class="mr-2" type="radio" name="cohortJoin" value="First cohort" checked="checked">First cohort: August 12-14, 2024
                                     <br>
-                                    <input class="ml-3 mr-2" type="radio" name="cohortJoin" value="Second cohort" checked="checked">Second cohort: August 15-17, 2024
+                                    <input class="ml-3 mr-2" type="radio" name="cohortJoin" value="Second cohort">Second cohort: August 15-17, 2024
                                 </span>
                             </div>
 
@@ -217,16 +218,16 @@
                                 <label for="experienceDesign">Do you already have experience in interior design or crafts?</label>
                                 <br>
                                 <span class="input-wrapper ml-3">
-                                    <input class="mr-2" type="radio" name="experienceDesign" value="yes">Yes
+                                    <input class="mr-2" type="radio" name="experienceDesign" value="Yes, I have" checked="checked">Yes
                                     <br>
-                                    <input class="ml-3 mr-2" type="radio" name="experienceDesign" value="no" checked="checked">No
+                                    <input class="ml-3 mr-2" type="radio" name="experienceDesign" value="No, I haven't" >No
                                 </span>
                             </div>
 
-                            <h4 class="text-left subtitle">{{ trans('register.payment-options') }}</h4>
+                            <h4 class="text-left subtitle">Registration fee 5000 FCFA</h4>
                             <div class="text-left mt-3">
-                                <!-- <label for="country">{{ trans('register.payment-options') }}</label>
-                                <br> -->
+                                <label for="paymentOption">Please choose the preferred payment method</label>
+                                <br>
                                 <span class="input-wrapper ml-3">
                                     <input class="mr-2" type="radio" name="paymentOption" value="Flooz">Flooz
                                     <br>
@@ -236,7 +237,7 @@
                                     <br>
                                     <input class="ml-3 mr-2" type="radio" name="paymentOption" value="Money Gram" checked="checked">Money Gram
                                     <br>
-                                    <input class="ml-3 mr-2" type="radio" name="paymentOption" value="Espèce" checked="checked">Espèce (Vous passerez au Bureau de EECO pour le paiement)
+                                    <input class="ml-3 mr-2" type="radio" name="paymentOption" value="Cash" checked="checked">Cash (You will go to the EECO Office for payment)
                                 </span>
                             </div>
 

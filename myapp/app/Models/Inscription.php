@@ -9,7 +9,7 @@ class Inscription extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['firstName', 'lastName', 'gender', 'email', 'city', 'country', 'phoneNumber', 'cohortJoin', 'experienceDesign', 'paymentOption'];
+    protected $fillable = ['firstName', 'lastName', 'gender', 'email', 'city', 'country', 'phoneNumber', 'cohortJoin', 'experienceDesign', 'confirmationCode', 'paymentAmount', 'paymentOption'];
 
     public function user()
     {
