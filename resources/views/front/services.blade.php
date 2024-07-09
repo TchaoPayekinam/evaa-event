@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{ asset('event/assets/img/about/about2.jpg') }}" alt="about" class="img-fluid width-100">
+                    <img src="{{ asset('event/assets/img/service/service-eeco.jpeg') }}" alt="about" class="img-fluid width-100">
                 </div>
             </div>
         </div>
@@ -114,8 +114,8 @@
 <section class="service-section">
     <div class="container-fluid">
         <div class="row no-gutters full-width">
-            <div class="col-lg-6">
-                <img src="{{ asset('event/assets/img/about/about2.jpg') }}" alt="about" class="img-fluid width-100">
+            <div class="col-lg-6 service-img-container">
+                <img src="{{ asset('event/assets/img/service/service-img1.jpg') }}" alt="about" class="img-fluid width-100">
             </div>
             <div class="col-lg-6">
                 <div class="overlay-icon-layout5 height-100 d-flex align-items-center bg-accent">
@@ -173,15 +173,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <img src="{{ asset('event/assets/img/about/about2.jpg') }}" alt="about" class="img-fluid width-100">
+            <div class="col-lg-6 service-img-container">
+                <img src="{{ asset('event/assets/img/service/service-img2.jpg') }}" alt="about" class="img-fluid width-100">
             </div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row no-gutters full-width">
-            <div class="col-lg-6 services-img-3">
-                <img src="{{ asset('event/assets/img/about/about2.jpg') }}" alt="about" class="img-fluid width-100">
+            <div class="col-lg-6 services-img-3 service-img-container">
+                <img src="{{ asset('event/assets/img/service/service-img3.jpg') }}" alt="about" class="img-fluid width-100">
             </div>
             <div class="col-lg-6">
                 <div class="overlay-icon-layout5 height-100 d-flex align-items-center bg-accent">
