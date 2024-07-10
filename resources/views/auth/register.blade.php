@@ -97,7 +97,7 @@
             height: 50px;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
             border-radius: 0;
-        }               
+        }
     </style>
 @endsection
 
@@ -127,7 +127,7 @@
         <div class="row row-container title-black color-dark d-none">
             <div class="col-sm">
                 <h2>User Sign In</h2>
-                <p class="margin-b-30">                    
+                <p class="margin-b-30">
                     By signing in, users acknowledge they are accepting the terms and agreements of using the Evaa Event website, including the use of provided data. For additional details on the Evaa's use of user provided data, see our <a href="#"> Terms of Use</a>.
                 </p>
             </div>
@@ -145,8 +145,8 @@
                             </div>
 
                             <div class="text-left mt-3">
-                                <label for="passwoXDDDrd">{{ trans('register.first-name') }}</label>
-                                <input id="passwoXDDDrd" name="passworddsdssd" type="password" placeholder="" class="form-control height-45">
+                                <label for="first-name">{{ trans('register.first-name') }}</label>
+                                <input id="first-name" name="first-name" type="text" placeholder="" class="form-control height-45">
                             </div>
 
                             <div class="text-left mt-3">
@@ -159,28 +159,28 @@
 
                             <div class="text-left mt-3">
                                 <label for="phone">{{ trans('register.phone') }}</label>
-                                <input id="passwoXDDDrd" name="passworddsdssd" type="text" placeholder="" class="form-control height-45">
+                                <input id="phone" name="phone" type="text" placeholder="" class="form-control height-45">
                             </div>
 
                             <div class="text-left mt-3">
                                 <label for="email">{{ trans('register.email') }}</label>
-                                <input id="passwoXDDDrd" name="passworddsdssd" type="email" placeholder="" class="form-control height-45">
+                                <input id="email" name="email" type="email" placeholder="" class="form-control height-45">
                             </div>
 
                             <div class="text-left mt-3">
                                 <label for="country">{{ trans('register.country') }}</label>
-                                <input id="passwoXDDDrd" name="passworddsdssd" type="text" placeholder="" class="form-control height-45">
+                                <input id="country" name="country" type="text" placeholder="" class="form-control height-45">
                             </div>
 
                             <div class="text-left mt-3">
-                                <label for="country">{{ trans('register.city') }}</label>
-                                <input id="passwoXDDDrd" name="passworddsdssd" type="text" placeholder="" class="form-control height-45">
+                                <label for="city">{{ trans('register.city') }}</label>
+                                <input id="city" name="city" type="text" placeholder="" class="form-control height-45">
                             </div>
 
                             <h4 class="text-left subtitle">Formation</h4>
 
                             <div class="text-left mt-3">
-                                <label for="country">{{ trans('register.cohort-join') }}</label>
+                                <label for="cohort-join">{{ trans('register.cohort-join') }}</label>
                                 <br>
                                 <span class="input-wrapper ml-3">
                                     <input class="mr-2" type="radio" name="cohort-join" value="subscribe">{{ trans('register.first-cohort') }}
@@ -190,7 +190,7 @@
                             </div>
 
                             <div class="text-left mt-3">
-                                <label for="country">{{ trans('register.experience-design') }}</label>
+                                <label for="experience-design">{{ trans('register.experience-design') }}</label>
                                 <br>
                                 <span class="input-wrapper ml-3">
                                     <input class="mr-2" type="radio" name="experience-design" value="subscribe">{{ trans('register.yes') }}
@@ -201,18 +201,16 @@
 
                             <h4 class="text-left subtitle">{{ trans('register.payment-options') }}</h4>
                             <div class="text-left mt-3">
-                                <!-- <label for="country">{{ trans('register.payment-options') }}</label>
-                                <br> -->
                                 <span class="input-wrapper ml-3">
-                                    <input class="mr-2" type="radio" name="experience-design" value="subscribe">Flooz
+                                    <input class="mr-2" type="radio" name="payment-options" value="Flooz">Flooz
                                     <br>
-                                    <input class="ml-3 mr-2" type="radio" name="experience-design" value="unsubscribe" checked="checked">T-Money
+                                    <input class="ml-3 mr-2" type="radio" name="payment-options" value="T-Money" checked="checked">T-Money
                                     <br>
-                                    <input class="ml-3 mr-2" type="radio" name="experience-design" value="unsubscribe" checked="checked">Western Union
+                                    <input class="ml-3 mr-2" type="radio" name="payment-options" value="Western Union" checked="checked">Western Union
                                     <br>
-                                    <input class="ml-3 mr-2" type="radio" name="experience-design" value="unsubscribe" checked="checked">Money Gram
+                                    <input class="ml-3 mr-2" type="radio" name="payment-options" value="Money Gram" checked="checked">Money Gram
                                     <br>
-                                    <input class="ml-3 mr-2" type="radio" name="experience-design" value="unsubscribe" checked="checked">Espèce (Vous passerez au Bureau de EECO pour le paiement)
+                                    <input class="ml-3 mr-2" type="radio" name="payment-options" value="Espèce" checked="checked">Espèce (Vous passerez au Bureau de EECO pour le paiement)
                                 </span>
                             </div>
 
