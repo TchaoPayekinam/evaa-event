@@ -3,6 +3,8 @@
 @section('title', 'User Login | Eva\'a Event & Com')
 
 @section('headSection')
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
+
     <style type="text/css">
         .row-container {
             width: 100%;
@@ -68,12 +70,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumbs-area">
-                    <h1>Sign In</h1>
+                    <h1>{{ trans('login.sign-in') }}</h1>
                     <ul>
                         <li>
-                            <a href="{{ route('home.index') }}">Home</a>
+                            <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
                         </li>
-                        <li>Sign In</li>
+                        <li>{{ trans('login.sign-in') }}</li>
                     </ul>
                 </div>
             </div>
@@ -86,44 +88,42 @@
     <div class="container">
         <div class="row row-container title-black color-dark">
             <div class="col-sm">
-                <h2>User Sign In</h2>
-                <p class="margin-b-30">                    
-                    By signing in, users acknowledge they are accepting the terms and agreements of using the Evaa Event website, including the use of provided data. For additional details on the Evaa's use of user provided data, see our <a href="#"> Terms of Use</a>.
+                <!-- <h2>{{ trans('login.user-sign-in') }}</h2> -->
+                <p class="margin-b-30 text-justify">                    
+                    {{ trans('login.users-acknowledge') }} <a href="#"> {{ trans('login.terms-of-use') }}</a>.
                 </p>
             </div>
         </div>
-        <div class="row row-container mt-5">
-            <div class="col-8 center">
+        <!-- <div class="row row-container mt-5">
+            <div class="col-8 center"> -->
+        <div class="row mt-3 justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="card">
                     <div class="card-body px-lg-5 pt-0 poti-light-bg">
-                        <form class="login-form" action="
-                                /users/user-login/" method="post"><input type="hidden" name="csrfmiddlewaretoken" value="DOFra2ss3iy8xstWyPT468q13jV9iwictYXqExBG7udf2vCIvbA2rFVoM3dmAwGy">
+                        <form class="login-form" action="{{ route('user.login') }}" method="POST">
+                            {{ csrf_field() }}
                             <div class="text-left mt-4">
                                 <label for="username">Username / Email</label>
-                                <input id="username" name="usernamesddss" type="text" class="form-control border-white">
+                                <input id="username" name="username" type="text" class="form-control border-white">
                             </div>
 
                             <div class="text-left mt-3">
-                                <label for="password">Password</label>
-                                <input id="password" name="passworddsdssd" type="password" class="form-control border-white">
+                                <label for="password">{{ trans('login.password') }}</label>
+                                <input id="password" name="password" type="password" class="form-control border-white">
                             </div>
 
                             <div class="center mt-3">
-                                <button type="submit" class="btn btn-color-primary">LOGIN</button>
-                                <!-- <button type="submit" class="btn-fill color-yellow border-radius-5">Login</button> -->
-                                <!-- <button type="submit" class="btn btn-primary waves-effect waves-light">Login</button>
-                                <img id="submission_loading" src="https://cdn.peaceopstraining.org/img/ajax-loader.gif" style="display: none;"> -->
+                                <button type="submit" class="btn btn-color-primary">{{ trans('login.login') }}</button>
                             </div>
 
                             <div class="text-left">
-                                <a href="/users/new-password/">Forgot your password?</a>
+                                <a href="#">{{ trans('login.forgot-password') }}?</a>
                             </div>
 
                             <div class="text-left">
-                                <a href="{{ route('user.register') }}">New student sign-up</a>
+                                <a href="{{ route('user.register') }}">{{ trans('login.register') }}</a>
                             </div>
 
-                            <input type="hidden" name="next" value="/users/">
                         </form>
                     </div>  <!-- card body -->
                 </div>  <!-- card -->
@@ -132,4 +132,40 @@
     </div>
 </section>
 <!-- Login Form Area End Here -->
+@endsection
+
+@section('scriptSection')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+
+                    toastr.options.timeOut = 10000;
+                    toastr.info("{{ Session::get('message') }}");
+                    break;
+                case 'success':
+
+                    toastr.options.timeOut = 10000;
+                    toastr.success("{{ Session::get('message') }}");
+                    break;
+                case 'warning':
+
+                    toastr.options.timeOut = 10000;
+                    toastr.warning("{{ Session::get('message') }}");
+                    break;
+                case 'error':
+
+                    toastr.options = {
+                        "positionClass" : 'toast-top-full-width',
+                        "progressBar" : true,
+                        "closeButton" : true,
+                        "timeOut" : 3000,
+                    }
+                    toastr.error("{{ Session::get('message') }}");
+                    break;
+            }
+        @endif
+    </script>
 @endsection
