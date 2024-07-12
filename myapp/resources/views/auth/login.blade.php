@@ -102,7 +102,7 @@
                             {{ csrf_field() }}
                             <div class="text-left mt-4">
                                 <label for="email">Email</label>
-                                <input id="email" name="email" type="text" class="form-control border-white">
+                                <input id="email" name="email" type="email" class="form-control border-white">
                             </div>
 
                             <div class="text-left mt-3">

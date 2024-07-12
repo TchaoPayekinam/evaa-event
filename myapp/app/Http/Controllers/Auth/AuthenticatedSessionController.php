@@ -26,7 +26,7 @@ class AuthenticatedSessionController extends Controller
             'password' => 'required',
         ]);
         
-        if(Auth::attempt(array('email' => $input['username'], 'password' => $input['password'])))
+        if(Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
             // Récupérer l'ID de session de l'utilisateur
             $sessionId = session()->getId();
