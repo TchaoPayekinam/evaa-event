@@ -2,9 +2,69 @@
     font-size: 17px;
 }*/
 
+/*alert message*/
+#message-error p, #message-info p, #message-success p {
+    padding-left: 1em;
+    margin: .1em 0 0;
+}
 
+#message-error p {
+    font-weight: 700;
+    color: maroon;
+}
 
-.flex-container, .sponsor-container{
+#message-error {
+    background: #faa;
+}
+
+#message-error, #message-info, #message-success {
+    border-radius: 15px;
+    /*width: 75%;*/
+    padding: 1em;
+    margin: 1em auto;
+}
+/*end alert message*/
+
+/**/
+.evaa-container .btn.btn-color-primary {
+    background-color: #1d4d6b !important;
+}
+
+.evaa-container .btn.btn-color-primary:hover {
+    background-color: #999997 !important;
+}
+
+.evaa-container .btn {
+    color: #fff !important;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    padding: 0 1.5em;
+    line-height: 48px;
+    height: 50px;
+    font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
+    border-radius: 0;
+}
+.card {
+    font-weight: 400;
+    border: 0;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.card-header {
+    color: #036;
+    /*font-size: 2.75rem;*/
+    font-size: 40px;
+    line-height: 1.3em;
+    /*margin: 1.07em 0 .535em;*/
+    font-weight: 550;
+}
+.poti-light-bg {
+    background-color: #e5e5e5 !important;
+}
+/**/
+
+.flex-container, .sponsor-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -14,7 +74,12 @@
 .speaker-layout1, .sponsor {
     flex: 1 1 calc(25% - 20px); 
     max-width: calc(25% - 20px); 
+    /*padding: 20px;*/
     text-align: center;
+}
+
+.item-price{
+    font-size: 40px !important;
 }
 
 
@@ -31,8 +96,6 @@
         max-width: calc(50% - 20px);
     }
 }
-
-
 
 .item-img img{
     aspect-ratio: 1/1;
@@ -111,6 +174,8 @@
     background-color: #ffffff35;
     height: 200px;
     border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .service-grid div h2{

@@ -111,7 +111,7 @@ h4 {
   font-family: 'Roboto', sans-serif;
   margin: 0 0 20px 0;
   color: #111111;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 h1 {
   font-size: 7rem;
@@ -1520,14 +1520,14 @@ button:hover {
   font-weight: 400;
 }
 .title-black {
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-weight: 900;
 }
 .title-black h1,
 .title-black h2,
 .title-black h3,
 .title-black h4 {
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-weight: 900;
 }
 .title-black p {
@@ -4056,7 +4056,7 @@ div ~ :last-child .progress-layout2:before {
   color: #111111;
   font-weight: 700;
   margin-bottom: 12px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 .upcoming-event-layout1 .date {
   color: #8cc63e;

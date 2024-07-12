@@ -16,7 +16,7 @@ class ContactController extends Controller
         $request->validate([
             'firstName' => 'required|string|min:5',
             'lastName' => 'required|string|min:5',
-            'society' => 'nullable',
+            'society' => 'nullable|string',
             'email' => 'required|email|regex:/(.+)@(.+)\.(.+)/i',
             'phoneNumber' => ['required', 'min:11'],
             'message' => 'required|string'
@@ -24,13 +24,15 @@ class ContactController extends Controller
 
         try{
             $contact = new Contact();
-            $contact->firstName = $request->firstName;
-            $contact->lastName = $request->lastName;
+            $contact->first_name = $request->firstName;
+            $contact->last_name = $request->lastName;
             $contact->society = $request->society;
             $contact->email = $request->email;
-            $contact->phoneNumber = $request->phoneNumber;
+            $contact->phone = $request->phoneNumber;
             $contact->message = $request->message;
             $saved = $contact->save();
+
+            return response()->json(['success' => 'Message envoyé avec succès !']);
 
             /*if($saved) {
                 Mail::to("admin@gmail.com")->send(new ContactForm($contact->firstName, $contact->lastName, $contact->message, $contact->phoneNumber, $contact->society, $contact->email));
@@ -38,8 +40,9 @@ class ContactController extends Controller
                 return redirect()->route('contact.submit')->with('error', 'Une erreur s\'est produite lors de l\'envoi du message');
             }*/
 
-        } catch(Exception $e){
-                return redirect()->back()->withErrors($e->getMessage());
-            }
+        } catch(Exception $e) {
+            //return redirect()->back()->withErrors($e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }

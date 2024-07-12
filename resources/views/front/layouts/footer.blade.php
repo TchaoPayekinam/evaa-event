@@ -10,10 +10,8 @@
                                 <img class="img-fluid" src="{{ asset('event/assets/img/logo.png') }}" alt="logo">
                             </a>
                             <div class="footer-widget-about">
-                                <p>Nous créons des évènements sur mesure, qui ciblent toutes les catégories socioprofessionnelles.</p>
-                                <p>
-                                    Heures d'Ouverture : Heures: Lun-Ven: 8h00 - 17h00
-                                </p>
+                                <p>{{ trans('home.footer-widget-about-p1') }}</p>
+                                <p>{{ trans('home.opening-hours') }}</p>
                             </div>
                             <div class="footer-widget-social">
                                 <ul>
@@ -57,51 +55,26 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- <div class="footer-widget-menu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Online Chatting</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">FAQ’s</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">24/7 Client Support</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Others</a>
-                                    </li>
-                                </ul>
-                            </div> -->
                         </div>
                     </div>
                     <!-- <div class="col-lg-4 col-md-6 col-sm-12"> -->
                     <div class="col-lg-3">
                         <div class="widget">
-                            <h3 class="widgettitle">Useful Links</h3>
+                            <h3 class="widgettitle">{{ trans('home.useful-links') }}</h3>
                             <div class="footer-widget-menu">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('home.index') }}">Accueil</a>
+                                        <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#">A Propos</a>
+                                        <a href="{{ route('home.about') }}">{{ trans('menu.about') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Services</a>
+                                        <a href="{{ route('home.services') }}">Services</a>
                                     </li>
                                     <li>
-                                        <a href="#">Contact</a>
+                                        <a href="{{ route('home.contact') }}">Contact</a>
                                     </li>
-                                    <!-- <li>
-                                        <a href="#">Terms &amp; Privecy</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Support</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Payment Policy</a>
-                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -111,7 +84,7 @@
                         <div class="widget">
                             <h3 class="widgettitle">Newsletter</h3>
                             <div class="footer-widget-newsletter">
-                                <p>Si vous souhaitez recevoir nos courriels, veuillez vous inscrire ici.</p>
+                                <p>{{ trans('home.newsletter-p') }}</p>
 
                                 <div class="input-group stylish-input-group">
                                     <input type="email" placeholder="E-mail address" name="email" class="form-control" required="">

@@ -51,7 +51,7 @@
 <!-- Isotope js -->
 <script src="{{ asset('event/assets/js/isotope.pkgd.min.js') }}"></script>
 <!-- Google Map js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtmXSwv4YmAKtcZyyad9W7D4AC08z0Rb4"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtmXSwv4YmAKtcZyyad9W7D4AC08z0Rb4"></script> -->
 <!-- Magnific Popup -->
 <script src="{{ asset('event/assets/js/jquery.magnific-popup.min.js') }}"></script>
 @section('scriptSection')

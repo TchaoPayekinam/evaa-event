@@ -46,22 +46,16 @@
                             <div class="title-container s-tb-c title-light">
                                 <div class="container text-center">
                                     <div class="slider-big-text first-line">
-                                        <!-- <p>Marketing</p> -->
-                                        <p>Formation sur fabrication des accessoires de décoration d'intérieur</p>
+                                        <p>{{ trans('home.slider-big-text') }}</p>
                                     </div>
-                                    <!-- <div class="slider-big-text second-line">
-                                        <p>Conferencee 2018</p>
-                                    </div> -->
                                     <div class="slider-sub-text third-line">
                                         <ul>
-                                            <!-- <li>17 - 25 October 2018</li>
-                                            <li>Tobacco Dock, London</li> -->
                                             <li>12 - 14 Août 2024</li>
                                             <li>15 - 17 Août 2024</li>
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
+                                        <a href="{{ route('user.login') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -72,22 +66,16 @@
                             <div class="title-container s-tb-c title-light">
                                 <div class="container text-center">
                                     <div class="slider-big-text first-line">
-                                        <!-- <p>Marketing</p> -->
-                                        <p>Formation sur fabrication des accessoires de décoration d'intérieur</p>
+                                        <p>{{ trans('home.slider-big-text') }}</p>
                                     </div>
-                                    <!-- <div class="slider-big-text second-line">
-                                        <p>Conferencee 2018</p>
-                                    </div> -->
                                     <div class="slider-sub-text third-line">
                                         <ul>
-                                            <!-- <li>17 - 25 October 2018</li>
-                                            <li>Tobacco Dock, London</li> -->
                                             <li>12 - 14 Août 2024</li>
                                             <li>15 - 17 Août 2024</li>
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
+                                        <a href="{{ route('user.login') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a> 
                                     </div>
                                 </div>
                             </div>
@@ -98,22 +86,16 @@
                             <div class="title-container s-tb-c title-light">
                                 <div class="container text-center">
                                     <div class="slider-big-text first-line">
-                                        <!-- <p>Marketing</p> -->
-                                        <p>Formation sur fabrication des accessoires de décoration d'intérieur</p>
+                                        <p>{{ trans('home.slider-big-text') }}</p>
                                     </div>
-                                    <!-- <div class="slider-big-text second-line">
-                                        <p>Conferencee 2018</p>
-                                    </div> -->
                                     <div class="slider-sub-text third-line">
                                         <ul>
-                                            <!-- <li>17 - 25 October 2018</li>
-                                            <li>Tobacco Dock, London</li> -->
                                             <li>12 - 14 Août 2024</li>
                                             <li>15 - 17 Août 2024</li>
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.register') }}" class="btn-ghost color-yellow border-radius-5">Inscrivez-vous</a> <!--Buy Tickets Now! -->
+                                        <a href="{{ route('user.login') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a> 
                                     </div>
                                 </div>
                             </div>
@@ -133,13 +115,9 @@
             <section class="section-space-equal bg-light">
                 <div class="container">
                     <div class="about-layout1">
-                        <img src="{{ asset('event/assets/img/about/about-logo.png') }}" alt="logo" class="img-fluid">
-                        <p>Former une nouvelle génération de créateurs d'accessoires de décoration d'intérieur, en leur fournissant les compétences nécessaires pour concevoir et fabriquer des produits innovants et durables, tout en stimulant la créativité et en soutenant le développement économique local et environnemental.</p>
-                        <!-- <p>Emply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                            dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                            simply dummy text of the rinting and typesetting industry.standard dummy text ever since.Emply
-                            dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                            when an unknown printer took.</p> -->
+                        <!-- <img src="{{ asset('event/assets/img/about/about-logo.png') }}" alt="logo" class="img-fluid"> -->
+                        <img src="{{ asset('event/assets/img/home-small-img.jpg') }}" alt="logo" class="img-fluid">
+                        <p>{{ trans('home.about-layout1-p') }}</p>
                         <a href="#" title="Buy Your Ticket" class="btn-fill color-yellow border-radius-5">{{ trans('home.sign-up') }}</a>
                     </div>
                 </div>
@@ -147,11 +125,51 @@
             <!-- About Page Area End Here -->
             <!-- Speaker Area Start Here -->
             <section class="section-space-default-less54 overlay-icon-layout3 bg-common bg-primary" style="background-image: url(event/assets/img/figure/figure2.png);">
-                <div class="container zindex-up">
+                <div class="zindex-up">
+                    <div class="section-heading title-black color-light text-center">
+                        <h2>{{ trans('home.event-speakers') }}</h2>
+                    </div>
+                    <div class="container-fluid section-speaker flex-container">
+                        <div class="speaker-layout1">
+                            <div class="item-img">
+                                <img src="{{ asset('event/assets/img/speaker/othniel4.JPG') }}" alt="speaker" class="img-fluid rounded-circle">
+                                <div class="item-social">
+                                    <ul>
+                                        <li><a href="#" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#" title="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="#" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item-title">
+                                <h3 class="title-medium size-lg color-light hover-yellow"><a href="#">SADIA Otniel</a></h3>
+                            </div>
+                        </div>
+                        <div class="speaker-layout1">
+                            <div class="item-img">
+                                <img src="{{ asset('event/assets/img/speaker/konrad.jpeg') }}" alt="speaker" class="img-fluid rounded-circle">
+                                <div class="item-social">
+                                    <ul>
+                                        <li><a href="#" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#" title="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="#" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item-title">
+                                <h3 class="title-medium size-lg color-light hover-yellow"><a href="#">DIVO Konrad</a></h3>
+                            </div>
+                        </div>
+                        <!-- Repeat speaker-layout1 as needed -->
+                    </div>
+                    
+                </div>
+                <div class="container zindex-up d-none">
                     <div class="section-heading title-black color-light text-center">
                         <h2>{{ trans('home.event-speakers') }}</h2>
                         <!-- <h2>Event Speakers</h2> -->
-                        <!-- <p>Dorem ipsum dolor sit. Incidunt laborum beatae earum nihil onsequuntur officia</p> -->
                     </div>
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mb-12">
@@ -450,7 +468,7 @@
             <section class="section-space-default bg-light">
                 <div class="container zoom-gallery menu-list-wrapper">
                     <div class="section-heading title-black color-dark text-center">
-                        <h2>Agenda de la formation en fabrication des accessoires de décoration d'intérieur</h2>
+                        <h2>{{ trans('home.agenda-training-title') }}</h2>
                     </div>
                     <div class="schedule-layout2">
                         <ul class="schedule-nav nav nav-tabs">
@@ -623,13 +641,13 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td>Module 3 - Notions de base et stratégies de marketing</td>
+                                                <td>Module 3 - Notions de base en stratégies de marketing</td>
                                                 <td>TBD</td>
                                                 <td>8h00' - 9h00'</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
-                                                <td>Module 3 (suite) : Planification financière et développement</td>
+                                                <td>Module 4 : Planification financière et développement</td>
                                                 <td>TBD</td>
                                                 <td>9h00' - 10h00'</td>
                                             </tr>
@@ -1107,8 +1125,8 @@
                                     <div class="item-title">
                                         <h3 class="title-medium color-dark text-uppercase">Inscription</h3>
                                     </div>
-                                    <div class="item-price">5 000
-                                        <span class="currency">FCFA</span>
+                                    <div class="item-price">
+                                        5 000<sup>FCFA</sup>
                                     </div>
                                     <div class="item-body">
                                         <ul>
@@ -1128,8 +1146,8 @@
                                     <div class="item-title">
                                         <h3 class="title-medium color-dark text-uppercase">Offre N°1</h3>
                                     </div>
-                                    <div class="item-price">40 000
-                                        <span class="currency">FCFA</span>
+                                    <div class="item-price">
+                                        40 000<sup>FCFA</sup>
                                     </div>
                                     <div class="item-body">
                                         <ul>
@@ -1149,8 +1167,8 @@
                                     <div class="item-title">
                                         <h3 class="title-medium color-dark text-uppercase">Offre N°2</h3>
                                     </div>
-                                    <div class="item-price">45 000
-                                        <span class="currency">FCFA</span>
+                                    <div class="item-price">
+                                        45 000<sup>FCFA</sup>
                                     </div>
                                     <div class="item-body">
                                         <ul>
@@ -1193,7 +1211,7 @@
                                         <i class="fa fa-users" aria-hidden="true"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h3>30+ Speakers</h3>
+                                        <h3>2 {{ trans('home.trainers-speakers') }}</h3>
                                         <p>Formateurs qualifiés et expérimentés dans le domaine de la décoration d'intérieur et de l'artisanat</p>
                                     </div>
                                 </div>
@@ -1206,7 +1224,7 @@
                                         <i class="fa fa-clone" aria-hidden="true"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h3>15+ Main Sponsor</h3>
+                                        <h3>2 Sponsors</h3>
                                         <p>Au sein de l’École supérieure Baptiste de Théologie de l'Afrique de l'Ouest (ESBTAO) à Hedjranawoé</p>
                                     </div>
                                 </div>
@@ -1220,8 +1238,44 @@
             <section class="section-space-default bg-light">
                 <div class="container">
                     <div class="section-heading title-black color-dark text-center">
+                        <!-- <h2>{{ trans('home.official-sponsor') }}</h2> 
+                        <p>Check Who Makes This Event Possible!</p> -->
+                    </div>
+                    <div class="sponsonrs-layout1">
+                        <!-- <div class="sponsonrs-type-title">
+                            <h3>Platinum Sponsors</h3>
+                        </div> -->
+                        <div class="container">
+                            <div class="section-heading title-black color-dark text-center">
+                                <h2>{{ trans('about.nos-sponsor') }}</h2>
+                                <p>{{ trans('about.nos-sponsor-p') }}</p>
+                            </div>
+                            <div class="sponsonrs-layout1">
+                                <div class="sponsor-container">
+                                    <div class="sponsor">
+                                        <div class="sponsonrs-box">
+                                            <a href="#">
+                                                <img src="{{ asset('event/assets/img/brand/otniel-galerie.png') }}" alt="brand" class="img-fluid">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <a href="#" title="Become a Sponsors" class="btn-fill size-lg border-radius-5 color-yellow margin-t-30">{{ trans('home.become-sponsor') }}</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section-space-default bg-light d-none">
+                <div class="container">
+                    <div class="section-heading title-black color-light text-center">
                         <h2>{{ trans('home.official-sponsor') }}</h2>
                         <!-- <p>Check Who Makes This Event Possible!</p> -->
+
                     </div>
                     <div class="sponsonrs-layout1">
                         <!-- <div class="sponsonrs-type-title">
@@ -1261,39 +1315,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="sponsonrs-type-title">
-                            <h3>Gold Sponsors</h3>
-                        </div>
-                        <div class="row sponsonrs-row-border">
-                            <div class="col-md-3 col-sm-6 col-12">
-                                <div class="sponsonrs-box">
-                                    <a href="#">
-                                        <img src="{{ asset('event/assets/img/brand/brand5.png') }}" alt="brand" class="img-fluid">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-12">
-                                <div class="sponsonrs-box">
-                                    <a href="#">
-                                        <img src="{{ asset('event/assets/img/brand/brand6.png') }}" alt="brand" class="img-fluid">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-12">
-                                <div class="sponsonrs-box">
-                                    <a href="#">
-                                        <img src="{{ asset('event/assets/img/brand/brand7.png') }}" alt="brand" class="img-fluid">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-12">
-                                <div class="sponsonrs-box">
-                                    <a href="#">
-                                        <img src="{{ asset('event/assets/img/brand/brand8.png') }}" alt="brand" class="img-fluid">
-                                    </a>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-12 text-center">
@@ -1385,12 +1406,13 @@
             <section class="full-width-container">
                 <div class="container-fluid">
                     <div class="google-map-area">
-                        <div id="googleMap" style="width:100%; height:496px;"></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.697980454147!2d1.2401818!3d6.1711787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023e23814d83eb7%3A0x466586ae1b01bc2b!2sEcole%20Sup%C3%A9rieure%20Baptiste%20de%20Th%C3%A9ologie%20de%20l&#39;Afrique%20de%20l&#39;Ouest%20(ESBTAO)!5e0!3m2!1sfr!2stg!4v1720450819961!5m2!1sfr!2stg" width="100%" height="496px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <!-- <div id="googleMap" style="width:100%; height:496px;"></div> -->
                         <div class="upcoming-event-layout1">
-                            <!-- <h2>Marketing
-                                <br> Conferance 2018</h2>
-                            <div class="date">17 - 25 Oct, 2018</div>
-                            <p>Tobacco Dock, London</p> -->
+                            <h2>Formation sur la fabrication des 
+                                <br> accessoires de décoration d'intérieur</h2>
+                            <div class="date">12 - 14 Août 2024</div>
+                            <p>ESBTAO, Hedjranawoé</p>
                         </div>
                     </div>
                 </div>

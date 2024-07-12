@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="about-layout4">
-                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="logo" class="img-fluid">
+                        <img src="{{ asset('event/assets/img/logo-eeco-black.png') }}" alt="logo" class="img-fluid">
                         <p class="text-justify">
                             {{ trans('about.qui-sommes-nous') }}
                         </p>
@@ -71,7 +71,7 @@
         <div class="container-fluid">
             <div class="row row-about no-gutters full-width">
                 <div class="col-lg-6">
-                    <img src="{{ asset('event/assets/img/about/about2.jpg') }}" alt="about" class="img-fluid width-100">
+                    <img src="{{ asset('event/assets/img/about/about-eeco.jpeg') }}" alt="about" class="img-fluid width-100">
                 </div>
                 <div class="col-lg-6">
                     <div class="overlay-icon-layout5 height-100 d-flex align-items-center bg-accent">
@@ -102,7 +102,7 @@
     </section>
     <!-- Why Join Us Area End Here -->
     <!-- Speaker Area Start Here -->
-    <section class="section-space-top-default bg-light">
+    <section class="section-space-top-default bg-light d-none">
         <div class="container-fluid">
             <div class="section-heading title-black color-dark text-center">
                 <h2>{{ trans('about.notre-equipe') }}</h2>
@@ -395,47 +395,26 @@
                 <p>{{ trans('about.nos-sponsor-p') }}</p>
             </div>
             <div class="sponsonrs-layout1">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-12">
+                <div class="sponsor-container">
+                    <div class="sponsor">
                         <div class="sponsonrs-box">
                             <a href="#">
                                 <img src="{{ asset('event/assets/img/brand/otniel-galerie.png') }}" alt="brand" class="img-fluid">
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="sponsonrs-box">
-                            <a href="#">
-                                <img src="{{ asset('event/assets/img/brand/brand1.png') }}" alt="brand" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="sponsonrs-box">
-                            <a href="#">
-                                <img src="{{ asset('event/assets/img/brand/brand1.png') }}" alt="brand" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="sponsonrs-box">
-                            <a href="#">
-                                <img src="{{ asset('event/assets/img/brand/brand1.png') }}" alt="brand" class="img-fluid">
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-12 text-center">
-                    <a href="#" title="Become a Sponsors" class="btn-fill size-lg color-yellow border-radius-5 margin-t-30">Become a Sponsors</a>
+                    <a href="#" title="{{ trans('home.become-sponsor') }}" class="btn-fill size-lg color-yellow border-radius-5 margin-t-30">{{ trans('home.become-sponsor') }}</a>
                 </div>
-            </div> --}}
+            </div> 
         </div>
     </section>
     <!-- Sponsonrs Area End Here -->
     <!-- Call To Action Area Start Here -->
-    <section class="overlay-primary90 overlay-icon-layout1 section-space-default bg-common" style="background-image: url(img/figure/figure1.jpg);">
+    <section class="overlay-primary90 overlay-icon-layout1 section-space-default bg-common" style="background-image: url('{{ asset('event/assets/img/figure/figure1.jpg') }}');">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -455,7 +434,9 @@
     <section class="container container-maps">
         <div class="container-fluid">
             <div class="google-map-area">
-                <div id="googleMap" style="width:100%; height:496px;"></div>
+                <div id="" style="width:100%; height:496px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0769896476722!2d1.2855315!3d6.2535869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023fd000fc2743d%3A0x9b650c6248c09654!2sEECO%20-%20Eva&#39;a%20Event%20%26%20Com!5e0!3m2!1sfr!2stg!4v1720481410510!5m2!1sfr!2stg" width="100%" height="496px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </div>
     </section>

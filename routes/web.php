@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InscriptionController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 
 /**
  * route used to switch locale
@@ -15,6 +16,14 @@ Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->
 Route::get('services', [App\Http\Controllers\HomeController::class, 'services'])->name('home.services');
 
 Route::post('submit-contact-form', [ContactController::class, 'submit'])->name('post_contact_form');
-Route::get('inscription', [InscriptionController::class, 'inscription'])->name('user.inscription');
+Route::get('event/inscription', [InscriptionController::class, 'inscription'])->name('event.inscription');
+Route::post('/inscription', [InscriptionController::class, 'submit'])->name('inscription.submit');
+Route::get('order-history', [InscriptionController::class, 'order_history'])->name('order_history');
+
+Route::get('event-inscription/payment/flooz', [PaymentController::class, 'flooz'])->name('payment.flooz');
+Route::get('event-inscription/payment/t-money', [PaymentController::class, 'tMoney'])->name('payment.tMoney');
+Route::get('event-inscription/payment/western-union', [PaymentController::class, 'payment.westernUnion'])->name('westernUnion');
+Route::get('event-inscription/payment/money-gram', [PaymentController::class, 'payment.moneyGram'])->name('moneyGram');
+Route::get('event-inscription/payment/cash', [PaymentController::class, 'cash'])->name('payment.cash');
 
 require __DIR__.'/auth.php';
