@@ -1116,7 +1116,6 @@
                 <div class="container zindex-up">
                     <div class="section-heading title-black color-dark text-center">
                         <h2>{{ trans('home.training-costs') }}</h2>
-                        <!-- <p>Dorem ipsum dolor sit. Incidunt laborum beatae earum nihil odio consequatur officiis tempore</p> -->
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-sm-12">
@@ -1130,13 +1129,11 @@
                                     </div>
                                     <div class="item-body">
                                         <ul>
-                                            <li>Délai de paiement</li>
-                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>24h après l'inscription sur le site</li>
-                                            <!-- <li>Certificate</li>
-                                            <li>Workshop</li> -->
+                                            <li>{{ trans('home.payment-deadline') }}</li>
+                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.after-registering') }}</li>
                                         </ul> 
                                     </div>
-                                    <a href="#" title="Buy Ticket" class="btn-fill size-md color-yellow border-radius-5">{{ trans('home.pay') }}</a>
+                                    <a href="{{ route('user.login') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-yellow border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -1144,7 +1141,7 @@
                             <div class="price-table-layout1">
                                 <div class="item-wrapper">
                                     <div class="item-title">
-                                        <h3 class="title-medium color-dark text-uppercase">Offre N°1</h3>
+                                        <h3 class="title-medium color-dark text-uppercase">{{ trans('home.offer') }} N°1</h3>
                                     </div>
                                     <div class="item-price">40 000
                                         <span class="currency">FCFA</span>
@@ -1152,12 +1149,10 @@
                                     <div class="item-body">
                                         <ul>
                                             <li>{{ trans('home.payment-period') }}</li>
-                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>05 - 25 juillet 2024</li>
-                                            <!-- <li>Certificate</li>
-                                            <li>Workshop</li> -->
+                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.date-1') }}</li>
                                         </ul>
                                     </div>
-                                    <a href="#" title="{{ trans('home.pay') }}" class="btn-fill size-md color-primary border-radius-5">{{ trans('home.pay') }}</a>
+                                    <a href="{{ route('user.login') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-primary border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -1165,7 +1160,7 @@
                             <div class="price-table-layout1">
                                 <div class="item-wrapper">
                                     <div class="item-title">
-                                        <h3 class="title-medium color-dark text-uppercase">Offre N°2</h3>
+                                        <h3 class="title-medium color-dark text-uppercase">{{ trans('home.offer') }} N°2</h3>
                                     </div>
                                     <div class="item-price">45 000
                                         <span class="currency">FCFA</span>
@@ -1173,12 +1168,10 @@
                                     <div class="item-body">
                                         <ul>
                                             <li>{{ trans('home.payment-period') }}</li>
-                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>26 juillet - 11 août 2024</li>
-                                            <!-- <li>Certificate</li>
-                                            <li>Workshop</li> -->
+                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.date-2') }}</li>
                                         </ul>
                                     </div>
-                                    <a href="#" title="{{ trans('home.pay') }}" class="btn-fill size-md color-green border-radius-5">{{ trans('home.pay') }}</a>
+                                    <a href="{{ route('user.login') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-green border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>

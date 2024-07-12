@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-//use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,35 +11,22 @@ use Illuminate\Support\Facades\Cache;
 
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     *
-     * @return \Illuminate\View\View
-     */
     public function create()
     {
         return view('auth.login');
     }
 
-    /**
-     * Handle an incoming authentication request.
-     *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function store(Request $request)
     {
         // Post Login Function
         $input = $request->all();
   
         $this->validate($request, [
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required',
         ]);
-  
-        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         
-        if(Auth::attempt(array($fieldType => $input['username'], 'password' => $input['password'])))
+        if(Auth::attempt(array('email' => $input['username'], 'password' => $input['password'])))
         {
             // Récupérer l'ID de session de l'utilisateur
             $sessionId = session()->getId();
@@ -70,23 +56,15 @@ class AuthenticatedSessionController extends Controller
         } else{
             $notification = array(
                 'message' => __('auth.failed'),
-                //'message' => 'Les identifiants de connexion sont incorrects',
                 'alert-type' => 'error'
             );
 
             return redirect()->route('user.login')
                 ->withInput()
                 ->with($notification);
-                //->with('error','Les identifiants de connexion sont incorrects');
         }
     }
 
-    /**
-     * Destroy an authenticated session.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function destroy(Request $request)
     {
         Auth::guard('web')->logout();

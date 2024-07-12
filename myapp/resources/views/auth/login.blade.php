@@ -94,8 +94,6 @@
                 </p>
             </div>
         </div>
-        <!-- <div class="row row-container mt-5">
-            <div class="col-8 center"> -->
         <div class="row mt-3 justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="card">
@@ -103,8 +101,8 @@
                         <form class="login-form" action="{{ route('user.login') }}" method="POST">
                             {{ csrf_field() }}
                             <div class="text-left mt-4">
-                                <label for="username">Username / Email</label>
-                                <input id="username" name="username" type="text" class="form-control border-white">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="text" class="form-control border-white">
                             </div>
 
                             <div class="text-left mt-3">
