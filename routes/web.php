@@ -36,4 +36,12 @@ Route::put('/administration/evenement/{id}', [\App\Http\Controllers\EvenementCon
 Route::delete('/administration/evenement/{id}', [\App\Http\Controllers\EvenementController::class, 'destroy'])->name('evenement.destroy');
 // Route::get('/recherche', [\App\Http\Controllers\NavireController::class, 'search'])->name('search');
 
+Route::get('/administration/payement', [App\Http\Controllers\PayementController::class, 'index'])->name('payement.index');
+Route::get('/administration/payement/createForm', [App\Http\Controllers\PayementController::class, 'createForm'])->name('payement.createForm');
+Route::post('/administration/payement/create', [App\Http\Controllers\PayementController::class, 'create'])->name('payement.create');
+Route::get('/administration/payement/{id}/modifier', [\App\Http\Controllers\PayementController::class, 'edit'])->name('payement.edit');
+Route::put('/administration/payement/{id}', [\App\Http\Controllers\PayementController::class, 'update'])->name('payement.update');
+Route::delete('/administration/payement/{id}', [\App\Http\Controllers\PayementController::class, 'destroy'])->name('payement.destroy');
+// Route::get('/recherche', [\App\Http\Controllers\NavireController::class, 'search'])->name('search');
+
 require __DIR__.'/auth.php';

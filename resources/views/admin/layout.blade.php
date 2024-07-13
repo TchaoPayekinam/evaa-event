@@ -72,13 +72,13 @@
       <ul class="sidebar-nav" id="sidebar-nav" style="width: 100%">
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('evenement.index') }}">
+          <a class="nav-link" href="">
             <i class="bi bi-speedometer"></i>
             <span>Dashboard</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('evenement.index') }}">
+          <a class="nav-link" href="">
             <i class="bi bi-person"></i>
             <span>Utilisateur</span>
           </a>
@@ -90,7 +90,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('evenement.index') }}">
+          <a class="nav-link" href="{{ route('payement.index') }}">
             <i class="bi bi-person"></i>
             <span>Payements</span>
           </a>
