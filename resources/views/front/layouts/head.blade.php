@@ -28,6 +28,9 @@
 <!-- Modernizr Js -->
 <script src="{{ asset('event/assets/js/modernizr-2.8.3.min.js') }}"></script>
 
+ 
+
+
 <style type="text/css">
     .footer-contact-us ul li {
         position: relative;

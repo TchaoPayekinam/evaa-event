@@ -26,4 +26,14 @@ Route::get('event-inscription/payment/western-union', [PaymentController::class,
 Route::get('event-inscription/payment/money-gram', [PaymentController::class, 'payment.moneyGram'])->name('moneyGram');
 Route::get('event-inscription/payment/cash', [PaymentController::class, 'cash'])->name('payment.cash');
 
+Route::get('/administration/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+
+Route::get('/administration/evenement', [App\Http\Controllers\EvenementController::class, 'index'])->name('evenement.index');
+Route::get('/administration/evenement/createForm', [App\Http\Controllers\EvenementController::class, 'createForm'])->name('evenement.createForm');
+Route::post('/administration/evenement/create', [App\Http\Controllers\EvenementController::class, 'create'])->name('evenement.create');
+Route::get('/administration/evenement/{id}/modifier', [\App\Http\Controllers\EvenementController::class, 'edit'])->name('evenement.edit');
+Route::put('/administration/evenement/{id}', [\App\Http\Controllers\EvenementController::class, 'update'])->name('evenement.update');
+Route::delete('/administration/evenement/{id}', [\App\Http\Controllers\EvenementController::class, 'destroy'])->name('evenement.destroy');
+// Route::get('/recherche', [\App\Http\Controllers\NavireController::class, 'search'])->name('search');
+
 require __DIR__.'/auth.php';

@@ -91,11 +91,35 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 d-none d-lg-block">
+                        @auth
+                        <div class="eventalk-main-menu">
+                            <nav class="d-none d-lg-block">
+                                <ul class="header-action-items">
+                                    <li>
+                                        <a class="d-flex align-items-center btn-fill size-xs color-yellow border-radius-5 menu-btn" href="">Profile</a>
+                                        <ul class="rt-dropdown-menu mt-2">
+                                            <li>
+                                                <a href="{{ route('admin.dashboard') }}">Administration</a>
+                                            </li>
+                                            <li>
+                                                <form class="nav-item" action="{{ route('logout')}}" method="post">
+                                                    @csrf
+                                                    <button class="nav-link btn-fill size-xs color-yellow border-radius-5">{{ trans('menu.deconnexion') }}</button>
+                                                  </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        @endauth
+                        @guest
                         <ul class="header-action-items">
                             <li>
-                                <a href="{{ route('user.login') }}" title="Buy Tickets" class="btn-fill size-xs color-yellow border-radius-5">Buy Tickets</a>
+                                <a href="{{ route('user.login') }}" title="Buy Tickets" class="btn-fill size-xs color-yellow border-radius-5">{{ trans('menu.button') }}</a>
                             </li>
                         </ul>
+                        @endguest 
                     </div>
                 </div>
             </div>

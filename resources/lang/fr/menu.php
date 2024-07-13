@@ -8,4 +8,6 @@ return [
 	//'blog' => 'Blog',
 	'contact' => 'Contact',
 	//'my-account' => 'Mon Compte',
+	'button' => 'Connexion',
+	'deconnexion' => 'Déconnexion'
 ];

@@ -66,7 +66,7 @@ class AuthenticatedSessionController extends Controller
             /* if (Auth::User()->password_change_at == null)
                 return redirect()->route('password.changed'); */
 
-            return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->intended(route('home.index'));
         } else{
             $notification = array(
                 'message' => __('auth.failed'),
