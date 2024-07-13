@@ -102,25 +102,6 @@
 @endsection
 
 @section('content')
-<!-- Inne Page Banner Area Start Here -->
-<section class="inner-page-banner" style="background-image: url('{{ asset('event/assets/img/figure/inner-page-figure.png') }}');">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumbs-area">
-                    <h1>Inscription</h1>
-                    <ul>
-                        <li>
-                            <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
-                        </li>
-                        <li>inscription</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Inne Page Banner Area End Here -->
 <!-- Sign Up Form Area Start Here -->
 <section class="section-space-default2-less30">
     <div class="container">

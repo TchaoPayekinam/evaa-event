@@ -27,6 +27,7 @@ class CreateInscriptionsTable extends Migration
             $table->string('paymentOption');
             $table->double('paymentAmount');
             $table->string('confirmationCode');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

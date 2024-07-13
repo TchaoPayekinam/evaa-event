@@ -11,22 +11,7 @@
         <!-- Preloader Start Here -->
         <div id="preloader" class="preloader">
             <div class="items">
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
+                <img src="{{ asset('event/assets/img/logo-eeco-black.png') }}" alt="logo" class="img-fluid">
             </div>
         </div>
         <!-- Preloader End Here -->

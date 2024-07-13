@@ -1,7 +1,7 @@
 <?php
     return[
         'slider-big-text' => 'Formation sur fabrication des accessoires de décoration d\'intérieur',
-        'register' => 'Inscrivez-vous',
+        'register' => 'Participer',
         'about-layout1-p' => 'Former une nouvelle génération de créateurs d\'accessoires de décoration d\'intérieur, en leur fournissant les compétences nécessaires pour concevoir et fabriquer des produits innovants et durables, tout en stimulant la créativité et en soutenant le développement économique local et environnemental.',
         'sign-up' => 'S\'inscrire',
         'event-speakers' => 'Formateurs et intervenants',

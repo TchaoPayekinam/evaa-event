@@ -21,4 +21,8 @@ class HomeController extends Controller
     public function services() {
         return view('front.services');
     }
+
+    public function myEvent() {
+        return view('front.user-event');
+    }
 }

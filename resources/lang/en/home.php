@@ -1,7 +1,7 @@
 <?php
     return[
         'slider-big-text' => 'Training in the manufacture of interior decoration accessories',
-        'register' => 'Register',
+        'register' => 'Participate',
         'about-layout1-p' => 'Train a new generation of interior design accessories designers, providing them with the skills to design and manufacture innovative and sustainable products, while stimulating creativity and supporting local economic and environmental development.',
         'sign-up' => 'Sign up',
         'event-speakers' => 'Event speakers',

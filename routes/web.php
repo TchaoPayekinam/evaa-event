@@ -14,6 +14,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name('home.about');
 Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('home.contact');
 Route::get('services', [App\Http\Controllers\HomeController::class, 'services'])->name('home.services');
+Route::get('events', [App\Http\Controllers\HomeController::class, 'myEvent'])->name('home.myEvent');
 
 Route::post('submit-contact-form', [ContactController::class, 'submit'])->name('post_contact_form');
 Route::get('event/inscription', [InscriptionController::class, 'inscription'])->name('event.inscription');
@@ -34,7 +35,6 @@ Route::post('/administration/evenement/create', [App\Http\Controllers\EvenementC
 Route::get('/administration/evenement/{id}/modifier', [\App\Http\Controllers\EvenementController::class, 'edit'])->name('evenement.edit');
 Route::put('/administration/evenement/{id}', [\App\Http\Controllers\EvenementController::class, 'update'])->name('evenement.update');
 Route::delete('/administration/evenement/{id}', [\App\Http\Controllers\EvenementController::class, 'destroy'])->name('evenement.destroy');
-// Route::get('/recherche', [\App\Http\Controllers\NavireController::class, 'search'])->name('search');
 
 Route::get('/administration/payement', [App\Http\Controllers\PayementController::class, 'index'])->name('payement.index');
 Route::get('/administration/payement/createForm', [App\Http\Controllers\PayementController::class, 'createForm'])->name('payement.createForm');
@@ -42,6 +42,5 @@ Route::post('/administration/payement/create', [App\Http\Controllers\PayementCon
 Route::get('/administration/payement/{id}/modifier', [\App\Http\Controllers\PayementController::class, 'edit'])->name('payement.edit');
 Route::put('/administration/payement/{id}', [\App\Http\Controllers\PayementController::class, 'update'])->name('payement.update');
 Route::delete('/administration/payement/{id}', [\App\Http\Controllers\PayementController::class, 'destroy'])->name('payement.destroy');
-// Route::get('/recherche', [\App\Http\Controllers\NavireController::class, 'search'])->name('search');
 
 require __DIR__.'/auth.php';

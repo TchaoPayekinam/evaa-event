@@ -41,7 +41,7 @@
             </li>
         </ul>
     </div>
-    <div id="header-one" class="header-area header-fixed full-width-compress">
+    <div id="header-one" class="header-area header-fixed full-width-compress" style="background-color: rgba(0, 0, 0, 0.87)">
         <div class="main-menu-area" id="sticker">
             <div class="container-fluid">
                 <div class="row no-gutters d-flex align-items-center">
@@ -90,14 +90,20 @@
                             <!-- Mobile Menu End -->
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 d-none d-lg-block">
+                    <div class="col-lg-3 col-md-4 d-none d-lg-block ">
                         @auth
                         <div class="eventalk-main-menu">
                             <nav class="d-none d-lg-block">
                                 <ul class="header-action-items">
                                     <li>
-                                        <a class="d-flex align-items-center btn-fill size-xs color-yellow border-radius-5 menu-btn" href="">Profile</a>
+                                        <a class="d-flex align-items-center btn-fill size-xs color-yellow border-radius-5 menu-btn" href="">Mon Compte</a>
                                         <ul class="rt-dropdown-menu mt-2">
+                                            <li>
+                                                <a href="{{ route('admin.dashboard') }}">Profile</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('home.myEvent') }}">Les Evènements</a>
+                                            </li>
                                             <li>
                                                 <a href="{{ route('admin.dashboard') }}">Administration</a>
                                             </li>

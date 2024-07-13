@@ -9,36 +9,6 @@
 @endsection
 
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner" style="background-image: url(event/assets/img/figure/inner-page-figure.png);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>Contact Us</h1>
-                        <ul>
-                            <li>
-                                <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
-                            </li>
-                            <li>Contact</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Inne Page Banner Area End Here -->  
-    <!-- Map Area Start Here -->
-    <section class="container">
-        <div class="container-fluid">
-            <div class="google-map-area">
-                <div id="" style="width:100%; height:496px;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0769896476722!2d1.2855315!3d6.2535869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023fd000fc2743d%3A0x9b650c6248c09654!2sEECO%20-%20Eva&#39;a%20Event%20%26%20Com!5e0!3m2!1sfr!2stg!4v1720481410510!5m2!1sfr!2stg" width="100%" height="496px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Map Area End Here -->
     <!-- Contact Form Area Start Here -->
     <section class="section-space-default2-less30">
         <div class="container">
@@ -146,6 +116,17 @@
         </div>
     </section>
     <!-- Contact Form Area End Here -->
+        <!-- Map Area Start Here -->
+        <section class="container">
+            <div class="container-fluid">
+                <div class="google-map-area">
+                    <div id="" style="width:100%; height:496px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0769896476722!2d1.2855315!3d6.2535869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023fd000fc2743d%3A0x9b650c6248c09654!2sEECO%20-%20Eva&#39;a%20Event%20%26%20Com!5e0!3m2!1sfr!2stg!4v1720481410510!5m2!1sfr!2stg" width="100%" height="496px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Map Area End Here -->
 @endsection
 
 @section('scriptSection')

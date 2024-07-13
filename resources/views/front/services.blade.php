@@ -2,26 +2,7 @@
 
 @section('title', 'Services | Eva\'a Event & Com')
 
-@section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner" style="background-image: url(event/assets/img/figure/inner-page-figure.png);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>Services</h1>
-                        <ul>
-                            <li>
-                                <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
-                            </li>
-                            <li>Services</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Inne Page Banner Area End Here -->  
+@section('content') 
     <!-- Inne Page service list Start Here -->
     <section class="service-section">
         <h2 class="title-black color-dark text-center">{{ trans('service.title') }}</h2>

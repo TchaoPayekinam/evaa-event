@@ -3,25 +3,6 @@
 @section('title', 'A Propos | Eva\'a Event & Com')
 
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner" style="background-image: url(event/assets/img/figure/inner-page-figure.png);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>{{ trans('menu.about') }}</h1>
-                        <ul>
-                            <li>
-                                <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
-                            </li>
-                            <li>{{ trans('menu.about') }}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Inne Page Banner Area End Here -->
     <!-- About Us Start Here -->
     <section class="section-space-less30">
         <div class="container">
