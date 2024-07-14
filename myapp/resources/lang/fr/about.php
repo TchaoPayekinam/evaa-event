@@ -24,9 +24,8 @@
 	    'nos-sponsor' => 'Sponsor Officiel & Partenaire',
 	    'nos-sponsor-p' => 'Nous travaillons avec plusieurs Sponsor Officiel & Partenaires pour assurer la réussite de vos évènements.',
 
-	    'travailler-avec-nous' => 'Voulez Vous Travaillez Avec Nous?',
+	    'travailler-avec-nous' => 'Voulez-vous travailler avec nous ?',
 	    'travailler-avec-nous-p' => 'Créer des expériences inoubliables, connecter des personnes, accroître la visibilité des marques.',
 	    'travailler-avec-nous-button' => 'Inscrivez vous maintenant',
 	];
-
 ?>

@@ -24,7 +24,7 @@
 	    'nos-sponsor' => 'Official Sponsor & Partner',
 	    'nos-sponsor-p' => 'We work with several Official Sponsors & Partners to ensure the success of your events.',
 
-	    'travailler-avec-nous' => 'Do You Want to Work With Us?',
+	    'travailler-avec-nous' => 'Would you like to work with us?',
 	    'travailler-avec-nous-p' => 'Elevating unforgettable Experiences, Connecting People, Enhancing brands\' visibility.',
 	    'travailler-avec-nous-button' => 'Register now',
 	];

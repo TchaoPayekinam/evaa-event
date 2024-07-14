@@ -93,7 +93,19 @@
                     <div class="col-lg-3 col-md-4 d-none d-lg-block">
                         <ul class="header-action-items">
                             <li>
-                                <a href="{{ route('user.login') }}" title="Buy Tickets" class="btn-fill size-xs color-yellow border-radius-5">Buy Tickets</a>
+                                @if(Auth::check())
+                                    <a href="{{ route('logout') }}" title="{{ trans('menu.logout') }}" class="btn-fill size-xs color-yellow border-radius-5" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        <i class="mdi mdi-logout mr-1"></i>
+                                        <span>{{ trans('menu.logout') }}</span>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="post">
+                                        {!! csrf_field() !!}
+                                    </form> 
+                                @else
+                                    <a href="{{ route('user.login') }}" title="{{ trans('menu.sign-in') }}" class="btn-fill size-xs color-yellow border-radius-5">{{ trans('menu.sign-in') }}</a>
+                                @endif
                             </li>
                         </ul>
                     </div>

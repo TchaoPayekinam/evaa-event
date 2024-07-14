@@ -19,7 +19,7 @@ class InscriptionController extends Controller
 
     public function inscription()
     {
-        return view('front.inscription');
+        return view('front.event.registration');
     }
 
     public function submit(Request $request)
@@ -60,15 +60,15 @@ class InscriptionController extends Controller
         try {
             if ($saved) {
                 if ($request->paymentOption === 'Flooz') {
-                    return redirect()->route('flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
                 } else if ($request->paymentOption === 'T-Money') {
-                    return redirect()->route('tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
                 }else if( $request->paymentOption === 'Western Union') {
-                    return redirect()->route('westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
                 }else if( $request->paymentOption === 'Money Gram') {
-                    return redirect()->route('moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
                 }else if($request->paymentOption === 'Cash'){
-                    return redirect()->route('cash')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.cash')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
                 }
             }
         } catch (Exception $e) {

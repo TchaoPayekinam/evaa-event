@@ -11,5 +11,10 @@
         'send-msg' => 'Envoyer le message',
         'contact' => 'Contact',
         'map' => 'Carrefour nord-est du Collège d’Enseignement Public (CEG) de Djagblé, Lomé, TOGO',
+        'first-name-required' => 'Le prénom est obligatoire',
+        'last-name-required' => 'Le nom de famille est obligatoire',
+        'phone-required' => 'Le numéro de téléphone est obligatoire',
+        'email-required' => 'L\'email est obligatoire',
+        'msg-required' => 'Le message est obligatoire',
     ];
 ?>
