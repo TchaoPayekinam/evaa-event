@@ -42,7 +42,51 @@
 
                 </div>
             </div>
+            <div>
+                <h2>Voici nos offres de payement</h2>
+                <div class="schedule-content">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active show" id="one">
+                            <table class="table table-striped table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>Offre</th>
+                                        <th>Periode de payement</th>
+                                        <th>Frais de formation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>
+                                            05 - 25 juillet 2024
+                                        </td>
+                                        <td>40000 FCFA</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>
+                                            26 juillet - 11 août 2024
+                                        </td>
+                                        <td>45 000FCFA</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><span>Veillez cliquez sur ce lien pour proccéder au payement --> </span><a href="#">Procceder au payment</a></li>
+                    <li><span>Veillez cliquez sur ce lien pour acceder à votre tableau de bord --> </span><a href="{{route('dashboard')}}">Tableau de board</a></li>
+                </ul>
+
+            </div>
         </div>
+
     </section>
     <!-- Contact Form Area End Here -->
 @endsection

@@ -55,7 +55,7 @@
             height: 50px;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
             border-radius: 0;
-        }               
+        }
     </style>
 @endsection
 
@@ -91,7 +91,7 @@
                             <div id="message-error">
                                 @foreach ($errors->all() as $error)
                                     <p>{{ $error }}</p>
-                                @endforeach             
+                                @endforeach
                             </div>
                         @endif
 

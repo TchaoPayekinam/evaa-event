@@ -17,7 +17,7 @@ class CreateInscriptionsTable extends Migration
             $table->id();
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('email')->unique('email');
+            $table->string('email');
             $table->string('gender');
             $table->string('phoneNumber');
             $table->string('city');

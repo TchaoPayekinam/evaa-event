@@ -21,4 +21,10 @@ class HomeController extends Controller
     public function services() {
         return view('front.services');
     }
+    public function dashboard() {
+        return view('front.dashboard');
+    }
+    public function confirm_order() {
+        return view('front.event.confirm_order');
+    }
 }

@@ -30,8 +30,8 @@
         </div>
         <!-- Preloader End Here -->
         <div id="wrapper" class="wrapper">
-            <!-- Header Area Start Here -->        
-            @include('front.layouts.header')    
+            <!-- Header Area Start Here -->
+            @include('front.layouts.header')
             <!-- Header Area End Here -->
             <!-- Slider Area Start Here -->
             <div class="slider-area slider-direction-layout1 slider-layout1 overlay-slider">
@@ -55,7 +55,7 @@
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.login') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a>
+                                        <a href="{{ route('event.inscription') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.login') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a> 
+                                        <a href="{{ route('event.inscription') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.login') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a> 
+                                        <a href="{{ route('event.inscription') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                         </div>
                         <!-- Repeat speaker-layout1 as needed -->
                     </div>
-                    
+
                 </div>
                 <div class="container zindex-up d-none">
                     <div class="section-heading title-black color-light text-center">
@@ -624,7 +624,7 @@
                                                 <td>EECO</td>
                                                 <td>15h45' - 16h00'</td>
                                             </tr>
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -1131,7 +1131,7 @@
                                         <ul>
                                             <li>{{ trans('home.payment-deadline') }}</li>
                                             <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.after-registering') }}</li>
-                                        </ul> 
+                                        </ul>
                                     </div>
                                     <a href="{{ route('user.login') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-yellow border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
@@ -1231,7 +1231,7 @@
             <section class="section-space-default bg-light">
                 <div class="container">
                     <div class="section-heading title-black color-dark text-center">
-                        <!-- <h2>{{ trans('home.official-sponsor') }}</h2> 
+                        <!-- <h2>{{ trans('home.official-sponsor') }}</h2>
                         <p>Check Who Makes This Event Possible!</p> -->
                     </div>
                     <div class="sponsonrs-layout1">
@@ -1401,7 +1401,7 @@
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.697980454147!2d1.2401818!3d6.1711787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023e23814d83eb7%3A0x466586ae1b01bc2b!2sEcole%20Sup%C3%A9rieure%20Baptiste%20de%20Th%C3%A9ologie%20de%20l&#39;Afrique%20de%20l&#39;Ouest%20(ESBTAO)!5e0!3m2!1sfr!2stg!4v1720450819961!5m2!1sfr!2stg" width="100%" height="496px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <!-- <div id="googleMap" style="width:100%; height:496px;"></div> -->
                         <div class="upcoming-event-layout1">
-                            <h2>Formation sur la fabrication des 
+                            <h2>Formation sur la fabrication des
                                 <br> accessoires de décoration d'intérieur</h2>
                             <div class="date">12 - 14 Août 2024</div>
                             <p>ESBTAO, Hedjranawoé</p>
@@ -1429,7 +1429,7 @@
                 </div>
             </section> -->
             <!-- Subscribe Area End Here -->
-            @include('front.layouts.footer')            
+            @include('front.layouts.footer')
             <!-- Footer Area End Here -->
         </div>
         <!-- Wrapper End -->

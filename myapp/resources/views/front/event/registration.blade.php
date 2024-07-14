@@ -138,14 +138,23 @@
             <!-- <div class="col-8 center"> -->
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="card">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('register.registration') }}</h2>
                     <div class="card-body px-lg-5 pt-0">
-                        <form class="register-form" action="{{route('inscription.submit')}}" method="POST">
+                        <form class="register-form" action="{{route('inscription.submit')}}" method="POST" novalidate>
                             {{ csrf_field() }}
                             <h4 class="text-left subtitle">{{ trans('register.personal-info') }}</h4>
                             <div class="text-left mt-3">
                                 <label for="lastName">{{ trans('register.last-name') }}</label><span style="color: red">*</span>
-                                <input type="text" placeholder="" class="form-control height-45" name="lastName" id="lastName"  required>
+                                <input type="text" placeholder="" class="form-control height-45" value="{{old('lastName')}}" name="lastName" id="lastName"  required>
                                 @error('lastName')
                                     <span class="text-danger font-size" >{{$message}}</span>
                                 @enderror
@@ -153,7 +162,7 @@
 
                             <div class="text-left mt-3">
                                 <label for="firstName">{{ trans('register.first-name') }}</label><span style="color: red">*</span>
-                                <input id="firstName" name="firstName" type="text" placeholder="" class="form-control height-45" required>
+                                <input id="firstName" name="firstName" type="text" value="{{old('firstName')}}" placeholder="" class="form-control height-45" required>
                                 @error('firstName')
                                     <span class="text-danger font-size" >{{$message}}</span>
                                 @enderror
@@ -172,23 +181,15 @@
 
                             <div class="text-left mt-3">
                                 <label for="phoneNumber">{{ trans('register.phone') }}</label><span style="color: red">*</span>
-                                <input id="phoneNumber" name="phoneNumber" type="text" placeholder="" class="form-control height-45" required>
+                                <input id="phoneNumber" name="phoneNumber" type="text" placeholder="" value="{{old('phoneNumber')}}" class="form-control height-45" required>
                                 @error('phoneNumber')
                                     <span class="text-danger font-size" >{{$message}}</span>
                                 @enderror
                             </div>
 
                             <div class="text-left mt-3">
-                                <label for="email">{{ trans('register.email') }}</label><span style="color: red">*</span>
-                                <input id="email" name="email" type="email" placeholder="" class="form-control height-45" required>
-                                @error('email')
-                                    <span class="text-danger font-size" >{{$message}}</span>
-                                @enderror
-                            </div>
-
-                            <div class="text-left mt-3">
                                 <label for="country">{{ trans('register.country') }}</label><span style="color: red">*</span>
-                                <input id="country" name="country" type="text" placeholder="" class="form-control height-45" required>
+                                <input id="country" name="country" type="text" placeholder="" value="{{old('country')}}" class="form-control height-45" required>
                                 @error('country')
                                     <span class="text-danger font-size" >{{$message}}</span>
                                 @enderror
@@ -196,7 +197,7 @@
 
                             <div class="text-left mt-3">
                                 <label for="city">{{ trans('register.city') }}</label><span style="color: red">*</span>
-                                <input id="city" name="city" type="text" placeholder="" class="form-control height-45" required>
+                                <input id="city" name="city" type="text" placeholder="" class="form-control height-45" value="{{old('city')}}"  required>
                                 @error('city')
                                     <span class="text-danger font-size" >{{$message}}</span>
                                 @enderror
@@ -211,9 +212,9 @@
                                 @enderror
                                 <br>
                                 <span class="input-wrapper ml-3">
-                                    <input class="mr-2" type="radio" name="cohortJoin" value="First cohort" checked="checked">{{ trans('register.first-cohort') }}
+                                    <input class="mr-2" type="radio" name="cohortJoin" value="First cohort" required checked="checked">{{ trans('register.first-cohort') }}
                                     <br>
-                                    <input class="ml-3 mr-2" type="radio" name="cohortJoin" value="Second cohort">{{ trans('register.second-cohort') }}
+                                    <input class="ml-3 mr-2" type="radio" name="cohortJoin" required value="Second cohort">{{ trans('register.second-cohort') }}
                                 </span>
                             </div>
 
@@ -244,6 +245,52 @@
                                 </span>
                             </div>
 
+                            {{-- formulaire de compte --}}
+                            <h2 class="card-header text-center py-3 mt-4 poti-light-bg">{{ trans('register.regis-form') }}</h2>
+                            <p class="small text-muted">Le compte vous permettra de suivre vos activités sur la plateforme, d'accéder à votre tableau de board et de confirmer vos inscriptions et payements.</p>
+                            <div class="card-body px-lg-5 pt-0">
+                            <div class="text-left mt-3">
+                                <label>
+                                    <input type="radio" name="has_account" value="yes" class="ml-3 mr-2" required onclick="toggleFields()"> J'ai un compte
+                                </label>
+                                <label>
+                                    <input type="radio" name="has_account" class="ml-3 mr-2" required value="no" onclick="toggleFields()"> Je n'ai pas de compte
+                                </label>
+                            </div>
+
+                            <div id="emailField" style="display: none;" class="text-left mt-3">
+                                <label for="email">Veillez renseinger votre adresse email</label><span style="color: red">*</span>
+                                <input id="email" name="email" type="email" placeholder="" class="form-control height-45" required>
+                                @error('email')
+                                    <span class="text-danger font-size" >{{$message}}</span>
+                                @enderror
+                            </div>
+
+                            <div id="credentialsFields" style="display: none;" class="text-left mt-3">
+                                <label for="email_no_account">Veillez renseinger votre adresse email</label><span style="color: red">*</span>
+                                <input type="email" name="email_no_account" placeholder="" class="form-control height-45" required>
+                                @error('email_no_account')
+                                        <span class="text-danger font-size" >{{$message}}</span>
+                                    @enderror
+
+                                <div id="credentialsFields" class="text-left mt-3">
+                                    <label for="password">Veillez entrer un mot de passe</label><span style="color: red">*</span>
+                                    <input type="password" name="password" placeholder="" class="form-control height-45" required>
+                                    @error('password')
+                                        <span class="text-danger font-size" >{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div id="credentialsFields" class="text-left mt-3">
+                                    <label for="password_confirmation">Confirmer votre mot de passe</label><span style="color: red">*</span>
+                                    <input type="password" name="password_confirmation" placeholder="" class="form-control height-45" required>
+                                    @error('password_confirmation')
+                                        <span class="text-danger font-size" >{{$message}}</span>
+                                    @enderror
+
+                                </div>
+
+                            </div>
+
                             <div class="center mt-3">
                                 <button type="submit" class="btn btn-color-primary">{{ trans('register.btn-sign-up') }}</button>
                             </div>
@@ -255,4 +302,19 @@
     </div>
 </section>
 <!-- Sign Up Form Area End Here -->
+<script>
+    function toggleFields() {
+        const hasAccountYes = document.querySelector('input[name="has_account"][value="yes"]').checked;
+        const emailField = document.getElementById('emailField');
+        const credentialsFields = document.getElementById('credentialsFields');
+
+        if (hasAccountYes) {
+            emailField.style.display = 'block';
+            credentialsFields.style.display = 'none';
+        } else {
+            emailField.style.display = 'none';
+            credentialsFields.style.display = 'block';
+        }
+    }
+</script>
 @endsection

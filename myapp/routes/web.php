@@ -14,11 +14,15 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name('home.about');
 Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('home.contact');
 Route::get('services', [App\Http\Controllers\HomeController::class, 'services'])->name('home.services');
+Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
+Route::get('confirm_order', [App\Http\Controllers\HomeController::class, 'confirm_order'])->name('confirm_order');
 
 Route::post('submit-contact-form', [ContactController::class, 'submit'])->name('post_contact_form');
 Route::get('event/inscription', [InscriptionController::class, 'inscription'])->name('event.inscription');
 Route::post('/inscription', [InscriptionController::class, 'submit'])->name('inscription.submit');
 Route::get('order-history', [InscriptionController::class, 'order_history'])->name('order_history');
+Route::post('confirm_order', [InscriptionController::class, 'submit'])->name('confirm_order.submit');
+
 
 Route::get('event-inscription/payment/flooz', [PaymentController::class, 'flooz'])->name('payment.flooz');
 Route::get('event-inscription/payment/t-money', [PaymentController::class, 'tMoney'])->name('payment.tMoney');

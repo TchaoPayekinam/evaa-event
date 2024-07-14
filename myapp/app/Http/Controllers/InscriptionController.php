@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inscription;
+use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
 
 class InscriptionController extends Controller
 {
@@ -24,38 +28,109 @@ class InscriptionController extends Controller
 
     public function submit(Request $request)
     {
+
+        $validatedData = [];
+
+        if ($request->input('has_account') === 'yes') {
+            $validatedData = $request->validate([
+                'email' => 'required|email|max:255|exists:users,email',
+            ],[
+                'email.exists'=> 'Aucun compte n\'est associé à cette adresse email.',
+                'email.required'=> 'Le champ email est obligatoire',
+                'email.email'=> 'Adresse email incorrecte',
+            ]);
+
+
         $request->validate([
-            'firstName' => 'required|string|min:5',
-            'lastName' => 'required|string|min:5',
-            'genre' => 'nullable',
-            'email' => 'required|email|regex:/(.+)@(.+)\.(.+)/i',
-            'phoneNumber' => ['required', 'min:8'],
-            'country' => 'required|string',
-            'city' => 'required|string',
-            'cohortJoin' => 'required|string',
-            'experienceDesign' => 'required|string',
-            'paymentOption' => 'required|string',
+             'firstName' => 'required|string|min:5',
+             'lastName' => 'required|string|min:5',
+             'genre' => 'nullable',
+             'phoneNumber' => ['required', 'min:8'],
+             'country' => 'required|string',
+             'city' => 'required|string',
+             'cohortJoin' => 'required|string',
+             'experienceDesign' => 'required|string',
+             'paymentOption' => 'required|string',
         ]);
 
-        $confirmationCode = $this->generateConfirmationCode();
-        $paymentAmount = 5000;
+         $confirmationCode = $this->generateConfirmationCode();
+         $paymentAmount = 5000;
+         $inscription = new Inscription();
+         $inscription->firstName = $request->firstName;
+         $inscription->lastName = $request->lastName;
+         $inscription->gender = $request->gender;
+         $inscription->email = $request->email;
+         $inscription->phoneNumber = $request->phoneNumber;
+         $inscription->country = $request->country;
+         $inscription->city = $request->city;
+         $inscription->cohortJoin = $request->cohortJoin;
+         $inscription->experienceDesign = $request->experienceDesign;
+         $inscription->paymentOption = $request->paymentOption;
+         $inscription->paymentAmount = $paymentAmount;
+         $inscription->confirmationCode = $confirmationCode;
 
-        $inscription = new Inscription();
-        $inscription->firstName = $request->firstName;
-        $inscription->lastName = $request->lastName;
-        $inscription->gender = $request->gender;
-        $inscription->email = $request->email;
-        $inscription->phoneNumber = $request->phoneNumber;
-        $inscription->country = $request->country;
-        $inscription->city = $request->city;
-        $inscription->cohortJoin = $request->cohortJoin;
-        $inscription->experienceDesign = $request->experienceDesign;
-        $inscription->paymentOption = $request->paymentOption;
-        $inscription->paymentAmount = $paymentAmount;
-        $inscription->confirmationCode = $confirmationCode;
+         dd($inscription);
+        // $saved = $inscription->save();
+        } else {
+            $validatedData = $request->validate([
+                'email_no_account' => ['required', 'string', 'email', 'max:255',],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            ], [
+                'email_no_account.required'=> 'L\'email est obligatoire',
+                'email_no_account.email'=> 'Adresse email incorrecte',
+                'email_no_account.unique' => 'Un compte avec cette adresse e-mail existe déjà.',
+                'password.confirmed'=>'Le mot de passe de confirmation est incorrect',
+                'password.min'=>'La taille minimale du mot de passe est 8',
+                'password.mixedCase'=>'Le mot de passe nécessite au moins une lettre majuscule et une lettre minuscule',
+                'password.letters'=>'Le mot de passe nécessite au moins une lettre',
+                'password.numbers'=>'Le mot de passe nécessite au moins un chiffre',
+                'password.symbols'=>'Le mot de passe nécessite au moins un symbole',
+                'password.required'=> 'Le mot de passe est obligatoire',
+            ]);
 
+            $user = User::where('email', $validatedData['email_no_account'])->first();
+            if ($user) {
+                return redirect()->back()->withErrors(['email_no_account' => 'Un compte avec cette adresse e-mail existe déjà.']);
+            }
 
-        $saved = $inscription->save();
+            $user = User::create([
+                'email' => $request->email_no_account,
+                'password' => Hash::make($request->password),
+            ]);
+
+            $request->validate([
+                'firstName' => 'required|string|min:5',
+                'lastName' => 'required|string|min:5',
+                'genre' => 'nullable',
+                'phoneNumber' => ['required', 'min:8'],
+                'country' => 'required|string',
+                'city' => 'required|string',
+                'cohortJoin' => 'required|string',
+                'experienceDesign' => 'required|string',
+                'paymentOption' => 'required|string',
+           ]);
+
+            $confirmationCode = $this->generateConfirmationCode();
+            $paymentAmount = 5000;
+            $inscription = new Inscription();
+            $inscription->firstName = $request->firstName;
+            $inscription->lastName = $request->lastName;
+            $inscription->gender = $request->gender;
+            $inscription->email = $request->email_no_account;
+            $inscription->phoneNumber = $request->phoneNumber;
+            $inscription->country = $request->country;
+            $inscription->city = $request->city;
+            $inscription->cohortJoin = $request->cohortJoin;
+            $inscription->experienceDesign = $request->experienceDesign;
+            $inscription->paymentOption = $request->paymentOption;
+            $inscription->paymentAmount = $paymentAmount;
+            $inscription->confirmationCode = $confirmationCode;
+            $saved = $inscription->save();
+
+            // Authentifier le nouvel utilisateur
+           // Auth::login($user);
+            // Traitez d'autres données si nécessaire ici...
+        }
 
         try {
             if ($saved) {
@@ -72,7 +147,8 @@ class InscriptionController extends Controller
                 }
             }
         } catch (Exception $e) {
-            return redirect()->back()->withErrors($e->getMessage());
+           // return redirect()->back()->withErrors($e->getMessage());
         }
     }
+
 }

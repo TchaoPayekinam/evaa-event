@@ -1,15 +1,15 @@
 <?php
 return [
-	'sign-up' => 'S\'inscrire',	
-	'registration' => 'Inscription',
-	'regis-form' => 'Formulaire d\'inscription',
+	'sign-up' => 'S\'inscrire',
+	'registration' => 'Formulaire d\'inscription',
+	'regis-form' => 'Compte',
 	'username' => 'Nom d\'utilisateur',
 	'email' => 'Adresse e-mail',
 	'password' => 'Mot de passe',
 	'confirm-password' => 'Confirmer Mot de passe',
 
 	'personal-info' => 'Informations Personnelles',
-	'last-name' => 'Nom',	
+	'last-name' => 'Nom',
 	'first-name' => 'Prénoms',
 	'gender' => 'Sexe',
 	'phone' => 'Numéro de téléphone',
