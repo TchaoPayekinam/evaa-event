@@ -23,7 +23,9 @@ class CreateInscriptionsTable extends Migration
             $table->string('city');
             $table->string('status')->default('En attente');
             $table->string('country');
+            $table->string('is_validate')->default('false');
             $table->string('cohortJoin');
+            $table->string('ref')->nullable();
             $table->string('experienceDesign');
             $table->string('paymentOption');
             $table->double('paymentAmount');

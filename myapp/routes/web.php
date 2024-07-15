@@ -21,13 +21,17 @@ Route::get('event/inscription', [InscriptionController::class, 'inscription'])->
 Route::post('/inscription', [InscriptionController::class, 'submit'])->name('inscription.submit');
 Route::get('order-history', [InscriptionController::class, 'order_history'])->name('order_history');
 
-Route::get('event-inscription/payment/flooz', [PaymentController::class, 'flooz'])->name('payment.flooz');
-Route::get('event-inscription/payment/t-money', [PaymentController::class, 'tMoney'])->name('payment.tMoney');
-Route::get('event-inscription/payment/western-union', [PaymentController::class, 'payment.westernUnion'])->name('payment.westernUnion');
-Route::get('event-inscription/payment/money-gram', [PaymentController::class, 'payment.moneyGram'])->name('payment.moneyGram');
-Route::get('event-inscription/payment/cash', [PaymentController::class, 'cash'])->name('payment.cash');
+Route::get('event/payment/flooz', [App\Http\Controllers\HomeController::class, 'flooz'])->name('payment.flooz');
+Route::get('event/payment/t-money', [App\Http\Controllers\HomeController::class, 'tMoney'])->name('payment.tMoney');
+Route::get('event/payment/western-union', [App\Http\Controllers\HomeController::class, 'westernUnion'])->name('payment.westernUnion');
+Route::get('event/payment/money-gram', [App\Http\Controllers\HomeController::class, 'moneyGram'])->name('payment.moneyGram');
+Route::get('event/payment/cash', [App\Http\Controllers\HomeController::class, 'cash'])->name('payment.cash');
 
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/inscription/{id}', [DashboardController::class, 'inscriptionDetails'])->name('inscription.details');
+Route::post('/inscription/{id}/confirm', [DashboardController::class, 'confirmInscription'])->name('inscription.confirm');
+Route::get('/payment', [PaymentController::class,'payment'])->name('payment');
+Route::post('/payment', [PaymentController::class,'submit'])->name('payment.submit');
+
 
 require __DIR__.'/auth.php';

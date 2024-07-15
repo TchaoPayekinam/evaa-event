@@ -53,6 +53,7 @@
                                         <th>Evènement</th>
                                         <th>code de confirmation</th>
                                         <th>statut</th>
+                                        <th>Validé</th>
                                         <th>Options de payment</th>
                                         <th>Date d'inscription</th>
                                         <th>Entrer les détails de confirmations</th>
@@ -65,6 +66,7 @@
                                             <td>{{ $inscription->event->name }}</td>
                                             <td>{{ $inscription->confirmationCode }}</td>
                                             <td>{{ $inscription->status }}</td>
+                                            <td>{{ $inscription->is_validate == 0 ? 'false' : 'true' }}</td>
                                             <td>{{ $inscription->paymentOption }}</td>
                                             <td>{{ $inscription->created_at->format('d/m/Y') }}</td>
                                             <td><a href="{{ route('inscription.details', $inscription->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>
@@ -75,58 +77,29 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="two">
                             <table class="table table-striped table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Activités</th>
-                                        <th>Intervenant</th>
-                                        <th>Horaire</th>
-                                    </tr>
-                                </thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Evènement</th>
+                                    <th>code de confirmation</th>
+                                    <th>statut</th>
+                                    <th>Validé</th>
+                                    <th>Options de paiment</th>
+                                    <th>Date de paiment</th>
+                                    <th>Entrer les détails de confirmations</th>
+                                </tr>
                                 <tbody>
+                                    @foreach ($payments as $payment)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Module 2 : Exploration des tendances actuelles des accessoires de décoration d’intérieur </td>
-                                        <td>Otniel’s Galerie</td>
-                                        <td>8h00' - 9h00'</td>
+                                        <th scope="row">{{ $payment->id }}</th>
+                                        <td>{{ $payment->event->name }}</td>
+                                        <td>{{ $payment->confirmationCode }}</td>
+                                        <td>{{ $payment->status }}</td>
+                                        <td>{{ $payment->is_validate == 0 ? 'false' : 'true' }}</td>
+                                        <td>{{ $payment->paymentOption }}</td>
+                                        <td>{{ $payment->created_at->format('d/m/Y') }}</td>
+                                        <td><a href="{{ route('inscription.details', $payment->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Module 2 (suite) - Créativité et Personnalisation en Design : Techniques et innovation</td>
-                                        <td>Otniel’s Galerie</td>
-                                        <td>9h00' - 10h00'</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Pause-Café</td>
-                                        <td> - </td>
-                                        <td>10h00' - 10h30'</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Atelier Pratique : Confection de tables avec des pneus et Décoration de miroirs</td>
-                                        <td>Otniel’s Galerie & Encadreurs</td>
-                                        <td>10h30' - 12h30'</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Pause-Déjeuner</td>
-                                        <td> - </td>
-                                        <td>12h30' - 13h30'</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">6</th>
-                                        <td>Atelier Pratique (suite) :Décoration de miroirs; Pot de fleur et Cadre Photo</td>
-                                        <td>Otniel’s Galerie & Encadreurs</td>
-                                        <td>13h30' - 15h45'</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">7</th>
-                                        <td>Synthèse de la journée et clôture</td>
-                                        <td>EECO</td>
-                                        <td>15h45' - 16h00'</td>
-                                    </tr>
-
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -107,32 +107,29 @@
                                             </div>
                                         @endif
 
-                                        <form class="register-form" action="{{ route('user.register') }}" method="POST" autocomplete="off">
+                                        <form class="register-form" action="{{ route('inscription.confirm', $inscription->id) }}" method="POST" autocomplete="off">
                                             {{ csrf_field() }}
 
+                                            <div class="text-left mt-3">
+                                                <label for="confirmationCode">Entrer votre code de confirmation<span style="color : red">*</span></label>
+                                                <input id="confirmationCode" name="confirmationCode" type="text" placeholder="" class="form-control height-45" value="{{ old('confirmationCode') }}" required autocomplete="off">
+
+                                            </div>
                                             <div class="text-left mt-3">
                                                 <label for="ref">Numéro de référence du paiement<span style="color : red">*</span></label>
                                                 <span class="small">Voici un exemple de reference {{ $inscription->paymentOption == 'Flooz' ? 'Txn ID: 2240202149567' : ($inscription->paymentOption == 'T-Money' ? 'Ref: 3422489595' : '') }}</span>
                                                 <input id="ref" name="ref" type="text" placeholder="" class="form-control height-45" value="{{ old('ref') }}" required autocomplete="off">
 
-                                                @if ($errors->has('ref'))
-                                                    <span class="text-danger">{{ $errors->first('ref') }}</span>
-                                                @endif
                                             </div>
 
                                             <div class="text-left mt-3">
                                                 <label for="amount">Montant envoyer<span style="color : red">*</span></label>
                                                 <input id="amount" name="amount" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
-                                                @if ($errors->has('amount'))
-                                                    <span class="text-danger">{{ $errors->first('amount') }}</span>
-                                                @endif
                                             </div>
                                             <div class="text-left mt-3">
                                                 <label for="optionAmount">Option de payement<span style="color : red">*</span></label>
                                                 <input id="optionAmount" name="optionAmount" disabled value="{{$inscription->paymentOption}}" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
-                                                @if ($errors->has('optionAmount'))
-                                                    <span class="text-danger">{{ $errors->first('optionAmount') }}</span>
-                                                @endif
+
                                             </div>
 
                                             <div class="text-left mt-3">
@@ -142,7 +139,9 @@
 
                                             <div class="center mt-3">
                                                 <button type="submit" class="btn btn-color-primary">Confirmer</button>
+                                                <a href="{{ route('dashboard') }}" class="btn btn-danger">Annuler</a>
                                             </div>
+
                                         </form>
                                     </div>  <!-- card body -->
                                 </div>  <!-- card -->

@@ -1133,7 +1133,7 @@
                                             <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.after-registering') }}</li>
                                         </ul>
                                     </div>
-                                    <a href="{{ route('user.login') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-yellow border-radius-5">{{ trans('home.pay') }}</a>
+                                    <a href="{{ route('event.inscription') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-yellow border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -1152,7 +1152,7 @@
                                             <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.date-1') }}</li>
                                         </ul>
                                     </div>
-                                    <a href="{{ route('user.login') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-primary border-radius-5">{{ trans('home.pay') }}</a>
+                                    <a href="{{ route('payment') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-primary border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -1171,7 +1171,7 @@
                                             <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.date-2') }}</li>
                                         </ul>
                                     </div>
-                                    <a href="{{ route('user.login') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-green border-radius-5">{{ trans('home.pay') }}</a>
+                                    <a href="{{ route('payment') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-green border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
