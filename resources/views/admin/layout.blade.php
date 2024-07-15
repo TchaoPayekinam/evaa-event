@@ -50,9 +50,7 @@
     </div><!-- End Logo -->
 
     <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-        <button class="nav-link btn-fill size-xs color-yellow border-radius-5 mr-2">{{ trans('menu.logout') }}</button>
-      </ul>
+        <a class ="btn btn btn-primary new-consignateur m-5" href="{{ route('home.index') }}">Aller sur le site</a>
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->

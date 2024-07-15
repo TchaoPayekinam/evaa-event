@@ -11,16 +11,16 @@ use Illuminate\Support\Facades\DB;
 class PayementController extends Controller
 {
     public function index(){
-        $payements = DB::table('payements')
-            ->join('evenements', 'payements.evenement_id', '=', 'evenements.id')
-            ->select('payements.*', 'evenements.libelle as evenement_libelle')
+        $payements = DB::table('payments')
+            ->join('events', 'payments.evenement_id', '=', 'events.id')
+            ->select('payments.*', 'events.libelle as evenement_libelle')
             ->latest()
             ->get();
         return view('admin.payement.index', compact('payements'));
     }
 
     public function createForm(){
-        $evenements = Evenement::latest()->get();
+        $evenements = Events::latest()->get();
         return view('admin.payement.create', compact('evenements'));
     }
 
