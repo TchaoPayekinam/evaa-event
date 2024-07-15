@@ -41,7 +41,7 @@
             </li>
         </ul>
     </div>
-    <div id="header-one" class="header-area header-fixed full-width-compress">
+    <div id="header-one" class="header-area header-fixed full-width-compress" style="background-color: rgba(0, 0, 0, 0.87)">
         <div class="main-menu-area" id="sticker">
             <div class="container-fluid">
                 <div class="row no-gutters d-flex align-items-center">
@@ -96,7 +96,6 @@
                                 @if(Auth::check())
                                     <a href="{{ route('logout') }}" title="{{ trans('menu.logout') }}" class="btn-fill size-xs color-yellow border-radius-5" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                        <i class="mdi mdi-logout mr-1"></i>
                                         <span>{{ trans('menu.logout') }}</span>
                                     </a>
                                     <a href="{{ route('dashboard') }}" title="dashboard" class="btn-fill size-xs color-yellow border-radius-5">
@@ -112,6 +111,7 @@
                             </li>
                         </ul>
                     </div>
+                    <!--  -->
                 </div>
             </div>
         </div>

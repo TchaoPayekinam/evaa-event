@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner" style="background-image: url(event/assets/img/figure/inner-page-figure.png);">
+    <section class="inner-page-banner" style="background-image: url('{{ asset('event/assets/img/figure/inner-page-figure.png') }}');">
         <div class="container">
             <div class="row">
                 <div class="col-12">

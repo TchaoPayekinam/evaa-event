@@ -2421,7 +2421,7 @@ body > .eventalk-tooltip .eventalk-tooltip-bottom:after {
 #scrollUp {
   animation: blinker 10s linear infinite;
 }
-.preloader {
+/*.preloader {
   height: 100%;
   position: fixed;
   left: 0;
@@ -2467,7 +2467,7 @@ body > .eventalk-tooltip .eventalk-tooltip-bottom:after {
 .preloader .items .item:nth-child(4n+4) {
   animation: wave 2s ease .6s infinite;
   margin-right: 0;
-}
+}*/
 @keyframes wave {
   0% {
     top: 0;

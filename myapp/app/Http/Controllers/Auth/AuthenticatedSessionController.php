@@ -35,10 +35,6 @@ class AuthenticatedSessionController extends Controller
             $activeSessions = Cache::get('active_sessions', []);
 
             // Ajouter l'ID de session à la liste des sessions actives
-            /*if (!in_array($sessionId, $activeSessions)) {
-                $activeSessions[] = $sessionId;
-                Cache::put('active_sessions', $activeSessions, 60);
-            }*/
             if (!isset($activeSessions[$sessionId])) {
                 $activeSessions[$sessionId] = Auth::id();
                 Cache::put('active_sessions', $activeSessions, 60);
@@ -49,10 +45,8 @@ class AuthenticatedSessionController extends Controller
             $user->last_login_at = \Carbon\Carbon::now();
             $user->save();
 
-            /* if (Auth::User()->password_change_at == null)
-                return redirect()->route('password.changed'); */
-
-            return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->intended(route('home.index'));
+            //return redirect()->intended(RouteServiceProvider::HOME);
         } else{
             $notification = array(
                 'message' => __('auth.failed'),

@@ -26,22 +26,13 @@
         }
         .card-header {
             color: #036;
-            /*font-size: 2.75rem;*/
             font-size: 40px;
             line-height: 1.3em;
-            /*margin: 1.07em 0 .535em;*/
             font-weight: 550;
         }
         .poti-light-bg {
             background-color: #e5e5e5 !important;
         }
-
-        /*.login-form input {
-            height: 45px;
-            color: #111111;
-            padding: 5px 15px;
-            font-size: 15px;
-        }*/
 
         .subtitle {
             color: #2b689c;
@@ -54,7 +45,6 @@
             background: #f5f5f5;
             box-shadow: none;
             border: none;
-            /*height: 45px;*/
             color: #111111;
             padding: 5px 15px;
             font-size: 15px;

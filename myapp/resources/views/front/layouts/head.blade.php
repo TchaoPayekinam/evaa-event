@@ -67,11 +67,9 @@
 
     .header-toolbar-area .nav {
         list-style: none;
-        /*padding: 0;*/
         margin: 0;
         display: flex;
         color: #000;
-        /*font-size: 12px;*/
         font-weight: 700;
     }
 
@@ -101,10 +99,6 @@
         width: 27.6px;
         height: 27.6px;
         margin-right: 15px;
-        /*margin-left: calc(13px / 2);*/
-        /*width: calc(var(--icon-size, 25px) + 2* var(--icon-padding, .5em));
-        height: calc(var(--icon-size, 25px) + 2* var(--icon-padding, .5em));*/
-        /*word-spacing: 15px;*/
     }
 
     .social-icons li i { 
@@ -113,7 +107,6 @@
         height: 1em;
         position: relative;
         font-size: 18px;
-        /*display: block;*/
     }
 
     .right-nav {

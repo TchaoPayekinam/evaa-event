@@ -18,6 +18,7 @@ class PaymentController extends Controller
 
         return $confirmationCode;
     }
+
     public function payment(){
         return view("front.event.payment");
     }
@@ -60,5 +61,4 @@ class PaymentController extends Controller
            return redirect()->back()->withErrors($e->getMessage());
         }
     }
-
 }
