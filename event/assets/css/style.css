@@ -1,6 +1,7 @@
 /*p {
     font-size: 17px;
 }*/
+
 /*alert message*/
 #message-error p, #message-info p, #message-success p {
     padding-left: 1em;
@@ -77,6 +78,9 @@
     text-align: center;
 }
 
+.item-price{
+    font-size: 40px !important;
+}
 
 @media (max-width: 1024px) {
     .speaker-layout1, .sponsor {
@@ -113,7 +117,6 @@
     margin-left: 50px;
     font-size: 17px;
 }
-
 
 .row-2{
     margin-top:  50px;
@@ -169,6 +172,8 @@
     background-color: #ffffff35;
     height: 200px;
     border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .service-grid div h2{

@@ -17,16 +17,21 @@ class CreateInscriptionsTable extends Migration
             $table->id();
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('email')->unique('email');
+            $table->string('email');
             $table->string('gender');
             $table->string('phoneNumber');
             $table->string('city');
+            $table->string('status')->default('En attente');
             $table->string('country');
+            $table->string('is_validate')->default('false');
             $table->string('cohortJoin');
+            $table->string('ref')->nullable();
             $table->string('experienceDesign');
             $table->string('paymentOption');
             $table->double('paymentAmount');
             $table->string('confirmationCode');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
             $table->timestamps();
         });
     }

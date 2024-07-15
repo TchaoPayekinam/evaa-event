@@ -35,7 +35,7 @@
                                 {{ trans('payment.thank-you-for-choosing') }}
                             </p>
                             <p>
-                                {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }} 
+                                {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
                             </p>
                             <p>
                                 {{ trans('payment.order-history') }}
@@ -67,8 +67,36 @@
                                 </ol>
                             </div>
                             <hr>
+                                <h3>Voici nos offres de payement</h3>
+                                <div class="">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Offre</th>
+                                                <th>Periode de payement</th>
+                                                <th>Frais de formation</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>
+                                                    05 - 25 juillet 2024
+                                                </td>
+                                                <td>40000 FCFA</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>
+                                                    26 juillet - 11 août 2024
+                                                </td>
+                                                <td>45 000FCFA</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             <div class="text-center">
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('order_history') }}">My Order History</a>
+                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">My Order History</a>
                             </div>
                         </div>
                     </div>
@@ -78,4 +106,3 @@
     </section>
     <!-- Area End Here -->
 @endsection
-

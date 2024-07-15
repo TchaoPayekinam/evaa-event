@@ -41,7 +41,7 @@
             </li>
         </ul>
     </div>
-    <div id="header-one" class="header-area header-fixed full-width-compress">
+    <div id="header-one" class="header-area header-fixed full-width-compress" style="background-color: rgba(0, 0, 0, 0.87)">
         <div class="main-menu-area" id="sticker">
             <div class="container-fluid">
                 <div class="row no-gutters d-flex align-items-center">
@@ -96,19 +96,22 @@
                                 @if(Auth::check())
                                     <a href="{{ route('logout') }}" title="{{ trans('menu.logout') }}" class="btn-fill size-xs color-yellow border-radius-5" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                        <i class="mdi mdi-logout mr-1"></i>
                                         <span>{{ trans('menu.logout') }}</span>
+                                    </a>
+                                    <a href="{{ route('dashboard') }}" title="dashboard" class="btn-fill size-xs color-yellow border-radius-5">
+                                        <span>dashboard</span>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="post">
                                         {!! csrf_field() !!}
-                                    </form> 
+                                    </form>
                                 @else
                                     <a href="{{ route('user.login') }}" title="{{ trans('menu.sign-in') }}" class="btn-fill size-xs color-yellow border-radius-5">{{ trans('menu.sign-in') }}</a>
                                 @endif
                             </li>
                         </ul>
                     </div>
+                    <!--  -->
                 </div>
             </div>
         </div>
