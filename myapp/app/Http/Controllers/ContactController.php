@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+//use Illuminate\Support\Facades\Mail;
+
+use App\Jobs\SendContactFormNotificationEmail;
 
 class ContactController extends Controller
 {
@@ -32,7 +34,9 @@ class ContactController extends Controller
             $contact->message = $request->message;
             $saved = $contact->save();
 
-            return response()->json(['success' => 'Message envoyé avec succès !']);
+            SendContactFormNotificationEmail::dispatch($contact->id);
+
+            return response()->json(['success' => 'Votre message a été soumis avec succès !']);
 
             /*if($saved) {
                 Mail::to("admin@gmail.com")->send(new ContactForm($contact->firstName, $contact->lastName, $contact->message, $contact->phoneNumber, $contact->society, $contact->email));
