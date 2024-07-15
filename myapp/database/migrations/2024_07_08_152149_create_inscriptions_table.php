@@ -21,12 +21,15 @@ class CreateInscriptionsTable extends Migration
             $table->string('gender');
             $table->string('phoneNumber');
             $table->string('city');
+            $table->string('status')->default('En attente');
             $table->string('country');
             $table->string('cohortJoin');
             $table->string('experienceDesign');
             $table->string('paymentOption');
             $table->double('paymentAmount');
             $table->string('confirmationCode');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
             $table->timestamps();
         });
     }

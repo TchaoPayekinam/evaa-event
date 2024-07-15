@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\Inscription;
 use App\Models\User;
 use Exception;
@@ -29,6 +30,7 @@ class InscriptionController extends Controller
     public function submit(Request $request)
     {
 
+        $event = Event::find(1);
         $validatedData = [];
 
         if ($request->input('has_account') === 'yes') {
@@ -40,8 +42,9 @@ class InscriptionController extends Controller
                 'email.email'=> 'Adresse email incorrecte',
             ]);
 
-
-        $request->validate([
+            $user = User::where('email', $validatedData['email'])->first();
+            Auth::login($user);
+            $request->validate([
              'firstName' => 'required|string|min:5',
              'lastName' => 'required|string|min:5',
              'genre' => 'nullable',
@@ -54,7 +57,6 @@ class InscriptionController extends Controller
         ]);
 
          $confirmationCode = $this->generateConfirmationCode();
-         $paymentAmount = 5000;
          $inscription = new Inscription();
          $inscription->firstName = $request->firstName;
          $inscription->lastName = $request->lastName;
@@ -66,11 +68,12 @@ class InscriptionController extends Controller
          $inscription->cohortJoin = $request->cohortJoin;
          $inscription->experienceDesign = $request->experienceDesign;
          $inscription->paymentOption = $request->paymentOption;
-         $inscription->paymentAmount = $paymentAmount;
+         $inscription->paymentAmount = $event->frais_inscription;
          $inscription->confirmationCode = $confirmationCode;
+         $inscription->user_id = Auth::user()->id;
+         $inscription->event_id = $event->id;
 
-         dd($inscription);
-        // $saved = $inscription->save();
+        $saved = $inscription->save();
         } else {
             $validatedData = $request->validate([
                 'email_no_account' => ['required', 'string', 'email', 'max:255',],
@@ -98,6 +101,7 @@ class InscriptionController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
+            Auth::login($user);
             $request->validate([
                 'firstName' => 'required|string|min:5',
                 'lastName' => 'required|string|min:5',
@@ -110,45 +114,42 @@ class InscriptionController extends Controller
                 'paymentOption' => 'required|string',
            ]);
 
-            $confirmationCode = $this->generateConfirmationCode();
-            $paymentAmount = 5000;
-            $inscription = new Inscription();
-            $inscription->firstName = $request->firstName;
-            $inscription->lastName = $request->lastName;
-            $inscription->gender = $request->gender;
-            $inscription->email = $request->email_no_account;
-            $inscription->phoneNumber = $request->phoneNumber;
-            $inscription->country = $request->country;
-            $inscription->city = $request->city;
-            $inscription->cohortJoin = $request->cohortJoin;
-            $inscription->experienceDesign = $request->experienceDesign;
-            $inscription->paymentOption = $request->paymentOption;
-            $inscription->paymentAmount = $paymentAmount;
-            $inscription->confirmationCode = $confirmationCode;
-            $saved = $inscription->save();
+           $confirmationCode = $this->generateConfirmationCode();
+           $inscription = new Inscription();
+           $inscription->firstName = $request->firstName;
+           $inscription->lastName = $request->lastName;
+           $inscription->gender = $request->gender;
+           $inscription->email = $request->email_no_account;
+           $inscription->phoneNumber = $request->phoneNumber;
+           $inscription->country = $request->country;
+           $inscription->city = $request->city;
+           $inscription->cohortJoin = $request->cohortJoin;
+           $inscription->experienceDesign = $request->experienceDesign;
+           $inscription->paymentOption = $request->paymentOption;
+           $inscription->paymentAmount = $event->frais_inscription;
+           $inscription->confirmationCode = $confirmationCode;
+           $inscription->user_id = Auth::user()->id;
+           $inscription->event_id = $event->id;
 
-            // Authentifier le nouvel utilisateur
-           // Auth::login($user);
-            // Traitez d'autres données si nécessaire ici...
+           $saved = $inscription->save();
+
         }
-
         try {
             if ($saved) {
                 if ($request->paymentOption === 'Flooz') {
-                    return redirect()->route('payment.flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
                 } else if ($request->paymentOption === 'T-Money') {
-                    return redirect()->route('payment.tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
                 }else if( $request->paymentOption === 'Western Union') {
-                    return redirect()->route('payment.westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
                 }else if( $request->paymentOption === 'Money Gram') {
-                    return redirect()->route('payment.moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
                 }else if($request->paymentOption === 'Cash'){
-                    return redirect()->route('payment.cash')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $paymentAmount]);
+                    return redirect()->route('payment.cash')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
                 }
             }
         } catch (Exception $e) {
-           // return redirect()->back()->withErrors($e->getMessage());
+           return redirect()->back()->withErrors($e->getMessage());
         }
     }
-
 }

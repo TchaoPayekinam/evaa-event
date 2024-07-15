@@ -59,28 +59,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>
-                                            <p>Cérémonie d'Ouverture</p>
-                                        </td>
-                                        <td>EECO & Otniel’s Galerie</td>
-                                        <td>8h30' – 9h00'</td>
-                                        <td>8h30' – 9h00'</td>
-                                        <td>8h30' – 9h00'</td>
-                                        <td><a href="{{route('confirm_order')}}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>
-                                            <p>Présentation des participants</p>
-                                        </td>
-                                        <td>Participants</td>
-                                        <td>9h00 – 9h30</td>
-                                        <td>9h00 – 9h30</td>
-                                        <td>9h00 – 9h30</td>
-                                        <td><a href="" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>
-                                    </tr>
+                                    @foreach ($inscriptions as $inscription)
+                                        <tr>
+                                            <th scope="row">{{ $inscription->id }}</th>
+                                            <td>{{ $inscription->event->name }}</td>
+                                            <td>{{ $inscription->confirmationCode }}</td>
+                                            <td>{{ $inscription->status }}</td>
+                                            <td>{{ $inscription->paymentOption }}</td>
+                                            <td>{{ $inscription->created_at->format('d/m/Y') }}</td>
+                                            <td><a href="{{ route('inscription.details', $inscription->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
