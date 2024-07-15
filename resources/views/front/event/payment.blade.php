@@ -9,12 +9,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumbs-area">
-                        <h1>Payment by Flooz</h1>
+                        <h1>Paiement de frais de formation</h1>
                         <ul>
                             <li>
                                 <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
                             </li>
-                            <li>Flooz</li>
+                            <li>paiement</li>
                         </ul>
                     </div>
                 </div>
@@ -29,42 +29,26 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">Choisissez une option de paiement</h2>
                         <div class="card-body">
                             <p>
                                 {{ trans('payment.thank-you-for-choosing') }}
                             </p>
-                            <p>
-                                {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
-                            </p>
-                            <p>
-                                {{ trans('payment.order-history') }}
-                            </p>
-                            <p class="font-italic">
-                                {{ trans('payment.order-is-pending') }}
-                            </p>
                             <div class="ml-md-2">
-                                <ol class="my-3">
-                                    <li>
-                                        <span class="font-weight-bold">{{ trans('payment.send-payment-flooz') }}</span>
-                                        <p>{{ trans('payment.flooz-following-countries') }}</p>
-                                        <p>{{ trans('payment.flooz-point-of-sale') }}</p>
-                                        <ul class="list-unstyled pl-4">
-                                            <li>Flooz number : <strong><em>+228 96028282</em></strong></li>
-                                            <li>Payement amount : <em>{{ session('paymentAmount') }} FCFA</em></li>
-                                            <li>Full name of recipient : <em>ATHO KODJO GILBERT <span>Managing Director of Eva'a Event & Com (EECO)</span></em></li>
-                                        </ul>
-                                        <p></p>
-                                    </li>
-                                    <li>
-                                        <span class="font-weight-bold">{{ trans('payment.payment-reference-number') }}</span>
-                                        <p>{{ trans('payment.confirmation-message') }}</p>
-                                    </li>
-                                    <li>
-                                        <span class="font-weight-bold">{{ trans('payment.send-payment-details') }}</span>
-                                        <p>{{ trans('payment.enter-payment-details') }}</p>
-                                    </li>
-                                </ol>
+                                <form action="{{ route('payment.submit') }}" method="POST">
+                                    @csrf
+                                    <div class="ml-md-2">
+                                        <div class="my-3 w-50">
+                                            <button type="submit" name="payment_option" value="Flooz" class="btn btn-warning btn-block mb-4">
+                                                Paiement par Flooz
+                                            </button>
+                                            <button type="submit" name="payment_option" value="T-Money" class="btn btn-warning btn-block mb-4"> Paiement par T-Money</button>
+                                            <button type="submit" name="payment_option" value="Western Union" class="btn btn-warning btn-block mb-4"> Paiement par Western Union</button>
+                                            <button type="submit" name="payment_option" value="Money Gram" class="btn btn-warning btn-block mb-4"> Paiement par Money Gram</button>
+                                            <button type="submit" name="payment_option" value="Cash" class="btn btn-warning btn-block mb-4"> Paiement en espèce</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <hr>
                                 <h3>Voici nos offres de payement</h3>
@@ -95,9 +79,9 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            <div class="text-center">
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">My Order History</a>
-                            </div>
+                                <div class="center mt-3">
+                                    <a href="{{ route('dashboard') }}" class="btn btn-danger">Annuler</a>
+                                </div>
                         </div>
                     </div>
                 </div>

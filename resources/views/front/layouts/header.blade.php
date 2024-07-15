@@ -90,43 +90,28 @@
                             <!-- Mobile Menu End -->
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 d-none d-lg-block ">
-                        @auth
-                        <div class="eventalk-main-menu">
-                            <nav class="d-none d-lg-block">
-                                <ul class="header-action-items">
-                                    <li>
-                                        <a class="d-flex align-items-center btn-fill size-xs color-yellow border-radius-5 menu-btn" href="">Mon Compte</a>
-                                        <ul class="rt-dropdown-menu mt-2">
-                                            <li>
-                                                <a href="{{ route('admin.dashboard') }}">Profile</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('home.myEvent') }}">Les Evènements</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('admin.dashboard') }}">Administration</a>
-                                            </li>
-                                            <li>
-                                                <form class="nav-item" action="{{ route('logout')}}" method="post">
-                                                    @csrf
-                                                    <button class="nav-link btn-fill size-xs color-yellow border-radius-5">{{ trans('menu.deconnexion') }}</button>
-                                                  </form>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        @endauth
-                        @guest
+                    <div class="col-lg-3 col-md-4 d-none d-lg-block">
                         <ul class="header-action-items">
                             <li>
-                                <a href="{{ route('user.login') }}" title="Buy Tickets" class="btn-fill size-xs color-yellow border-radius-5">{{ trans('menu.button') }}</a>
+                                @if(Auth::check())
+                                    <a href="{{ route('logout') }}" title="{{ trans('menu.logout') }}" class="btn-fill size-xs color-yellow border-radius-5" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        <span>{{ trans('menu.logout') }}</span>
+                                    </a>
+                                    <a href="{{ route('dashboard') }}" title="dashboard" class="btn-fill size-xs color-yellow border-radius-5">
+                                        <span>dashboard</span>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="post">
+                                        {!! csrf_field() !!}
+                                    </form>
+                                @else
+                                    <a href="{{ route('user.login') }}" title="{{ trans('menu.sign-in') }}" class="btn-fill size-xs color-yellow border-radius-5">{{ trans('menu.sign-in') }}</a>
+                                @endif
                             </li>
                         </ul>
-                        @endguest 
                     </div>
+                    <!--  -->
                 </div>
             </div>
         </div>

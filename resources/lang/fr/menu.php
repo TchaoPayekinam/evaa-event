@@ -4,10 +4,8 @@ return [
 	//'go-to-home' => 'Aller à l\'accueil',
 	'about' => 'A propos',
 	'services' => 'Services',
-	//'projects' => 'Projets',
-	//'blog' => 'Blog',
 	'contact' => 'Contact',
 	//'my-account' => 'Mon Compte',
-	'button' => 'Connexion',
-	'deconnexion' => 'Déconnexion'
+	'sign-in' => 'Connectez-vous',
+	'logout' => 'Se déconnecter',
 ];

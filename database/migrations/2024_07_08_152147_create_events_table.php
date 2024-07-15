@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Inscription;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePayementsTable extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +14,15 @@ class CreatePayementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payements', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->integer('reference');
+            $table->string('name');
+            $table->string('description');
             $table->string('type');
-            $table->integer('montant');
-            $table->date('date');
-            $table->unsignedBigInteger('evenement_id');
-
-            $table->foreign('evenement_id')->references('id')->on('evenements')->onUpdate('cascade')
-                ->onDelete('cascade');
+            $table->double('frais_inscription')->nullable();
+            $table->double('frais_formation')->nullable();
+            $table->dateTime('date_deb');
+            $table->dateTime('date_fin');
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ class CreatePayementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payements');
+        Schema::dropIfExists('events');
     }
 }

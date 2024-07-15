@@ -21,7 +21,7 @@
 	    'notre-equipe' => 'Our team',
 	    'notre-equipe-p' => 'Meet the experts behind EECO. We work together to ensure your success.',
 
-	    'nos-sponsor' => 'Official sponsor & partner',
+	    'nos-sponsor' => 'Official Sponsor & Partner',
 	    'nos-sponsor-p' => 'We work with several Official Sponsors & Partners to ensure the success of your events.',
 
 	    'travailler-avec-nous' => 'Would you like to work with us?',

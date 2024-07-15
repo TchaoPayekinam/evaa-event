@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="about-layout4">
-                        <img src="{{ asset('event/assets/img/logo-eeco-black.png') }}" alt="logo" class="img-fluid">
+                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="logo" class="img-fluid">
                         <p class="text-justify">
                             {{ trans('about.qui-sommes-nous') }}
                         </p>

@@ -82,8 +82,6 @@
 <!-- Sign Up Form Area Start Here -->
 <section class="section-space-default2-less30">
     <div class="container">
-        <!-- <div class="row row-container mt-5">
-            <div class="col-8 center"> -->
         <div class="row mt-3 justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="card">
@@ -97,19 +95,19 @@
                             </div>
                         @endif
 
-                        <form class="register-form" action="{{ route('user.register') }}" method="POST">
+                        <form class="register-form" action="{{ route('user.register') }}" method="POST" autocomplete="off">
                             {{ csrf_field() }}
-                            <div class="text-left mt-3">
+                            <!-- <div class="text-left mt-3">
                                 <label for="username">{{ trans('register.username') }}<span style="color : red">*</span></label>
                                 <input type="text" placeholder="{{ trans('register.username') }}" class="form-control height-45" name="username" id="username" value="{{ old('username')}}" required>
                                 @if ($errors->has('username'))
                                     <span class="text-danger">{{ $errors->first('username') }}</span>
                                 @endif
-                            </div>
+                            </div> -->
 
                             <div class="text-left mt-3">
                                 <label for="Email">{{ trans('register.email') }}<span style="color : red">*</span></label>
-                                <input id="Email" name="email" type="email" placeholder="" class="form-control height-45" value="{{ old('email')}}" required>
+                                <input id="Email" name="email" type="email" placeholder="" class="form-control height-45" value="{{ old('email')}}" required autocomplete="off">
                                 @if ($errors->has('email'))
                                     <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
@@ -117,7 +115,7 @@
 
                             <div class="text-left mt-3">
                                 <label for="password">{{ trans('register.password') }}<span style="color : red">*</span></label>
-                                <input id="password" name="password" type="password" placeholder="" class="form-control height-45" required>
+                                <input id="password" name="password" type="password" placeholder="" class="form-control height-45" required autocomplete="off">
                                 @if ($errors->has('password'))
                                     <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
@@ -125,7 +123,7 @@
 
                             <div class="text-left mt-3">
                                 <label for="password_confirmation">{{ trans('register.confirm-password') }}<span style="color : red">*</span></label>
-                                <input id="password_confirmation" name="password_confirmation" type="password" placeholder="" class="form-control height-45" required>
+                                <input id="password_confirmation" name="password_confirmation" type="password" placeholder="" class="form-control height-45" required autocomplete="off">
                             </div>
 
                             <div class="center mt-3">

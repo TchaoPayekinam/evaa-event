@@ -22,7 +22,23 @@ class HomeController extends Controller
         return view('front.services');
     }
 
-    public function myEvent() {
-        return view('front.user-event');
+    public function flooz(){
+        return view("front.event.payment.flooz");
+    }
+
+    public function tMoney(){
+        return view("front.event.payment.tMoney");
+    }
+
+    public function westernUnion(){
+        return view("front.event.payment.westernUnion");
+    }
+
+    public function moneyGram(){
+        return view("front.event.payment.moneyGram");
+    }
+    
+    public function cash(){
+        return view("front.event.payment.cash");
     }
 }

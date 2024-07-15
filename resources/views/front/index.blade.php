@@ -50,8 +50,8 @@
                                     </div>
                                     <div class="slider-sub-text third-line">
                                         <ul>
-                                            <li>12 - 14 Août 2024</li>
-                                            <li>15 - 17 Août 2024</li>
+                                            <li>{{ trans('home.event-date-1') }}</li>
+                                            <li>{{ trans('home.event-date-2') }}</li>
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
@@ -70,12 +70,12 @@
                                     </div>
                                     <div class="slider-sub-text third-line">
                                         <ul>
-                                            <li>12 - 14 Août 2024</li>
-                                            <li>15 - 17 Août 2024</li>
+                                            <li>{{ trans('home.event-date-1') }}</li>
+                                            <li>{{ trans('home.event-date-2') }}</li>
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.login') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a> 
+                                        <a href="{{ route('event.inscription') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a> 
                                     </div>
                                 </div>
                             </div>
@@ -90,12 +90,12 @@
                                     </div>
                                     <div class="slider-sub-text third-line">
                                         <ul>
-                                            <li>12 - 14 Août 2024</li>
-                                            <li>15 - 17 Août 2024</li>
+                                            <li>{{ trans('home.event-date-1') }}</li>
+                                            <li>{{ trans('home.event-date-2') }}</li>
                                         </ul>
                                     </div>
                                     <div class="slider-btn-area forth-line">
-                                        <a href="{{ route('user.login') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a> 
+                                        <a href="{{ route('event.inscription') }}" class="btn-ghost color-yellow border-radius-5">{{ trans('home.register') }}</a> 
                                     </div>
                                 </div>
                             </div>
@@ -167,7 +167,6 @@
                 <div class="container zindex-up d-none">
                     <div class="section-heading title-black color-light text-center">
                         <h2>{{ trans('home.event-speakers') }}</h2>
-                        <!-- <h2>Event Speakers</h2> -->
                     </div>
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6 col-mb-12">
@@ -548,7 +547,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 text-center">
-                        <a href="{{ route('event.inscription') }}" title="Buy Your Ticket" class="btn-fill color-yellow border-radius-5">{{ trans('home.sign-up') }}</a>
+                        <a href="{{ route('event.inscription') }}" title="{{ trans('home.sign-up') }}" class="btn-fill color-yellow border-radius-5">{{ trans('home.sign-up') }}</a>
                         </div>
                     </div>
                 </div>
@@ -567,16 +566,16 @@
                                     <div class="item-title">
                                         <h3 class="title-medium color-dark text-uppercase">Inscription</h3>
                                     </div>
-                                    <div class="item-price">
-                                        5 000<sup>FCFA</sup>
+                                    <div class="item-price">5 000
+                                        <span class="currency">FCFA</span>
                                     </div>
                                     <div class="item-body">
                                         <ul>
-                                            <li>Délai de paiement</li>
-                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>24h après l'inscription sur le site</li>
+                                            <li>{{ trans('home.payment-deadline') }}</li>
+                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.after-registering') }}</li>
                                         </ul> 
                                     </div>
-                                    <a href="#" title="Buy Ticket" class="btn-fill size-md color-yellow border-radius-5">{{ trans('home.pay') }}</a>
+                                    <a href="{{ route('event.inscription') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-yellow border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -584,18 +583,18 @@
                             <div class="price-table-layout1">
                                 <div class="item-wrapper">
                                     <div class="item-title">
-                                        <h3 class="title-medium color-dark text-uppercase">Offre N°1</h3>
+                                        <h3 class="title-medium color-dark text-uppercase">{{ trans('home.offer') }} N°1</h3>
                                     </div>
-                                    <div class="item-price">
-                                        40 000<sup>FCFA</sup>
+                                    <div class="item-price">40 000
+                                        <span class="currency">FCFA</span>
                                     </div>
                                     <div class="item-body">
                                         <ul>
                                             <li>{{ trans('home.payment-period') }}</li>
-                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>05 - 25 juillet 2024</li>
+                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.date-1') }}</li>
                                         </ul>
                                     </div>
-                                    <a href="#" title="{{ trans('home.pay') }}" class="btn-fill size-md color-primary border-radius-5">{{ trans('home.pay') }}</a>
+                                    <a href="{{ route('payment') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-primary border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -603,18 +602,18 @@
                             <div class="price-table-layout1">
                                 <div class="item-wrapper">
                                     <div class="item-title">
-                                        <h3 class="title-medium color-dark text-uppercase">Offre N°2</h3>
+                                        <h3 class="title-medium color-dark text-uppercase">{{ trans('home.offer') }} N°2</h3>
                                     </div>
-                                    <div class="item-price">
-                                        45 000<sup>FCFA</sup>
+                                    <div class="item-price">45 000
+                                        <span class="currency">FCFA</span>
                                     </div>
                                     <div class="item-body">
                                         <ul>
                                             <li>{{ trans('home.payment-period') }}</li>
-                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>26 juillet - 11 août 2024</li>
+                                            <li><i class="fa fa-minus mr-2" aria-hidden="true" style="color: #ef3340"></i>{{ trans('home.date-2') }}</li>
                                         </ul>
                                     </div>
-                                    <a href="#" title="{{ trans('home.pay') }}" class="btn-fill size-md color-green border-radius-5">{{ trans('home.pay') }}</a>
+                                    <a href="{{ route('payment') }}" title="{{ trans('home.pay') }}" class="btn-fill size-md color-green border-radius-5">{{ trans('home.pay') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -699,133 +698,7 @@
                     </div>
                 </div>
             </section>
-            <section class="section-space-default bg-light d-none">
-                <div class="container">
-                    <div class="section-heading title-black color-light text-center">
-                        <h2>{{ trans('home.official-sponsor') }}</h2>
-                    </div>
-                    <div class="sponsonrs-layout1">
-                        <div class="row sponsonrs-row-border">
-                            <div class="col-md-3 col-sm-6 col-12">
-                                <div class="sponsonrs-box">
-                                    <a href="#">
-                                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="brand" class="img-fluid">
-                                        <!-- <img src="{{ asset('event/assets/img/brand/brand1.png') }}" alt="brand" class="img-fluid"> -->
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-12">
-                                <div class="sponsonrs-box">
-                                    <a href="#">
-                                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="brand" class="img-fluid">
-                                        <!-- <img src="{{ asset('event/assets/img/brand/brand2.png') }}" alt="brand" class="img-fluid"> -->
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-12">
-                                <div class="sponsonrs-box">
-                                    <a href="#">
-                                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="brand" class="img-fluid">
-                                        <!-- <img src="{{ asset('event/assets/img/brand/brand3.png') }}" alt="brand" class="img-fluid"> -->
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-12">
-                                <div class="sponsonrs-box">
-                                    <a href="#">
-                                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="brand" class="img-fluid">
-                                        <!-- <img src="{{ asset('event/assets/img/brand/brand4.png') }}" alt="brand" class="img-fluid"> -->
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <a href="#" title="Become a Sponsors" class="btn-fill size-lg border-radius-5 color-yellow margin-t-30">{{ trans('home.become-sponsor') }}</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
             <!-- Sponsonrs Area End Here -->
-            <!-- Blog Area Start Here -->
-            <section class="section-space-default-less30 bg-accent d-none">
-                <div class="container">
-                    <div class="section-heading title-black color-dark text-center">
-                        <h2>Our Latest Blogs</h2>
-                        <p>Sed condimentum tempus auctor Etiam euismod dapibus odio eu congue.</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 col-sm-12">
-                            <div class="blog-layout1">
-                                <div class="item-img">
-                                    <img src="{{ asset('event/assets/img/blog/blog1.jpg') }}" alt="blog" class="img-fluid">
-                                    <div class="item-date">26
-                                        <span> Oct</span>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <div class="item-title">
-                                        <h3 class="title-medium color-dark hover-primary">
-                                            <a href="single-blog.html">Donec quam felis ultricies</a>
-                                        </h3>
-                                    </div>
-                                    <div class="item-deccription">
-                                        <p>Eventrem ipsum dolor sit amet sectetuer adipiscing elit. Aenean commo doneerty enean
-                                            massa toque.</p>
-                                    </div>
-                                    <a href="#" title="Read More" class="btn-text">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-12">
-                            <div class="blog-layout1">
-                                <div class="item-img">
-                                    <img src="{{ asset('event/assets/img/blog/blog2.jpg') }}" alt="blog" class="img-fluid">
-                                    <div class="item-date">27
-                                        <span> Aug</span>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <div class="item-title">
-                                        <h3 class="title-medium color-dark hover-primary">
-                                            <a href="single-blog.html">Donec quam felis ultricies</a>
-                                        </h3>
-                                    </div>
-                                    <div class="item-deccription">
-                                        <p>Eventrem ipsum dolor sit amet sectetuer adipiscing elit. Aenean commo doneerty enean
-                                            massa toque.</p>
-                                    </div>
-                                    <a href="#" title="Read More" class="btn-text">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-12">
-                            <div class="blog-layout1">
-                                <div class="item-img">
-                                    <img src="{{ asset('event/assets/img/blog/blog3.jpg') }}" alt="blog" class="img-fluid">
-                                    <div class="item-date">29
-                                        <span> Nov</span>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <div class="item-title">
-                                        <h3 class="title-medium color-dark hover-primary">
-                                            <a href="single-blog.html">Donec quam felis ultricies</a>
-                                        </h3>
-                                    </div>
-                                    <div class="item-deccription">
-                                        <p>Eventrem ipsum dolor sit amet sectetuer adipiscing elit. Aenean commo doneerty enean
-                                            massa toque.</p>
-                                    </div>
-                                    <a href="#" title="Read More" class="btn-text">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Blog Area End Here -->
             <!-- Map Area Start Here -->
             <section class="full-width-container">
                 <div class="container-fluid">
@@ -835,7 +708,7 @@
                         <div class="upcoming-event-layout1">
                             <h2>Formation sur la fabrication des 
                                 <br> accessoires de décoration d'intérieur</h2>
-                            <div class="date">12 - 14 Août 2024</div>
+                            <div class="date">{{ trans('home.event-date-1') }}</div>
                             <p>ESBTAO, Hedjranawoé</p>
                         </div>
                     </div>

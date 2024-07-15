@@ -1,7 +1,6 @@
 @extends('admin.layout')
 @section('content')
 
-
     <div class="pagetitle">
         <h1>Payements</h1>
         <nav>
@@ -56,29 +55,28 @@
                             </td>
                         </tr>
 
-
-                    <!-- Modal pour le consignateur en cours -->
-                    <div class="modal fade" id="disablebackdrop{{ $payement->id }}" tabindex="-1" data-bs-backdrop="false">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Confirmation</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Etes-vous sûr de vouloir supprimer <b>{{ $payement->reference }}</b> ?
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="#" class="btn btn-primary" data-bs-dismiss="modal">Retour</a>
-                                    <form action="{{ route('payement.destroy', $payement->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                                    </form>
+                        <!-- Modal pour le consignateur en cours -->
+                        <div class="modal fade" id="disablebackdrop{{ $payement->id }}" tabindex="-1" data-bs-backdrop="false">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Confirmation</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Etes-vous sûr de vouloir supprimer <b>{{ $payement->reference }}</b> ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="#" class="btn btn-primary" data-bs-dismiss="modal">Retour</a>
+                                        <form action="{{ route('payement.destroy', $payement->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                     </tbody>
                 </table>
@@ -86,11 +84,6 @@
             </div>
         </div>
     </section>
-
-
     <!-- Disabled Backdrop Modal -->
-
-
-
 
 @stop

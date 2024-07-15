@@ -2421,14 +2421,14 @@ body > .eventalk-tooltip .eventalk-tooltip-bottom:after {
 #scrollUp {
   animation: blinker 10s linear infinite;
 }
-/* .preloader {
+/*.preloader {
   height: 100%;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   z-index: 9999999;
-  background: #ffffff;
+  background: #4c1864;
   overflow: visible;
 }
 .preloader .items {
@@ -2445,7 +2445,7 @@ body > .eventalk-tooltip .eventalk-tooltip-bottom:after {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.preloader .items img {
+.preloader .items .item {
   position: relative;
   box-sizing: border-box;
   float: left;
@@ -2454,8 +2454,20 @@ body > .eventalk-tooltip .eventalk-tooltip-bottom:after {
   height: 12px;
   border-radius: 3px;
   background: #FFF;
-} */
-
+}
+.preloader .items .item:nth-child(4n+1) {
+  animation: wave 2s ease .0s infinite;
+}
+.preloader .items .item:nth-child(4n+2) {
+  animation: wave 2s ease .2s infinite;
+}
+.preloader .items .item:nth-child(4n+3) {
+  animation: wave 2s ease .4s infinite;
+}
+.preloader .items .item:nth-child(4n+4) {
+  animation: wave 2s ease .6s infinite;
+  margin-right: 0;
+}*/
 @keyframes wave {
   0% {
     top: 0;

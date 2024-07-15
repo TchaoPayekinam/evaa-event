@@ -25,9 +25,6 @@
 }
 /*end alert message*/
 
-
-
-
 /**/
 .evaa-container .btn.btn-color-primary {
     background-color: #1d4d6b !important;
@@ -85,7 +82,6 @@
     font-size: 40px !important;
 }
 
-
 @media (max-width: 1024px) {
     .speaker-layout1, .sponsor {
         flex: 1 1 calc(33.33% - 20px); /* 3 items par ligne */
@@ -121,7 +117,6 @@
     margin-left: 50px;
     font-size: 17px;
 }
-
 
 .row-2{
     margin-top:  50px;
@@ -228,5 +223,3 @@
         margin-right: 50px;
     }
 }
-
-
