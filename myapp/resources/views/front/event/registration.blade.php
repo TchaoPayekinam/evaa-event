@@ -237,7 +237,7 @@
 
                             {{-- formulaire de compte --}}
                             <h2 class="card-header text-center py-3 mt-4 poti-light-bg">{{ trans('register.regis-form') }}</h2>
-                            <p class="small text-muted">Le compte vous permettra de suivre vos activités sur la plateforme, d'accéder à votre tableau de board et de confirmer vos inscriptions et payements.</p>
+                            <p class="small text-muted">Le compte vous permettra de suivre vos activités sur la plateforme, d'accéder à votre tableau de bord et de confirmer vos inscriptions et payements.</p>
                             <div class="card-body px-lg-5 pt-0">
                             <div class="text-left mt-3">
                                 <label>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Inscription;
 use App\Models\User;
+use App\Notifications\InscriptionNotification;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -73,7 +74,9 @@ class InscriptionController extends Controller
          $inscription->user_id = Auth::user()->id;
          $inscription->event_id = $event->id;
 
-        $saved = $inscription->save();
+            $saved = $inscription->save();
+
+
         } else {
             $validatedData = $request->validate([
                 'email_no_account' => ['required', 'string', 'email', 'max:255',],
@@ -133,23 +136,31 @@ class InscriptionController extends Controller
 
            $saved = $inscription->save();
 
+
+
         }
-        try {
-            if ($saved) {
-                if ($request->paymentOption === 'Flooz') {
-                    return redirect()->route('payment.flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
-                } else if ($request->paymentOption === 'T-Money') {
-                    return redirect()->route('payment.tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
-                }else if( $request->paymentOption === 'Western Union') {
-                    return redirect()->route('payment.westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
-                }else if( $request->paymentOption === 'Money Gram') {
-                    return redirect()->route('payment.moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
-                }else if($request->paymentOption === 'Cash'){
-                    return redirect()->route('payment.cash')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
+         try {
+
+            $user->notify(new InscriptionNotification($inscription->lastName, $inscription->firstName, $inscription->confirmationCode, $inscription->id));
+
+             if ($saved) {
+                 if ($request->paymentOption === 'Flooz') {
+                     return redirect()->route('payment.flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
+                 } else if ($request->paymentOption === 'T-Money') {
+                     return redirect()->route('payment.tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
+                 }else if( $request->paymentOption === 'Western Union') {
+                     return redirect()->route('payment.westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
+                 }else if( $request->paymentOption === 'Money Gram') {
+                     return redirect()->route('payment.moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
+                 }else if($request->paymentOption === 'Cash'){
+                     return redirect()->route('payment.cash')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
                 }
             }
-        } catch (Exception $e) {
-           return redirect()->back()->withErrors($e->getMessage());
-        }
+
+            $user->notify(new InscriptionNotification($inscription->lastName, $inscription->firstName, $inscription->confirmationCode, $inscription->id));
+         } catch (Exception $e) {
+            return redirect()->back()->withErrors($e->getMessage());
+         }
     }
+
 }

@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumbs-area">
-                        <h1>Payment by Flooz</h1>
+                        <h1>{{ trans('payment.payment-by-flooz') }}</h1>
                         <ul>
                             <li>
                                 <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
@@ -48,11 +48,11 @@
                                     <li>
                                         <span class="font-weight-bold">{{ trans('payment.send-payment-flooz') }}</span>
                                         <p>{{ trans('payment.flooz-following-countries') }}</p>
-                                        <p>{{ trans('payment.flooz-point-of-sale') }}</p>
+                                        <p></p>
                                         <ul class="list-unstyled pl-4">
-                                            <li>Flooz number : <strong><em>+228 96028282</em></strong></li>
-                                            <li>Payement amount : <em>{{ session('paymentAmount') }} FCFA</em></li>
-                                            <li>Full name of recipient : <em>ATHO KODJO GILBERT <span>Managing Director of Eva'a Event & Com (EECO)</span></em></li>
+                                            <li>{{ trans('payment.flooz-number') }} : <strong><em>+228 96028282</em></strong></li>
+                                            <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
+                                            <li> {{trans('payment.name-recipient')}} : <em>ATHO KODJO GILBERT <span>{{trans('payment.managing-director')}}</span></em></li>
                                         </ul>
                                         <p></p>
                                     </li>
@@ -67,36 +67,37 @@
                                 </ol>
                             </div>
                             <hr>
-                                <h3>Voici nos offres de payement</h3>
+                                <h3>{{ trans('payment.payment offers') }}</h3>
                                 <div class="">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Offre</th>
-                                                <th>Periode de payement</th>
-                                                <th>Frais de formation</th>
+                                                <th>{{ trans('payment.offer') }}</th>
+                                                <th>{{ trans('payment.payment-period') }}</th>
+                                                <th>{{ trans('payment.training-fees') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
                                                 <td>
-                                                    05 - 25 juillet 2024
+                                                    {{ trans('payment.period-date-1') }}
                                                 </td>
                                                 <td>40000 FCFA</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
                                                 <td>
-                                                    26 juillet - 11 août 2024
+                                                    {{ trans('payment.period-date-2') }}
                                                 </td>
                                                 <td>45 000FCFA</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                            <div class="text-center">
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">My Order History</a>
+                            <div class="text-center m-5">
+                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
+                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.go-to-payment') }}</a>
                             </div>
                         </div>
                     </div>

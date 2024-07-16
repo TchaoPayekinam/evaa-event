@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\DashboardController;
 
 /**
  * route used to switch locale
@@ -33,6 +32,9 @@ Route::get('/inscription/{id}', [DashboardController::class, 'inscriptionDetails
 Route::post('/inscription/{id}/confirm', [DashboardController::class, 'confirmInscription'])->name('inscription.confirm');
 Route::get('/payment', [PaymentController::class,'payment'])->name('payment');
 Route::post('/payment', [PaymentController::class,'submit'])->name('payment.submit');
+
+Route::get('/payment/{id}', [DashboardController::class, 'paymentDetails'])->name('payment.details');
+Route::get('/payment/{id}/confirm', [DashboardController::class, 'confirmPayment'])->name('payment.confirm');
 
 Route::get('/administration/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
 

@@ -97,7 +97,7 @@
                                         <td>{{ $payment->is_validate == 0 ? 'false' : 'true' }}</td>
                                         <td>{{ $payment->paymentOption }}</td>
                                         <td>{{ $payment->created_at->format('d/m/Y') }}</td>
-                                        <td><a href="{{ route('inscription.details', $payment->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>
+                                        <td><a href="{{ route('payment.details', $payment->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
