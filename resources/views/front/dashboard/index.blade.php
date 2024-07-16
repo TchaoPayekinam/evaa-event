@@ -62,11 +62,11 @@
                                 <tbody>
                                     @foreach ($inscriptions as $inscription)
                                         <tr>
-                                            <th scope="row">{{ $inscription->id }}</th>
+                                            <th scope="row">{{ $loop->iteration }}</th>
                                             <td>{{ $inscription->event->name }}</td>
                                             <td>{{ $inscription->confirmationCode }}</td>
                                             <td>{{ $inscription->status }}</td>
-                                            <td>{{ $inscription->is_validate == 0 ? 'false' : 'true' }}</td>
+                                            <td>{{ $inscription->is_validate == 0 ? 'Non' : 'Oui' }}</td>
                                             <td>{{ $inscription->paymentOption }}</td>
                                             <td>{{ $inscription->created_at->format('d/m/Y') }}</td>
                                             <td><a href="{{ route('inscription.details', $inscription->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>

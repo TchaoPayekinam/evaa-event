@@ -18,7 +18,7 @@ class PaymentController extends Controller
 
         return $confirmationCode;
     }
-    
+
     public function payment(){
         return view("front.event.payment");
     }
@@ -28,7 +28,7 @@ class PaymentController extends Controller
         if(!Auth::check()){
 
             return redirect()->route("user.login");
-            }
+        }
         $event = Event::find(1);
         $request->validate([
             'payment_option' => 'required|string',
@@ -57,6 +57,7 @@ class PaymentController extends Controller
                     return redirect()->route('payment.cash')->with(['confirmationCode'=> $payment->confirmationCode, 'paymentAmount' => $payment->paymentAmount]);
                 }
             }
+
         } catch (Exception $e) {
            return redirect()->back()->withErrors($e->getMessage());
         }
