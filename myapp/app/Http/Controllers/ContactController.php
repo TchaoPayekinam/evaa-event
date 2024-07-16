@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+//use Illuminate\Support\Facades\Mail;
+
+use App\Jobs\SendContactFormNotificationEmail;
 
 class ContactController extends Controller
 {
@@ -32,14 +34,15 @@ class ContactController extends Controller
             $contact->message = $request->message;
             $saved = $contact->save();
 
+            SendContactFormNotificationEmail::dispatch($contact->id);
 
-            if($saved) {
-                Mail::to("info@evaa-event.com")->send(new ContactForm($contact->first_name, $contact->last_name, $contact->message, $contact->pphone, $contact->society, $contact->email));
+            return response()->json(['success' => 'Votre message a été soumis avec succès !']);
 
-                return response()->json(['success' => 'Message envoyé avec succès !']);
+            /*if($saved) {
+                Mail::to("admin@gmail.com")->send(new ContactForm($contact->firstName, $contact->lastName, $contact->message, $contact->phoneNumber, $contact->society, $contact->email));
             } else {
                 return redirect()->route('contact.submit')->with('error', 'Une erreur s\'est produite lors de l\'envoi du message');
-            }
+            }*/
 
         } catch(Exception $e) {
             //return redirect()->back()->withErrors($e->getMessage());
