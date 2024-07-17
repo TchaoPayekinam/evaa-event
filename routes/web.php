@@ -49,11 +49,13 @@ Route::put('/administration/payement/inscription-validation/{id}', [App\Http\Con
 Route::put('/administration/payement/inscription-validation-reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateInscriptionReset'])->name('inscription.validateReset');
 Route::get('/administration/payement/inscription-search', [App\Http\Controllers\Admin\PayementController::class, 'searchInscription'])->name('inscription.search');
 
+Route::get('/administration/payement-formation', [App\Http\Controllers\Admin\PayementController::class, 'formationList'])->name('payement.formation');
+Route::put('/administration/payement/formation-validation/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateFormation'])->name('formation.validate');
+Route::put('/administration/payement/formation-validation-reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateFormationReset'])->name('formation.validateReset');
+Route::get('/administration/payement/formation-search', [App\Http\Controllers\Admin\PayementController::class, 'searchFormation'])->name('formation.search');
 
 
-Route::get('/administration/payement', [App\Http\Controllers\Admin\PayementController::class, 'index'])->name('payement.index');
-Route::put('/administration/payement/validation/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validatePayment'])->name('payement.validate');
-Route::put('/administration/payement/validation/reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validatePaymentReset'])->name('payement.validateReset');
+
 
 
 
