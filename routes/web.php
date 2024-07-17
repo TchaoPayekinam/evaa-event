@@ -44,13 +44,17 @@ Route::get('/administration/evenement/{id}/modifier', [\App\Http\Controllers\Adm
 Route::put('/administration/evenement/{id}', [\App\Http\Controllers\Admin\EvenementController::class, 'update'])->name('evenement.update');
 Route::delete('/administration/evenement/{id}', [\App\Http\Controllers\Admin\EvenementController::class, 'destroy'])->name('evenement.destroy');
 
+Route::get('/administration/payement-inscription', [App\Http\Controllers\Admin\PayementController::class, 'inscriptionList'])->name('payement.inscription');
+Route::put('/administration/payement/inscription-validation/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateInscription'])->name('inscription.validate');
+Route::put('/administration/payement/inscription-validation-reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateInscriptionReset'])->name('inscription.validateReset');
+Route::get('/administration/payement/inscription-search', [App\Http\Controllers\Admin\PayementController::class, 'searchInscription'])->name('inscription.search');
+
+
+
 Route::get('/administration/payement', [App\Http\Controllers\Admin\PayementController::class, 'index'])->name('payement.index');
 Route::put('/administration/payement/validation/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validatePayment'])->name('payement.validate');
 Route::put('/administration/payement/validation/reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validatePaymentReset'])->name('payement.validateReset');
-// Route::get('/administration/payement/createForm', [App\Http\Controllers\Admin\PayementController::class, 'createForm'])->name('payement.createForm');
-// Route::post('/administration/payement/create', [App\Http\Controllers\Admin\PayementController::class, 'create'])->name('payement.create');
-// Route::get('/administration/payement/{id}/modifier', [\App\Http\Controllers\Admin\PayementController::class, 'edit'])->name('payement.edit');
-// Route::put('/administration/payement/{id}', [\App\Http\Controllers\Admin\PayementController::class, 'update'])->name('payement.update');
-// Route::delete('/administration/payement/{id}', [\App\Http\Controllers\Admin\PayementController::class, 'destroy'])->name('payement.destroy');
+
+
 
 require __DIR__.'/auth.php';

@@ -80,9 +80,14 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{{ route('payement.inscription') }}">
+            <i class="bi bi-person"></i>
+            <span>Frais de d'inscription</span>
+          </a>
+        <li class="nav-item">
           <a class="nav-link" href="{{ route('payement.index') }}">
             <i class="bi bi-person"></i>
-            <span>Payements</span>
+            <span>Frais de formation</span>
           </a>
         </li>
       </ul>
