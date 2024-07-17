@@ -21,6 +21,9 @@ Route::get('event/inscription', [InscriptionController::class, 'inscription'])->
 Route::post('/inscription', [InscriptionController::class, 'submit'])->name('inscription.submit');
 Route::get('order-history', [InscriptionController::class, 'order_history'])->name('order_history');
 
+Route::get('/payment', [PaymentController::class,'payment'])->name('payment');
+Route::post('/payment', [PaymentController::class,'submit'])->name('payment.submit');
+
 Route::get('event/payment/flooz', [App\Http\Controllers\HomeController::class, 'flooz'])->name('payment.flooz');
 Route::get('event/payment/t-money', [App\Http\Controllers\HomeController::class, 'tMoney'])->name('payment.tMoney');
 Route::get('event/payment/western-union', [App\Http\Controllers\HomeController::class, 'westernUnion'])->name('payment.westernUnion');
@@ -30,11 +33,10 @@ Route::get('event/payment/cash', [App\Http\Controllers\HomeController::class, 'c
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/inscription/{id}', [DashboardController::class, 'inscriptionDetails'])->name('inscription.details');
 Route::post('/inscription/{id}/confirm', [DashboardController::class, 'confirmInscription'])->name('inscription.confirm');
-Route::get('/payment', [PaymentController::class,'payment'])->name('payment');
-Route::post('/payment', [PaymentController::class,'submit'])->name('payment.submit');
+
 
 Route::get('/payment/{id}', [DashboardController::class, 'paymentDetails'])->name('payment.details');
-Route::get('/payment/{id}/confirm', [DashboardController::class, 'confirmPayment'])->name('payment.confirm');
+Route::post('/payment/{id}/confirm', [DashboardController::class, 'confirmPayment'])->name('payment.confirm');
 
 Route::get('/administration/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
 

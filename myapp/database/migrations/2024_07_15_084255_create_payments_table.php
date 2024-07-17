@@ -17,7 +17,10 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->string('status')->default('En attente');
             $table->boolean('is_validate')->default(false);
-            $table->string('ref')->nullable();
+            $table->string('ref_flooz')->nullable();
+            $table->string('ref_tmoney')->nullable();
+            $table->string('auth_number')->nullable();
+            $table->string('tracking-number')->nullable();
             $table->string('paymentOption');
             $table->double('paymentAmount');
             $table->string('confirmationCode');

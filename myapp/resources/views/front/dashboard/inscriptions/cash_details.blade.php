@@ -4,23 +4,23 @@
 
 @section('content')
     <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner" style="background-image: url(event/assets/img/figure/inner-page-figure.png);">
+    {{-- <section>
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumbs-area">
-                        <h1>{{trans('payment.payment-by-wu')}}</h1>
+                        <h1>{{ trans('payment.payment-by-cash') }}</h1>
                         <ul>
                             <li>
                                 <a href="{{ route('home.index') }}">Home</a>
                             </li>
-                            <li>Western Union</li>
+                            <li>{{ trans('payment.cash') }}</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Inne Page Banner Area End Here -->
 
     <!-- Contact Form Area Start Here -->
@@ -29,45 +29,29 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-cash') }} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
                             <p>
                                 {{ trans('payment.thank-you-for-choosing') }}
                             </p>
                             <p>
-                                {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
+                                {{ trans('payment.keep-your-confirmation') }} : {{ $inscription->confirmationCode}}
                             </p>
-                            <p>
+                            {{-- <p>
                                 {{ trans('payment.order-history') }}
-                            </p>
-                            <p class="font-italic">
-                                {{ trans('payment.order-is-pending') }}
-                            </p>
-                            <div class="ml-md-2">
-                                <ol class="my-3">
-                                    <li>
-                                        <span class="font-weight-bold">{{ trans('payment.send-payment-western-union') }}</span>
-                                        <p>{{ trans('payment.payement-western-union') }}</p>
-                                        <p>{{trans('payment.managing')}}</p>
-                                        <ul class="list-unstyled pl-4">
-                                            <li>{{ trans('payment.familly-name') }} : <em>ATHO</em></li>
-                                            <li>{{ trans('payment.first-name') }} : <em>KODJO GILBERT</em></li>
-                                            <li>{{ trans('payment.city') }} : <em>Lomé</em></li>
-                                            <li>{{ trans('payment.state') }} : <em>Maritime</em></li>
-                                            <li>{{ trans('payment.country') }} : <em>Togo</em></li>
-                                            <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
-                                        </ul>
-                                        <p>{{trans('payment.print-page')}}</p>
-                                    </li>
-                                    <li>
-                                        <span class="font-weight-bold">{{ trans('payment.payment-reference-number') }}</span>
-                                        <p>{{ trans('payment.payement-western-union-note') }}</p>
-                                    </li>
-                                    <li>
-                                        <span class="font-weight-bold">{{ trans('payment.send-payment-details') }}</span>
-                                        <p>{{ trans('payment.enter-payment-details') }}</p>
-                                    </li>
-                                </ol>
+                            </p> --}}
+                            <div class="alert alert-dark m-3 p-5">
+                               <h3>
+                                {{ trans('payment.payment-msg') }}
+                               </h3>
+                               <hr>
+                                <p class="mb-0 font-italic">{{ trans('payment.payment-thank') }}</p>
+                            </div>
+                            <div class="ml-md-2 m-5">
+                                <ul class="list-unstyled pl-4">
+                                    <li>{{ trans('payment.payment-address') }} : <em>Djagblé, carrefour Nord-Est du Collège d'Enseignement Public (CEG)</em></li>
+                                    <li>{{ trans('payment.payment-cel') }} : <em>+228 92 04 05 94 / 96 02 82 82</em></li>
+                                    <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
                             </div>
                             <hr>
                                 <h3>{{ trans('payment.payment offers') }}</h3>
@@ -98,6 +82,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+
                             <div class="text-center m-5">
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>

@@ -9,12 +9,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumbs-area">
-                        <h1>Payment by Cash</h1>
+                        <h1>{{ trans('payment.payment-by-cash') }}</h1>
                         <ul>
                             <li>
                                 <a href="{{ route('home.index') }}">Home</a>
                             </li>
-                            <li>Cash</li>
+                            <li>{{ trans('payment.cash') }}</li>
                         </ul>
                     </div>
                 </div>
@@ -26,67 +26,68 @@
     <!-- Contact Form Area Start Here -->
     <section class="section-space-default2-less30">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-12 margin-b-30rem">
-                    <h2>Order in progress</h2>
-
-                    <div>
-                        <h3>
-                            Please stop by Eva'a Event & Com (EECO) to make your cash payment
-                        </h3>
-                        <h4> Address :</h4>
-                        <p>Djagblé, carrefour Nord-Est du Collège d'Enseignement Public (CEG)</p>
-
-                        <p> Cel : +228 92 04 05 94 / 96 02 82 82</p>
-                    </div>
-
-                </div>
-            </div>
-            <div>
-                <h2>Voici nos offres de payement</h2>
-                <div class="schedule-content">
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade active show" id="one">
-                            <table class="table table-striped table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th>Offre</th>
-                                        <th>Periode de payement</th>
-                                        <th>Frais de formation</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>
-                                            05 - 25 juillet 2024
-                                        </td>
-                                        <td>40000 FCFA</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>
-                                            26 juillet - 11 août 2024
-                                        </td>
-                                        <td>45 000FCFA</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+            <div class="row evaa-container">
+                <div class="col-lg-12 col-md-12 margin-b-30rem">
+                    <div class="card">
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }}</h2>
+                        <div class="card-body">
+                            <p>
+                                {{ trans('payment.thank-you-for-choosing') }}
+                            </p>
+                            <p>
+                                {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
+                            </p>
+                            <p>
+                                {{ trans('payment.order-history') }}
+                            </p>
+                            <p class="font-italic">
+                                {{ trans('payment.order-is-pending') }}
+                            </p>
+                            <div class="ml-md-2 m-5">
+                                <h3 class="font-weight-bold">{{ trans('payment.payment-cash') }}</h3>
+                                <ul class="list-unstyled pl-4">
+                                    <li>{{ trans('payment.payment-address') }} : <em>Djagblé, carrefour Nord-Est du Collège d'Enseignement Public (CEG)</em></li>
+                                    <li>{{ trans('payment.payment-cel') }} : <em>+228 92 04 05 94 / 96 02 82 82</em></li>
+                                    <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
+                            </div>
+                            <hr>
+                                <h3>{{ trans('payment.payment offers') }}</h3>
+                                <div class="">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>{{ trans('payment.offer') }}</th>
+                                                <th>{{ trans('payment.payment-period') }}</th>
+                                                <th>{{ trans('payment.training-fees') }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>
+                                                    {{ trans('payment.period-date-1') }}
+                                                </td>
+                                                <td>40000 FCFA</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>
+                                                    {{ trans('payment.period-date-2') }}
+                                                </td>
+                                                <td>45 000FCFA</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <div class="text-center m-5">
+                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
+                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
+                            </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-            <div class="mt-4">
-                <h3>Liens utiles</h3>
-                <ul>
-                    <li><span>Veillez cliquez sur ce lien pour proccéder au payement --> </span><a href="#">Procceder au payment</a></li>
-                    <li><span>Veillez cliquez sur ce lien pour acceder à votre tableau de bord --> </span><a href="{{route('dashboard')}}">Tableau de board</a></li>
-                </ul>
-
             </div>
         </div>
-
     </section>
     <!-- Contact Form Area End Here -->
 @endsection

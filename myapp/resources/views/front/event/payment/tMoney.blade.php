@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumbs-area">
-                        <h1>Payment by T-Money</h1>
+                        <h1>{{ trans('payment.payment-by-tmoney') }}</h1>
                         <ul>
                             <li>
                                 <a href="{{ route('home.index') }}">Home</a>
@@ -26,33 +26,80 @@
     <!-- Contact Form Area Start Here -->
     <section class="section-space-default2-less30">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-12 margin-b-30rem">
-                    <h2>Order in progress</h2>
-
-                    <p>
-                        Thank you for choosing Eva'a Event & Com. You should receive an email confirming your order shortly.<br>
-                        Please keep your <strong>confirmation number for your records : {{ session('confirmationCode') }}</strong> <br>
-                        Go to "Order History" in your account to see the details.<br>
-                        Your order is pending. it will be processed upon receipt of payement and purchase order.<br>
-                        Please follow these steps to complete the order process:
-                    </p>
-
-                    <div>
-                        <h3> 1. Send payement by T-Money</h3>
-                        <p>Payment by T-money is possible only if you reside in Togo.</p><br>
-                        <p>Please make the payement on the following number from  your mobile or at a T-Money point of sale : </p>
-                        <p>T-Money number : <strong>+228 92 04 05 94</strong></p><br>
-                        <p>Payement amount : {{ session('paymentAmount') }}</p>
-                        <p>Full name of recipient : ATHO KODJO GILBERT <span>Managing Director of Eva'a Event & Com (EECO)</span></p>
-                    </div>
-                    <div>
-                        <h3> 2. Note the payement reference number</h3>
-                        <p>T-Money will send you a confirmation message containing the 10-digit reference number(Ref :xxxxxxxxxx). Make a note this number or keep your payement confirmation message.</p>
-                    </div>
-                    <div>
-                        <h3> 3. Send us your payement details</h3>
-                        <p>Once you've sent your payement, return to our website and log in to your account. Go to "Order History", then click on "Enter payement details" button to fill in the information needed to confirm your order</p>
+            <div class="row evaa-container">
+                <div class="col-lg-12 col-md-12 margin-b-30rem">
+                    <div class="card">
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }}</h2>
+                        <div class="card-body">
+                            <p>
+                                {{ trans('payment.thank-you-for-choosing') }}
+                            </p>
+                            <p>
+                                {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
+                            </p>
+                            <p>
+                                {{ trans('payment.order-history') }}
+                            </p>
+                            <p class="font-italic">
+                                {{ trans('payment.order-is-pending') }}
+                            </p>
+                            <div class="ml-md-2">
+                                <ol class="my-3">
+                                    <li>
+                                        <span class="font-weight-bold">{{ trans('payment.send-payment-tmoney') }}</span>
+                                        <p>{{ trans('payment.tmoney-following-countries') }}</p>
+                                        <p></p>
+                                        <ul class="list-unstyled pl-4">
+                                            <li>{{ trans('payment.tmoney-number') }} : <strong><em>+228 92 04 05 94</em></strong></li>
+                                            <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
+                                            <li> {{trans('payment.name-recipient')}} : <em>ATHO KODJO GILBERT <span>{{trans('payment.managing-director')}}</span></em></li>
+                                        </ul>
+                                        <p></p>
+                                    </li>
+                                    <li>
+                                        <span class="font-weight-bold">{{ trans('payment.payment-reference-number') }}</span>
+                                        <p>{{ trans('payment.confirmation-message-tg') }}</p>
+                                    </li>
+                                    <li>
+                                        <span class="font-weight-bold">{{ trans('payment.send-payment-details') }}</span>
+                                        <p>{{ trans('payment.enter-payment-details') }}</p>
+                                    </li>
+                                </ol>
+                            </div>
+                            <hr>
+                                <h3>{{ trans('payment.payment offers') }}</h3>
+                                <div class="">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>{{ trans('payment.offer') }}</th>
+                                                <th>{{ trans('payment.payment-period') }}</th>
+                                                <th>{{ trans('payment.training-fees') }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>
+                                                    {{ trans('payment.period-date-1') }}
+                                                </td>
+                                                <td>40000 FCFA</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>
+                                                    {{ trans('payment.period-date-2') }}
+                                                </td>
+                                                <td>45 000FCFA</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <div class="text-center m-5">
+                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
+                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

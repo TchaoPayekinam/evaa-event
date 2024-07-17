@@ -17,8 +17,8 @@
         <!-- Preloader End Here -->
         <div id="wrapper" class="wrapper">
             <!-- Header Area Start Here -->
-            @include('front.layouts.header') 
-            <!-- Header Area End Here -->          
+            @include('front.layouts.header')
+            <!-- Header Area End Here -->
             @section('content')
 
                 @show
@@ -37,7 +37,7 @@
                     siteLogo: siteLogoHtml
                 });
             });
-        </script>                
+        </script>
     </body>
 
 </html>

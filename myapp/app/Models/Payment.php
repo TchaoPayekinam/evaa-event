@@ -9,7 +9,7 @@ class Payment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','event_id', 'status', 'is_validate', 'ref', 'confirmationCode', 'paymentAmount', 'paymentOption'];
+    protected $fillable = ['user_id','event_id', 'status', 'is_validate', 'ref-tmoney', 'ref_flooz', 'auth_number', 'tracking_number', 'confirmationCode', 'paymentAmount', 'paymentOption'];
 
     public function user()
     {

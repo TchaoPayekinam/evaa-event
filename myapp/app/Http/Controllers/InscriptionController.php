@@ -45,34 +45,47 @@ class InscriptionController extends Controller
 
             $user = User::where('email', $validatedData['email'])->first();
             Auth::login($user);
-            $request->validate([
-             'firstName' => 'required|string|min:5',
-             'lastName' => 'required|string|min:5',
-             'genre' => 'nullable',
-             'phoneNumber' => ['required', 'min:8'],
-             'country' => 'required|string',
-             'city' => 'required|string',
-             'cohortJoin' => 'required|string',
-             'experienceDesign' => 'required|string',
-             'paymentOption' => 'required|string',
-        ]);
 
-         $confirmationCode = $this->generateConfirmationCode();
-         $inscription = new Inscription();
-         $inscription->firstName = $request->firstName;
-         $inscription->lastName = $request->lastName;
-         $inscription->gender = $request->gender;
-         $inscription->email = $request->email;
-         $inscription->phoneNumber = $request->phoneNumber;
-         $inscription->country = $request->country;
-         $inscription->city = $request->city;
-         $inscription->cohortJoin = $request->cohortJoin;
-         $inscription->experienceDesign = $request->experienceDesign;
-         $inscription->paymentOption = $request->paymentOption;
-         $inscription->paymentAmount = $event->frais_inscription;
-         $inscription->confirmationCode = $confirmationCode;
-         $inscription->user_id = Auth::user()->id;
-         $inscription->event_id = $event->id;
+            $request->validate([
+                'firstName' => 'required|string',
+                'lastName' => 'required|string',
+                'gender' => 'required|string',
+                'phoneNumber' => 'required|string',
+                'country' => 'required|string',
+                'city' => 'required|string',
+                'cohortJoin' => 'required|string',
+                'experienceDesign' => 'required|string',
+                'paymentOption' => 'required|string',
+            ], [
+                'lastName.required' => 'Le nom est obligatoire',
+                'firstName.required' => 'Le prénom est obligatoire',
+                'phoneNumber.required' => 'Le numéro de téléphone est obligatoire',
+                'country.required' => 'Le pays de résidence est obligatoire',
+                'city.required' => 'La ville de résidence est obligatoire',
+                'gender.required' => 'Le genre est obligatoire',
+                'cohortJoin.required' => 'Le choix du cohorte est obligatoire',
+                'experienceDesign.required' => 'La réponse est obligatoire',
+                'paymentOption.required' => 'Le choix de l\'option de paiement est obligatoire',
+            ]);
+
+
+
+            $confirmationCode = $this->generateConfirmationCode();
+            $inscription = new Inscription();
+            $inscription->firstName = $request->firstName;
+            $inscription->lastName = $request->lastName;
+            $inscription->gender = $request->gender;
+            $inscription->email = $request->email;
+            $inscription->phoneNumber = $request->phoneNumber;
+            $inscription->country = $request->country;
+            $inscription->city = $request->city;
+            $inscription->cohortJoin = $request->cohortJoin;
+            $inscription->experienceDesign = $request->experienceDesign;
+            $inscription->paymentOption = $request->paymentOption;
+            $inscription->paymentAmount = $event->frais_inscription;
+            $inscription->confirmationCode = $confirmationCode;
+            $inscription->user_id = Auth::user()->id;
+            $inscription->event_id = $event->id;
 
             $saved = $inscription->save();
 
@@ -135,13 +148,10 @@ class InscriptionController extends Controller
            $inscription->event_id = $event->id;
 
            $saved = $inscription->save();
-
-
-
         }
          try {
 
-            $user->notify(new InscriptionNotification($inscription->lastName, $inscription->firstName, $inscription->confirmationCode, $inscription->id));
+//$user->notify(new InscriptionNotification($inscription->lastName, $inscription->firstName, $inscription->confirmationCode, $inscription->id));
 
              if ($saved) {
                  if ($request->paymentOption === 'Flooz') {

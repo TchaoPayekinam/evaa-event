@@ -25,7 +25,10 @@ class CreateInscriptionsTable extends Migration
             $table->string('country');
             $table->string('is_validate')->default('false');
             $table->string('cohortJoin');
-            $table->string('ref')->nullable();
+            $table->string('ref_flooz')->nullable();
+            $table->string('ref_tmoney')->nullable();
+            $table->string('auth_number')->nullable();
+            $table->string('tracking-number')->nullable();
             $table->string('experienceDesign');
             $table->string('paymentOption');
             $table->double('paymentAmount');
