@@ -3,27 +3,9 @@
 @section('title', 'Order in progress | Eva\'a Event & Com')
 
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner" style="background-image: url('{{ asset('event/assets/img/figure/inner-page-figure.png') }}');">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>Tableau de bord</h1>
-                        <ul>
-                            <li>
-                                <a href="{{ route('home.index') }}">Home</a>
-                            </li>
-                            <li>Tableau de bord</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Inne Page Banner Area End Here -->
 
-    <section class="section-space-default bg-light">
+
+    <section class="section-space-default bg-light mt-5">
         <div class="container zoom-gallery menu-list-wrapper">
             <div class="section-heading title-black color-dark text-center">
                 <h2>Historiques des inscriptions et payements</h2>
