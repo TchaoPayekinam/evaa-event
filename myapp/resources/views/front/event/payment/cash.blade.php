@@ -11,7 +11,7 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-cash') }} - {{ trans('payment.step-one') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{ trans('payment.payment-by-cash') }} - {{ trans('payment.step-one') }}</h2>
                         <div class="card-body">
                             <p>
                                 {{ trans('payment.thank-you-for-choosing') }}
@@ -19,11 +19,9 @@
                             <p>
                                 {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
                             </p>
-                            <p>
-                                {{ trans('payment.order-history') }}
-                            </p>
+
                             <p class="font-italic">
-                                {{ trans('payment.order-is-pending') }}
+                                {{ trans('payment.payment-detail') }}
                             </p>
                             <div class="ml-md-2 m-5">
                                 <h3 class="font-weight-bold">{{ trans('payment.payment-cash') }}</h3>

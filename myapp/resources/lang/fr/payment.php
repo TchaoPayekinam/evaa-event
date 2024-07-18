@@ -2,7 +2,8 @@
     return[
         'order-in-progress' => 'Inscription en cours',
         'payment-in-progress' => 'Paiement en cours',
-        'choose-payment-option'=> 'Choisissez une option de paiement',
+        'choose-payment-option'=> 'Choisissez une option de paiement des frais de formations',
+        'training-fees-payment' => 'Paiement du frais de formation',
         'thank-you-for-choosing' => 'Merci d’avoir choisi Eva’a Event & Com. Vous devriez recevoir sous peu un courriel confirmant votre inscription.',
         'btn-payment-cancel'=> 'Annulé',
         'payment-intro'=> 'Merci d’avoir choisi Eva’a Event & Com. Vous devriez recevoir sous peu un courriel confirmant votre paiement.',
@@ -12,6 +13,7 @@
         'order-is-pending' => 'Votre inscription n\'est pas encore validée. Elle sera traitée dès réception du paiement et de la confirmation sur le site. Veuillez suivre les étapes suivantes pour terminer la procédure d\'inscription :',
         'step-one'=> 'Etape 1',
         'step-two'=> 'Etape 2',
+        'payment-detail'=> 'Votre paiement n\'est pas encore validé. Elle sera traitée dès réception et après la   confirmation sur le site. Veuillez suivre les étapes suivantes pour terminer la procédure de paiement des frais de formations :',
         //OFFRE
         'payment offers'=> 'Voici nos offres de payement',
         'offer'=> 'Offre',
@@ -20,7 +22,8 @@
         'period-date-1'=> '05 - 25 juillet 2024',
         'period-date-2'=> '26 juillet - 11 août 2024',
         // Flooz
-        'payment-by-flooz' => 'Paiement par flooz',
+        'payment-by-flooz' => 'par Flooz',
+        'btn-payment-flooz'=> 'Paiement par Flooz',
         'flooz-number'=> 'Numéro de flooz',
         'payement-amount'=> 'Montant du paiement',
         'name-recipient'=> 'Nom complet du destinataire',
@@ -36,14 +39,16 @@
         'enter-payment-details' => 'Après avoir envoyé votre paiement, retournez sur notre site web et connectez-vous à votre compte. Allez dans « le tableau de bord », puis cliquez sur le bouton "Confirmer" pour renseigner les informations permettant de confirmer votre inscription.',
 
         // T-MONEY
-        'payment-by-tmoney' => 'Paiement par T-Money',
+        'payment-by-tmoney' => 'par T-Money',
+        'btn-payment-tmoney'=> 'Paiement pat T-Money',
         'send-payment-tmoney' => 'Envoyer le paiement par T-Money',
         'tmoney-following-countries'=> 'Le paiement par T-money est possible uniquement si vous résidez au Togo.',
         'tmoney-number'=> 'Numéro de T-Money',
         'confirmation-message-tg'=> 'T-Money vous enverra un message de confirmation contenant le numéro de référence à 10   chiffres (Réf : xxxxxxxxxx). Notez ce numéro ou conservez votre message de confirmation de paiement.',
 
         //WESTERN UNION
-        'payment-by-wu'=> 'Paiement par Western Union',
+        'payment-by-wu'=> 'par Western Union',
+        'btn-payment-wu'=> 'Paiement par Western Union',
         'send-payment-western-union' => 'Envoyer le paiement par Western Union',
         'payement-western-union'=> 'Western Union exige que le paiement soit effectué à une personne physique.',
         'familly-name'=> 'Nom',
@@ -56,7 +61,8 @@
         'payement-western-union-note' => 'Western Union vous donnera un numéro de suivi (MTCN) ; nous avons besoin de ce numéro pour encaisser votre paiement. Notez ce numéro ou conservez une copie de votre reçu de paiement.',
 
         // MONEY GRAM
-        'payment-by-mg'=> 'Paiement par Money Gram',
+        'payment-by-mg'=> 'par Money Gram',
+        'btn-payment-by-mg'=> 'Paiement par Money Gram',
         'send-payment-money-gram' => 'Envoyer le paiement par Money Gram',
         'payement-money-gram'=> 'Money Gram exige que le paiement soit effectué à une personne physique.',
         'print-page-mg'=> 'Vous pouvez imprimer cette page et l\'emporter avec vous au bureau de Money Gram comme aide-mémoire.',
@@ -64,7 +70,8 @@
 
         // CASH
         'cash'=> 'espèces',
-        'payment-by-cash'=> 'Paiement en espèces',
+        'payment-by-cash'=> ' en espèces',
+        'btn-payment-by-cash'=> 'Paiement en espèces',
         'payment-cash' => 'Veuillez vous arrêter chez Eva’a Event & Com (EECO) pour effectuer votre paiement en espèces',
         'payment-address' => 'Adresse',
         'payment-cel' => 'Contactez-nous',

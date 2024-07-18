@@ -11,7 +11,7 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.payment-by-flooz') }} en cours- {{ trans('payment.step-one') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{ trans('payment.payment-by-flooz') }} - {{ trans('payment.step-one') }}</h2>
                         <div class="card-body">
                             <p>
                                 {{ trans('payment.payment-intro') }}
@@ -19,11 +19,8 @@
                             <p>
                                 {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
                             </p>
-                            <p>
-                                Your registration is not yet validated. It will be processed upon receipt of payment and confirmation on the site. Please follow the steps below to complete the registration procedure
-                            </p>
                             <p class="font-italic">
-                                {{ trans('payment.order-is-pending') }}
+                                {{ trans('payment.payment-detail') }}
                             </p>
                             <div class="ml-md-2">
                                 <ol class="my-3">

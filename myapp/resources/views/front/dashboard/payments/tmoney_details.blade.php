@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
+@section('title', 'T-Money | Eva\'a Event & Com')
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 
@@ -28,7 +28,7 @@
             background-color: #e5e5e5 !important;
         }
 
-        .login-form input{
+        input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;
@@ -69,19 +69,14 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-tmoney') }} - {{ trans('payment.step-two') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{ trans('payment.payment-by-tmoney') }} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
+                            {{ trans('payment.payment-intro') }}
                             <p>
-                                {{ trans('payment.thank-you-for-choosing') }}
-                            </p>
-                            <p>
-                                {{ trans('payment.keep-your-confirmation') }} : {{$inscription->confirmationCode}}
-                            </p>
-                            <p>
-                                {{ trans('payment.order-history') }}
+                                {{ trans('payment.keep-your-confirmation') }} : {{ $payment->confirmationCode }}
                             </p>
                             <p class="font-italic">
-                                {{ trans('payment.order-is-pending') }}
+                                {{ trans('payment.payment-detail') }}
                             </p>
                             <div class="ml-md-2">
                                 <ol class="my-3">
@@ -91,7 +86,7 @@
                                         <p></p>
                                         <ul class="list-unstyled pl-4">
                                             <li>{{ trans('payment.tmoney-number') }} : <strong><em>+228 92 04 05 94</em></strong></li>
-                                            <li>{{trans('payment.payement-amount')}}: <em>{{$inscription->paymentAmount}} FCFA</em></li>
+                                            <li>{{trans('payment.payement-amount')}}: <em>{{$payment->paymentAmount}} FCFA</em></li>
                                             <li> {{trans('payment.name-recipient')}} : <em>ATHO KODJO GILBERT <span>{{trans('payment.managing-director')}}</span></em></li>
                                         </ul>
                                         <p></p>
@@ -146,7 +141,7 @@
                                             </div>
                                         @endif
 
-                                        <form class="register-form" action="{{ route('payment.confirm', $inscription->id) }}" method="POST" autocomplete="off">
+                                        <form class="register-form" action="{{ route('payment.confirm', $payment->id) }}" method="POST" autocomplete="off">
                                             {{ csrf_field() }}
 
                                             <div class="text-left mt-3">
@@ -167,7 +162,7 @@
                                             </div>
                                             <div class="text-left mt-3">
                                                 <label for="paymentOption">{{ trans('payment.label-paymentOption') }}<span style="color : red">*</span></label>
-                                                <input id="paymentOption" name="paymentOption" disabled value="{{$inscription->paymentOption}}" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <input id="paymentOption" name="paymentOption" disabled value="{{$payment->paymentOption}}" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
                                             </div>
 
                                             <div class="text-left mt-3">
@@ -182,10 +177,6 @@
                                         </form>
                                     </div>  <!-- card body -->
                                 </div>  <!-- card -->
-                            <div class="text-center m-5">
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -199,37 +190,6 @@
 @section('scriptSection')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>
-    // @if (Session::has('message'))
-    //     var type = "{{ Session::get('alert-type', 'info') }}"
-    //     switch (type) {
-    //         case 'info':
-
-    //             toastr.options.timeOut = 10000;
-    //             toastr.info("{{ Session::get('message') }}");
-    //             break;
-    //         case 'success':
-
-    //             toastr.options.timeOut = 10000;
-    //             toastr.success("{{ Session::get('message') }}");
-    //             break;
-    //         case 'warning':
-
-    //             toastr.options.timeOut = 10000;
-    //             toastr.warning("{{ Session::get('message') }}");
-    //             break;
-    //         case 'error':
-
-    //             toastr.options = {
-    //                 "positionClass" : 'toast-top-full-width',
-    //                 "progressBar" : true,
-    //                 "closeButton" : true,
-    //                 "timeOut" : 3000,
-    //             }
-    //             toastr.error("{{ Session::get('message') }}");
-    //             break;
-    //     }
-    // @endif
-
     @if(session('success'))
     toastr.options = {
                      "positionClass" : 'toast-top-full-width',

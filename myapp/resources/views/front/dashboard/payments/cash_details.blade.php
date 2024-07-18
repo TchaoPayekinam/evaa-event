@@ -62,43 +62,20 @@
     </style>
 @endsection
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    {{-- <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>{{ trans('payment.payment-by-cash') }}</h1>
-                        <ul>
-                            <li>
-                                <a href="{{ route('home.index') }}">Home</a>
-                            </li>
-                            <li>{{ trans('payment.cash') }}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    <!-- Inne Page Banner Area End Here -->
-
     <!-- Contact Form Area Start Here -->
     <section class="section-space-default2-less30">
         <div class="container">
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-cash') }} - {{ trans('payment.step-two') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{ trans('payment.payment-by-cash') }} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
                             <p>
                                 {{ trans('payment.thank-you-for-choosing') }}
                             </p>
                             <p>
-                                {{ trans('payment.keep-your-confirmation') }} : {{ $inscription->confirmationCode}}
+                                {{ trans('payment.keep-your-confirmation') }} : {{ $payment->confirmationCode}}
                             </p>
-                            {{-- <p>
-                                {{ trans('payment.order-history') }}
-                            </p> --}}
                             <div class="alert alert-dark m-3 p-5">
                                <h3>
                                 {{ trans('payment.payment-msg') }}
@@ -110,7 +87,7 @@
                                 <ul class="list-unstyled pl-4">
                                     <li>{{ trans('payment.payment-address') }} : <em>Djagblé, carrefour Nord-Est du Collège d'Enseignement Public (CEG)</em></li>
                                     <li>{{ trans('payment.payment-cel') }} : <em>+228 92 04 05 94 / 96 02 82 82</em></li>
-                                    <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
+                                    <li>{{trans('payment.payement-amount')}}: <em>{{ session($payment->paymentAmount) }} FCFA</em></li>
                             </div>
                             <hr>
                                 <h3>{{ trans('payment.payment offers') }}</h3>

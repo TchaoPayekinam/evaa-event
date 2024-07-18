@@ -23,12 +23,12 @@
                                     <div class="ml-md-2">
                                         <div class="my-3 w-50">
                                             <button type="submit" name="payment_option" value="Flooz" class="btn btn-warning btn-block mb-4">
-                                                {{ trans('payment.payment-by-flooz') }}
+                                                {{ trans('payment.btn-payment-flooz') }}
                                             </button>
-                                            <button type="submit" name="payment_option" value="T-Money" class="btn btn-warning btn-block mb-4"> {{ trans('payment.payment-by-tmoney') }}</button>
-                                            <button type="submit" name="payment_option" value="Western Union" class="btn btn-warning btn-block mb-4"> {{ trans('payment.payment-by-wu') }}</button>
-                                            <button type="submit" name="payment_option" value="Money Gram" class="btn btn-warning btn-block mb-4"> {{ trans('payment.payment-by-mg') }}</button>
-                                            <button type="submit" name="payment_option" value="Cash" class="btn btn-warning btn-block mb-4"> {{ trans('payment.payment-by-cash') }}</button>
+                                            <button type="submit" name="payment_option" value="T-Money" class="btn btn-warning btn-block mb-4"> {{ trans('payment.btn-payment-tmoney') }}</button>
+                                            <button type="submit" name="payment_option" value="Western Union" class="btn btn-warning btn-block mb-4"> {{ trans('payment.btn-payment-wu') }}</button>
+                                            <button type="submit" name="payment_option" value="Money Gram" class="btn btn-warning btn-block mb-4"> {{ trans('payment.btn-payment-by-mg') }}</button>
+                                            <button type="submit" name="payment_option" value="Cash" class="btn btn-warning btn-block mb-4"> {{ trans('payment.btn-payment-by-cash') }}</button>
                                         </div>
                                     </div>
                                 </form>

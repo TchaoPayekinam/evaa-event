@@ -28,7 +28,7 @@
             background-color: #e5e5e5 !important;
         }
 
-        .login-form input{
+        input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;
@@ -69,19 +69,17 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{trans('payment.payment-by-wu')}} - {{ trans('payment.step-two') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{trans('payment.payment-by-mg')}} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
                             <p>
-                                {{ trans('payment.thank-you-for-choosing') }}
+                                {{ trans('payment.payment-intro') }}
                             </p>
                             <p>
-                                {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
+                                {{ trans('payment.keep-your-confirmation') }} : {{ $payment->confirmationCode }}
                             </p>
-                            <p>
-                                {{ trans('payment.order-history') }}
-                            </p>
+
                             <p class="font-italic">
-                                {{ trans('payment.order-is-pending') }}
+                                {{ trans('payment.payment-detail') }}
                             </p>
                             <div class="ml-md-2">
                                 <ol class="my-3">
@@ -95,7 +93,7 @@
                                             <li>{{ trans('payment.city') }} : <em>Lomé</em></li>
                                             <li>{{ trans('payment.state') }} : <em>Maritime</em></li>
                                             <li>{{ trans('payment.country') }} : <em>Togo</em></li>
-                                            <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
+                                            <li>{{trans('payment.payement-amount')}}: <em>{{ $payment->paymentAmount}} FCFA</em></li>
                                         </ul>
                                         <p>{{trans('payment.print-page-mg')}}</p>
                                     </li>
@@ -149,32 +147,32 @@
                                             </div>
                                         @endif
 
-                                        <form class="register-form" action="{{ route('payment.confirm', $inscription->id) }}" method="POST" autocomplete="off">
+                                        <form class="register-form" action="{{ route('payment.confirm', $payment->id) }}" method="POST" autocomplete="off">
                                             {{ csrf_field() }}
 
                                             <div class="text-left mt-3">
                                                 <label for="confirmationCode">{{ trans('payment.label-confirmationCode') }}<span style="color : red">*</span></label>
-                                                <input id="confirmationCode" name="confirmationCode" type="text" placeholder="" class="form-control height-45" value="{{ old('confirmationCode') }}" required autocomplete="off">
+                                                <input id="confirmationCode" name="confirmationCode" type="text" placeholder="" class="form-control height" value="{{ old('confirmationCode') }}" required autocomplete="off">
 
                                             </div>
                                             <div class="text-left mt-3">
                                                 <label for="auth_number">{{ trans('payment.auth-number') }}<span style="color : red">*</span></label>
-                                                <input id="auth_number" name="auth_number" type="text" placeholder="" class="form-control height-45" value="{{ old('auth-number') }}" required autocomplete="off">
+                                                <input id="auth_number" name="auth_number" type="text" placeholder="" class="form-control" value="{{ old('auth-number') }}" required autocomplete="off">
 
                                             </div>
 
                                             <div class="text-left mt-3">
                                                 <label for="amount">{{ trans('payment.label-amount') }}<span style="color : red">*</span></label>
-                                                <input id="amount" name="amount" type="number" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <input id="amount" name="amount" type="number" placeholder="" class="form-control" required autocomplete="off">
                                             </div>
                                             <div class="text-left mt-3">
                                                 <label for="paymentOption">{{ trans('payment.label-paymentOption') }}<span style="color : red">*</span></label>
-                                                <input id="paymentOption" name="paymentOption" disabled value="{{$inscription->paymentOption}}" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <input id="paymentOption" name="paymentOption" disabled value="{{$payment->paymentOption}}" type="text" placeholder="" class="form-control" required autocomplete="off">
                                             </div>
 
                                             <div class="text-left mt-3">
                                                 <label for="date">{{ trans('payment.label-date') }}<span style="color : red">*</span></label>
-                                                <input id="date" name="date" type="date" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <input id="date" name="date" type="date" placeholder="" class="form-control" required autocomplete="off">
                                             </div>
 
                                             <div class="center mt-3">
@@ -184,10 +182,6 @@
                                         </form>
                                     </div>  <!-- card body -->
                                 </div>  <!-- card -->
-                            <div class="text-center m-5">
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -200,37 +194,6 @@
 @section('scriptSection')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
-        // @if (Session::has('message'))
-        //     var type = "{{ Session::get('alert-type', 'info') }}"
-        //     switch (type) {
-        //         case 'info':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.info("{{ Session::get('message') }}");
-        //             break;
-        //         case 'success':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.success("{{ Session::get('message') }}");
-        //             break;
-        //         case 'warning':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.warning("{{ Session::get('message') }}");
-        //             break;
-        //         case 'error':
-
-        //             toastr.options = {
-        //                 "positionClass" : 'toast-top-full-width',
-        //                 "progressBar" : true,
-        //                 "closeButton" : true,
-        //                 "timeOut" : 3000,
-        //             }
-        //             toastr.error("{{ Session::get('message') }}");
-        //             break;
-        //     }
-        // @endif
-
         @if(session('success'))
         toastr.options = {
                          "positionClass" : 'toast-top-full-width',

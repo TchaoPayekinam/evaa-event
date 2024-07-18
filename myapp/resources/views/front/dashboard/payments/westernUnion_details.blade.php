@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
+@section('title', 'Western Union | Eva\'a Event & Com')
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 
@@ -28,7 +28,7 @@
             background-color: #e5e5e5 !important;
         }
 
-        .login-form input{
+        input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;
@@ -68,19 +68,17 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{trans('payment.payment-by-wu')}} - {{ trans('payment.step-two') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{trans('payment.payment-by-wu')}} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
                             <p>
-                                {{ trans('payment.thank-you-for-choosing') }}
+                                {{ trans('payment.payment-intro') }}
                             </p>
                             <p>
-                                {{ trans('payment.keep-your-confirmation') }} : {{ $inscription->confirmationCode }}
+                                {{ trans('payment.keep-your-confirmation') }} : {{ $payment->confirmationCode }}
                             </p>
-                            <p>
-                                {{ trans('payment.order-history') }}
-                            </p>
+
                             <p class="font-italic">
-                                {{ trans('payment.order-is-pending') }}
+                                {{ trans('payment.payment-detail') }}
                             </p>
                             <div class="ml-md-2">
                                 <ol class="my-3">
@@ -94,7 +92,7 @@
                                             <li>{{ trans('payment.city') }} : <em>Lomé</em></li>
                                             <li>{{ trans('payment.state') }} : <em>Maritime</em></li>
                                             <li>{{ trans('payment.country') }} : <em>Togo</em></li>
-                                            <li>{{trans('payment.payement-amount')}}: <em>{{$inscription->paymentAmount}} FCFA</em></li>
+                                            <li>{{trans('payment.payement-amount')}}: <em>{{$payment->paymentAmount}} FCFA</em></li>
                                         </ul>
                                         <p>{{trans('payment.print-page')}}</p>
                                     </li>
@@ -148,7 +146,7 @@
                                             </div>
                                         @endif
 
-                                        <form class="register-form" action="{{ route('payment.confirm', $inscription->id) }}" method="POST" autocomplete="off">
+                                        <form class="register-form" action="{{ route('payment.confirm', $payment->id) }}" method="POST" autocomplete="off">
                                             {{ csrf_field() }}
 
                                             <div class="text-left mt-3">
@@ -168,7 +166,7 @@
                                             </div>
                                             <div class="text-left mt-3">
                                                 <label for="paymentOption">{{ trans('payment.label-paymentOption') }}<span style="color : red">*</span></label>
-                                                <input id="paymentOption" name="paymentOption" disabled value="{{$inscription->paymentOption}}" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <input id="paymentOption" name="paymentOption" disabled value="{{$payment->paymentOption}}" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
                                             </div>
 
                                             <div class="text-left mt-3">
@@ -183,10 +181,6 @@
                                         </form>
                                     </div>  <!-- card body -->
                                 </div>  <!-- card -->
-                            <div class="text-center m-5">
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 @extends('front.layouts.app')
-@section('title', 'Order in progress | Eva\'a Event & Com')
+@section('title', 'Flooz | Eva\'a Event & Com')
 
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
@@ -28,7 +28,7 @@
             background-color: #e5e5e5 !important;
         }
 
-        .login-form input{
+        input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;
@@ -70,16 +70,14 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.payment-in-progress') }} - {{ trans('payment.payment-by-flooz') }} - {{ trans('payment.step-two') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{ trans('payment.payment-by-flooz') }} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
-                            <p>
-                                Merci d’avoir choisi Eva’a Event & Com. Vous devriez recevoir sous peu un courriel confirmant votre paiement.
-                            </p>
+                            {{ trans('payment.payment-intro') }}
                             <p>
                                 {{ trans('payment.keep-your-confirmation') }} : {{ $payment->confirmationCode }}
                             </p>
                             <p class="font-italic">
-                                Votre paiement n'est pas encore validée. Elle sera traitée dès réception et de la confirmation sur le site. Veuillez suivre les étapes suivantes pour terminer la procédure de paiement :
+                                {{ trans('payment.payment-detail') }}
                             </p>
                             <div class="ml-md-2">
                                 <ol class="my-3">
@@ -180,10 +178,6 @@
                                         </form>
                                     </div>  <!-- card body -->
                                 </div>  <!-- card -->
-                            <div class="text-center m-5">
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,37 +189,6 @@
 @section('scriptSection')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
-        // @if (Session::has('message'))
-        //     var type = "{{ Session::get('alert-type', 'info') }}"
-        //     switch (type) {
-        //         case 'info':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.info("{{ Session::get('message') }}");
-        //             break;
-        //         case 'success':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.success("{{ Session::get('message') }}");
-        //             break;
-        //         case 'warning':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.warning("{{ Session::get('message') }}");
-        //             break;
-        //         case 'error':
-
-        //             toastr.options = {
-        //                 "positionClass" : 'toast-top-full-width',
-        //                 "progressBar" : true,
-        //                 "closeButton" : true,
-        //                 "timeOut" : 3000,
-        //             }
-        //             toastr.error("{{ Session::get('message') }}");
-        //             break;
-        //     }
-        // @endif
-
         @if(session('success'))
         toastr.options = {
                          "positionClass" : 'toast-top-full-width',
