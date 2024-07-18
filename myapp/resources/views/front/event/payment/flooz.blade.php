@@ -1,44 +1,26 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
-
+@section('title', 'Flooz | Eva\'a Event & Com')
+@section('headSection')
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
+@endsection
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner" style="background-image: url('{{ asset('event/assets/img/figure/inner-page-figure.png') }}');">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>{{ trans('payment.payment-by-flooz') }}</h1>
-                        <ul>
-                            <li>
-                                <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
-                            </li>
-                            <li>Flooz</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Inne Page Banner Area End Here -->
-
     <!-- Area Start Here -->
     <section class="section-space-default2-less30">
         <div class="container">
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.payment-by-flooz') }} en cours- {{ trans('payment.step-one') }}</h2>
                         <div class="card-body">
                             <p>
-                                {{ trans('payment.thank-you-for-choosing') }}
+                                {{ trans('payment.payment-intro') }}
                             </p>
                             <p>
                                 {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
                             </p>
                             <p>
-                                {{ trans('payment.order-history') }}
+                                Your registration is not yet validated. It will be processed upon receipt of payment and confirmation on the site. Please follow the steps below to complete the registration procedure
                             </p>
                             <p class="font-italic">
                                 {{ trans('payment.order-is-pending') }}
@@ -107,3 +89,19 @@
     </section>
     <!-- Area End Here -->
 @endsection
+@section('scriptSection')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+
+        @if(session('success'))
+        toastr.options = {
+                         "positionClass" : 'toast-bottom-full-width',
+                         "progressBar" : true,
+                         "closeButton" : true,
+                         "timeOut" : 5000,
+                     }
+            toastr.success("{{ session('success') }}");
+        @endif
+    </script>
+@endsection
+

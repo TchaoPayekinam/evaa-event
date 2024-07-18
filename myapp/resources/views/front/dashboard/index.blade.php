@@ -3,7 +3,7 @@
 @section('title', 'Order in progress | Eva\'a Event & Com')
 
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
+    {{-- <!-- Inne Page Banner Area Start Here -->
     <section class="inner-page-banner" style="background-image: url('{{ asset('event/assets/img/figure/inner-page-figure.png') }}');">
         <div class="container">
             <div class="row">
@@ -21,7 +21,7 @@
             </div>
         </div>
     </section>
-    <!-- Inne Page Banner Area End Here -->
+    <!-- Inne Page Banner Area End Here --> --}}
 
     <section class="section-space-default bg-light">
         <div class="container zoom-gallery menu-list-wrapper">

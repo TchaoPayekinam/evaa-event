@@ -17,18 +17,25 @@ Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->
 Route::get('services', [App\Http\Controllers\HomeController::class, 'services'])->name('home.services');
 
 Route::post('submit-contact-form', [ContactController::class, 'submit'])->name('post_contact_form');
+
 Route::get('event/inscription', [InscriptionController::class, 'inscription'])->name('event.inscription');
 Route::post('/inscription', [InscriptionController::class, 'submit'])->name('inscription.submit');
-Route::get('order-history', [InscriptionController::class, 'order_history'])->name('order_history');
 
-Route::get('/payment', [PaymentController::class,'payment'])->name('payment');
-Route::post('/payment', [PaymentController::class,'submit'])->name('payment.submit');
+Route::get('event/inscription/flooz', [App\Http\Controllers\HomeController::class, 'flooz'])->name('inscription.flooz');
+Route::get('event/inscription/t-money', [App\Http\Controllers\HomeController::class, 'tMoney'])->name('inscription.tMoney');
+Route::get('event/inscription/western-union', [App\Http\Controllers\HomeController::class, 'westernUnion'])->name('inscription.westernUnion');
+Route::get('event/inscription/money-gram', [App\Http\Controllers\HomeController::class, 'moneyGram'])->name('inscription.moneyGram');
+Route::get('event/inscription/cash', [App\Http\Controllers\HomeController::class, 'cash'])->name('inscription.cash');
 
-Route::get('event/payment/flooz', [App\Http\Controllers\HomeController::class, 'flooz'])->name('payment.flooz');
-Route::get('event/payment/t-money', [App\Http\Controllers\HomeController::class, 'tMoney'])->name('payment.tMoney');
-Route::get('event/payment/western-union', [App\Http\Controllers\HomeController::class, 'westernUnion'])->name('payment.westernUnion');
-Route::get('event/payment/money-gram', [App\Http\Controllers\HomeController::class, 'moneyGram'])->name('payment.moneyGram');
-Route::get('event/payment/cash', [App\Http\Controllers\HomeController::class, 'cash'])->name('payment.cash');
+
+Route::get('event/payment/flooz', [PaymentController::class, 'flooz'])->name('payment.flooz');
+Route::get('event/payment/t-money', [PaymentController::class, 'tMoney'])->name('payment.tMoney');
+Route::get('event/payment/western-union', [PaymentController::class, 'westernUnion'])->name('payment.westernUnion');
+Route::get('event/payment/money-gram', [PaymentController::class, 'moneyGram'])->name('payment.moneyGram');
+Route::get('event/payment/cash', [PaymentController::class, 'cash'])->name('payment.cash');
+
+Route::get('event/payment', [PaymentController::class,'payment'])->name('payment');
+Route::post('event/payment', [PaymentController::class,'submit'])->name('payment.submit');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/inscription/{id}', [DashboardController::class, 'inscriptionDetails'])->name('inscription.details');

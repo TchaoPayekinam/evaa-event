@@ -93,7 +93,6 @@
 @endsection
 
 @section('content')
-<!-- Inne Page Banner Area End Here -->
 <!-- Sign Up Form Area Start Here -->
 <section class="section-space-default2-less30">
     <div class="container">

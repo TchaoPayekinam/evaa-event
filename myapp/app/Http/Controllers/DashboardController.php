@@ -155,21 +155,21 @@ class DashboardController extends Controller
 
         switch ($payment->paymentOption) {
              case 'Cash':
-                return view('front.dashboard.inscriptions.cash_details', compact('payment'));
+                return view('front.dashboard.payments.cash_details', compact('payment'));
              case 'T-Money':
-                return view('front.dashboard.inscriptions.tmoney_details', compact('payment'));
+                return view('front.dashboard.payments.tmoney_details', compact('payment'));
              case 'Western Union':
-                return view('front.dashboard.inscriptions.westernUnion_details', compact('payment'));
+                return view('front.dashboard.payments.westernUnion_details', compact('payment'));
              case 'Flooz':
                 return view('front.dashboard.payments.flooz_details', compact('payment'));
              case 'Money Gram':
-                return view('front.dashboard.inscriptions.moneyGram_details', compact('payment'));
+                return view('front.dashboard.payments.moneyGram_details', compact('payment'));
              default:
-             return redirect()->withErrors(['erreur' => 'Page introuvable']);
+             return abort(404);
          }
     }
 
-    public function confirmInPayment($id, Request $request)
+    public function confirmPayment($id, Request $request)
     {
         if (!Auth::check()) {
             return redirect()->route("user.login");
@@ -266,7 +266,7 @@ class DashboardController extends Controller
         }
 
         $user = Auth::user();
-        //$user->notify(new ConfirmPaymentNotification($payment->lastName, $payment->firstName, $payment->confirmationCode));
+        $user->notify(new ConfirmPaymentNotification($user->lastName, $user->firstName, $payment->confirmationCode));
 
         return redirect()->back()->with('success', 'Paiment confirmée avec succès. Un email a été envoyé à votre adresse : '.$user->email);
     }

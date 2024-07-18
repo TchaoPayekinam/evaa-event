@@ -7,19 +7,12 @@
 @endif
 
 {{-- Lignes d'introduction --}}
-@lang('Merci de confirmer votre inscription, :lastName :firstName !', ['lastName' => $lastName, 'firstName' => $firstName])
-@lang('Votre place pour la formation est réservée. Cliquez sur le bouton ci-dessous pour procéder au paiement')
-
-{{-- Bouton d'action --}}
-@isset($actionText)
-@component('mail::button', ['url' => $actionUrl, 'color' => 'primary'])
-{{ $actionText }}
-@endcomponent
-@endisset
+@lang('Merci d\'avoir confirmer votre inscription, :lastName :firstName !', ['lastName' => $lastName, 'firstName' => $firstName])
+@lang('Nous sommes ravi de vous comptez parmis nos participants')
 
 {{-- Lignes de conclusion --}}
 
-@lang('Veuillez conserver votre code de confirmation pour vos dossiers', ['confirmationCode' => $confirmationCode])
+@lang('Voici le programme de la formation')
 
 {{-- Salutation --}}
 @if (! empty($salutation))

@@ -72,8 +72,8 @@ class InscriptionController extends Controller
 
             $confirmationCode = $this->generateConfirmationCode();
             $inscription = new Inscription();
-            $inscription->firstName = $request->firstName;
-            $inscription->lastName = $request->lastName;
+            // $inscription->firstName = $request->firstName;
+            // $inscription->lastName = $request->lastName;
             $inscription->gender = $request->gender;
             $inscription->email = $request->email;
             $inscription->phoneNumber = $request->phoneNumber;
@@ -107,6 +107,27 @@ class InscriptionController extends Controller
                 'password.required'=> 'Le mot de passe est obligatoire',
             ]);
 
+            $request->validate([
+                'firstName' => 'required|string',
+                'lastName' => 'required|string',
+                'gender' => 'required|string',
+                'phoneNumber' => 'required|string',
+                'country' => 'required|string',
+                'city' => 'required|string',
+                'cohortJoin' => 'required|string',
+                'experienceDesign' => 'required|string',
+                'paymentOption' => 'required|string',
+            ], [
+                'lastName.required' => 'Le nom est obligatoire',
+                'firstName.required' => 'Le prénom est obligatoire',
+                'phoneNumber.required' => 'Le numéro de téléphone est obligatoire',
+                'country.required' => 'Le pays de résidence est obligatoire',
+                'city.required' => 'La ville de résidence est obligatoire',
+                'gender.required' => 'Le genre est obligatoire',
+                'cohortJoin.required' => 'Le choix du cohorte est obligatoire',
+                'experienceDesign.required' => 'La réponse est obligatoire',
+                'paymentOption.required' => 'Le choix de l\'option de paiement est obligatoire',
+            ]);
             $user = User::where('email', $validatedData['email_no_account'])->first();
             if ($user) {
                 return redirect()->back()->withErrors(['email_no_account' => 'Un compte avec cette adresse e-mail existe déjà.']);
@@ -115,6 +136,8 @@ class InscriptionController extends Controller
             $user = User::create([
                 'email' => $request->email_no_account,
                 'password' => Hash::make($request->password),
+                'firstName' => $request->firstName,
+                'lastName' => $request->lastName,
             ]);
 
             Auth::login($user);
@@ -132,8 +155,6 @@ class InscriptionController extends Controller
 
            $confirmationCode = $this->generateConfirmationCode();
            $inscription = new Inscription();
-           $inscription->firstName = $request->firstName;
-           $inscription->lastName = $request->lastName;
            $inscription->gender = $request->gender;
            $inscription->email = $request->email_no_account;
            $inscription->phoneNumber = $request->phoneNumber;
@@ -151,23 +172,28 @@ class InscriptionController extends Controller
         }
          try {
 
-//$user->notify(new InscriptionNotification($inscription->lastName, $inscription->firstName, $inscription->confirmationCode, $inscription->id));
-
-             if ($saved) {
-                 if ($request->paymentOption === 'Flooz') {
-                     return redirect()->route('payment.flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
-                 } else if ($request->paymentOption === 'T-Money') {
-                     return redirect()->route('payment.tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
-                 }else if( $request->paymentOption === 'Western Union') {
-                     return redirect()->route('payment.westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
-                 }else if( $request->paymentOption === 'Money Gram') {
-                     return redirect()->route('payment.moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
-                 }else if($request->paymentOption === 'Cash'){
-                     return redirect()->route('payment.cash')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount]);
-                }
-            }
 
             $user->notify(new InscriptionNotification($inscription->lastName, $inscription->firstName, $inscription->confirmationCode, $inscription->id));
+
+             if ($saved) {
+
+
+                 switch ($request->paymentOption) {
+                     case 'Cash':
+                         return redirect()->route('inscription.cash')->with(['confirmationCode'=> $inscription->confirmationCode,     'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+                     case 'T-Money':
+                        return redirect()->route('inscription.tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, ' paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+                     case 'Western Union':
+                        return redirect()->route('inscription.westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+                     case 'Flooz':
+                            return redirect()->route('inscription.flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+                     case 'Money Gram':
+                        return redirect()->route('inscription.moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+                     default:
+                        return abort(404);
+                 }
+            }
+
          } catch (Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
          }

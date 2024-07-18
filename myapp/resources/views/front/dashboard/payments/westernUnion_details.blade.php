@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
-@section('title', 'Order in progress | Eva\'a Event & Com')
 
+@section('title', 'Order in progress | Eva\'a Event & Com')
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 
@@ -61,46 +61,50 @@
         }
     </style>
 @endsection
-
 @section('content')
-
-    <!-- Area Start Here -->
+    <!-- Contact Form Area Start Here -->
     <section class="section-space-default2-less30">
         <div class="container">
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.payment-in-progress') }} - {{ trans('payment.payment-by-flooz') }} - {{ trans('payment.step-two') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{trans('payment.payment-by-wu')}} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
                             <p>
-                                Merci d’avoir choisi Eva’a Event & Com. Vous devriez recevoir sous peu un courriel confirmant votre paiement.
+                                {{ trans('payment.thank-you-for-choosing') }}
                             </p>
                             <p>
-                                {{ trans('payment.keep-your-confirmation') }} : {{ $payment->confirmationCode }}
+                                {{ trans('payment.keep-your-confirmation') }} : {{ $inscription->confirmationCode }}
+                            </p>
+                            <p>
+                                {{ trans('payment.order-history') }}
                             </p>
                             <p class="font-italic">
-                                Votre paiement n'est pas encore validée. Elle sera traitée dès réception et de la confirmation sur le site. Veuillez suivre les étapes suivantes pour terminer la procédure de paiement :
+                                {{ trans('payment.order-is-pending') }}
                             </p>
                             <div class="ml-md-2">
                                 <ol class="my-3">
                                     <li>
-                                        <span class="font-weight-bold">{{ trans('payment.send-payment-flooz') }}</span>
-                                        <p>{{ trans('payment.flooz-following-countries') }}</p>
-                                        <p></p>
+                                        <span class="font-weight-bold">{{ trans('payment.send-payment-western-union') }}</span>
+                                        <p>{{ trans('payment.payement-western-union') }}</p>
+                                        <p>{{trans('payment.managing')}}</p>
                                         <ul class="list-unstyled pl-4">
-                                            <li>{{ trans('payment.flooz-number') }} : <strong><em>+228 96028282</em></strong></li>
-                                            <li>{{trans('payment.payement-amount')}}: <em>{{$payment->paymentAmount}} FCFA</em></li>
-                                            <li> {{trans('payment.name-recipient')}} : <em>ATHO KODJO GILBERT <span>{{trans('payment.managing-director')}}</span></em></li>
+                                            <li>{{ trans('payment.familly-name') }} : <em>ATHO</em></li>
+                                            <li>{{ trans('payment.first-name') }} : <em>KODJO GILBERT</em></li>
+                                            <li>{{ trans('payment.city') }} : <em>Lomé</em></li>
+                                            <li>{{ trans('payment.state') }} : <em>Maritime</em></li>
+                                            <li>{{ trans('payment.country') }} : <em>Togo</em></li>
+                                            <li>{{trans('payment.payement-amount')}}: <em>{{$inscription->paymentAmount}} FCFA</em></li>
                                         </ul>
-                                        <p></p>
+                                        <p>{{trans('payment.print-page')}}</p>
                                     </li>
                                     <li>
                                         <span class="font-weight-bold">{{ trans('payment.payment-reference-number') }}</span>
-                                        <p>{{ trans('payment.confirmation-message') }}</p>
+                                        <p>{{ trans('payment.payement-western-union-note') }}</p>
                                     </li>
                                     <li>
                                         <span class="font-weight-bold">{{ trans('payment.send-payment-details') }}</span>
-                                        <p>Après avoir envoyé votre paiement, retournez sur notre site web et connectez-vous à votre compte. Allez dans « le tableau de bord », puis cliquez sur le bouton "Confirmer" pour renseigner les informations permettant de confirmer votre paiement.</p>
+                                        <p>{{ trans('payment.enter-payment-details') }}</p>
                                     </li>
                                 </ol>
                             </div>
@@ -144,33 +148,32 @@
                                             </div>
                                         @endif
 
-                                        <form class="register-form" action="{{ route('payment.confirm', $payment->id) }}" method="POST" autocomplete="off">
+                                        <form class="register-form" action="{{ route('payment.confirm', $inscription->id) }}" method="POST" autocomplete="off">
                                             {{ csrf_field() }}
 
                                             <div class="text-left mt-3">
                                                 <label for="confirmationCode">{{ trans('payment.label-confirmationCode') }}<span style="color : red">*</span></label>
-                                                <input id="confirmationCode" value="{{old('confirmationCode')}}" name="confirmationCode" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <input id="confirmationCode" name="confirmationCode" type="text" placeholder="" class="form-control height-45" value="{{ old('confirmationCode') }}" required autocomplete="off">
 
                                             </div>
                                             <div class="text-left mt-3">
-                                                <label for="ref_flooz">{{ trans('payment.label-ref') }}<span style="color : red">*</span></label>
-                                                <span class="small">{{ trans('payment.ref-example') }} (Txn ID: 2240202149567)</span>
-                                                <input id="ref_flooz" value="{{old('ref_flooz')}}" name="ref_flooz" type="text" placeholder="" class="form-control height-45" value="{{ old('ref_flooz') }}" required autocomplete="off">
+                                                <label for="tracking_number">{{ trans('payment.tracking-number') }}<span style="color : red">*</span></label>
+                                                <input id="tracking_number" name="tracking_number" type="text" placeholder="" class="form-control height-45" value="{{ old('tracking_number') }}" required autocomplete="off">
 
                                             </div>
 
                                             <div class="text-left mt-3">
                                                 <label for="amount">{{ trans('payment.label-amount') }}<span style="color : red">*</span></label>
-                                                <input id="amount" value="{{old('amount')}}" name="amount" type="number" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <input id="amount" name="amount" type="number" placeholder="" class="form-control height-45" required autocomplete="off">
                                             </div>
                                             <div class="text-left mt-3">
                                                 <label for="paymentOption">{{ trans('payment.label-paymentOption') }}<span style="color : red">*</span></label>
-                                                <input id="paymentOption" value="{{$payment->paymentOption}}" name="paymentOption" disabled  type="text" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <input id="paymentOption" name="paymentOption" disabled value="{{$inscription->paymentOption}}" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
                                             </div>
 
                                             <div class="text-left mt-3">
                                                 <label for="date">{{ trans('payment.label-date') }}<span style="color : red">*</span></label>
-                                                <input id="date" value="{{old('date')}}" name="date" type="date" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <input id="date" name="date" type="date" placeholder="" class="form-control height-45" required autocomplete="off">
                                             </div>
 
                                             <div class="center mt-3">
@@ -190,42 +193,12 @@
             </div>
         </div>
     </section>
-    <!-- Area End Here -->
+    <!-- Contact Form Area End Here -->
 @endsection
+
 @section('scriptSection')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
-        // @if (Session::has('message'))
-        //     var type = "{{ Session::get('alert-type', 'info') }}"
-        //     switch (type) {
-        //         case 'info':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.info("{{ Session::get('message') }}");
-        //             break;
-        //         case 'success':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.success("{{ Session::get('message') }}");
-        //             break;
-        //         case 'warning':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.warning("{{ Session::get('message') }}");
-        //             break;
-        //         case 'error':
-
-        //             toastr.options = {
-        //                 "positionClass" : 'toast-top-full-width',
-        //                 "progressBar" : true,
-        //                 "closeButton" : true,
-        //                 "timeOut" : 3000,
-        //             }
-        //             toastr.error("{{ Session::get('message') }}");
-        //             break;
-        //     }
-        // @endif
-
         @if(session('success'))
         toastr.options = {
                          "positionClass" : 'toast-top-full-width',

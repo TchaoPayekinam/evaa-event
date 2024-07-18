@@ -15,9 +15,6 @@ class CreateInscriptionsTable extends Migration
     {
         Schema::create('inscriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('firstName');
-            $table->string('lastName');
-            $table->string('email');
             $table->string('gender');
             $table->string('phoneNumber');
             $table->string('city');

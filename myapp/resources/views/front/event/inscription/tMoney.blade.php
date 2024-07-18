@@ -14,7 +14,7 @@
                         <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-tmoney') }} - {{ trans('payment.step-one') }}</h2>
                         <div class="card-body">
                             <p>
-                                {{ trans('payment.payment-intro') }}
+                                {{ trans('payment.thank-you-for-choosing') }}
                             </p>
                             <p>
                                 {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}

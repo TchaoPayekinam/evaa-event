@@ -97,13 +97,20 @@
 
                         <form class="register-form" action="{{ route('user.register') }}" method="POST" autocomplete="off">
                             {{ csrf_field() }}
-                            <!-- <div class="text-left mt-3">
-                                <label for="username">{{ trans('register.username') }}<span style="color : red">*</span></label>
-                                <input type="text" placeholder="{{ trans('register.username') }}" class="form-control height-45" name="username" id="username" value="{{ old('username')}}" required>
-                                @if ($errors->has('username'))
-                                    <span class="text-danger">{{ $errors->first('username') }}</span>
+                            <div class="text-left mt-3">
+                                <label for="lastName">{{ trans('register.last-name') }}<span style="color : red">*</span></label>
+                                <input type="text" placeholder="{{ trans('register.last-name') }}" class="form-control height-45" name="lastName" id="lastName" value="{{ old('lastName')}}" required>
+                                @if ($errors->has('lastName'))
+                                    <span class="text-danger">{{ $errors->first('lastName') }}</span>
                                 @endif
-                            </div> -->
+                            </div>
+                            <div class="text-left mt-3">
+                                <label for="firstName">{{ trans('register.first-name') }}<span style="color : red">*</span></label>
+                                <input type="text" placeholder="{{ trans('register.first-name') }}" class="form-control height-45" name="firstName" id="firstName" value="{{ old('firstName')}}" required>
+                                @if ($errors->has('firstName'))
+                                    <span class="text-danger">{{ $errors->first('firstName') }}</span>
+                                @endif
+                            </div>
 
                             <div class="text-left mt-3">
                                 <label for="Email">{{ trans('register.email') }}<span style="color : red">*</span></label>

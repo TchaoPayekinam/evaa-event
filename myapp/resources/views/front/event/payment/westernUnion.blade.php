@@ -1,38 +1,20 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
-
+@section('title', 'Western Union | Eva\'a Event & Com')
+@section('headSection')
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
+@endsection
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner" style="background-image: url(event/assets/img/figure/inner-page-figure.png);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>{{trans('payment.payment-by-wu')}}</h1>
-                        <ul>
-                            <li>
-                                <a href="{{ route('home.index') }}">Home</a>
-                            </li>
-                            <li>Western Union</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Inne Page Banner Area End Here -->
-
     <!-- Contact Form Area Start Here -->
     <section class="section-space-default2-less30">
         <div class="container">
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{trans('payment.payment-by-wu')}} - {{ trans('payment.step-one') }}</h2>
                         <div class="card-body">
                             <p>
-                                {{ trans('payment.thank-you-for-choosing') }}
+                                {{ trans('payment.payment-intro') }}
                             </p>
                             <p>
                                 {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
@@ -112,6 +94,17 @@
 @endsection
 
 @section('scriptSection')
-    <!-- Validator js -->
-    <script src="{{ asset('event/assets/js/validator.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+
+        @if(session('success'))
+        toastr.options = {
+                         "positionClass" : 'toast-bottom-full-width',
+                         "progressBar" : true,
+                         "closeButton" : true,
+                         "timeOut" : 5000,
+                     }
+            toastr.success("{{ session('success') }}");
+        @endif
+    </script>
 @endsection
