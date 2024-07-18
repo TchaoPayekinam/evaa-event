@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('admin/assets/img/logoacp.png') }}" rel="icon">
-  <link href="{{ asset('admin/assets/img/logoacp.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('event/assets/img/logo.png') }}" rel="icon">
+  <link href="{{ asset('event/assets/img/logo.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="{{ asset('https://fonts.gstatic.com') }}" rel="preconnect">
@@ -50,9 +50,7 @@
     </div><!-- End Logo -->
 
     <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-        <button class="nav-link btn-fill size-xs color-yellow border-radius-5 mr-2">{{ trans('menu.logout') }}</button>
-      </ul>
+        <a class ="btn btn btn-primary new-consignateur m-5" href="{{ route('home.index') }}">Aller sur le site</a>
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
@@ -82,9 +80,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('payement.index') }}">
+          <a class="nav-link" href="{{ route('payement.inscription') }}">
             <i class="bi bi-person"></i>
-            <span>Payements</span>
+            <span>Frais de d'inscription</span>
+          </a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('payement.formation') }}">
+            <i class="bi bi-person"></i>
+            <span>Frais de formation</span>
           </a>
         </li>
       </ul>

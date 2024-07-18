@@ -1,30 +1,53 @@
 @extends('front.layouts.app')
 
-@section('title', 'Cash | Eva\'a Event & Com')
-@section('headSection')
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
-@endsection
+@section('title', 'Order in progress | Eva\'a Event & Com')
+
 @section('content')
+    <!-- Inne Page Banner Area Start Here -->
+    {{-- <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumbs-area">
+                        <h1>{{ trans('payment.payment-by-cash') }}</h1>
+                        <ul>
+                            <li>
+                                <a href="{{ route('home.index') }}">Home</a>
+                            </li>
+                            <li>{{ trans('payment.cash') }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+    <!-- Inne Page Banner Area End Here -->
+
     <!-- Contact Form Area Start Here -->
     <section class="section-space-default2-less30">
         <div class="container">
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{ trans('payment.payment-by-cash') }} - {{ trans('payment.step-one') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-cash') }} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
                             <p>
                                 {{ trans('payment.thank-you-for-choosing') }}
                             </p>
                             <p>
-                                {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
+                                {{ trans('payment.keep-your-confirmation') }} : {{ $inscription->confirmationCode}}
                             </p>
-
-                            <p class="font-italic">
-                                {{ trans('payment.payment-detail') }}
-                            </p>
+                            {{-- <p>
+                                {{ trans('payment.order-history') }}
+                            </p> --}}
+                            <div class="alert alert-dark m-3 p-5">
+                               <h3>
+                                {{ trans('payment.payment-msg') }}
+                               </h3>
+                               <hr>
+                                <p class="mb-0 font-italic">{{ trans('payment.payment-thank') }}</p>
+                            </div>
                             <div class="ml-md-2 m-5">
-                                <h3 class="font-weight-bold">{{ trans('payment.payment-cash') }}</h3>
                                 <ul class="list-unstyled pl-4">
                                     <li>{{ trans('payment.payment-address') }} : <em>Djagblé, carrefour Nord-Est du Collège d'Enseignement Public (CEG)</em></li>
                                     <li>{{ trans('payment.payment-cel') }} : <em>+228 92 04 05 94 / 96 02 82 82</em></li>
@@ -59,6 +82,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+
                             <div class="text-center m-5">
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
@@ -73,17 +98,6 @@
 @endsection
 
 @section('scriptSection')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script>
-
-        @if(session('success'))
-        toastr.options = {
-                         "positionClass" : 'toast-bottom-full-width',
-                         "progressBar" : true,
-                         "closeButton" : true,
-                         "timeOut" : 5000,
-                     }
-            toastr.success("{{ session('success') }}");
-        @endif
-    </script>
+    <!-- Validator js -->
+    <script src="{{ asset('event/assets/js/validator.min.js') }}"></script>
 @endsection

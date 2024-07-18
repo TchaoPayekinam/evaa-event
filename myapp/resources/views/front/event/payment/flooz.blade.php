@@ -1,58 +1,37 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
-
+@section('title', 'Flooz | Eva\'a Event & Com')
+@section('headSection')
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
+@endsection
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner" style="background-image: url('{{ asset('event/assets/img/figure/inner-page-figure.png') }}');">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>Payment by Flooz</h1>
-                        <ul>
-                            <li>
-                                <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
-                            </li>
-                            <li>Flooz</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Inne Page Banner Area End Here -->
-
     <!-- Area Start Here -->
     <section class="section-space-default2-less30">
         <div class="container">
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{ trans('payment.payment-by-flooz') }} - {{ trans('payment.step-one') }}</h2>
                         <div class="card-body">
                             <p>
-                                {{ trans('payment.thank-you-for-choosing') }}
+                                {{ trans('payment.payment-intro') }}
                             </p>
                             <p>
                                 {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
                             </p>
-                            <p>
-                                {{ trans('payment.order-history') }}
-                            </p>
                             <p class="font-italic">
-                                {{ trans('payment.order-is-pending') }}
+                                {{ trans('payment.payment-detail') }}
                             </p>
                             <div class="ml-md-2">
                                 <ol class="my-3">
                                     <li>
                                         <span class="font-weight-bold">{{ trans('payment.send-payment-flooz') }}</span>
                                         <p>{{ trans('payment.flooz-following-countries') }}</p>
-                                        <p>{{ trans('payment.flooz-point-of-sale') }}</p>
+                                        <p></p>
                                         <ul class="list-unstyled pl-4">
-                                            <li>Flooz number : <strong><em>+228 96028282</em></strong></li>
-                                            <li>Payement amount : <em>{{ session('paymentAmount') }} FCFA</em></li>
-                                            <li>Full name of recipient : <em>ATHO KODJO GILBERT <span>Managing Director of Eva'a Event & Com (EECO)</span></em></li>
+                                            <li>{{ trans('payment.flooz-number') }} : <strong><em>+228 96028282</em></strong></li>
+                                            <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
+                                            <li> {{trans('payment.name-recipient')}} : <em>ATHO KODJO GILBERT <span>{{trans('payment.managing-director')}}</span></em></li>
                                         </ul>
                                         <p></p>
                                     </li>
@@ -67,36 +46,37 @@
                                 </ol>
                             </div>
                             <hr>
-                                <h3>Voici nos offres de payement</h3>
+                                <h3>{{ trans('payment.payment offers') }}</h3>
                                 <div class="">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Offre</th>
-                                                <th>Periode de payement</th>
-                                                <th>Frais de formation</th>
+                                                <th>{{ trans('payment.offer') }}</th>
+                                                <th>{{ trans('payment.payment-period') }}</th>
+                                                <th>{{ trans('payment.training-fees') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
                                                 <td>
-                                                    05 - 25 juillet 2024
+                                                    {{ trans('payment.period-date-1') }}
                                                 </td>
                                                 <td>40000 FCFA</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
                                                 <td>
-                                                    26 juillet - 11 août 2024
+                                                    {{ trans('payment.period-date-2') }}
                                                 </td>
                                                 <td>45 000FCFA</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                            <div class="text-center">
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">My Order History</a>
+                            <div class="text-center m-5">
+                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
+                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
                             </div>
                         </div>
                     </div>
@@ -106,3 +86,19 @@
     </section>
     <!-- Area End Here -->
 @endsection
+@section('scriptSection')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+
+        @if(session('success'))
+        toastr.options = {
+                         "positionClass" : 'toast-bottom-full-width',
+                         "progressBar" : true,
+                         "closeButton" : true,
+                         "timeOut" : 5000,
+                     }
+            toastr.success("{{ session('success') }}");
+        @endif
+    </script>
+@endsection
+

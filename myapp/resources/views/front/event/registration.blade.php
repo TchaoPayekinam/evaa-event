@@ -93,25 +93,6 @@
 @endsection
 
 @section('content')
-<!-- Inne Page Banner Area Start Here -->
-<section class="inner-page-banner" style="background-image: url('{{ asset('event/assets/img/figure/inner-page-figure.png') }}');">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumbs-area">
-                    <h1>{{ trans('register.registration') }}</h1>
-                    <ul>
-                        <li>
-                            <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
-                        </li>
-                        <li>{{ trans('register.registration') }}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Inne Page Banner Area End Here -->
 <!-- Sign Up Form Area Start Here -->
 <section class="section-space-default2-less30">
     <div class="container">
@@ -128,15 +109,12 @@
             <!-- <div class="col-8 center"> -->
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="card">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @error('email_no_account')
+                        <span class="text-danger font-size" >{{$message}}</span>
+                    @enderror
+                    @error('email')
+                        <span class="text-danger font-size" >{{$message}}</span>
+                    @enderror
                     <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('register.registration') }}</h2>
                     <div class="card-body px-lg-5 pt-0">
                         <form class="register-form" action="{{route('inscription.submit')}}" method="POST" novalidate>
@@ -171,7 +149,7 @@
 
                             <div class="text-left mt-3">
                                 <label for="phoneNumber">{{ trans('register.phone') }}</label><span style="color: red">*</span>
-                                <input id="phoneNumber" name="phoneNumber" type="text" placeholder="" value="{{old('phoneNumber')}}" class="form-control height-45" required>
+                                <input id="phoneNumber" name="phoneNumber" type="text" placeholder="+228 97 46 33 39" value="{{old('phoneNumber')}}" class="form-control height-45" required>
                                 @error('phoneNumber')
                                     <span class="text-danger font-size" >{{$message}}</span>
                                 @enderror
@@ -237,7 +215,7 @@
 
                             {{-- formulaire de compte --}}
                             <h2 class="card-header text-center py-3 mt-4 poti-light-bg">{{ trans('register.regis-form') }}</h2>
-                            <p class="small text-muted">Le compte vous permettra de suivre vos activités sur la plateforme, d'accéder à votre tableau de board et de confirmer vos inscriptions et payements.</p>
+                            <p class="small text-muted">Le compte vous permettra de suivre vos activités sur la plateforme, d'accéder à votre tableau de bord et de confirmer vos inscriptions et payements.</p>
                             <div class="card-body px-lg-5 pt-0">
                             <div class="text-left mt-3">
                                 <label>

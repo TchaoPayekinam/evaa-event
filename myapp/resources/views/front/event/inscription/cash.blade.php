@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Western Union | Eva\'a Event & Com')
+@section('title', 'Cash | Eva\'a Event & Com')
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 @endsection
@@ -11,43 +11,26 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{trans('payment.payment-by-wu')}} - {{ trans('payment.step-one') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-cash') }} - {{ trans('payment.step-one') }}</h2>
                         <div class="card-body">
                             <p>
-                                {{ trans('payment.payment-intro') }}
+                                {{ trans('payment.thank-you-for-choosing') }}
                             </p>
                             <p>
                                 {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
                             </p>
-
-                            <p class="font-italic">
-                                {{ trans('payment.payment-detail') }}
+                            <p>
+                                {{ trans('payment.order-history') }}
                             </p>
-                            <div class="ml-md-2">
-                                <ol class="my-3">
-                                    <li>
-                                        <span class="font-weight-bold">{{ trans('payment.send-payment-western-union') }}</span>
-                                        <p>{{ trans('payment.payement-western-union') }}</p>
-                                        <p>{{trans('payment.managing')}}</p>
-                                        <ul class="list-unstyled pl-4">
-                                            <li>{{ trans('payment.familly-name') }} : <em>ATHO</em></li>
-                                            <li>{{ trans('payment.first-name') }} : <em>KODJO GILBERT</em></li>
-                                            <li>{{ trans('payment.city') }} : <em>Lomé</em></li>
-                                            <li>{{ trans('payment.state') }} : <em>Maritime</em></li>
-                                            <li>{{ trans('payment.country') }} : <em>Togo</em></li>
-                                            <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
-                                        </ul>
-                                        <p>{{trans('payment.print-page')}}</p>
-                                    </li>
-                                    <li>
-                                        <span class="font-weight-bold">{{ trans('payment.payment-reference-number') }}</span>
-                                        <p>{{ trans('payment.payement-western-union-note') }}</p>
-                                    </li>
-                                    <li>
-                                        <span class="font-weight-bold">{{ trans('payment.send-payment-details') }}</span>
-                                        <p>{{ trans('payment.enter-payment-details') }}</p>
-                                    </li>
-                                </ol>
+                            <p class="font-italic">
+                                {{ trans('payment.order-is-pending') }}
+                            </p>
+                            <div class="ml-md-2 m-5">
+                                <h3 class="font-weight-bold">{{ trans('payment.payment-cash') }}</h3>
+                                <ul class="list-unstyled pl-4">
+                                    <li>{{ trans('payment.payment-address') }} : <em>Djagblé, carrefour Nord-Est du Collège d'Enseignement Public (CEG)</em></li>
+                                    <li>{{ trans('payment.payment-cel') }} : <em>+228 92 04 05 94 / 96 02 82 82</em></li>
+                                    <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
                             </div>
                             <hr>
                                 <h3>{{ trans('payment.payment offers') }}</h3>

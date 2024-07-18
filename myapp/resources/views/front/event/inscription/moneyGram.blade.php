@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Western Union | Eva\'a Event & Com')
+@section('title', 'Money Gram | Eva\'a Event & Com')
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 @endsection
@@ -11,23 +11,25 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.training-fees-payment') }} {{trans('payment.payment-by-wu')}} - {{ trans('payment.step-one') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-mg') }} - {{ trans('payment.step-one') }}</h2>
                         <div class="card-body">
                             <p>
-                                {{ trans('payment.payment-intro') }}
+                                {{ trans('payment.thank-you-for-choosing') }}
                             </p>
                             <p>
                                 {{ trans('payment.keep-your-confirmation') }} : {{ session('confirmationCode') }}
                             </p>
-
+                            <p>
+                                {{ trans('payment.order-history') }}
+                            </p>
                             <p class="font-italic">
-                                {{ trans('payment.payment-detail') }}
+                                {{ trans('payment.order-is-pending') }}
                             </p>
                             <div class="ml-md-2">
                                 <ol class="my-3">
                                     <li>
-                                        <span class="font-weight-bold">{{ trans('payment.send-payment-western-union') }}</span>
-                                        <p>{{ trans('payment.payement-western-union') }}</p>
+                                        <span class="font-weight-bold">{{ trans('payment.send-payment-money-gram') }}</span>
+                                        <p>{{ trans('payment.payement-money-gram') }}</p>
                                         <p>{{trans('payment.managing')}}</p>
                                         <ul class="list-unstyled pl-4">
                                             <li>{{ trans('payment.familly-name') }} : <em>ATHO</em></li>
@@ -37,11 +39,11 @@
                                             <li>{{ trans('payment.country') }} : <em>Togo</em></li>
                                             <li>{{trans('payment.payement-amount')}}: <em>{{ session('paymentAmount') }} FCFA</em></li>
                                         </ul>
-                                        <p>{{trans('payment.print-page')}}</p>
+                                        <p>{{trans('payment.print-page-mg')}}</p>
                                     </li>
                                     <li>
                                         <span class="font-weight-bold">{{ trans('payment.payment-reference-number') }}</span>
-                                        <p>{{ trans('payment.payement-western-union-note') }}</p>
+                                        <p>{{ trans('payment.payement-mg-note') }}</p>
                                     </li>
                                     <li>
                                         <span class="font-weight-bold">{{ trans('payment.send-payment-details') }}</span>

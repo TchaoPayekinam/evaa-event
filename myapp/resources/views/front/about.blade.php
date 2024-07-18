@@ -4,12 +4,12 @@
 
 @section('content')
     <!-- About Us Start Here -->
-    <section class="section-space-less30">
+    <section class="section-space-less30 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
                     <div class="about-layout4">
-                        <img src="{{ asset('event/assets/img/logo.png') }}" alt="logo" class="img-fluid">
+                        <img src="{{ asset('event/assets/img/logo-eeco-black.png') }}" alt="logo" class="img-fluid">
                         <p class="text-justify">
                             {{ trans('about.qui-sommes-nous') }}
                         </p>
@@ -412,8 +412,8 @@
     </section>
     <!-- Call To Action Area End Here -->
     <!-- Map Area Start Here -->
-    <section class="container container-maps">
-        <div class="container-fluid">
+    <section class="mt-5">
+        <div>
             <div class="google-map-area">
                 <div id="" style="width:100%; height:496px;">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0769896476722!2d1.2855315!3d6.2535869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023fd000fc2743d%3A0x9b650c6248c09654!2sEECO%20-%20Eva&#39;a%20Event%20%26%20Com!5e0!3m2!1sfr!2stg!4v1720481410510!5m2!1sfr!2stg" width="100%" height="496px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
