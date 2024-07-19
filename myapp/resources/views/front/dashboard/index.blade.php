@@ -49,7 +49,7 @@
                                             <td>{{ $inscription->is_validate == 0 ? 'false' : 'true' }}</td>
                                             <td>{{ $inscription->paymentOption }}</td>
                                             <td>{{ $inscription->created_at->format('d/m/Y') }}</td>
-                                            <td><a href="{{ route('inscription.details', $inscription->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>
+                                            <td><a href="{{ route('inscription.details', $inscription->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">{{ trans('dashboard.confirm') }}</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -59,13 +59,13 @@
                             <table class="table table-striped table-responsive">
                                 <tr>
                                     <th>#</th>
-                                    <th>Evènement</th>
-                                    <th>code de confirmation</th>
-                                    <th>statut</th>
-                                    <th>Validé</th>
-                                    <th>Options de paiment</th>
-                                    <th>Date de paiment</th>
-                                    <th>Entrer les détails de confirmations</th>
+                                    <th>{{ trans('dashboard.event') }}</th>
+                                    <th>{{ trans('dashboard.code') }}</th>
+                                    <th>{{ trans('dashboard.status') }}</th>
+                                    <th>{{ trans('dashboard.validated') }}</th>
+                                    <th>{{ trans('dashboard.payment-option') }}</th>
+                                    <th>{{ trans('dashboard.registration-date') }}</th>
+                                    <th>{{ trans('dashboard.detail-confirm') }}</th>
                                 </tr>
                                 <tbody>
                                     @foreach ($payments as $payment)
@@ -73,11 +73,11 @@
                                         <th scope="row">{{ $payment->id }}</th>
                                         <td>{{ $payment->event->name }}</td>
                                         <td>{{ $payment->confirmationCode }}</td>
-                                        <td>{{ $payment->status }}</td>
-                                        <td>{{ $payment->is_validate == 0 ? 'false' : 'true' }}</td>
+                                        <td>{{trans('messages.status_' . $payment->status) }}</td>
+                                        <td>{{$payment->is_validate == 0 ? trans('messages.false') : trans('messages.true') }}</td>
                                         <td>{{ $payment->paymentOption }}</td>
                                         <td>{{ $payment->created_at->format('d/m/Y') }}</td>
-                                        <td><a href="{{ route('payment.details', $payment->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">confirmer</a></td>
+                                        <td><a href="{{ route('payment.details', $payment->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">{{ trans('dashboard.confirm') }}</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

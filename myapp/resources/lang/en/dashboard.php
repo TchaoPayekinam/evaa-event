@@ -11,4 +11,11 @@ return [
     'payment-option'=> 'Payment options',
     'registration-date'=> 'Registration date',
     'detail-confirm'=> 'Enter confirmation details',
+    'confirm'=> 'Confirm',
+
+    'false' => 'false',
+    'true' => 'true',
+    'status_pending' => 'Pending',
+    'status_confirmed' => 'Confirmer',
+    'status_failed' => 'Failed',
 ];
