@@ -55,14 +55,32 @@
             height: 50px;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
             border-radius: 0;
-        }               
+        }
     </style>
 @endsection
 
 @section('content')
-
+<!-- Inne Page Banner Area Start Here -->
+<section class="inner-page-banner" style="background-image: url('{{ asset('event/assets/img/figure/inner-page-figure.png') }}');">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs-area">
+                    <h1>{{ trans('register.sign-up') }}</h1>
+                    <ul>
+                        <li>
+                            <a href="{{ route('home.index') }}">{{ trans('menu.home') }}</a>
+                        </li>
+                        <li>{{ trans('register.sign-up') }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Inne Page Banner Area End Here -->
 <!-- Sign Up Form Area Start Here -->
-<section class="section-space-default2-less30 mt-5">
+<section class="section-space-default2-less30">
     <div class="container">
         <div class="row mt-3 justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12">
@@ -73,19 +91,26 @@
                             <div id="message-error">
                                 @foreach ($errors->all() as $error)
                                     <p>{{ $error }}</p>
-                                @endforeach             
+                                @endforeach
                             </div>
                         @endif
 
                         <form class="register-form" action="{{ route('user.register') }}" method="POST" autocomplete="off">
                             {{ csrf_field() }}
-                            <!-- <div class="text-left mt-3">
-                                <label for="username">{{ trans('register.username') }}<span style="color : red">*</span></label>
-                                <input type="text" placeholder="{{ trans('register.username') }}" class="form-control height-45" name="username" id="username" value="{{ old('username')}}" required>
-                                @if ($errors->has('username'))
-                                    <span class="text-danger">{{ $errors->first('username') }}</span>
+                            <div class="text-left mt-3">
+                                <label for="lastName">{{ trans('register.last-name') }}<span style="color : red">*</span></label>
+                                <input type="text" placeholder="{{ trans('register.last-name') }}" class="form-control height-45" name="lastName" id="lastName" value="{{ old('lastName')}}" required>
+                                @if ($errors->has('lastName'))
+                                    <span class="text-danger">{{ $errors->first('lastName') }}</span>
                                 @endif
-                            </div> -->
+                            </div>
+                            <div class="text-left mt-3">
+                                <label for="firstName">{{ trans('register.first-name') }}<span style="color : red">*</span></label>
+                                <input type="text" placeholder="{{ trans('register.first-name') }}" class="form-control height-45" name="firstName" id="firstName" value="{{ old('firstName')}}" required>
+                                @if ($errors->has('firstName'))
+                                    <span class="text-danger">{{ $errors->first('firstName') }}</span>
+                                @endif
+                            </div>
 
                             <div class="text-left mt-3">
                                 <label for="Email">{{ trans('register.email') }}<span style="color : red">*</span></label>

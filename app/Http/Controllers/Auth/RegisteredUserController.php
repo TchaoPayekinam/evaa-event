@@ -37,6 +37,8 @@ class RegisteredUserController extends Controller
             //'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'lastName' => ['required', 'string'],
+            'firstName' => ['required', 'string'],
         ], [
             'email.unique' => 'Un compte avec cette adresse e-mail existe déjà.',
             'password.confirmed'=>'Le mot de passe de confirmation est incorrect',
@@ -45,10 +47,13 @@ class RegisteredUserController extends Controller
             'password.letters'=>'Le mot de passe nécessite au moins une lettre',
             'password.numbers'=>'Le mot de passe nécessite au moins un chiffre',
             'password.symbols'=>'Le mot de passe nécessite au moins un symbole',
+            'lastName.required'=> 'Le nom est obligatoire',
+            'firstName.required'=> 'Le prénom est obligatoire',
         ]);
 
         $user = User::create([
-            //'username' => $request->username,
+            'lastName' => $request->lastName,
+            'firstName' => $request->firstName,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

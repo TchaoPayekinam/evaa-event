@@ -3,9 +3,7 @@
 @section('title', 'Contact Us | Eva\'a Event & Com')
 
 @section('headSection')
-    <!-- SweetAlert2 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 @endsection
 
 @section('content') 
@@ -25,10 +23,6 @@
                                     <div class="form-group">
                                         <label for="form-firstName">{{ trans('contact.first-name') }}<span style="color: red">*</span></label>
                                         <input type="text" placeholder="" value="{{ old('firstName') }}" class="form-control" name="firstName" id="form-firstName" data-error="{{ trans('contact.first-name-required') }}" required>
-                                        <!-- @error('firstName')
-                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
-                                        @enderror -->
-                                        <!-- <div class="help-block with-errors" style="color: red"></div> -->
                                     </div>
                                 </div>
 
@@ -36,18 +30,12 @@
                                     <div class="form-group">
                                         <label for="form-lastName">{{ trans('contact.last-name') }}<span style="color: red">*</span></label>
                                         <input type="text" placeholder="" value="{{ old('lastName') }}" class="form-control" name="lastName" id="form-lastName" data-error="{{ trans('contact.last-name-required') }}" required>
-                                        <!-- @error('lastName')
-                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
-                                        @enderror -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="form-phoneNumber">{{ trans('contact.phone') }}<span style="color: red">*</span></label>
                                         <input type="text" placeholder="Ex : +228 97000001" value="{{ old('phoneNumber') }}" class="form-control" name="phoneNumber" id="form-phoneNumber" data-error="{{ trans('contact.phone-required') }}" required>
-                                        <!-- @error('phoneNumber')
-                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
-                                        @enderror -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -60,18 +48,12 @@
                                     <div class="form-group">
                                         <label for="form-email">{{ trans('contact.email') }}<span style="color: red">*</span></label>
                                         <input type="email" placeholder="" value="{{ old('email') }}" class="form-control" name="email" id="form-email" data-error="{{ trans('contact.email-required') }}" required>
-                                        <!-- @error('email')
-                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
-                                        @enderror -->
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="form-message">{{ trans('contact.message') }}<span style="color: red">*</span></label>
                                         <textarea placeholder="" class="textarea form-control" name="message" id="form-message" rows="5" cols="10" data-error="{{ trans('contact.msg-required') }}" value="{{ old('message') }}" required></textarea>
-                                        <!-- @error('message')
-                                            <span class="text-danger font-size" style="color: red">{{$message}}</span>
-                                        @enderror -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
@@ -80,16 +62,6 @@
                                         <img id="submission_loading" src="{{ asset('event/assets/img/ajax-loader.gif') }}" style="display: none;"> 
                                     </div>
                                 </div>
-
-                                @if(session('success'))
-                                    <div class="alert alert-success auto-dismiss-alert col-lg-12 mt-3">
-                                        {{ session('success') }}
-                                    </div>
-                                @elseif (session('error'))
-                                <div class="alert alert-danger auto-dismiss-alert col-lg-12 m-5">
-                                    {{ session('error') }}
-                                </div>
-                                @endif
                             </div>
                         </fieldset>
                     </form>
@@ -130,7 +102,16 @@
 @endsection
 
 @section('scriptSection')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
     <script type="text/javascript">
+        toastr.options = {
+            "positionClass" : 'toast-top-full-width',
+            "progressBar" : true,
+            "closeButton" : true,
+            "timeOut" : 5000,
+        }
+
         $(document).ready(function() {
             // Gestionnaire d'événement pour le bouton "Valider"
             $('#submitForm').on('click', function(e) {
@@ -156,26 +137,13 @@
                         $input.removeClass('error');
                         $input.next('.help-block').remove();
                     }
-                });
-                
+                });                
 
                 // Si des champs ne sont pas remplis, afficher un message d'erreur
                 if (!isFormValid) {
                     $('#error-message').text('Veuillez remplir tous les champs obligatoires.').removeClass('d-none');
                     return false;
-                } /*else {
-                    // Vérification du champ checkbox requis
-                    if (!$('#privacy_policy').is(':checked')) {
-                        isFormValid = false;
-                        //$('#privacy_policy').addClass('msg-error');
-                        $('#privacy_policy').before('<span class="text-danger">Ce champ est requis</span><br/>');
-                        //$('<span class="error-message">Ce champ est requis</span>').insertAfter('#rememberme');
-                        return false;
-                    } else {
-                        //$('#privacy_policy').removeClass('error');
-                        //$('#privacy_policy').prev('.text-danger').remove();
-                    }
-                }*/
+                }
 
                 // Afficher le loader
                 $('#submission_loading').show();
@@ -196,9 +164,6 @@
                     url: url,
                     method: 'POST',
                     data: $('#contactForm').serialize(),
-                    /*beforeSend: function () {
-                        $this.attr('disabled', true).html("Traitement...");
-                    },*/
                     success: function(response) {
                         // Cacher le loader
                         $('#submission_loading').hide();
@@ -206,25 +171,13 @@
                         // Réafficher le bouton de soumission
                         $('#submitForm').show();
 
-                        if (response.success) {
-                            //alert(response.success);
-                            // Optionnel: réinitialiser le formulaire
-                            $('#contactForm')[0].reset();
-                            Swal.fire({
-                              toast: true,
-                              position: 'top-end',
-                              showConfirmButton: false,
-                              timer: 3000,
-                              timerProgressBar: true,
-                              icon: 'success',
-                              text: response.success,
-                            }).then((result) => {
-                                //window.location = response.redirect_url;
-                                window.location = window.location.href;
-                            });
-                        } else if (response.error) {
-                            $('#error-message').text(response.error).removeClass('d-none');
-                        }
+                        // Afficher un message de succès
+                        toastr.success(response.success);
+
+                        // Recharger la page après l'affichage du message de succès
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000); // Correspond au temps d'affichage de Toastr
                     },
                     error: function(xhr, status, error) {
                         // Cacher le loader
@@ -243,6 +196,4 @@
             
         });
     </script>
-    <!-- Validator js -->
-    <script src="{{ asset('event/assets/js/validator.min.js') }}"></script>
 @endsection

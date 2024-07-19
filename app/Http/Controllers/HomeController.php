@@ -23,22 +23,22 @@ class HomeController extends Controller
     }
 
     public function flooz(){
-        return view("front.event.payment.flooz");
+        return view("front.event.inscription.flooz");
     }
 
     public function tMoney(){
-        return view("front.event.payment.tMoney");
+        return view("front.event.inscription.tMoney");
     }
 
     public function westernUnion(){
-        return view("front.event.payment.westernUnion");
+        return view("front.event.inscription.westernUnion");
     }
 
     public function moneyGram(){
-        return view("front.event.payment.moneyGram");
+        return view("front.event.inscription.moneyGram");
     }
-    
+
     public function cash(){
-        return view("front.event.payment.cash");
+        return view("front.event.inscription.cash");
     }
 }

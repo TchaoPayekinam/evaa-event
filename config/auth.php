@@ -18,8 +18,6 @@ return [
         'passwords' => 'users',
     ],
 
-
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -42,13 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'admins' => [
+        'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
     ],
-
-    
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +102,7 @@ return [
             'throttle' => 60,
         ],
         'admins' => [
-            'provider' => 'administrators',
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

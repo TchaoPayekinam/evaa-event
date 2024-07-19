@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="pagetitle">
-        <h1>Evènements</h1>
+        <h1>Camion</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active">Modifier des évènements</li>
@@ -20,41 +20,21 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="" class="form-label">Nom</label>
-                                <input type="text" name="name" value="{{ $evenement->name }}" class="form-control">
+                                <label for="" class="form-label">Série</label>
+                                <input type="text" name="libelle" value="{{ $evenement->libelle }}" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Description</label>
-                                <textarea rows="3" name="description" class="form-control">{{ $evenement->description }} </textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Type</label>
-                                <input type="text" name="type" value="{{ $evenement->type }}" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Lieu</label>
+                                <label for="" class="form-label">Numéro</label>
                                 <input type="text" name="lieu" value="{{ $evenement->lieu }}" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Frais d'inscription</label>
-                                <input type="number" name="frais_inscription" value="{{ $evenement->frais_inscription }}" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Frais de formation</label>
-                                <input type="number" name="frais_formation" value="{{ $evenement->frais_formation }}" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Date de début</label>
-                                <input type="date" name="date_deb" value="{{ $evenement->date_deb }}" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Date de fin</label>
-                                <input type="date" name="date_fin" value="{{ $evenement->date_fin }}" class="form-control">
+                                <label for="" class="form-label">Pays</label>
+                                <input type="text" name="date" value="{{ $evenement->date }}" class="form-control">
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-8">
                                     <button type="submit" class="btn btn-primary">Modifier</button>
-                                    <a href="{{ route('evenement.index') }}" class="btn btn-success">Retour</a>
+                                    <a href="{{ route('admin.dashboard') }}" class="btn btn-success">Retour</a>
                                 </div>
                             </div>
                         </form><!-- End General Form Elements -->

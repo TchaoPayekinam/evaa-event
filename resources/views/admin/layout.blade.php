@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('admin/assets/img/logoacp.png') }}" rel="icon">
-  <link href="{{ asset('admin/assets/img/logoacp.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('event/assets/img/logo.png') }}" rel="icon">
+  <link href="{{ asset('event/assets/img/logo.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="{{ asset('https://fonts.gstatic.com') }}" rel="preconnect">

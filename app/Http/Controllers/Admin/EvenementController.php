@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller
 
-use App\Models\Event;
+use App\Models\Evenement;
 
 use Illuminate\Http\Request;
 
 class EvenementController extends Controller
 {
     public function index(){
-        $evenements = Event::latest()->get();
+        $evenements = Evenement::latest()->get();
         return view('admin.evenement.index', compact('evenements'));
     }
 
@@ -21,48 +21,32 @@ class EvenementController extends Controller
 
     public function create(Request $request){
         $validatedData = $request->validate([
-            'name' => 'required',
-            'type' => 'required',
-            'description' => 'required',
+            'libelle' => 'required',
             'lieu' => 'required',
-            'frais_inscription' => 'required',
-            'frais_formation' => 'required',
-            'date_deb' => 'required',
-            'date_fin' => 'required',
-            
+            'date' => 'required'
         ]);
 
-        $evenement = new Event();
+        $evenement = new Evenement();
 
-        $evenement->name = $validatedData['name'];
-        $evenement->name = $validatedData['description'];
-        $evenement->type = $validatedData['type'];
+        $evenement->libelle = $validatedData['libelle'];
         $evenement->lieu = $validatedData['lieu'];
-        $evenement->lieu = $validatedData['description'];
-        $evenement->frais_inscription = $validatedData['frais_inscription'];
-        $evenement->frais_formation = $validatedData['frais_formation'];
-        $evenement->date_deb = $validatedData['date_deb'];
-        $evenement->date_fin = $validatedData['date_fin'];
+        $evenement->date = $validatedData['date'];
         $evenement->save();
 
         return redirect()->route('evenement.index');
     }
 
     public function edit($id){
-        $evenement = Event::findOrFail($id);
+        $evenement = Evenement::findOrFail($id);
         return view('admin.evenement.edit', compact('evenement'));
     }
 
     public function update(Request $request, $id){
-        $evenement = Event::findOrFail($id);
+        $evenement = Evenement::findOrFail($id);
         $validatedData = $request->validate([
-            'name' => 'required',
-            'name' => 'description',
-            'type' => 'required',
+            'libelle' => 'required',
             'lieu' => 'required',
-            'frais_inscription' => 'required',
-            'frais_formation' => 'required',
-            
+            'date' => 'required'
         ]);
 
         $evenement->update($validatedData);
@@ -71,7 +55,7 @@ class EvenementController extends Controller
     }
 
     public function destroy($id){
-        $evenement = Event::findOrFail($id);
+        $evenement = Evenement::findOrFail($id);
         $evenement->delete();
         return redirect()->route('evenement.index');
     }

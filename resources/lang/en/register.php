@@ -1,6 +1,6 @@
 <?php
 return [
-	'sign-up' => 'Sign Up',	
+	'sign-up' => 'Sign Up',
 	'registration' => 'Registration',
 	'regis-form' => 'Registration Form',
 	'username' => 'Username',
@@ -9,7 +9,7 @@ return [
 	'confirm-password' => 'Confirm password',
 
 	'personal-info' => 'Personal Information',
-	'last-name' => 'Last name',	
+	'last-name' => 'Last name',
 	'first-name' => 'First name',
 	'gender' => 'Gender',
 	'phone' => 'Phone number',
