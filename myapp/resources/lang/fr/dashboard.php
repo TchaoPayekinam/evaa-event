@@ -16,6 +16,6 @@ return [
     'status_pending' => 'En attente',
     'status_confirmed'=> 'Confirmé',
     'status_failed' => 'Echoué',
-    'false' => 'faux',
-    'true' => 'vrai',
+    'false' => 'Faux',
+    'true' => 'Vrai',
 ];

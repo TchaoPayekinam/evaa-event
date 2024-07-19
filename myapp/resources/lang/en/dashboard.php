@@ -13,8 +13,8 @@ return [
     'detail-confirm'=> 'Enter confirmation details',
     'confirm'=> 'Confirm',
 
-    'false' => 'false',
-    'true' => 'true',
+    'false' => 'False',
+    'true' => 'True',
     'status_pending' => 'Pending',
     'status_confirmed' => 'Confirmer',
     'status_failed' => 'Failed',

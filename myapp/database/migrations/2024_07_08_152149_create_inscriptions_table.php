@@ -18,14 +18,14 @@ class CreateInscriptionsTable extends Migration
             $table->string('gender');
             $table->string('phoneNumber');
             $table->string('city');
-            $table->string('status')->default('En attente');
+            $table->string('status')->default('pending');
             $table->string('country');
             $table->string('is_validate')->default('false');
             $table->string('cohortJoin');
             $table->string('ref_flooz')->nullable();
             $table->string('ref_tmoney')->nullable();
             $table->string('auth_number')->nullable();
-            $table->string('tracking-number')->nullable();
+            $table->string('tracking_number')->nullable();
             $table->string('experienceDesign');
             $table->string('paymentOption');
             $table->double('paymentAmount');

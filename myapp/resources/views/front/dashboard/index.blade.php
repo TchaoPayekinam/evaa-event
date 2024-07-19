@@ -45,8 +45,8 @@
                                             <th scope="row">{{ $inscription->id }}</th>
                                             <td>{{ $inscription->event->name }}</td>
                                             <td>{{ $inscription->confirmationCode }}</td>
-                                            <td>{{ $inscription->status }}</td>
-                                            <td>{{ $inscription->is_validate == 0 ? 'false' : 'true' }}</td>
+                                            <td>{{trans('dashboard.status_' . $inscription->status) }}</td>
+                                            <td>{{$inscription->is_validate == 0 ? trans('messages.false') : trans('dashboard.true') }}</td>
                                             <td>{{ $inscription->paymentOption }}</td>
                                             <td>{{ $inscription->created_at->format('d/m/Y') }}</td>
                                             <td><a href="{{ route('inscription.details', $inscription->id) }}" title="confirmer" class="btn-fill size-xs color-yellow border-radius-5">{{ trans('dashboard.confirm') }}</a></td>
