@@ -76,9 +76,6 @@ class DashboardController extends Controller
         return redirect()->back()->withErrors(['confirmationCode' => 'Aucune inscription ne correspond à votre code de confirmation.']);
     }
 
-    if( $request->amount != $inscription->paymentAmount) {
-        return redirect()->back()->withErrors(['paymentAmount' => 'Frais d\'inscription est à 5000 fcfa']);
-    }
     try {
 
         switch ($inscription->paymentOption) {
@@ -134,6 +131,7 @@ class DashboardController extends Controller
                 return redirect()->withErrors(['erreur' => 'Page introuvable']);
         }
 
+        $inscription->paymentAmount = $request->amount;
         $inscription->status = 'confirmed';
         $inscription->save();
 
@@ -200,9 +198,6 @@ class DashboardController extends Controller
             return redirect()->back()->withErrors(['confirmationCode' => 'Aucun paiement ne correspond à votre code de confirmation.']);
         }
 
-        if( $request->amount != $payment->paymentAmount) {
-            return redirect()->back()->withErrors(['paymentAmount' => 'Frais de formation est à 45000 fcfa']);
-        }
         try {
 
             switch ($payment->paymentOption) {
@@ -258,6 +253,7 @@ class DashboardController extends Controller
                     return redirect()->withErrors(['erreur' => 'Page introuvable']);
             }
 
+            $payment->paymentAmount = $request->amount;
             $payment->status = 'confirmed';
             $payment->save();
 
