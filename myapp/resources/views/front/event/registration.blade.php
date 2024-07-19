@@ -110,10 +110,16 @@
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="card">
                     @error('email_no_account')
-                        <span class="text-danger font-size" >{{$message}}</span>
+                        <span class="alert alert-danger font-size" >{{$message}}</span>
                     @enderror
                     @error('email')
-                        <span class="text-danger font-size" >{{$message}}</span>
+                        <span class="alert alert-danger font-size" >{{$message}}</span>
+                    @enderror
+                    @error('password')
+                        <span class="alert alert-danger font-size" >{{$message}}</span>
+                    @enderror
+                    @error('password_no_account')
+                        <span class="alert-danger font-size" >{{$message}}</span>
                     @enderror
                     <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('register.registration') }}</h2>
                     <div class="card-body px-lg-5 pt-0">
@@ -215,42 +221,49 @@
 
                             {{-- formulaire de compte --}}
                             <h2 class="card-header text-center py-3 mt-4 poti-light-bg">{{ trans('register.regis-form') }}</h2>
-                            <p class="small text-muted">Le compte vous permettra de suivre vos activités sur la plateforme, d'accéder à votre tableau de bord et de confirmer vos inscriptions et payements.</p>
+                            <p class="small text-muted">{{ trans('register.info-compte') }}</p>
                             <div class="card-body px-lg-5 pt-0">
                             <div class="text-left mt-3">
                                 <label>
-                                    <input type="radio" name="has_account" value="yes" class="ml-3 mr-2" required onclick="toggleFields()"> J'ai un compte
+                                    <input type="radio" name="has_account" value="yes" class="ml-3 mr-2" required onclick="toggleFields()"> {{ trans('register.compte-yes') }}
                                 </label>
                                 <label>
-                                    <input type="radio" name="has_account" class="ml-3 mr-2" required value="no" onclick="toggleFields()"> Je n'ai pas de compte
+                                    <input type="radio" name="has_account" class="ml-3 mr-2" required value="no" onclick="toggleFields()"> {{ trans('register.compte-no') }}
                                 </label>
                             </div>
 
                             <div id="emailField" style="display: none;" class="text-left mt-3">
-                                <label for="email">Veillez renseinger votre adresse email</label><span style="color: red">*</span>
+                                <label for="email">{{ trans('register.email') }}</label><span style="color: red">*</span>
                                 <input id="email" name="email" type="email" placeholder="" class="form-control height-45" required>
                                 @error('email')
                                     <span class="text-danger font-size" >{{$message}}</span>
                                 @enderror
+
+                                <label for="password">{{ trans('register.password')}}</label><span style="color: red">*</span>
+                                <input type="password" name="password" placeholder="" class="form-control height-45" required>
+                                @error('password')
+                                    <span class="text-danger font-size" >{{$message}}</span>
+                                @enderror
                             </div>
 
+
                             <div id="credentialsFields" style="display: none;" class="text-left mt-3">
-                                <label for="email_no_account">Veillez renseinger votre adresse email</label><span style="color: red">*</span>
-                                <input type="email" name="email_no_account" placeholder="" class="form-control height-45" required>
+                                <label for="email_no_account">{{ trans('register.email')}}</label><span style="color: red">*</span>
+                                <input type="email" name="email_no_account" placeholder="" class="form-control height-45" required value="{{old('email_no_account')}}">
                                 @error('email_no_account')
                                         <span class="text-danger font-size" >{{$message}}</span>
                                     @enderror
 
                                 <div id="credentialsFields" class="text-left mt-3">
-                                    <label for="password">Veillez entrer un mot de passe</label><span style="color: red">*</span>
-                                    <input type="password" name="password" placeholder="" class="form-control height-45" required>
-                                    @error('password')
+                                    <label for="password_no_account">{{ trans('register.password')}}</label><span style="color: red">*</span>
+                                    <input type="password" name="password_no_account" placeholder="" class="form-control height-45" required>
+                                    @error('password_no_account')
                                         <span class="text-danger font-size" >{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div id="credentialsFields" class="text-left mt-3">
-                                    <label for="password_confirmation">Confirmer votre mot de passe</label><span style="color: red">*</span>
-                                    <input type="password" name="password_confirmation" placeholder="" class="form-control height-45" required>
+                                    <label for="password_no_account_confirmation">{{ trans('register.confirm-password')}}</label><span style="color: red">*</span>
+                                    <input type="password" name="password_no_account_confirmation" placeholder="" class="form-control height-45" required>
                                     @error('password_confirmation')
                                         <span class="text-danger font-size" >{{$message}}</span>
                                     @enderror

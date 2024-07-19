@@ -4,7 +4,6 @@
         'payment-in-progress' => 'Paiement en cours',
         'choose-payment-option'=> 'Choisissez une option de paiement des frais de formations',
         'training-fees-payment' => 'Paiement du frais de formation',
-        'register-fees-payment' => 'Paiement du frais d\'inscription',
         'thank-you-for-choosing' => 'Merci d’avoir choisi Eva’a Event & Com. Vous devriez recevoir sous peu un courriel confirmant votre inscription.',
         'btn-payment-cancel'=> 'Annulé',
         'payment-intro'=> 'Merci d’avoir choisi Eva’a Event & Com. Vous devriez recevoir sous peu un courriel confirmant votre paiement.',
@@ -94,4 +93,3 @@
         'auth-number'=> 'Numéro de référence d\'autorisation',
 
     ];
-

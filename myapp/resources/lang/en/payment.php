@@ -5,6 +5,7 @@
         'choose-payment-option' => 'Choose a training fee payment option',
         'btn-payment-cancel'=> 'Cancel',
         'training-fees-payment'=> 'Payment of the training fee',
+        'register-fees-payment' => 'Payment of the registration fee',
         'payment-intro'=> 'Thank you for choosing Eva’a Event & Com. You should receive an email confirming your payment shortly.',
         'payment-description'=> 'The confirmation and validation procedure is the same for registrations and payment of training fees. To initiate this procedure, please select a payment option from those available. Once the payment has been chosen, you will receive a confirmation email containing the necessary instructions to finalize your payment.',
         'step-one'=> 'Step 1',

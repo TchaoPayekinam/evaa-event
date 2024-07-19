@@ -59,7 +59,7 @@
             height: 50px;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
             border-radius: 0;
-        }               
+        }
     </style>
 @endsection
 
@@ -89,7 +89,7 @@
         <div class="row row-container title-black color-dark">
             <div class="col-sm">
                 <!-- <h2>{{ trans('login.user-sign-in') }}</h2> -->
-                <p class="margin-b-30 text-justify">                    
+                <p class="margin-b-30 text-justify">
                     {{ trans('login.users-acknowledge') }} <a href="#"> {{ trans('login.terms-of-use') }}</a>.
                 </p>
             </div>
@@ -156,7 +156,7 @@
                 case 'error':
 
                     toastr.options = {
-                        "positionClass" : 'toast-top-full-width',
+                        "positionClass" : 'toast-bottom-full-width',
                         "progressBar" : true,
                         "closeButton" : true,
                         "timeOut" : 3000,
