@@ -46,23 +46,25 @@ Route::post('/payment/{id}/confirm', [DashboardController::class, 'confirmPaymen
 ///// Administration Routes /////
 Route::get('adminLogin&EECO@2024', [App\Http\Controllers\Admin\Auth\LoginController::class, 'adminLoginForm'])->name('admin.login');
 Route::post('adminLogin&EECO@2024', [App\Http\Controllers\Admin\Auth\LoginController::class, 'doLogin']);
-Route::get('/administration/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
 
-Route::get('/administration/evenement', [App\Http\Controllers\Admin\EvenementController::class, 'index'])->name('evenement.index');
-Route::get('/administration/evenement/createForm', [App\Http\Controllers\Admin\EvenementController::class, 'createForm'])->name('evenement.createForm');
-Route::post('/administration/evenement/create', [App\Http\Controllers\Admin\EvenementController::class, 'create'])->name('evenement.create');
-Route::get('/administration/evenement/{id}/modifier', [\App\Http\Controllers\Admin\EvenementController::class, 'edit'])->name('evenement.edit');
-Route::put('/administration/evenement/{id}', [\App\Http\Controllers\Admin\EvenementController::class, 'update'])->name('evenement.update');
-Route::delete('/administration/evenement/{id}', [\App\Http\Controllers\Admin\EvenementController::class, 'destroy'])->name('evenement.destroy');
+Route::middleware('admin.auth')->group(function () {
+    Route::get('/administration/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
 
-Route::get('/administration/payement-inscription', [App\Http\Controllers\Admin\PayementController::class, 'inscriptionList'])->name('payement.inscription');
-Route::put('/administration/payement/inscription-validation/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateInscription'])->name('inscription.validate');
-Route::put('/administration/payement/inscription-validation-reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateInscriptionReset'])->name('inscription.validateReset');
-Route::get('/administration/payement/inscription-search', [App\Http\Controllers\Admin\PayementController::class, 'searchInscription'])->name('inscription.search');
+    Route::get('/administration/evenement', [App\Http\Controllers\Admin\EvenementController::class, 'index'])->name('evenement.index');
+    Route::get('/administration/evenement/createForm', [App\Http\Controllers\Admin\EvenementController::class, 'createForm'])->name('evenement.createForm');
+    Route::post('/administration/evenement/create', [App\Http\Controllers\Admin\EvenementController::class, 'create'])->name('evenement.create');
+    Route::get('/administration/evenement/{id}/modifier', [\App\Http\Controllers\Admin\EvenementController::class, 'edit'])->name('evenement.edit');
+    Route::put('/administration/evenement/{id}', [\App\Http\Controllers\Admin\EvenementController::class, 'update'])->name('evenement.update');
+    Route::delete('/administration/evenement/{id}', [\App\Http\Controllers\Admin\EvenementController::class, 'destroy'])->name('evenement.destroy');
 
-Route::get('/administration/payement-formation', [App\Http\Controllers\Admin\PayementController::class, 'formationList'])->name('payement.formation');
-Route::put('/administration/payement/formation-validation/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateFormation'])->name('formation.validate');
-Route::put('/administration/payement/formation-validation-reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateFormationReset'])->name('formation.validateReset');
-Route::get('/administration/payement/formation-search', [App\Http\Controllers\Admin\PayementController::class, 'searchFormation'])->name('formation.search');
+    Route::get('/administration/payement-inscription', [App\Http\Controllers\Admin\PayementController::class, 'inscriptionList'])->name('payement.inscription');
+    Route::put('/administration/payement/inscription-validation/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateInscription'])->name('inscription.validate');
+    Route::put('/administration/payement/inscription-validation-reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateInscriptionReset'])->name('inscription.validateReset');
+    Route::get('/administration/payement/inscription-search', [App\Http\Controllers\Admin\PayementController::class, 'searchInscription'])->name('inscription.search');
 
+    Route::get('/administration/payement-formation', [App\Http\Controllers\Admin\PayementController::class, 'formationList'])->name('payement.formation');
+    Route::put('/administration/payement/formation-validation/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateFormation'])->name('formation.validate');
+    Route::put('/administration/payement/formation-validation-reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateFormationReset'])->name('formation.validateReset');
+    Route::get('/administration/payement/formation-search', [App\Http\Controllers\Admin\PayementController::class, 'searchFormation'])->name('formation.search');
+});
 require __DIR__.'/auth.php';
