@@ -31,7 +31,7 @@
         'name-recipient'=> 'Full name of recipient',
         'managing-director'=> 'Managing Director of Eva\'a Event & Com (EECO)',
         'dashboard' => 'dashboard',
-        'go-to-payment'=> 'Go to payment',
+        'go-to-payment'=> 'Confirm your payment',
         'flooz-following-countries' => 'Payment by flooz is possible if you reside in Togo and the following countries : Benin, Burkina Faso, Ivory Coast, Guinea-Bisseau, Mali and Niger.',
         'flooz-point-of-sale' => 'Please make the payment on the following number from  your mobile or in a Flooz point of sale :',
         'payment-reference-number' => 'Note the payment reference number',

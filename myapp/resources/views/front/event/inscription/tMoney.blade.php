@@ -79,7 +79,7 @@
                                 </div>
                             <div class="text-center m-5">
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
+                                {{-- <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('inscription.details') }}">{{ trans('payment.go-to-payment') }}</a> --}}
                             </div>
                         </div>
                     </div>
