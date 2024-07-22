@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
+@section('title', 'Eva\'a Event & Com')
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 
@@ -28,7 +28,7 @@
             background-color: #e5e5e5 !important;
         }
 
-        .login-form input{
+        .register-form input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;
@@ -186,7 +186,6 @@
                                 </div>  <!-- card -->
                             <div class="text-center m-5">
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
                             </div>
                         </div>
                     </div>
@@ -200,36 +199,6 @@
 @section('scriptSection')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
-        // @if (Session::has('message'))
-        //     var type = "{{ Session::get('alert-type', 'info') }}"
-        //     switch (type) {
-        //         case 'info':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.info("{{ Session::get('message') }}");
-        //             break;
-        //         case 'success':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.success("{{ Session::get('message') }}");
-        //             break;
-        //         case 'warning':
-
-        //             toastr.options.timeOut = 10000;
-        //             toastr.warning("{{ Session::get('message') }}");
-        //             break;
-        //         case 'error':
-
-        //             toastr.options = {
-        //                 "positionClass" : 'toast-top-full-width',
-        //                 "progressBar" : true,
-        //                 "closeButton" : true,
-        //                 "timeOut" : 3000,
-        //             }
-        //             toastr.error("{{ Session::get('message') }}");
-        //             break;
-        //     }
-        // @endif
 
         @if(session('success'))
         toastr.options = {

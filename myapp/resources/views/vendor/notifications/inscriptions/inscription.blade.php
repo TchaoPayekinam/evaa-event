@@ -12,7 +12,7 @@
 
 {{-- Bouton d'action --}}
 @isset($actionText)
-@component('mail::button', ['url' => $actionUrl, 'color' => 'primary'])
+@component('mail::button', ['url' => $actionUrl, 'color' => 'warning'])
 {{ $actionText }}
 @endcomponent
 @endisset

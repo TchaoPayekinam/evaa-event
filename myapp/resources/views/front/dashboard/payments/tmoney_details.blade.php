@@ -28,7 +28,7 @@
             background-color: #e5e5e5 !important;
         }
 
-        input{
+        .register-form input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;

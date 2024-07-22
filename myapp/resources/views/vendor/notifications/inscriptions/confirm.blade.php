@@ -8,11 +8,11 @@
 
 {{-- Lignes d'introduction --}}
 @lang('Merci de confirmer votre inscription, :lastName :firstName !', ['lastName' => $lastName, 'firstName' => $firstName])
-@lang('Votre place pour la formation est réservée. Cliquez sur le bouton ci-dessous pour procéder au paiement')
+@lang('Votre place pour la formation est réservée. Cliquez sur le bouton ci-dessous pour procéder au paiement des frais de formation')
 
 {{-- Bouton d'action --}}
 @isset($actionText)
-@component('mail::button', ['url' => $actionUrl, 'color' => 'primary'])
+@component('mail::button', ['url' => $actionUrl, 'color' => 'warning'])
 {{ $actionText }}
 @endcomponent
 @endisset

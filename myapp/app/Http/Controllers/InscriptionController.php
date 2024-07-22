@@ -55,6 +55,8 @@ class InscriptionController extends Controller
             if (Auth::attempt(['email' => $validatedData['email'], 'password' => $validatedData['password']])){
                 $user = User::where('email', $validatedData['email'])->first();
                 Auth::login($user);
+            }else{
+                return redirect()->back()->withErrors(['email' => 'Identifiant incorrect']);
             }
 
 

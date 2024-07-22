@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
+@section('title', 'Eva\'a Event & Com')
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 
@@ -28,11 +28,11 @@
             background-color: #e5e5e5 !important;
         }
 
-        .login-form input{
+        .register-form input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;
-            font-size: 15px;
+            font-size: 18px;
         }
 
         .text-left a {

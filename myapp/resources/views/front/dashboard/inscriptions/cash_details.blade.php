@@ -1,27 +1,67 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
+@section('title', 'Eva\'a Event & Com')
+@section('headSection')
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 
+    <style type="text/css">
+        .row-container {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .row-container p {
+            text-transform: none;
+        }
+        .center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card {
+            font-weight: 400;
+            border: 0;
+            -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        .poti-light-bg {
+            background-color: #e5e5e5 !important;
+        }
+
+        .register-form input{
+            height: 45px;
+            color: #111111;
+            padding: 5px 15px;
+            font-size: 18px;
+        }
+
+        .text-left a {
+            color: #036;
+            font-weight: 700;
+        }
+
+        .btn.btn-color-primary {
+            background-color: #1d4d6b !important;
+        }
+
+        .btn.btn-color-primary:hover {
+            background-color: #999997 !important;
+        }
+
+        .btn {
+            color: #fff !important;
+            font-size: 20px;
+            text-decoration: none;
+            text-align: center;
+            padding: 0 1.5em;
+            line-height: 48px;
+            height: 50px;
+            font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
+            border-radius: 0;
+        }
+    </style>
+@endsection
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    {{-- <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>{{ trans('payment.payment-by-cash') }}</h1>
-                        <ul>
-                            <li>
-                                <a href="{{ route('home.index') }}">Home</a>
-                            </li>
-                            <li>{{ trans('payment.cash') }}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    <!-- Inne Page Banner Area End Here -->
 
     <!-- Contact Form Area Start Here -->
     <section class="section-space-default2-less30">
@@ -86,7 +126,6 @@
 
                             <div class="text-center m-5">
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
                             </div>
                         </div>
                     </div>
