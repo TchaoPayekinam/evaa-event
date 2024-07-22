@@ -46,6 +46,7 @@ Route::post('/payment/{id}/confirm', [DashboardController::class, 'confirmPaymen
 ///// Administration Routes /////
 Route::get('adminLogin&EECO@2024', [App\Http\Controllers\Admin\Auth\LoginController::class, 'adminLoginForm'])->name('admin.login');
 Route::post('adminLogin&EECO@2024', [App\Http\Controllers\Admin\Auth\LoginController::class, 'doLogin']);
+Route::delete('adminLogin&EECO@2024', [App\Http\Controllers\Admin\Auth\LoginController::class, 'destroy'])->name('admin.logout');
 
 Route::middleware('admin.auth')->group(function () {
     Route::get('/administration/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
@@ -66,5 +67,15 @@ Route::middleware('admin.auth')->group(function () {
     Route::put('/administration/payement/formation-validation/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateFormation'])->name('formation.validate');
     Route::put('/administration/payement/formation-validation-reset/{id}', [App\Http\Controllers\Admin\PayementController::class, 'validateFormationReset'])->name('formation.validateReset');
     Route::get('/administration/payement/formation-search', [App\Http\Controllers\Admin\PayementController::class, 'searchFormation'])->name('formation.search');
+
+    Route::get('/administration/gestion-admin', [App\Http\Controllers\ManageAdminController::class, 'index'])->name('manageAdmin.index');
+    Route::get('/administration/create-administrators', [App\Http\Controllers\ManageAdminController::class, 'createForm'])->name('manageAdmin.createForm');
+    Route::post('/administration/create-administrator', [App\Http\Controllers\ManageAdminController::class, 'create'])->name('manageAdmin.create');
+    Route::get('/administration/edit-administrators/{id}', [App\Http\Controllers\ManageAdminController::class, 'edit'])->name('manageAdmin.edit');
+    Route::put('/administration/update-administrator/{id}', [App\Http\Controllers\ManageAdminController::class, 'update'])->name('manageAdmin.update');
+    Route::get('/administration/edit-password', [App\Http\Controllers\ManageAdminController::class, 'editPassword'])->name('manageAdmin.editPassword');
+    Route::put('/administration/update-password/{id}', [App\Http\Controllers\ManageAdminController::class, 'updatePassword'])->name('manageAdmin.updatePassword');
+    Route::delete('/administration/delete-administrator/{id}', [App\Http\Controllers\ManageAdminController::class, 'destroy'])->name('manageAdmin.destroy');
+    Route::get('/administration/search-administrator', [App\Http\Controllers\ManageAdminController::class, 'search'])->name('manageAdmin.search');
 });
 require __DIR__.'/auth.php';
