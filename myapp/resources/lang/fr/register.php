@@ -1,12 +1,15 @@
 <?php
 return [
-	'sign-up' => 'S\'inscrire',	
-	'registration' => 'Inscription',
-	'regis-form' => 'Formulaire d\'inscription',
+	'sign-up' => 'S\'inscrire',
+	'registration' => 'Formulaire d\'inscription',
+	'regis-form' => 'Compte',
 	'username' => 'Nom d\'utilisateur',
-	'email' => 'Adresse e-mail',
-	'password' => 'Mot de passe',
-	'confirm-password' => 'Confirmer Mot de passe',
+	'email' => 'Veuillez renseigner votre adresse email',
+	'password' => 'Veuillez entrer un mot de passe',
+	'confirm-password' => 'Confirmez votre mot de passe',
+    'compte-yes'=> 'J\'ai un compte',
+    'compte-no'=> 'Je n\'ai pas de compte',
+    'info-compte'=> 'Le compte vous permettra de suivre vos activités sur la plateforme, d\'accéder à votre tableau de bord et de confirmer vos inscriptions et payements.',
 
 	'personal-info' => 'Informations Personnelles',
 	'last-name' => 'Nom',	
@@ -27,4 +30,7 @@ return [
 	'payment-options' => 'Options de paiement',
 	'cash' => 'En espèces (Vous vous présenterez au bureau EECO pour le paiement)',
 	'btn-sign-up' => 'S\'INSCRIRE',
+	'account-allow-you' => 'Le compte vous permettra de suivre vos activités sur la plateforme, d\'accéder à votre tableau de bord et de confirmer vos inscriptions et payements.',
+	'have-account' => 'J\'ai un compte',
+	'donthave-account' => 'Je n\'ai pas de compte',
 ];

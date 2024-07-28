@@ -15,14 +15,21 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->string('status')->default('En attente');
+            $table->unsignedBigInteger('inscription_id');
+            $table->double('amount');
+            $table->string('method');
+            $table->string('type');
+            $table->string('status')->default('pending');
             $table->boolean('is_validate')->default(false);
-            $table->string('ref')->nullable();
+            /*$table->string('ref_flooz')->nullable();
+            $table->string('ref_tmoney')->nullable();
+            $table->string('auth_number')->nullable();
+            $table->string('tracking_number')->nullable();
             $table->string('paymentOption');
             $table->double('paymentAmount');
             $table->string('confirmationCode');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('event_id')->constrained('events')->cascadeOnDelete();
+            $table->foreignId('event_id')->constrained('events')->cascadeOnDelete();*/
             $table->timestamps();
         });
     }

@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-//use App\Mail\ContactForm;
-use App\Models\Contact;
 use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Mail;
 
+use App\Models\Newslettersuscriber;
+use App\Models\Contact;
+
+use App\Jobs\SendNewslettersuscriberNotificationEmail;
 use App\Jobs\SendContactFormNotificationEmail;
 
 class ContactController extends Controller
 {
-
     public function submit(Request $request)
     {
         $request->validate([
@@ -37,16 +38,37 @@ class ContactController extends Controller
             SendContactFormNotificationEmail::dispatch($contact->id);
 
             return response()->json(['success' => 'Votre message a été soumis avec succès !']);
-
-            /*if($saved) {
-                Mail::to("admin@gmail.com")->send(new ContactForm($contact->firstName, $contact->lastName, $contact->message, $contact->phoneNumber, $contact->society, $contact->email));
-            } else {
-                return redirect()->route('contact.submit')->with('error', 'Une erreur s\'est produite lors de l\'envoi du message');
-            }*/
-
+            
         } catch(Exception $e) {
             //return redirect()->back()->withErrors($e->getMessage());
             return response()->json(['error' => $e->getMessage()], 500);
         }
+    }
+
+    public function subscribe_to_newsletter(Request $request) {
+        $check_if_exist = Newslettersuscriber::where('email', $request->email)->first();
+
+        if (is_null($check_if_exist)) {
+            // Générer un token unique
+            $token = Str::random(60);
+
+            $newSucriber = new Newslettersuscriber;
+            $newSucriber->email = $request->email;
+            $newSucriber->token = $token;
+            $newSucriber->save();
+
+            SendNewslettersuscriberNotificationEmail::dispatch($newSucriber->email, $token);
+
+            $notification = array(
+                'message' => __('newsletter.success'),
+                'alert-type' => 'success'
+            );
+            return back()->with($notification);
+        }
+        $notification = array(
+            'message' => __('newsletter.failed'),
+            'alert-type' => 'info'
+        );
+        return back()->with($notification);
     }
 }

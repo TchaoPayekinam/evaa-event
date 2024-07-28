@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('type');
+            $table->string('lieu');
             $table->double('frais_inscription')->nullable();
             $table->double('frais_formation')->nullable();
             $table->dateTime('date_deb');

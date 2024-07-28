@@ -85,6 +85,23 @@
                                     <li>
                                         <a href="{{ route('home.contact') }}">Contact</a>
                                     </li>
+                                    @if(Auth::check())
+                                        <li>
+                                            <a href="{{ route('dashboard') }}">{{ trans('menu.dashboard') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('logout') }}" title="{{ trans('menu.logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">{{ trans('menu.logout') }}</a>
+                                        </li>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="post">
+                                            {!! csrf_field() !!}
+                                        </form>
+                                    @else
+                                        <li>
+                                            <a href="{{ route('user.login') }}">{{ trans('menu.sign-in') }}</a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </nav>
                             <!-- Mobile Menu End -->
@@ -94,13 +111,13 @@
                         <ul class="header-action-items">
                             <li>
                                 @if(Auth::check())
-                                    <a href="{{ route('logout') }}" title="{{ trans('menu.logout') }}" class="btn-fill size-xs color-yellow border-radius-5" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        <span>{{ trans('menu.logout') }}</span>
-                                    </a>
                                     <a href="{{ route('dashboard') }}" title="dashboard" class="btn-fill size-xs color-yellow border-radius-5">
                                         <span>dashboard</span>
                                     </a>
+                                    <a href="{{ route('logout') }}" title="{{ trans('menu.logout') }}" class="btn-fill size-xs color-yellow border-radius-5" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        <span>{{ trans('menu.logout') }}</span>
+                                    </a>                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="post">
                                         {!! csrf_field() !!}

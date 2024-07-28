@@ -50,10 +50,51 @@
 <script src="{{ asset('event/assets/js/jquery.countdown.min.js') }}"></script>
 <!-- Isotope js -->
 <script src="{{ asset('event/assets/js/isotope.pkgd.min.js') }}"></script>
-<!-- Google Map js -->
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtmXSwv4YmAKtcZyyad9W7D4AC08z0Rb4"></script> -->
 <!-- Magnific Popup -->
 <script src="{{ asset('event/assets/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+    @if (Session::has('message'))
+        var type = "{{ Session::get('alert-type', 'info') }}"
+        switch (type) {
+            case 'info':
+
+                toastr.options = {
+                    "positionClass" : 'toast-top-full-width',
+                    "progressBar" : true,
+                    "closeButton" : true,
+                    "timeOut" : 5000,
+                }
+                toastr.info("{{ Session::get('message') }}");
+                break;
+            case 'success':
+
+                toastr.options = {
+                    "positionClass" : 'toast-top-full-width',
+                    "progressBar" : true,
+                    "closeButton" : true,
+                    "timeOut" : 5000,
+                }
+                toastr.success("{{ Session::get('message') }}");
+                break;
+            case 'warning':
+
+                toastr.options.timeOut = 10000;
+                toastr.warning("{{ Session::get('message') }}");
+                break;
+            case 'error':
+
+                toastr.options = {
+                    "positionClass" : 'toast-top-full-width',
+                    "progressBar" : true,
+                    "closeButton" : true,
+                    "timeOut" : 5000,
+                }
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
+    @endif
+</script>
 @section('scriptSection')
 
 @show

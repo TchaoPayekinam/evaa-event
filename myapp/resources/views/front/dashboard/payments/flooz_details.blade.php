@@ -1,5 +1,6 @@
 @extends('front.layouts.app')
-@section('title', 'Flooz | Eva\'a Event & Com')
+
+@section('title', 'Payment Details Submission Form | Eva\'a Event & Com')
 
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
@@ -30,21 +31,26 @@
 
         input{
             height: 45px;
+        }
+
+        .evaa-input {
             color: #111111;
             padding: 5px 15px;
             font-size: 15px;
         }
 
-        .text-left a {
-            color: #036;
-            font-weight: 700;
+        h2, h3 {
+            color: #1d4568;
+            font-family: "Barlow Condensed", sans-serif;
+            font-weight: 600;
+            font-style: normal;
         }
 
-        .btn.btn-color-primary {
+        .btn.btn-primary {
             background-color: #1d4d6b !important;
         }
 
-        .btn.btn-color-primary:hover {
+        .btn.btn-primary:hover {
             background-color: #999997 !important;
         }
 
@@ -57,6 +63,8 @@
             line-height: 48px;
             height: 50px;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
             border-radius: 0;
         }
     </style>
@@ -103,81 +111,142 @@
                                 </ol>
                             </div>
                             <hr>
-                                <h3>{{ trans('payment.payment offers') }}</h3>
-                                <div class="">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>{{ trans('payment.offer') }}</th>
-                                                <th>{{ trans('payment.payment-period') }}</th>
-                                                <th>{{ trans('payment.training-fees') }}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>
-                                                    {{ trans('payment.period-date-1') }}
-                                                </td>
-                                                <td>40000 FCFA</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>
-                                                    {{ trans('payment.period-date-2') }}
-                                                </td>
-                                                <td>45 000FCFA</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="card">
-                                    <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.confirm-form') }}</h2>
-                                    <div class="card-body px-lg-5 pt-0">
-                                        @if ($errors->any())
-                                            <div id="message-error">
-                                                @foreach ($errors->all() as $error)
-                                                    <p>{{ $error }}</p>
-                                                @endforeach
+                            <div class="card">
+                                <h3 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('user-payments.payment-information') }}</h3>
+                                <div class="card-body">
+                                    <p class="font-weight-bold">@if($payment->type == 'registration_fees') {{ trans('user-payments.registration_fees') }} @else {{ trans('user-payments.training_costs') }} @endif - {{ $event->name }}</p>
+                                    <p class="font-weight-bold">{{ trans('user-payments.inscription_id') }}: {{ $event->confirmationCode }}</p>
+                                    <p class="font-weight-bold">{{ trans('user-payments.amount') }}: {{ $payment->amount }} FCFA</p>
+                                    <p class="font-weight-bold">{{ trans('user-payments.payment_method') }}: {{ $payment->method }}
+                                    </p>
+                                    <form action="{{ route('paymentDetailsSubmissionForm', $payment->id) }}" method="POST">
+                                        <!-- novalidate="" maxlength="200"-->
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="payment_method" class="form-control evaa-input" id="payment_method" value="{{ $payment->method }}">
+                                        <div class="form-row">
+                                            @if($payment->method == 'Flooz' || $payment->method == 'T-Money')
+                                            <div class="col-12 col-md-6 col-lg-10 mr-0 mr-md-3 md-form form-group my-2">
+
+                                                <label for="id_payment_reference_number">{{ trans('payment.label-ref') }} <span style="color : red">*</span></label> <span class="small">{{ trans('payment.ref-example') }} (Txn ID: 2240202149567)</span>
+                                                <input type="text" name="payment_reference_number" class="form-control evaa-input" required="" id="id_payment_reference_number">
+                                                
                                             </div>
-                                        @endif
+                                            @endif
+                                            @if($payment->method == 'Western Union')
+                                            <div class="col-12 col-md-6 col-lg-10 mr-0 mr-md-3 md-form form-group my-2">
 
-                                        <form class="register-form" action="{{ route('payment.confirm', $payment->id) }}" method="POST" autocomplete="off">
-                                            {{ csrf_field() }}
-
-                                            <div class="text-left mt-3">
-                                                <label for="confirmationCode">{{ trans('payment.label-confirmationCode') }}<span style="color : red">*</span></label>
-                                                <input id="confirmationCode" value="{{old('confirmationCode')}}" name="confirmationCode" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
-
+                                                <label for="id_tracking_number">{{ trans('payment.tracking-number') }} <span style="color : red">*</span></label> <span class="small">{{ trans('payment.ref-example') }} (Txn ID: 2240202149567)</span>
+                                                <input type="text" name="tracking_number" class="form-control evaa-input" required="" id="id_tracking_number">
+                                                
                                             </div>
-                                            <div class="text-left mt-3">
-                                                <label for="ref_flooz">{{ trans('payment.label-ref') }}<span style="color : red">*</span></label>
-                                                <span class="small">{{ trans('payment.ref-example') }} (Txn ID: 2240202149567)</span>
-                                                <input id="ref_flooz" value="{{old('ref_flooz')}}" name="ref_flooz" type="text" placeholder="" class="form-control height-45" value="{{ old('ref_flooz') }}" required autocomplete="off">
+                                            @endif
+                                            @if($payment->method == 'Money Gram')
+                                            <div class="col-12 col-md-6 col-lg-10 mr-0 mr-md-3 md-form form-group my-2">
 
+                                                <label for="id_auth_number">{{ trans('payment.auth-number') }} <span style="color : red">*</span></label> <span class="small">{{ trans('payment.ref-example') }} (Txn ID: 2240202149567)</span>
+                                                <input type="text" name="auth_number" class="form-control evaa-input" required="" id="id_auth_number">
+                                                
                                             </div>
+                                            @endif
+                                            <div class="col-12 col-md-5 col-lg-5 mr-0 mr-md-3 md-form form-group my-2">
+                    
+                                                <label for="id_amount_sent">{{ trans('payment.label-amount') }} <span style="color : red">*</span></label>
+                                                <input type="number" name="amount_sent" step="0.01" class="form-control evaa-input" required="" id="id_amount_sent">
+                                                
+                                            </div>
+                                            <div class="col-12 col-lg-5 md-form form-group my-2">
+                    
+                                                <label for="id_sending_date">{{ trans('payment.label-date') }} <span style="color : red">*</span></label>
+                                                <input type="date" name="sending_date" class="form-control evaa-input" required="" id="id_sending_date">
+                                                
+                                            </div>                            
+                                            <div class="col-12 my-5 text-center ">
+                                                <button class="btn btn-primary waves-effect waves-light" type="submit" value="Soumettre">Soumettre</button>
 
-                                            <div class="text-left mt-3">
-                                                <label for="amount">{{ trans('payment.label-amount') }}<span style="color : red">*</span></label>
-                                                <input id="amount" value="{{old('amount')}}" name="amount" type="number" placeholder="" class="form-control height-45" required autocomplete="off">
-                                            </div>
-                                            <div class="text-left mt-3">
-                                                <label for="paymentOption">{{ trans('payment.label-paymentOption') }}<span style="color : red">*</span></label>
-                                                <input id="paymentOption" value="{{$payment->paymentOption}}" name="paymentOption" disabled  type="text" placeholder="" class="form-control height-45" required autocomplete="off">
-                                            </div>
+                                                <a href="{{ route('user.payments') }}" class="btn btn-danger waves-effect waves-light">{{ trans('payment.btn-payment-cancel') }}</a>
 
-                                            <div class="text-left mt-3">
-                                                <label for="date">{{ trans('payment.label-date') }}<span style="color : red">*</span></label>
-                                                <input id="date" value="{{old('date')}}" name="date" type="date" placeholder="" class="form-control height-45" required autocomplete="off">
+                                                <span id="submission_loading" class="spinner-border fast poti-blue" role="status" style="display: none;"></span>
+                                                <span class="sr-only">Chargement...</span>
                                             </div>
+                                        </div>
+                                    </form>
+                                </div> <!-- card body -->
+                            </div>
+                            <!-- <h3>{{ trans('payment.payment offers') }}</h3>
+                            <div class="">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ trans('payment.offer') }}</th>
+                                            <th>{{ trans('payment.payment-period') }}</th>
+                                            <th>{{ trans('payment.training-fees') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>
+                                                {{ trans('payment.period-date-1') }}
+                                            </td>
+                                            <td>40000 FCFA</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>
+                                                {{ trans('payment.period-date-2') }}
+                                            </td>
+                                            <td>45 000FCFA</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
+                            <div class="card d-none">
+                                <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.confirm-form') }}</h2>
+                                <div class="card-body px-lg-5 pt-0">
+                                    @if ($errors->any())
+                                        <div id="message-error">
+                                            @foreach ($errors->all() as $error)
+                                                <p>{{ $error }}</p>
+                                            @endforeach
+                                        </div>
+                                    @endif
 
-                                            <div class="center mt-3">
-                                                <button type="submit" class="btn btn-color-primary">{{ trans('payment.btn-confirm') }}</button>
-                                            </div>
+                                    <form class="register-form" action="{{ route('payment.confirm', $payment->id) }}" method="POST" autocomplete="off">
+                                        {{ csrf_field() }}
 
-                                        </form>
-                                    </div>  <!-- card body -->
-                                </div>  <!-- card -->
+                                        <div class="text-left mt-3">
+                                            <label for="confirmationCode">{{ trans('payment.label-confirmationCode') }}<span style="color : red">*</span></label>
+                                            <input id="confirmationCode" value="{{old('confirmationCode')}}" name="confirmationCode" type="text" placeholder="" class="form-control height-45" required autocomplete="off">
+
+                                        </div>
+                                        <div class="text-left mt-3">
+                                            <label for="ref_flooz">{{ trans('payment.label-ref') }}<span style="color : red">*</span></label>
+                                            <span class="small">{{ trans('payment.ref-example') }} (Txn ID: 2240202149567)</span>
+                                            <input id="ref_flooz" value="{{old('ref_flooz')}}" name="ref_flooz" type="text" placeholder="" class="form-control height-45" value="{{ old('ref_flooz') }}" required autocomplete="off">
+
+                                        </div>
+
+                                        <div class="text-left mt-3">
+                                            <label for="amount">{{ trans('payment.label-amount') }}<span style="color : red">*</span></label>
+                                            <input id="amount" value="{{old('amount')}}" name="amount" type="number" placeholder="" class="form-control height-45" required autocomplete="off">
+                                        </div>
+                                        <div class="text-left mt-3">
+                                            <label for="paymentOption">{{ trans('payment.label-paymentOption') }}<span style="color : red">*</span></label>
+                                            <input id="paymentOption" value="{{$payment->paymentOption}}" name="paymentOption" disabled  type="text" placeholder="" class="form-control height-45" required autocomplete="off">
+                                        </div>
+
+                                        <div class="text-left mt-3">
+                                            <label for="date">{{ trans('payment.label-date') }}<span style="color : red">*</span></label>
+                                            <input id="date" value="{{old('date')}}" name="date" type="date" placeholder="" class="form-control height-45" required autocomplete="off">
+                                        </div>
+
+                                        <div class="center mt-3">
+                                            <button type="submit" class="btn btn-color-primary">{{ trans('payment.btn-confirm') }}</button>
+                                        </div>
+
+                                    </form>
+                                </div>  <!-- card body -->
+                            </div>  <!-- card -->
                         </div>
                     </div>
                 </div>

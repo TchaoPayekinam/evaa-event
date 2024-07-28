@@ -1,11 +1,10 @@
 <?php
 return [
 	'home' => 'Accueil',
-	//'go-to-home' => 'Aller à l\'accueil',
 	'about' => 'A propos',
 	'services' => 'Services',
 	'contact' => 'Contact',
-	//'my-account' => 'Mon Compte',
-	'sign-in' => 'Connectez-vous',
+	'sign-in' => 'Se connecter',
+	'dashboard' => 'Tableau de bord',
 	'logout' => 'Se déconnecter',
 ];
