@@ -23,6 +23,7 @@
         'opening-hours' => 'Heures d\'Ouverture: Heures: Lun-Ven: 8h00 - 17h00',
         'useful-links' => 'Liens utiles',
         'newsletter-p' => 'Si vous souhaitez recevoir nos courriels, veuillez vous inscrire ici.',
+        'email' => 'Adresse e-mail',
         'rights' => 'Tous droits réservés',
     ];
 ?>

@@ -3,8 +3,10 @@
         'order-in-progress' => 'Registration in progress',
         'payment-in-progress' => 'payment in progress',
         'choose-payment-option' => 'Choose a training fee payment option',
-        'btn-payment-cancel'=> 'Cancel',
-        'training-fees-payment'=> 'Payment of the training fee',
+        'btn-payment-cancel'=> 'CANCEL',
+        'training-fees-payment'=> 'Payment of training fees',
+        'registration-details' => 'Registration details',
+        'register-fees-payment' => 'Payment of the registration fee',
         'payment-intro'=> 'Thank you for choosing Eva’a Event & Com. You should receive an email confirming your payment shortly.',
         'payment-description'=> 'The confirmation and validation procedure is the same for registrations and payment of training fees. To initiate this procedure, please select a payment option from those available. Once the payment has been chosen, you will receive a confirmation email containing the necessary instructions to finalize your payment.',
         'step-one'=> 'Step 1',
@@ -15,14 +17,15 @@
         'order-history' => 'Go to "My Registrations" in your dashboard to confirm your registration.',
         'order-is-pending' => 'Your registration is not yet validated. It will be processed upon receipt of payment and confirmation on the site. Please follow the steps below to complete the registration procedure :',
         // OFFRE
-        'payment offers'=> 'Here are our payment offers',
+        'payment-offers'=> 'Payment offers',
         'offer'=> 'Offer',
         'payment-period'=> 'Payment period',
         'training-fees'=> 'Training Fees',
         'period-date-1'=> '05 - 25 July 2024',
         'period-date-2'=> '26 July - 11 August 2024',
+
         // Flooz
-        'btn-payment-flooz' => 'Payment by Flooz',
+        'btn-payment-flooz' => 'Pay by Flooz',
         'send-payment-flooz' => 'Send payment by flooz',
         'payment-by-flooz' => 'by Flooz',
         'flooz-number'=> 'Flooz number',
@@ -30,7 +33,7 @@
         'name-recipient'=> 'Full name of recipient',
         'managing-director'=> 'Managing Director of Eva\'a Event & Com (EECO)',
         'dashboard' => 'dashboard',
-        'go-to-payment'=> 'Go to payment',
+        'go-to-payment'=> 'Confirm your payment',
         'flooz-following-countries' => 'Payment by flooz is possible if you reside in Togo and the following countries : Benin, Burkina Faso, Ivory Coast, Guinea-Bisseau, Mali and Niger.',
         'flooz-point-of-sale' => 'Please make the payment on the following number from  your mobile or in a Flooz point of sale :',
         'payment-reference-number' => 'Note the payment reference number',
@@ -40,7 +43,7 @@
 
         // T-MONEY
         'payment-by-tmoney' => 'by T-Money',
-        'btn-payment-tmoney'=> 'Payment by T-Money',
+        'btn-payment-tmoney'=> 'Pay by T-Money',
         'send-payment-tmoney' => 'Send payement by T-Money',
         'tmoney-following-countries' => 'Payment by T-money is possible only if you reside in Togo.',
         'tmoney-number'=> 'T-Money number',
@@ -48,7 +51,7 @@
 
         // WESTERN UNION
         'payment-by-wu' => 'by Western Union',
-        'btn-payment-wu'=> 'Payment by Western Union',
+        'btn-payment-wu'=> 'Pay by Western Union',
         'send-payment-western-union' => 'Send payement by Western Union',
         'payement-western-union'=> 'Western Union requires payement to be made to a natural person.',
         'familly-name'=> 'Familly name',
@@ -62,7 +65,7 @@
 
         // MONEY GRAM
         'payment-by-mg'=> 'by Money Gram',
-        'btn-payment-by-mg'=> 'Payment by Money Gram',
+        'btn-payment-by-mg'=> 'Pay by Money Gram',
         'send-payment-money-gram' => 'Send payement by Money Gram',
         'payement-money-gram'=> 'Money Gram requires payement to be made to a natural person.',
         'print-page-mg'=> 'You can print this page and take it with you to the Money Gram office as a reminder.',
@@ -71,7 +74,7 @@
         // CASH
         'cash'=> 'cash',
         'payment-by-cash'=> ' in cash',
-        'btn-payment-by-cash'=> 'Payment in cash',
+        'btn-payment-by-cash'=> 'Pay in cash',
         'payment-cash' => 'Please stop by Eva\'a Event & Com (EECO) to make your cash payment',
         'payment-address' => 'Address',
         'payment-cel' => 'Contact us',
@@ -84,7 +87,7 @@
         'label-ref'=> 'Payment reference number',
         'ref-example'=> 'Reference example',
         'label-amount'=> 'Amount send',
-        'label-date'=> 'Date of dispatch',
+        'label-date'=> 'Sending date',
         'label-paymentOption'=> 'Payment option',
         'btn-confirm'=> 'Confirm',
         'btn-cancel'=> 'Cancel',

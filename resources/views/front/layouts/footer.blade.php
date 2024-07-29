@@ -3,7 +3,6 @@
         <div class="footer-top-area">
             <div class="container">
                 <div class="row">
-                    <!-- <div class="col-lg-4 col-md-12 col-sm-12"> -->
                     <div class="col-lg-3">
                         <div class="widget">
                             <a class="footer-widget-logo" href="{{ route('home.index') }}">
@@ -57,7 +56,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-lg-4 col-md-6 col-sm-12"> -->
                     <div class="col-lg-3">
                         <div class="widget">
                             <h3 class="widgettitle">{{ trans('home.useful-links') }}</h3>
@@ -79,21 +77,22 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-lg-4 col-md-6 col-sm-12"> -->
                     <div class="col-lg-3">
                         <div class="widget">
                             <h3 class="widgettitle">Newsletter</h3>
                             <div class="footer-widget-newsletter">
                                 <p>{{ trans('home.newsletter-p') }}</p>
-
-                                <div class="input-group stylish-input-group">
-                                    <input type="email" placeholder="E-mail address" name="email" class="form-control" required="">
-                                    <span class="input-group-addon">
-                                        <button type="submit">
-                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        </button>
-                                    </span>
-                                </div>
+                                <form action="{{ route('subscribe_to_newsletter') }}" method="POST" autocomplete="off">
+                                    {{ csrf_field() }}
+                                    <div class="input-group stylish-input-group">
+                                        <input type="email" placeholder="{{ trans('home.email') }}" name="email" class="form-control" required="">
+                                        <span class="input-group-addon">
+                                            <button type="submit">
+                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

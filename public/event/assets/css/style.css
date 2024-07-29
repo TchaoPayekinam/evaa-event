@@ -53,8 +53,8 @@
 }
 .card-header {
     color: #036;
-    /*font-size: 2.75rem;*/
-    font-size: 40px;
+    /*font-size: 2.75rem;
+    font-size: 40px;*/
     line-height: 1.3em;
     /*margin: 1.07em 0 .535em;*/
     font-weight: 550;
@@ -222,8 +222,4 @@
         margin-left: 50px;
         margin-right: 50px;
     }
-}
-
-.banner-se{
-    height: 35vh !important;
 }

@@ -3,9 +3,10 @@
         'order-in-progress' => 'Inscription en cours',
         'payment-in-progress' => 'Paiement en cours',
         'choose-payment-option'=> 'Choisissez une option de paiement des frais de formations',
-        'training-fees-payment' => 'Paiement du frais de formation',
+        'training-fees-payment' => 'Paiement des frais de formation',
+        'registration-details' => 'Détails de l\'inscription',
         'thank-you-for-choosing' => 'Merci d’avoir choisi Eva’a Event & Com. Vous devriez recevoir sous peu un courriel confirmant votre inscription.',
-        'btn-payment-cancel'=> 'Annulé',
+        'btn-payment-cancel'=> 'ANNULER',
         'payment-intro'=> 'Merci d’avoir choisi Eva’a Event & Com. Vous devriez recevoir sous peu un courriel confirmant votre paiement.',
         'payment-description' => 'La procédure de confirmation et de validation est identique pour les inscriptions et les paiments des frais de formations. Pour initier cette procédure, veuillez sélectionner une option de paiement parmi celles disponibles. Une fois le paiement choisi, vous recevrez un email de confirmation contenant les instructions nécessaires pour finaliser votre paiement.',
         'keep-your-confirmation' => 'Veuillez conserver votre numéro de confirmation pour vos dossiers ',
@@ -15,15 +16,16 @@
         'step-two'=> 'Etape 2',
         'payment-detail'=> 'Votre paiement n\'est pas encore validé. Elle sera traitée dès réception et après la   confirmation sur le site. Veuillez suivre les étapes suivantes pour terminer la procédure de paiement des frais de formations :',
         //OFFRE
-        'payment offers'=> 'Voici nos offres de payement',
+        'payment-offers'=> 'Offres de paiement',
         'offer'=> 'Offre',
-        'payment-period'=> 'Période de payement',
+        'payment-period'=> 'Période de paiement',
         'training-fees'=> 'Frais de formation',
         'period-date-1'=> '05 - 25 juillet 2024',
         'period-date-2'=> '26 juillet - 11 août 2024',
+
         // Flooz
         'payment-by-flooz' => 'par Flooz',
-        'btn-payment-flooz'=> 'Paiement par Flooz',
+        'btn-payment-flooz'=> 'Payer par Flooz',
         'flooz-number'=> 'Numéro de flooz',
         'payement-amount'=> 'Montant du paiement',
         'name-recipient'=> 'Nom complet du destinataire',
@@ -40,7 +42,7 @@
 
         // T-MONEY
         'payment-by-tmoney' => 'par T-Money',
-        'btn-payment-tmoney'=> 'Paiement pat T-Money',
+        'btn-payment-tmoney'=> 'Payer par T-Money',
         'send-payment-tmoney' => 'Envoyer le paiement par T-Money',
         'tmoney-following-countries'=> 'Le paiement par T-money est possible uniquement si vous résidez au Togo.',
         'tmoney-number'=> 'Numéro de T-Money',
@@ -48,7 +50,7 @@
 
         //WESTERN UNION
         'payment-by-wu'=> 'par Western Union',
-        'btn-payment-wu'=> 'Paiement par Western Union',
+        'btn-payment-wu'=> 'Payer par Western Union',
         'send-payment-western-union' => 'Envoyer le paiement par Western Union',
         'payement-western-union'=> 'Western Union exige que le paiement soit effectué à une personne physique.',
         'familly-name'=> 'Nom',
@@ -62,7 +64,7 @@
 
         // MONEY GRAM
         'payment-by-mg'=> 'par Money Gram',
-        'btn-payment-by-mg'=> 'Paiement par Money Gram',
+        'btn-payment-by-mg'=> 'Payer par Money Gram',
         'send-payment-money-gram' => 'Envoyer le paiement par Money Gram',
         'payement-money-gram'=> 'Money Gram exige que le paiement soit effectué à une personne physique.',
         'print-page-mg'=> 'Vous pouvez imprimer cette page et l\'emporter avec vous au bureau de Money Gram comme aide-mémoire.',
@@ -71,7 +73,7 @@
         // CASH
         'cash'=> 'espèces',
         'payment-by-cash'=> ' en espèces',
-        'btn-payment-by-cash'=> 'Paiement en espèces',
+        'btn-payment-by-cash'=> 'Payer en espèces',
         'payment-cash' => 'Veuillez vous arrêter chez Eva’a Event & Com (EECO) pour effectuer votre paiement en espèces',
         'payment-address' => 'Adresse',
         'payment-cel' => 'Contactez-nous',
@@ -83,8 +85,8 @@
          'label-confirmationCode'=> 'Entrer votre code de confirmation',
          'label-ref'=> 'Numéro de référence du paiement',
          'ref-example'=> 'Exemple de référence',
-         'label-amount'=> 'Montant envoyer',
-         'label-date'=> 'Date d\'envoie',
+         'label-amount'=> 'Montant envoyé',
+         'label-date'=> 'Date d\'envoi',
          'label-paymentOption'=> 'Option de payement',
          'btn-confirm'=> 'Confirmer',
          'btn-cancel'=> 'Annuler',

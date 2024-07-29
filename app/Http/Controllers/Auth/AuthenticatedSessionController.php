@@ -26,8 +26,26 @@ class AuthenticatedSessionController extends Controller
             'password' => 'required',
         ]);
         
-        if(Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
-        {
+        if(Auth::attempt(array('email' => $input['email'], 'password' => $input['password']))) {
+            
+            // Récupérer l'utilisateur authentifié
+            $user = Auth::user();
+
+            // Vérifier si l'utilisateur a vérifié son email
+            if (!$user->hasVerifiedEmail()) {
+                // Déconnecter l'utilisateur
+                //Auth::logout();
+
+                 $notification = array(
+                    'message' => __('verify-email.must-verify'),
+                    'alert-type' => 'info'
+                );
+
+                // Rediriger vers la page de vérification d'email
+                return redirect()->route('verification.notice')
+                                ->with($notification);
+            }
+
             // Récupérer l'ID de session de l'utilisateur
             $sessionId = session()->getId();
 
@@ -46,8 +64,7 @@ class AuthenticatedSessionController extends Controller
             $user->save();
 
             return redirect()->intended(route('home.index'));
-            //return redirect()->intended(RouteServiceProvider::HOME);
-        } else{
+        } else {
             $notification = array(
                 'message' => __('auth.failed'),
                 'alert-type' => 'error'

@@ -1,8 +1,8 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
+@section('title', 'Payment Details Submission Form | Eva\'a Event & Com')
 @section('headSection')
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 
     <style type="text/css">
         .row-container {
@@ -28,23 +28,28 @@
             background-color: #e5e5e5 !important;
         }
 
-        .login-form input{
+        input{
             height: 45px;
+        }
+
+        .evaa-input {
             color: #111111;
             padding: 5px 15px;
             font-size: 15px;
         }
 
-        .text-left a {
-            color: #036;
-            font-weight: 700;
+        h2, h3 {
+            color: #1d4568;
+            font-family: "Barlow Condensed", sans-serif;
+            font-weight: 600;
+            font-style: normal;
         }
 
-        .btn.btn-color-primary {
+        .btn.btn-primary {
             background-color: #1d4d6b !important;
         }
 
-        .btn.btn-color-primary:hover {
+        .btn.btn-primary:hover {
             background-color: #999997 !important;
         }
 
@@ -57,6 +62,8 @@
             line-height: 48px;
             height: 50px;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
             border-radius: 0;
         }
     </style>
@@ -87,42 +94,50 @@
                                 <ul class="list-unstyled pl-4">
                                     <li>{{ trans('payment.payment-address') }} : <em>Djagblé, carrefour Nord-Est du Collège d'Enseignement Public (CEG)</em></li>
                                     <li>{{ trans('payment.payment-cel') }} : <em>+228 92 04 05 94 / 96 02 82 82</em></li>
-                                    <li>{{trans('payment.payement-amount')}}: <em>{{ session($payment->paymentAmount) }} FCFA</em></li>
                             </div>
                             <hr>
-                                <h3>{{ trans('payment.payment offers') }}</h3>
-                                <div class="">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>{{ trans('payment.offer') }}</th>
-                                                <th>{{ trans('payment.payment-period') }}</th>
-                                                <th>{{ trans('payment.training-fees') }}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>
-                                                    {{ trans('payment.period-date-1') }}
-                                                </td>
-                                                <td>40000 FCFA</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>
-                                                    {{ trans('payment.period-date-2') }}
-                                                </td>
-                                                <td>45 000FCFA</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                            <div class="card">
+                                <h3 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('user-payments.payment-information') }}</h3>
+                                <div class="card-body">
+                                    <p class="font-weight-bold">@if($payment->type == 'registration_fees') {{ trans('user-payments.registration_fees') }} @else {{ trans('user-payments.training_costs') }} @endif - {{ $event->name }}</p>
+                                    <p class="font-weight-bold">{{ trans('user-payments.inscription_id') }}: {{ $event->confirmationCode }}</p>
+                                    <p class="font-weight-bold">{{ trans('user-payments.amount') }}: {{ $payment->amount }} FCFA</p>
+                                    <p class="font-weight-bold">{{ trans('user-payments.payment_method') }}: {{ $payment->method }}
+                                    </p>
+                                </div> <!-- card body -->
+                            </div>
+                            <!-- <h3>{{ trans('payment.payment offers') }}</h3>
+                            <div class="">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ trans('payment.offer') }}</th>
+                                            <th>{{ trans('payment.payment-period') }}</th>
+                                            <th>{{ trans('payment.training-fees') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>
+                                                {{ trans('payment.period-date-1') }}
+                                            </td>
+                                            <td>40000 FCFA</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>
+                                                {{ trans('payment.period-date-2') }}
+                                            </td>
+                                            <td>45 000FCFA</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
 
                             <div class="text-center m-5">
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
+                                <!-- <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a> -->
                             </div>
                         </div>
                     </div>

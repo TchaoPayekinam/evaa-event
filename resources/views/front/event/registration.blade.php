@@ -28,7 +28,8 @@
             color: #036;
             font-size: 40px;
             line-height: 1.3em;
-            font-weight: 550;
+            font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
+            font-weight: 600;
         }
         .poti-light-bg {
             background-color: #e5e5e5 !important;
@@ -38,6 +39,7 @@
             color: #2b689c;
             margin: 1em 0 .5em;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
+            font-weight: 600;
         }
 
         .register-form input {
@@ -87,6 +89,7 @@
             line-height: 48px;
             height: 50px;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
+            font-weight: 600;
             border-radius: 0;
         }
     </style>
@@ -96,24 +99,14 @@
 <!-- Sign Up Form Area Start Here -->
 <section class="section-space-default2-less30">
     <div class="container">
-        <div class="row row-container title-black color-dark d-none">
-            <div class="col-sm">
-                <h2>Register form</h2>
-                <p class="margin-b-30">
-                    By signing in, users acknowledge they are accepting the terms and agreements of using the Evaa Event website, including the use of provided data. For additional details on the Evaa's use of user provided data, see our <a href="#"> Terms of Use</a>.
-                </p>
-            </div>
-        </div>
-        <!-- <div class="row row-container mt-5 justify-content-center"> -->
         <div class="row mt-3 justify-content-center">
-            <!-- <div class="col-8 center"> -->
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="card">
                     @error('email_no_account')
-                        <span class="text-danger font-size" >{{$message}}</span>
+                        <span class="alert alert-danger font-size" >{{$message}}</span>
                     @enderror
                     @error('email')
-                        <span class="text-danger font-size" >{{$message}}</span>
+                        <span class="alert alert-danger font-size" >{{$message}}</span>
                     @enderror
                     <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('register.registration') }}</h2>
                     <div class="card-body px-lg-5 pt-0">
@@ -215,48 +208,74 @@
 
                             {{-- formulaire de compte --}}
                             <h2 class="card-header text-center py-3 mt-4 poti-light-bg">{{ trans('register.regis-form') }}</h2>
-                            <p class="small text-muted">Le compte vous permettra de suivre vos activités sur la plateforme, d'accéder à votre tableau de bord et de confirmer vos inscriptions et payements.</p>
-                            <div class="card-body px-lg-5 pt-0">
+                            <p class="small text-muted">{{ trans('register.account-allow-you') }}</p>
+                            <!-- <div class="card-body px-lg-5 pt-0"> -->
                             <div class="text-left mt-3">
                                 <label>
-                                    <input type="radio" name="has_account" value="yes" class="ml-3 mr-2" required onclick="toggleFields()"> J'ai un compte
+                                    <input type="radio" name="has_account" value="yes" class="ml-3 mr-2" required onclick="toggleFields()"> {{ trans('register.have-account') }}
                                 </label>
                                 <label>
-                                    <input type="radio" name="has_account" class="ml-3 mr-2" required value="no" onclick="toggleFields()"> Je n'ai pas de compte
+                                    <input type="radio" name="has_account" class="ml-3 mr-2" required value="no" onclick="toggleFields()"> {{ trans('register.donthave-account') }}
                                 </label>
                             </div>
 
                             <div id="emailField" style="display: none;" class="text-left mt-3">
-                                <label for="email">Veillez renseinger votre adresse email</label><span style="color: red">*</span>
+                                <label for="email">{{ trans('register.email') }}</label><span style="color: red">*</span>
                                 <input id="email" name="email" type="email" placeholder="" class="form-control height-45" required>
                                 @error('email')
+                                    <span class="text-danger font-size" >{{$message}}</span>
+                                @enderror
+
+                                <label for="password">{{ trans('register.password')}}</label><span style="color: red">*</span>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" name="password" class="form-control height-45" placeholder="">
+                                    <div class="input-group-append" data-password="false">
+                                        <div class="input-group-text" style="padding: 0 20px; font-size: 18px;">
+                                            <i class="fa fa-eye" id="togglePassword"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('password')
                                     <span class="text-danger font-size" >{{$message}}</span>
                                 @enderror
                             </div>
 
                             <div id="credentialsFields" style="display: none;" class="text-left mt-3">
-                                <label for="email_no_account">Veillez renseinger votre adresse email</label><span style="color: red">*</span>
+                                <label for="email_no_account">{{ trans('register.email') }}</label><span style="color: red">*</span>
                                 <input type="email" name="email_no_account" placeholder="" class="form-control height-45" required>
                                 @error('email_no_account')
-                                        <span class="text-danger font-size" >{{$message}}</span>
-                                    @enderror
+                                    <span class="text-danger font-size" >{{$message}}</span>
+                                @enderror
 
-                                <div id="credentialsFields" class="text-left mt-3">
-                                    <label for="password">Veillez entrer un mot de passe</label><span style="color: red">*</span>
-                                    <input type="password" name="password" placeholder="" class="form-control height-45" required>
-                                    @error('password')
+                                <div class="form-group">
+                                    <label for="password_no_account">{{ trans('register.password') }}</label><span style="color: red">*</span>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password_no_account" name="password_no_account" class="form-control height-45" placeholder="">
+                                        <div class="input-group-append" data-password="false">
+                                            <div class="input-group-text" style="padding: 0 20px; font-size: 18px;">
+                                                <i class="fa fa-eye" id="toggleNoAccPassword"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @error('password_no_account')
                                         <span class="text-danger font-size" >{{$message}}</span>
                                     @enderror
                                 </div>
-                                <div id="credentialsFields" class="text-left mt-3">
-                                    <label for="password_confirmation">Confirmer votre mot de passe</label><span style="color: red">*</span>
-                                    <input type="password" name="password_confirmation" placeholder="" class="form-control height-45" required>
+
+                                <div class="form-group">
+                                    <label for="password_no_account_confirmation">{{ trans('register.confirm-password') }}</label><span style="color: red">*</span>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password_no_account_confirmation" name="password_no_account_confirmation" class="form-control height-45" placeholder="">
+                                        <div class="input-group-append" data-password="false">
+                                            <div class="input-group-text" style="padding: 0 20px; font-size: 18px;">
+                                                <i class="fa fa-eye" id="toggleConfirmPassword"></i>
+                                            </div>
+                                        </div>
+                                    </div>
                                     @error('password_confirmation')
                                         <span class="text-danger font-size" >{{$message}}</span>
                                     @enderror
-
                                 </div>
-
                             </div>
 
                             <div class="center mt-3">
@@ -284,5 +303,33 @@
             credentialsFields.style.display = 'block';
         }
     }
+    // Ajoutez le script pour basculer la visibilité du mot de passe
+    document.getElementById('togglePassword').addEventListener('click', function (e) {
+        // basculer le type d'input entre password et text
+        const password = document.getElementById('password');
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        // basculer l'icône
+        this.classList.toggle('fa-eye-slash');
+    });
+    document.getElementById('toggleNoAccPassword').addEventListener('click', function (e) {
+        // basculer le type d'input entre password et text
+        const password_no_account = document.getElementById('password_no_account');
+        const type = password_no_account.getAttribute('type') === 'password' ? 'text' : 'password';
+        password_no_account.setAttribute('type', type);
+
+        // basculer l'icône
+        this.classList.toggle('fa-eye-slash');
+    });
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function (e) {
+        // basculer le type d'input entre password et text
+        const password_no_account_confirmation = document.getElementById('password_no_account_confirmation');
+        const type = password_no_account_confirmation.getAttribute('type') === 'password' ? 'text' : 'password';
+        password_no_account_confirmation.setAttribute('type', type);
+
+        // basculer l'icône
+        this.classList.toggle('fa-eye-slash');
+    });
 </script>
 @endsection

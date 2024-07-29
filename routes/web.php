@@ -17,6 +17,7 @@ Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->
 Route::get('services', [App\Http\Controllers\HomeController::class, 'services'])->name('home.services');
 
 Route::post('submit-contact-form', [ContactController::class, 'submit'])->name('post_contact_form');
+Route::post('subscribe-to-newsletter', [ContactController::class, 'subscribe_to_newsletter'])->name('subscribe_to_newsletter');
 
 Route::get('event/inscription', [InscriptionController::class, 'inscription'])->name('event.inscription');
 Route::post('/inscription', [InscriptionController::class, 'submit'])->name('inscription.submit');
@@ -36,12 +37,38 @@ Route::get('event/payment/cash', [App\Http\Controllers\HomeController::class, 'c
 Route::get('event/payment', [PaymentController::class,'payment'])->name('payment');
 Route::post('event/payment', [PaymentController::class,'submit'])->name('payment.submit');
 
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/inscription/{id}', [DashboardController::class, 'inscriptionDetails'])->name('inscription.details');
-Route::post('/inscription/{id}/confirm', [DashboardController::class, 'confirmInscription'])->name('inscription.confirm');
+Route::middleware(['auth'])->group(function () {
+    Route::middleware('verified')->group(function () {
+        // Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        // Route::get('my-registrations', [DashboardController::class, 'registrations'])->name('user.registrations');
+        // Route::get('my-payments', [DashboardController::class, 'payments'])->name('user.payments');
+        // Route::get('pending-payment-input/{id}', [DashboardController::class, 'paymentDetailsSubmissionForm'])->name('paymentDetailsSubmissionForm');
+        // Route::post('pending-payment-input/{id}', [DashboardController::class, 'postPaymentDetailsSubmissionForm']);
+
+        // Route::get('event/{id}/payment-training-costs', [PaymentController::class, 'trainingCostsPayment'])->name('event.trainingCostsPayment');
+        // Route::post('event/{id}/payment-training-costs', [PaymentController::class, 'postTrainingCostsPayment']);
+    });
+        // -----------------------
+        // -----------------------
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('my-registrations', [DashboardController::class, 'registrations'])->name('user.registrations');
+        Route::get('my-payments', [DashboardController::class, 'payments'])->name('user.payments');
+        Route::get('pending-payment-input/{id}', [DashboardController::class, 'paymentDetailsSubmissionForm'])->name('paymentDetailsSubmissionForm');
+        Route::post('pending-payment-input/{id}', [DashboardController::class, 'postPaymentDetailsSubmissionForm']);
+
+        Route::get('event/{id}/payment-training-costs', [PaymentController::class, 'trainingCostsPayment'])->name('event.trainingCostsPayment');
+        Route::post('event/{id}/payment-training-costs', [PaymentController::class, 'postTrainingCostsPayment']);
+        // --------------------------
+        // --------------------------
+
+    Route::get('/inscription/{id}', [DashboardController::class, 'inscriptionDetails'])->name('inscription.details');
+    Route::post('/inscription/{id}/confirm', [DashboardController::class, 'confirmInscription'])->name('inscription.confirm');
+});
 
 Route::get('/payment/{id}', [DashboardController::class, 'paymentDetails'])->name('payment.details');
 Route::post('/payment/{id}/confirm', [DashboardController::class, 'confirmPayment'])->name('payment.confirm');
+
+Route::get('event/payment/receipt/{id}', [DashboardController::class, 'generate_receipt'])->name('payment.receipt');
 
 ///// Administration Routes /////
 Route::get('adminLogin&EECO@2024', [App\Http\Controllers\Admin\Auth\LoginController::class, 'adminLoginForm'])->name('admin.login');
@@ -50,6 +77,13 @@ Route::delete('adminLogin&EECO@2024', [App\Http\Controllers\Admin\Auth\LoginCont
 
 Route::middleware('admin.auth')->group(function () {
     Route::get('/administration/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/administration/payments', [App\Http\Controllers\Admin\PaymentController::class, 'index'])->name('admin.payments');
+    Route::get('/administration/transactions', [App\Http\Controllers\Admin\PaymentController::class, 'transactions'])->name('admin.transactions');
+    Route::post('payment/confirm_transaction/{id}', [App\Http\Controllers\Admin\PaymentController::class, 'confirm_transaction'])->name('payment.confirm_transaction');
+
+    Route::resource('profiles', App\Http\Controllers\Admin\ProfileController::class);
+    Route::resource('admins', App\Http\Controllers\Admin\ManageAdminController::class);
 
     Route::get('/administration/evenement', [App\Http\Controllers\Admin\EvenementController::class, 'index'])->name('evenement.index');
     Route::get('/administration/evenement/createForm', [App\Http\Controllers\Admin\EvenementController::class, 'createForm'])->name('evenement.createForm');
@@ -78,4 +112,5 @@ Route::middleware('admin.auth')->group(function () {
     Route::delete('/administration/delete-administrator/{id}', [App\Http\Controllers\ManageAdminController::class, 'destroy'])->name('manageAdmin.destroy');
     Route::get('/administration/search-administrator', [App\Http\Controllers\ManageAdminController::class, 'search'])->name('manageAdmin.search');
 });
+
 require __DIR__.'/auth.php';

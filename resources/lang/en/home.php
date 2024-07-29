@@ -23,6 +23,7 @@
         'opening-hours' => 'Opening Hours: Hours: Mon-Fri: 8:00 a.m. - 5:00 p.m.',
         'useful-links' => 'Useful Links',
         'newsletter-p' => 'If you would like to receive our emails, please sign up here.',
+        'email' => 'E-mail address',
         'rights' => 'All Rights Reserved',
     ];
 ?>

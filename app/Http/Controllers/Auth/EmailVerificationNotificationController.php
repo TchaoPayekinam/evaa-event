@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class EmailVerificationNotificationController extends Controller
 {
-    /**
+    /** 
      * Send a new email verification notification.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -22,6 +22,11 @@ class EmailVerificationNotificationController extends Controller
 
         $request->user()->sendEmailVerificationNotification();
 
-        return back()->with('status', 'verification-link-sent');
+        $notification = array(
+            'message' => __('verify-email.new-verification-link'),
+            'alert-type' => 'success'
+        );
+
+        return back()->with($notification);
     }
 }

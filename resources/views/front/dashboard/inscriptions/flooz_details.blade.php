@@ -24,11 +24,7 @@
             -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
         }
-        .poti-light-bg {
-            background-color: #e5e5e5 !important;
-        }
-
-        .login-form input{
+        input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;

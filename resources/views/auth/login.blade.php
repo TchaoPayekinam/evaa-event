@@ -3,8 +3,6 @@
 @section('title', 'User Login | Eva\'a Event & Com')
 
 @section('headSection')
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
-
     <style type="text/css">
         .row-container {
             width: 100%;
@@ -59,6 +57,7 @@
             height: 50px;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
             border-radius: 0;
+            font-weight: 600;
         }               
     </style>
 @endsection
@@ -69,7 +68,6 @@
     <div class="container">
         <div class="row row-container title-black color-dark">
             <div class="col-sm">
-                <!-- <h2>{{ trans('login.user-sign-in') }}</h2> -->
                 <p class="margin-b-30 text-justify">                    
                     {{ trans('login.users-acknowledge') }} <a href="#"> {{ trans('login.terms-of-use') }}</a>.
                 </p>
@@ -88,7 +86,15 @@
 
                             <div class="text-left mt-3">
                                 <label for="password">{{ trans('login.password') }}</label>
-                                <input id="password" name="password" type="password" class="form-control border-white">
+
+                                <div class="input-group input-group-merge">
+                                    <input id="password" name="password" type="password" class="form-control border-white">
+                                    <div class="input-group-append" data-password="false">
+                                        <div class="input-group-text" style="padding: 0 20px; font-size: 18px;">
+                                            <i class="fa fa-eye" id="togglePassword"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="center mt-3">
@@ -114,37 +120,16 @@
 @endsection
 
 @section('scriptSection')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script>
-        @if (Session::has('message'))
-            var type = "{{ Session::get('alert-type', 'info') }}"
-            switch (type) {
-                case 'info':
+    <script type="text/javascript">
+        // Ajoutez le script pour basculer la visibilité du mot de passe
+        document.getElementById('togglePassword').addEventListener('click', function (e) {
+            // basculer le type d'input entre password et text
+            const password = document.getElementById('password');
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
 
-                    toastr.options.timeOut = 10000;
-                    toastr.info("{{ Session::get('message') }}");
-                    break;
-                case 'success':
-
-                    toastr.options.timeOut = 10000;
-                    toastr.success("{{ Session::get('message') }}");
-                    break;
-                case 'warning':
-
-                    toastr.options.timeOut = 10000;
-                    toastr.warning("{{ Session::get('message') }}");
-                    break;
-                case 'error':
-
-                    toastr.options = {
-                        "positionClass" : 'toast-top-full-width',
-                        "progressBar" : true,
-                        "closeButton" : true,
-                        "timeOut" : 3000,
-                    }
-                    toastr.error("{{ Session::get('message') }}");
-                    break;
-            }
-        @endif
+            // basculer l'icône
+            this.classList.toggle('fa-eye-slash');
+        });
     </script>
 @endsection
