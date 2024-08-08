@@ -91,4 +91,43 @@ class ManageAdminController extends Controller
     {
         return view('back.user-profile');
     }
+
+    public function destroy(string $id)
+    {
+        Administrator::destroy($id);
+        return redirect()->route('admins.index')->with('danger', 'Utilisateur supprimer');;
+    }
+
+    public function update(Request $request, $id)
+    {
+        $rules = [
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'email' => 'required|email|max:255|unique:administrators,email,' . $id,
+            'profile' => 'required|not_in:0',
+        ];
+
+        $messages = [
+            'last_name.required' => 'Le champ nom est obligatoire',
+            'first_name.required' => 'Le champ prénoms est obligatoire',
+            'email.required' => 'Le champ e-mail est obligatoire.',
+            'profile.not_in' => 'Le profil sélectionné est invalide.',
+        ];
+
+        $validator = \Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return Response::json(['errors' => $validator->errors()]);
+        }
+
+        $user = Administrator::findOrFail($id);
+        $user->last_name = $request->last_name;
+        $user->first_name = $request->first_name;
+        $user->email = $request->email;
+        $user->profile_id = $request->profile;        
+        $user->save();
+        return redirect()->route('admins.index')->with('success', 'Utilisateur modifier');;
+
+          
+    }
 }

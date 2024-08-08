@@ -44,17 +44,25 @@
             font-weight: 500;
             font-style: normal;
         }
+        table thead tr th{
+        background-color: #0E2377 !important;
+        color: #fff !important;
+        }
+
+        td, th{
+        text-align: center;
+        }
     </style>
 @endsection
 
 @section('content')
 <section class="section-space-default bg-light">
-    <div class="container zoom-gallery menu-list-wrapper">
+    <div class="container-fluid zoom-gallery menu-list-wrapper">
         <div class="section-heading title-black color-dark text-center">
             <h2>{{ trans('user-payments.history_of_payments') }}</h2>
         </div>
         <div class="table-responsive">
-            <table class="table table-striped table-sm poti-teal-border">
+            <table class="table table-striped table-sm">
                 <thead>
                     <tr>
                         <th scope="col">{{ trans('user-payments.inscription_id') }}</th>
@@ -63,6 +71,7 @@
                         <th scope="col">{{ trans('user-payments.payment_method') }}</th>
                         <th scope="col">{{ trans('user-payments.date_rec') }}</th>
                         <th scope="col">{{ trans('user-payments.status') }}</th>
+                        <th scope="col">Confirmation EECO</th>
                         <th scope="col" class="th-sm">Options</th>
                     </tr>
                 </thead>
@@ -75,8 +84,19 @@
 	                        <td>{{ $payment->method }}</td>
 	                        <td>{{ $payment->created_at->format('d/m/Y H:m:s') }}</td>
 	                        
-	                        <td class="text-danger">{{ trans('user-payments.awaiting-input') }}</td>
+                            @if ($payment->status == 'pending')
+                                <td class="text-danger">{{ trans('user-payments.awaiting-input') }}</td>
+                            @else
+                                <td class="text-success">Payement effectuée</td>
+                            @endif
+                            @if ($payment->is_validate == 0)
+                                <td class="text-danger">Non</td>
+                            @else
+                                <td class="text-success">Oui</td>
+                            @endif
 	                        
+	                        
+	                       
 	                        <td class="btn-group-sm">
 	                            <!-- <a class="btn btn-primary h-25 mr-0 mr-md-2 mr-lg-0 waves-effect waves-light" href="/users/order-details/202407-506LJ527KQ591L/">View Details</a> -->
                                 @if($payment->status == 'pending')

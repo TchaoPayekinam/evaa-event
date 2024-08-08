@@ -125,10 +125,19 @@
 
                                     <!-- item-->
 
-                                    <a href="" class="dropdown-item notify-item">
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item" data-toggle="modal" data-target="#update-pwd-{{Auth::guard('admin')->id()}}">
                                         <i class="mdi mdi-account-circle mr-1"></i>
-                                        <span>Mon Compte</span>
+                                        <span>Modifier mon mot de passe</span>
                                     </a>
+
+
+
+                                    <!-- Edit Profile modal content -->
+                                    @include('admin/users/modals/update-user-pwd')
+                                    <!-- /End modal --> 
+
+
+
 
                                     <a href="{{ route('logout') }}" class="dropdown-item notify-item" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

@@ -81,9 +81,14 @@ Route::middleware('admin.auth')->group(function () {
     Route::get('/administration/payments', [App\Http\Controllers\Admin\PaymentController::class, 'index'])->name('admin.payments');
     Route::get('/administration/transactions', [App\Http\Controllers\Admin\PaymentController::class, 'transactions'])->name('admin.transactions');
     Route::post('payment/confirm_transaction/{id}', [App\Http\Controllers\Admin\PaymentController::class, 'confirm_transaction'])->name('payment.confirm_transaction');
+    Route::post('payment/confirm_transaction_reset/{id}', [App\Http\Controllers\Admin\PaymentController::class, 'confirm_transaction_reset'])->name('payment.confirm_transaction_reset');
 
     Route::resource('profiles', App\Http\Controllers\Admin\ProfileController::class);
     Route::resource('admins', App\Http\Controllers\Admin\ManageAdminController::class);
+    /// ++++
+    Route::put('/administration/update-administrator/{id}', [App\Http\Controllers\Admin\ManageAdminController::class, 'update'])->name('manageAdmin.update');
+
+
 
     Route::get('/administration/evenement', [App\Http\Controllers\Admin\EvenementController::class, 'index'])->name('evenement.index');
     Route::get('/administration/evenement/createForm', [App\Http\Controllers\Admin\EvenementController::class, 'createForm'])->name('evenement.createForm');
@@ -106,7 +111,7 @@ Route::middleware('admin.auth')->group(function () {
     Route::get('/administration/create-administrators', [App\Http\Controllers\ManageAdminController::class, 'createForm'])->name('manageAdmin.createForm');
     Route::post('/administration/create-administrator', [App\Http\Controllers\ManageAdminController::class, 'create'])->name('manageAdmin.create');
     Route::get('/administration/edit-administrators/{id}', [App\Http\Controllers\ManageAdminController::class, 'edit'])->name('manageAdmin.edit');
-    Route::put('/administration/update-administrator/{id}', [App\Http\Controllers\ManageAdminController::class, 'update'])->name('manageAdmin.update');
+    // Route::put('/administration/update-administrator/{id}', [App\Http\Controllers\ManageAdminController::class, 'update'])->name('manageAdmin.update');
     Route::get('/administration/edit-password', [App\Http\Controllers\ManageAdminController::class, 'editPassword'])->name('manageAdmin.editPassword');
     Route::put('/administration/update-password/{id}', [App\Http\Controllers\ManageAdminController::class, 'updatePassword'])->name('manageAdmin.updatePassword');
     Route::delete('/administration/delete-administrator/{id}', [App\Http\Controllers\ManageAdminController::class, 'destroy'])->name('manageAdmin.destroy');

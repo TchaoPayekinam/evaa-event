@@ -77,7 +77,11 @@
                                             <td style="text-align: center;">{{ $transaction->amount }}</td>
                                             <td style="text-align: center;">{{ \Carbon\Carbon::parse($transaction->created_at)->format('d/m/Y H:i:s') }}</td>
                                             <td style="text-align: center;">
-                                                <a href="javascript:void(0);" class="badge badge-primary text-white" data-toggle="modal" data-target="#confirm-{{$transaction->id}}">Confirmer</a>
+                                                @if ($transaction->status == 'confirmed')
+                                                    <a href="javascript:void(0);" class="badge badge-danger text-white" data-toggle="modal" data-target="#confirm-{{$transaction->id}}">Annuler</a>
+                                                @else
+                                                 <a href="javascript:void(0);" class="badge badge-primary text-white" data-toggle="modal" data-target="#confirm-{{$transaction->id}}">Confirmer</a>
+                                                @endif
                                             </td>
                                             <!-- Modal Confirm Transaction -->
                                             @include('admin/transactions/confirm-modal')

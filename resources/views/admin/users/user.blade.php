@@ -88,40 +88,70 @@
                                                 <td>@if(!is_null($user->last_login_at)) {{ \Carbon\Carbon::parse($user->last_login_at)->format('d/m/Y H:i:s') }} @else - @endif</td>
                                                 <td>
                                                     <!-- <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a> -->
-                                                    <!-- <a href="javascript:void(0);" class="action-icon" data-toggle="modal" data-target="#user-modal-{{$user->id}}"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                     <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a> -->
+                                                    <a href="javascript:void(0);" class="action-icon" data-toggle="modal" data-target="#user-modal-{{$user->id}}">
+                                                    {{-- <i class="mdi mdi-square-edit-outline"></i></a> --}}
+                                                    {{-- <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a> --}}
                                                     <a href="javascript:void(0);" class="badge badge-outline-warning" data-toggle="modal" data-target="#reset-pwd-{{$user->id}}"><i class="mdi mdi-account-key-outline"></i>Réin.</a>
-                                                    <!-- <a href="javascript:void(0);" class="badge badge-outline-danger" data-toggle="modal" data-target="#delete-user-{{$user->id}}"><i class="mdi mdi-delete-outline"></i>Supp.</a> -->
+                                                    <a href="javascript:void(0);" class="badge badge-outline-success" data-toggle="modal" data-target="#edit-user-{{$user->id}}"><i class="mdi mdi-account-key-outline"></i>Mod.</a>
+                                                    <a href="javascript:void(0);" class="badge badge-outline-danger" data-toggle="modal" data-target="#delete-user-{{$user->id}}"><i class="mdi mdi-delete-outline"></i>Supp.</a>
                                                 </td>   
 
                                                 <!-- Modal content -->
                                                 @include('admin/users/modals/reset-user-pwd')
                                                 <!-- /End modal -->
+                                                <!-- Edit Profile modal content -->
+                                                @include('admin/users/modals/update-user-pwd')
+                                                <!-- /End modal --> 
 
                                                 <!-- Edit user modal content -->
                                                 <div id="edit-user-{{$user->id}}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
-
+                                                
                                                             <div class="modal-body">
                                                                 <div class="text-center mt-2 mb-4">
-                                                                    <h4 class="page-title">Editer Profil</h4>
+                                                                    <h4 class="page-title">Nouveau Utilisateur</h4>
                                                                 </div> 
-
-                                                                <form class="pl-3 pr-3" action="{{ route('admins.update', $user->id) }}" method="post">
-                                                                    @csrf
-                                                                    {{ method_field('PUT') }}
+                                                                <div id="success-msg">
+                                                                </div>
+                                                                <form id="edit-user-{{$user->id}}" action="{{ route('manageAdmin.update', $user->id) }}" method="POST" class="pl-3 pr-3">
+                                                                    {!! csrf_field() !!}
+                                                                    @method('put')
                                                                     <div class="form-group">
-                                                                        <label for="name">Libellé</label>
-                                                                        <input class="form-control" type="text" name="name" id="name" required="" value="{{$user->name}}" placeholder="Libellé du Profil">
+                                                                        <label for="name">Nom </label>
+                                                                        <input class="form-control" type="text" value="{{ $user->last_name }}" name="last_name" id="last_name" required="" placeholder="Nom ">
+                                                
+                                                                        <span class="text-danger" id="last-name-error"></span>
                                                                     </div>
-
+                                                                    <div class="form-group">
+                                                                        <label for="name">Prénoms</label>
+                                                                        <input class="form-control" type="text" value="{{ $user->first_name }}" name="first_name" id="first_name" required="" placeholder="Prénoms">
+                                                
+                                                                        <span class="text-danger" id="first-name-error"></span>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="name">E-mail</label>
+                                                                        <input class="form-control" value="{{ $user->email }}" type="text" name="email" id="email" required="" placeholder="E-mail">
+                                                
+                                                                        <span class="text-danger" id="email-error"></span>
+                                                                    </div>
+                                                                    <div class="form-group"> 
+                                                                        <label for="" class="col-form-label">Profil</label>
+                                                                        <select id="profile" name="profile" class="form-control" data-toggle="select2" title="Profil">
+                                                                            <option value="0">Choisir</option>
+                                                                            @foreach($profiles as $profile)
+                                                                            <option value="{{ $profile->id }}">{{ $profile->name }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                
+                                                                        <span class="text-danger" id="profile-error"></span>
+                                                                    </div>
+                                                
                                                                     <div class="form-group text-center">
-                                                                        <button class="btn btn-primary" type="submit">Valider</button>
+                                                                        <button class="btn btn-primary" id="submitForm">Valider</button> 
                                                                     </div>
-
                                                                 </form>
-
+                                                                                                                
                                                             </div>
                                                         </div>
                                                     </div>

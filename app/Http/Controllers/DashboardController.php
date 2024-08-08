@@ -10,6 +10,8 @@ use App\Notifications\ConfirmPaymentNotification;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 use PDF;
 
@@ -46,124 +48,83 @@ class DashboardController extends Controller
 
     public function postPaymentDetailsSubmissionForm(Request $request, $payment_id) {        
         $payment_detail = Payment_detail::where('payment_id', $payment_id)->first();
-
+        $payment = Payment::find($payment_id); 
+    
+        if (!$payment) {
+            return redirect()->route('payments.index')->with('error', 'Paiement non trouvé.');
+        }
+    
+        // Récupérer l'inscription associée au paiement
+        $inscription = Inscription::where('id', $payment->inscription_id)->first();
+    
+        if (!$inscription) {
+            return redirect()->route('payments.index')->with('error', 'Inscription non trouvée.');
+        }
+    
         if ($payment_detail) {
-            $payment_detail->payment_id = $payment_id;
-            if($request->payment_reference_number) {
+            if ($request->payment_reference_number) {
                 $payment_detail->ref_number = $request->payment_reference_number;
             }
-            if($request->tracking_number) {
+            if ($request->tracking_number) {
                 $payment_detail->tracking_number = $request->tracking_number;
             }
-            if($request->auth_number) {
+            if ($request->auth_number) {
                 $payment_detail->auth_number = $request->auth_number;
             }
             $payment_detail->amount = $request->amount_sent;
+    
             $payment_detail->save();
-
+    
+            $payment->status = 'confirmed'; 
+            $payment->save();
+    
+            // Mettre à jour le statut de l'inscription
+            $inscription->status = 'registration_fees_paid';
+            $inscription->save();
+    
             $notification = array(
                 'message' => __('user-payments.payment-details-submit'),
                 'alert-type' => 'success'
             );
-
+    
             return redirect()->route('user.payments')
                 ->with($notification);
         }
-
-        if($request->payment_method == 'Flooz' || $request->payment_method == 'T-Money') {
-            $payment_detail = new Payment_detail;
-            $payment_detail->payment_id = $payment_id;
+    
+        // Si aucun payment_detail n'existe, créer un nouveau
+        $payment_detail = new Payment_detail;
+        $payment_detail->payment_id = $payment_id;
+        $payment_detail->amount = $request->amount_sent;
+        $payment_detail->method = $request->payment_method;
+    
+        if ($request->payment_method == 'Flooz' || $request->payment_method == 'T-Money') {
             $payment_detail->ref_number = $request->payment_reference_number;
-            $payment_detail->amount = $request->amount_sent;
-            $payment_detail->method = $request->payment_method;
-            $payment_detail->save();
-
-            /*$payment_detail = Payment_detail::where('ref_number', $request->payment_reference_number)
-                        ->where('amount', $request->amount_sent)
-                        ->first();
-
-            if (is_null($payment_detail)) {
-                $notification = array(
-                    'message' => __('user-payments.incorrect-payment-details'),
-                    'alert-type' => 'error'
-                );
-
-                return redirect()->back()
-                    ->withInput()
-                    ->with($notification);
-            }*/ 
-        }
-        elseif ($request->payment_method == 'Western Union') {
-            $payment_detail = new Payment_detail;
-            $payment_detail->payment_id = $payment_id;
+        } elseif ($request->payment_method == 'Western Union') {
             $payment_detail->tracking_number = $request->tracking_number;
-            $payment_detail->amount = $request->amount_sent;
-            $payment_detail->method = $request->payment_method;
-            $payment_detail->save();
-
-            /*$payment_detail = Payment_detail::where('tracking_number', $request->tracking_number)
-                    ->where('amount', $request->amount_sent)
-                    ->first();
-
-            if (is_null($payment_detail)) {
-                $notification = array(
-                    'message' => __('user-payments.incorrect-payment-details'),
-                    'alert-type' => 'error'
-                );
-
-                return redirect()->back()
-                    ->withInput()
-                    ->with($notification);
-            }*/
-        }
-        elseif ($request->payment_method == 'Money Gram') {
-            $payment_detail = new Payment_detail;
-            $payment_detail->payment_id = $payment_id;
+        } elseif ($request->payment_method == 'Money Gram') {
             $payment_detail->auth_number = $request->auth_number;
-            $payment_detail->amount = $request->amount_sent;
-            $payment_detail->method = $request->payment_method;
-            $payment_detail->save();
-
-            /*$payment_detail = Payment_detail::where('auth_number', $request->auth_number)
-                    ->where('amount', $request->amount_sent)
-                    ->first();
-
-            if (is_null($payment_detail)) {
-                $notification = array(
-                    'message' => __('user-payments.incorrect-payment-details'),
-                    'alert-type' => 'error'
-                );
-
-                return redirect()->back()
-                    ->withInput()
-                    ->with($notification);
-            }*/
         }
-
-        /*$payment = Payment::find($payment_id);
+    
+        $payment_detail->save();
+    
+        // Mettre à jour le statut du paiement après avoir enregistré les détails du paiement
         $payment->status = 'confirmed';
-        $payment->save();*/
-
-        /*$payment_detail->payment_id = $payment_id;
-        $payment_detail->status = 'confirmed';
-        $payment_detail->save();*/
-
-        /*$inscription = Inscription::where('id', $payment->inscription_id)->first();
-        if ($payment->type == 'registration_fees') {
-            $inscription->status == 'registration_fees_paid';
-        } else {
-            $inscription->status == 'completed';
-        }
-        $inscription->save();*/        
-
+        $payment->save();
+    
+        // Mettre à jour le statut de l'inscription
+        $inscription->status = 'registration_fees_paid';
+        $inscription->save();
+    
         $notification = array(
             'message' => __('user-payments.payment-details-submit'),
             'alert-type' => 'success'
         );
-
+    
         return redirect()->route('user.payments')
             ->with($notification);
     }
+    
+    
 
     public function inscriptionDetails($id)
     {

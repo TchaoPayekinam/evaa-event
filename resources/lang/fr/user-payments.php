@@ -9,7 +9,7 @@ return [
 	'payment_method' => 'Mode de paiement',
 	'date_rec'=> 'Date de réception',
 	'status'=> 'Statut',
-	'awaiting-input' => 'En attente de confirmation',
+	'awaiting-input' => 'En attente de payement',
 	'download-invoice' => 'Télécharger la facture',
 	'view-details' => 'View Details',
 	'enter-payment-details' => 'Entrez les détails de paiement',
