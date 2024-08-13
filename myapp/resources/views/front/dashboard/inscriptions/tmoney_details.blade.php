@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Order in progress | Eva\'a Event & Com')
+@section('title', 'Eva\'a Event & Com')
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
 
@@ -28,7 +28,7 @@
             background-color: #e5e5e5 !important;
         }
 
-        .login-form input{
+        .register-form input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;
@@ -69,7 +69,7 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-tmoney') }} - {{ trans('payment.step-two') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.register-fees-payment') }} {{ trans('payment.payment-by-tmoney') }} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
                             <p>
                                 {{ trans('payment.thank-you-for-choosing') }}
@@ -184,7 +184,6 @@
                                 </div>  <!-- card -->
                             <div class="text-center m-5">
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
                             </div>
                         </div>
                     </div>
@@ -199,36 +198,6 @@
 @section('scriptSection')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>
-    // @if (Session::has('message'))
-    //     var type = "{{ Session::get('alert-type', 'info') }}"
-    //     switch (type) {
-    //         case 'info':
-
-    //             toastr.options.timeOut = 10000;
-    //             toastr.info("{{ Session::get('message') }}");
-    //             break;
-    //         case 'success':
-
-    //             toastr.options.timeOut = 10000;
-    //             toastr.success("{{ Session::get('message') }}");
-    //             break;
-    //         case 'warning':
-
-    //             toastr.options.timeOut = 10000;
-    //             toastr.warning("{{ Session::get('message') }}");
-    //             break;
-    //         case 'error':
-
-    //             toastr.options = {
-    //                 "positionClass" : 'toast-top-full-width',
-    //                 "progressBar" : true,
-    //                 "closeButton" : true,
-    //                 "timeOut" : 3000,
-    //             }
-    //             toastr.error("{{ Session::get('message') }}");
-    //             break;
-    //     }
-    // @endif
 
     @if(session('success'))
     toastr.options = {

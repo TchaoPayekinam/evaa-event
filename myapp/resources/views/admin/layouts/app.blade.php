@@ -130,13 +130,13 @@
                                         <span>Mon Compte</span>
                                     </a>
 
-                                    <a href="{{ route('logout') }}" class="dropdown-item notify-item" onclick="event.preventDefault();
+                                    <a href="#" class="dropdown-item notify-item" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         <i class="mdi mdi-logout mr-1"></i>
                                         <span>Déconnexion</span>
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="post">
+                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="post">
                                         {!! csrf_field() !!}
                                     </form> 
 

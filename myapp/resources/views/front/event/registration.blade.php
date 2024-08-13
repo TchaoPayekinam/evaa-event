@@ -27,7 +27,8 @@
         .card-header {
             color: #036;
             font-size: 40px;
-            line-height: 1.3em;
+            /*line-height: 1.3em;*/
+            line-height: 1em;
             font-family: "DIN Neuzit Grotesk", DINNeuzitGrotesk, "Barlow Condensed", "Impact", Impact, sans-serif;
             font-weight: 600;
         }
@@ -46,7 +47,9 @@
             border-radius: 0;
             background: #f5f5f5;
             box-shadow: none;
-            border: none;
+            /*border: none;*/
+            /* border: 1px solid black; Ajout de la bordure noire */
+            border: 1px solid #ccc
             color: #111111;
             padding: 5px 15px;
             font-size: 15px;
@@ -60,7 +63,9 @@
             border-radius: 0;
             background: #f5f5f5;
             box-shadow: none;
-            border: none;
+            /*border: none;*/
+            /* border: 1px solid black; Ajout de la bordure noire */
+            border: 1px solid #ccc
             height: 45px !important;
             color: #111111;
             padding: 5px 15px;
@@ -208,18 +213,20 @@
 
                             {{-- formulaire de compte --}}
                             <h2 class="card-header text-center py-3 mt-4 poti-light-bg">{{ trans('register.regis-form') }}</h2>
-                            <p class="small text-muted">{{ trans('register.account-allow-you') }}</p>
+                            <br>
+                            <p class="text-danger" style="text-align: justify; font-size: 20px; font-weight: bolder;">{{ trans('register.already-create-account') }}</p>
                             <!-- <div class="card-body px-lg-5 pt-0"> -->
                             <div class="text-left mt-3">
-                                <label>
-                                    <input type="radio" name="has_account" value="yes" class="ml-3 mr-2" required onclick="toggleFields()"> {{ trans('register.have-account') }}
+                                <label style="font-size: 20px; font-weight: bolder;">
+                                    <input type="radio" name="has_account" class="ml-3 mr-2" required value="no" onclick="toggleFields()"> {{ trans('register.no') }}
                                 </label>
-                                <label>
-                                    <input type="radio" name="has_account" class="ml-3 mr-2" required value="no" onclick="toggleFields()"> {{ trans('register.donthave-account') }}
+                                <label style="font-size: 20px; font-weight: bolder;">
+                                    <input type="radio" name="has_account" value="yes" class="ml-3 mr-2" required onclick="toggleFields()"> {{ trans('register.yes') }}
                                 </label>
                             </div>
 
                             <div id="emailField" style="display: none;" class="text-left mt-3">
+                                <h4 class="text-left subtitle" style="font-size: 22px">{{ trans('register.sign-in' )}}</h4>
                                 <label for="email">{{ trans('register.email') }}</label><span style="color: red">*</span>
                                 <input id="email" name="email" type="email" placeholder="" class="form-control height-45" required>
                                 @error('email')
@@ -241,6 +248,7 @@
                             </div>
 
                             <div id="credentialsFields" style="display: none;" class="text-left mt-3">
+                                <h4 class="text-left subtitle" style="font-size: 22px">{{ trans('register.create-account' )}}</h4>
                                 <label for="email_no_account">{{ trans('register.email') }}</label><span style="color: red">*</span>
                                 <input type="email" name="email_no_account" placeholder="" class="form-control height-45" required>
                                 @error('email_no_account')

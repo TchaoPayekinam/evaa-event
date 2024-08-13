@@ -66,7 +66,10 @@
 						</tr>
 						<tr>
 							<td align="center" style="padding:0 20px;text-align:left;font-size:14px;color:#676a6c;line-height:24px" valign="middle" width="100%">
-								Veuillez vous rendre sur la page des paiements dans votre compte pour télécharger le reçu de paiement.</td>
+								Utilisez le lien ci-dessous pour accéder à la page des paiements et obtenir votre reçu.
+                                <br><br>
+                                <a href="https://evaa-event.com/my-payments" class="button" target="_blank">Accédez à la page des paiements</a>
+                            </td>
 						</tr>
 						
 						<tr>

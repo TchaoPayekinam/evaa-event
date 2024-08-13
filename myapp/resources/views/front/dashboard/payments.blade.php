@@ -75,7 +75,11 @@
 	                        <td>{{ $payment->method }}</td>
 	                        <td>{{ $payment->created_at->format('d/m/Y H:m:s') }}</td>
 	                        
-	                        <td class="text-danger">{{ trans('user-payments.awaiting-input') }}</td>
+	                        @if($payment->status == 'pending')
+                            <td class="text-danger">{{ trans('user-payments.awaiting-input') }}</td>
+                            @else
+                            <td class="text-success">{{ trans('user-payments.confirmed-payment') }}</td>
+                            @endif
 	                        
 	                        <td class="btn-group-sm">
 	                            <!-- <a class="btn btn-primary h-25 mr-0 mr-md-2 mr-lg-0 waves-effect waves-light" href="/users/order-details/202407-506LJ527KQ591L/">View Details</a> -->

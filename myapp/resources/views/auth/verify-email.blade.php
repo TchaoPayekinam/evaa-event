@@ -55,12 +55,12 @@
                                 @csrf
                                 <button type="submit" class="btn btn-primary">{{ trans('verify-email.resend-verification') }}</button>
                             </form>
-                            <form method="POST" action="{{ route('logout') }}">
+                            {{-- <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="btn btn-primary">
                                     {{ trans('verify-email.logout') }}
                                 </button>
-                            </form>
+                            </form> --}}
                         </div>
 
                     </div>

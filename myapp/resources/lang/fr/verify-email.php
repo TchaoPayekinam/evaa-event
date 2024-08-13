@@ -1,7 +1,7 @@
 <?php
 return [
 	'check-email' => 'Vérifiez votre adresse e-mail',
-	'thanks-for-signing-up' => 'Merci de vous être inscrit ! Avant de commencer, pourriez-vous vérifier votre adresse e-mail en cliquant sur le lien que nous venons de vous envoyer par e-mail ? Si vous n\'avez pas reçu l\'e-mail, nous vous en enverrons un autre avec plaisir.',
+	'thanks-for-signing-up' => 'Merci de vous être inscrit ! Pour continuer, veillez consultez l\'adresse email que vous avez renseigné et cliquer sur le bouton VERIFIER L\'ADRESSE E-MAIL pour verifier votre email. Si vous n\'avez pas reçu notre mail, Cliquez sur le bouton ci-dessous.',
 	'logout' => 'Se déconnecter',
 	'resend-verification' => 'Renvoyer l\'e-mail de vérification',
 	'new-verification-link' => 'Un nouveau lien de vérification a été envoyé à l\'adresse e-mail que vous avez fournie lors de votre inscription.',

@@ -1,126 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Log In | Eva\'a Event & Com Administration</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Solutions évènementielles sur mesure, ciblant toutes les catégories socioprofessionnelles" name="description" />
+        <meta content="Coderthemes" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{ asset('event/assets/img/logo.png') }}">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <!-- App css -->
+        <link href="{{ asset('template_admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('template_admin/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="light-style" />
+        <link href="{{ asset('template_admin/assets/css/app-dark.min.css') }}" rel="stylesheet" type="text/css" id="dark-style" />
 
-  <title>Log In | Eva\'a Event & Com Administration</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="{{ asset('event/assets/img/logo.png') }}">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{{ asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('admin/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('admin/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('admin/assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
-  <link href="{{ asset('admin/assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
-  <link href="{{ asset('admin/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-  <link href="{{ asset('admin/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
-
-  <!--  Main CSS File -->
-  <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet">
-</head>
-
-<body>
-
-  <main>
-    <div class="container">
-
-      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="./assets/img/logoacp.png" alt="">
-                </a>
-              </div><!-- End Logo -->
-
-              <div class="card mb-3">
-                <div class="card-header pt-4 pb-2 text-center " style="border-bottom: 3px solid RGB(67, 172, 52)">
-                    <a href="">
-                        <span><img src="{{ asset('event/assets/img/logo.png') }}" alt="" height="50"></span>
-                    </a>
-                </div>
-
-                <div class="card-body">
-
-                  <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Se Connecter</h5>
-                    <p class="text-muted mb-4">Entrez votre adresse e-mail et votre mot de passe pour accéder au panneau d'administration.</p>
-                  </div>
-
-                  <form action="{{ route('admin.login') }}" method="post" class="row g-3 needs-validation" novalidate>
-                    {!! csrf_field() !!}
+        <style type="text/css">
+            body.authentication-bg {
                 
-                    <div class="col-12">
-                        <label for="yourName" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" required>
-                        <div class="invalid-feedback">
-                            @error("email")
-                            {{ $message }}
-                            @enderror
+                background: url({{url('assets/images/background1.png')}});
+                background-size: cover;
+                background-position: center bottom;
+            }
+        </style>  
+
+    </head>
+
+    <body class="loading authentication-bg" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
+        <div class="account-pages mt-5 mb-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="card">
+
+                            <!-- Logo bg-primary-->
+                            <div class="card-header pt-4 pb-2 text-center " style="border-bottom: 3px solid RGB(181, 5, 103)">
+                                <a href="">
+                                    <span><img src="{{ asset('event/assets/img/logo.png') }}" alt="" height="50"></span>
+                                </a>
+                            </div>
+
+                            <div class="card-body p-4">
+                                
+                                <div class="text-center w-75 m-auto">
+                                    <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Se Connecter</h4>
+                                    <p class="text-muted mb-4">Entrez votre adresse e-mail et votre mot de passe pour accéder au panneau d'administration.</p>
+                                </div>
+
+                                @if (session('error'))
+                                    <div class="alert alert-danger alert-square">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+                                <form action="{{ route('admin.login') }}" method="POST">
+                                    {{ csrf_field() }}
+
+                                    <div class="form-group">
+                                        <label for="emailaddress">E-mail</label>
+                                        <input class="form-control" type="email" id="email" name="email" required="" value="{{ old('email')}}" placeholder="Entrez votre e-mail">
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Mot de passe</label>
+                                        <div class="input-group input-group-merge">
+                                            <input type="password" id="password" name="password" class="form-control" placeholder="Entrez votre mot de passe">
+                                            <div class="input-group-append" data-password="false">
+                                                <div class="input-group-text">
+                                                    <span class="password-eye"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @if ($errors->has('password'))
+                                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group mb-0 text-center">
+                                        <button class="btn btn-primary" type="submit"> Se Connecter </button>
+                                    </div>
+
+                                </form>
+                            </div> <!-- end card-body -->
                         </div>
-                    </div>
-                
-                    <div class="col-12">
-                        <label for="yourPassword" class="form-label">Mot de passe</label>
-                        <input type="password" name="password" class="form-control" id="yourPassword" required>
-                        <div class="invalid-feedback">
-                            @error("password")
-                            {{ $message }}
-                            @enderror
-                        </div>
-                    </div>
-                
-                    @if(session('danger'))
-                        <div class="alert alert-danger" role="alert" id="success-message">{{ session('danger') }}</div>
-                    @endif
-                    <div class="col-12">
-                        <button class="btn btn-primary w-100" type="submit">Connexion</button>
-                    </div>
-                    <div class="col-12">
-                    </div>
-                </form>
+                        <!-- end card -->
 
+                    </div> <!-- end col -->
                 </div>
-              </div>      
-
+                <!-- end row -->
             </div>
-          </div>
+            <!-- end container -->
         </div>
+        <!-- end page -->
 
-      </section>
+        <footer class="footer footer-alt font-weight-bold text-dark-50">
+            <script>document.write(new Date().getFullYear())</script> © EECO
+        </footer>
 
-    </div>
-  </main><!-- End #main -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+        <!-- bundle -->
+        <script src="{{ asset('template_admin/assets/js/vendor.min.js') }}"></script>
+        <script src="{{ asset('template_admin/assets/js/app.min.js') }}"></script>
+        
+    </body>
 </html>

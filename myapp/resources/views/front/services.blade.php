@@ -53,27 +53,27 @@
                         {{-- <a href="#" title="Buy Tickets" class="btn-fill size-lg border-radius-5 color-yellow">{{ trans('about.travailler-avec-nous-button') }}</a> --}}
                         <div class="service-grid">
                             <div>
-                                <i class="fa fa-bullhorn custom-icon" aria-hidden="true"></i>
+                                <i class="fa fa-flag custom-icon" aria-hidden="true"></i>
                                 <h2>{{ trans('service.meilleur-service-li-1') }}</h2>
                             </div>
                             <div>
-                                <i class="fa fa-paint-brush custom-icon" aria-hidden="true"></i>
+                                <i class="fa fa-search-plus custom-icon" aria-hidden="true"></i>
                                 <h2>{{ trans('service.meilleur-service-li-2') }}</h2>
                             </div>
                             <div>
-                                <i class="fa fa-comments custom-icon" aria-hidden="true"></i>
+                                <i class="fa fa-bullseye custom-icon" aria-hidden="true"></i>
                                 <h2>{{ trans('service.meilleur-service-li-3') }}</h2>
                             </div>
                             <div>
-                                <i class="fa fa-search-plus custom-icon" aria-hidden="true"></i>
+                                <i class="fa fa-users custom-icon" aria-hidden="true"></i>
                                 <h2>{{ trans('service.meilleur-service-li-4') }}</h2>
                             </div>
                             <div>
-                                <i class="fa fa-microphone custom-icon" aria-hidden="true"></i>
+                                <i class="fa fa-paint-brush custom-icon" aria-hidden="true"></i>
                                 <h2>{{ trans('service.meilleur-service-li-5') }}</h2>
                             </div>
                             <div>
-                                <i class="fa fa-music custom-icon" aria-hidden="true"></i>
+                                <i class="fa fa-globe custom-icon" aria-hidden="true"></i>
                                 <h2>{{ trans('service.meilleur-service-li-6') }}</h2>
                             </div>
                             <div>
@@ -81,7 +81,7 @@
                                 <h2>{{ trans('service.meilleur-service-li-7') }}</h2>
                             </div>
                             <div>
-                                <i class="fa fa-users custom-icon" aria-hidden="true"></i>
+                                <i class="fa fa-cog custom-icon" aria-hidden="true"></i>
                                 <h2>{{ trans('service.meilleur-service-li-8') }}</h2>
                             </div>
                         </div>

@@ -6,7 +6,7 @@ use App\Models\Event;
 use App\Models\Inscription;
 use App\Models\User;
 use App\Models\Payment;
-use App\Notifications\InscriptionNotification;
+//use App\Notifications\InscriptionNotification;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -160,37 +160,37 @@ class InscriptionController extends Controller
 
         //try {
 
-            $user->notify(new InscriptionNotification($inscription->lastName, $inscription->firstName, $inscription->confirmationCode, $inscription->id));
+        //$user->notify(new InscriptionNotification($inscription->lastName, $inscription->firstName, $inscription->confirmationCode, $inscription->id));
 
-            // Vérifier si l'utilisateur a vérifié son email
-            if (!$user->hasVerifiedEmail()) {
+        // Vérifier si l'utilisateur a vérifié son email
+        if (!$user->hasVerifiedEmail()) {
 
-                $notification = array(
-                    'message' => __('verify-email.must-verify'),
-                    'alert-type' => 'info'
-                );
+            $notification = array(
+                'message' => __('verify-email.must-verify'),
+                'alert-type' => 'info'
+            );
 
-                // Rediriger vers la page de vérification d'email
-                return redirect()->route('verification.notice')
-                                ->with($notification);
-            }
+            // Rediriger vers la page de vérification d'email
+            return redirect()->route('verification.notice')
+                            ->with($notification);
+        }
 
-            //if ($saved) {
-                switch ($request->paymentOption) {
-                    case 'Cash':
-                        return redirect()->route('inscription.cash')->with(['confirmationCode'=> $inscription->confirmationCode,     'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
-                    case 'T-Money':
-                        return redirect()->route('inscription.tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, ' paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
-                    case 'Western Union':
-                        return redirect()->route('inscription.westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
-                    case 'Flooz':
-                        return redirect()->route('inscription.flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
-                    case 'Money Gram':
-                        return redirect()->route('inscription.moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
-                    default:
-                        return abort(404);
-                }
-            //}
+        //if ($saved) {
+        switch ($request->paymentOption) {
+            case 'Cash':
+                return redirect()->route('inscription.cash')->with(['confirmationCode'=> $inscription->confirmationCode,     'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+            case 'T-Money':
+                return redirect()->route('inscription.tMoney')->with(['confirmationCode'=> $inscription->confirmationCode, ' paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+            case 'Western Union':
+                return redirect()->route('inscription.westernUnion')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+            case 'Flooz':
+                return redirect()->route('inscription.flooz')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+            case 'Money Gram':
+                return redirect()->route('inscription.moneyGram')->with(['confirmationCode'=> $inscription->confirmationCode, 'paymentAmount' => $inscription->paymentAmount, 'success' => 'Inscription réussie ! Nous avons envoyé un email à votre adresse : '.$user->email]);
+            default:
+                return abort(404);
+        }
+        //}
 
         /*} catch (Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());

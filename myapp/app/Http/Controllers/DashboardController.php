@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConfirmedPaymentClientNotification;
 use App\Models\Inscription;
 use App\Models\Payment;
 use App\Models\Payment_detail;
@@ -11,6 +12,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Mail;
 use PDF;
 
 class DashboardController extends Controller
@@ -44,31 +46,11 @@ class DashboardController extends Controller
         return view('front.dashboard.payments.submissionForm', compact('payment', 'payment_detail'));
     }
 
-    public function postPaymentDetailsSubmissionForm(Request $request, $payment_id) {        
+    public function postPaymentDetailsSubmissionForm(Request $request, $payment_id) {
+
+        dd($request->all());
         $payment_detail = Payment_detail::where('payment_id', $payment_id)->first();
 
-        if ($payment_detail) {
-            $payment_detail->payment_id = $payment_id;
-            if($request->payment_reference_number) {
-                $payment_detail->ref_number = $request->payment_reference_number;
-            }
-            if($request->tracking_number) {
-                $payment_detail->tracking_number = $request->tracking_number;
-            }
-            if($request->auth_number) {
-                $payment_detail->auth_number = $request->auth_number;
-            }
-            $payment_detail->amount = $request->amount_sent;
-            $payment_detail->save();
-
-            $notification = array(
-                'message' => __('user-payments.payment-details-submit'),
-                'alert-type' => 'success'
-            );
-
-            return redirect()->route('user.payments')
-                ->with($notification);
-        }
 
         if($request->payment_method == 'Flooz' || $request->payment_method == 'T-Money') {
             $payment_detail = new Payment_detail;
@@ -91,7 +73,7 @@ class DashboardController extends Controller
                 return redirect()->back()
                     ->withInput()
                     ->with($notification);
-            }*/ 
+            }*/
         }
         elseif ($request->payment_method == 'Western Union') {
             $payment_detail = new Payment_detail;
@@ -154,7 +136,11 @@ class DashboardController extends Controller
         } else {
             $inscription->status == 'completed';
         }
-        $inscription->save();*/        
+        $inscription->save();*/
+
+        $user = auth()->user();
+
+        Mail::to($user->email)->send(new ConfirmedPaymentClientNotification($payment_detail->id));
 
         $notification = array(
             'message' => __('user-payments.payment-details-submit'),
@@ -184,7 +170,7 @@ class DashboardController extends Controller
              case 'Money Gram':
                 return view('front.dashboard.inscriptions.moneyGram_details', compact('inscription'));
              default:
-             return redirect()->withErrors(['erreur' => 'Page introuvable']);
+             return redirect()->back()->withErrors(['erreur' => 'Page introuvable']);
         }
     }
 
@@ -271,7 +257,7 @@ class DashboardController extends Controller
                     break;
 
                 default:
-                    return redirect()->withErrors(['erreur' => 'Page introuvable']);
+                    return redirect()->back()->withErrors(['erreur' => 'Page introuvable']);
             }
 
             $inscription->paymentAmount = $request->amount;
@@ -394,7 +380,7 @@ class DashboardController extends Controller
                     break;
 
                 default:
-                    return redirect()->withErrors(['erreur' => 'Page introuvable']);
+                    return redirect()->back()->withErrors(['erreur' => 'Page introuvable']);
             }
 
             $payment->paymentAmount = $request->amount;

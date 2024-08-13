@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Profile;
 
 class Administrator extends Authenticatable
 {
-    // use HasApiTokens, HasFactory, Notifiable;
-
     use Notifiable;
 
     protected $guard = 'admin';
@@ -23,6 +22,7 @@ class Administrator extends Authenticatable
         'first_name',
         'email',
         'password',
+        'password_updated_at',
     ];
 
     /**
@@ -43,4 +43,9 @@ class Administrator extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profile()
+    {
+        return $this->belongsTo(Profile::class);
+    }
 }

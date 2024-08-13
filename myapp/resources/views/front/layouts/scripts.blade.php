@@ -63,7 +63,7 @@
                     "positionClass" : 'toast-top-full-width',
                     "progressBar" : true,
                     "closeButton" : true,
-                    "timeOut" : 5000,
+                    "timeOut" : 20000,
                 }
                 toastr.info("{{ Session::get('message') }}");
                 break;
@@ -73,13 +73,13 @@
                     "positionClass" : 'toast-top-full-width',
                     "progressBar" : true,
                     "closeButton" : true,
-                    "timeOut" : 5000,
+                    "timeOut" : 20000,
                 }
                 toastr.success("{{ Session::get('message') }}");
                 break;
             case 'warning':
 
-                toastr.options.timeOut = 10000;
+                toastr.options.timeOut = 20000;
                 toastr.warning("{{ Session::get('message') }}");
                 break;
             case 'error':
@@ -88,7 +88,7 @@
                     "positionClass" : 'toast-top-full-width',
                     "progressBar" : true,
                     "closeButton" : true,
-                    "timeOut" : 5000,
+                    "timeOut" : 20000,
                 }
                 toastr.error("{{ Session::get('message') }}");
                 break;

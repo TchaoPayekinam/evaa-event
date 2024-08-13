@@ -1,7 +1,7 @@
 <?php
 return [
 	'check-email' => 'Check your email address',
-    'thanks-for-signing-up' => 'Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.',
+    'thanks-for-signing-up' => 'Thank you for signing up! To continue, please check the email address you provided and click the "VERIFY EMAIL ADDRESS" button to verify your email. If you have not received our email, click the button below.',
     'logout' => 'Log out',
     'resend-verification' => 'Resend Verification Email',
     'new-verification-link' => 'A new verification link has been sent to the email address you provided during registration.',

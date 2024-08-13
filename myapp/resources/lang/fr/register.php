@@ -33,4 +33,7 @@ return [
 	'account-allow-you' => 'Le compte vous permettra de suivre vos activités sur la plateforme, d\'accéder à votre tableau de bord et de confirmer vos inscriptions et payements.',
 	'have-account' => 'J\'ai un compte',
 	'donthave-account' => 'Je n\'ai pas de compte',
+	'already-create-account' => 'Avez-vous déjà créé un compte sur notre site?',
+	'create-account' => 'Créer un compte',
+	'sign-in' => 'Se connecter',
 ];

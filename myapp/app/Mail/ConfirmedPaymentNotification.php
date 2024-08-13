@@ -38,7 +38,7 @@ class ConfirmedPaymentNotification extends Mailable
         return $this->subject('Validation de paiement')
             ->view('mails.confirmed_payment')
             ->with([
-                'inscription' => $inscription,          
+                'inscription' => $inscription,
             ]);
     }
 }

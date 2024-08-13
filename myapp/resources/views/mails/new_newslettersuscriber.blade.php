@@ -9,13 +9,6 @@
 <table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="background:#ffffff" width="100%">
 	<tbody>
 		<tr>
-			<td style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';padding:25px 0;text-align:center">
-				<a href="https://evaa-event.com" style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#3d4852;font-size:19px;font-weight:bold;text-decoration:none;display:inline-block" target="_blank">
-					<img src="https://evaa-event.com/event/assets/img/logo.png" alt="EECO Logo" style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';max-width:100%;border:none;height:75px;max-height:75px;width:180px" class="CToWUd" data-bit="iit">
-				</a>
-			</td>
-		</tr>
-		<tr>
 			<td>
 				<table align="center" border="0" cellpadding="0" cellspacing="0" style="padding:0 5px" width="570">
 					<tbody>

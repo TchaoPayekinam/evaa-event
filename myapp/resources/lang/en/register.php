@@ -33,4 +33,7 @@ return [
 	'account-allow-you' => 'The account will allow you to follow your activities on the platform, access your dashboard and confirm your registrations and payments.',
 	'have-account' => 'I have an account',
 	'donthave-account' => 'I do not have an account',
+	'already-create-account' => 'Have you already created an account on our site?',
+	'create-account' => 'Create an account',
+	'sign-in' => 'Sign in',
 ];

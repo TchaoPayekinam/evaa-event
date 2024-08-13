@@ -63,20 +63,21 @@
                 </a>
             </li>
 
-            <li class="side-nav-title side-nav-item">Administration</li>
-            <li class="side-nav-item">
-                <a href="{{ route('admins.index') }}" class="side-nav-link">
-                    <i class="uil-users-alt"></i>
-                    <span> Utilisateurs </span>
-                </a>
-            </li>
-            <li class="side-nav-item">
-                <a href="{{ route('profiles.index') }}" class="side-nav-link">
-                    <i class="uil-user-square"></i>
-                    <span> Profils </span>
-                </a>
-            </li>
-
+            @if(Auth::guard('admin')->check() && Auth::guard('admin')->user()->profile->name == "Administrateur")
+                <li class="side-nav-title side-nav-item">Administration</li>
+                <li class="side-nav-item">
+                    <a href="{{ route('admins.index') }}" class="side-nav-link">
+                        <i class="uil-users-alt"></i>
+                        <span> Utilisateurs </span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a href="{{ route('profiles.index') }}" class="side-nav-link">
+                        <i class="uil-user-square"></i>
+                        <span> Profils </span>
+                    </a>
+                </li>
+            @endif
         </ul>
 
         <div class="clearfix"></div>

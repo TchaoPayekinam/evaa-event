@@ -10,6 +10,7 @@ return [
 	'date_rec' => 'Date Recieved',
 	'status' => 'Status',
 	'awaiting-input' => 'Awaiting Input',
+	'confirmed-payment' => 'Payment confirmed',
 	'download-invoice' => 'Download Invoice',
 	'view-details' => 'View Details',
 	'enter-payment-details'=> 'Enter payment details',

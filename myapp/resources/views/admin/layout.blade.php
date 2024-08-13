@@ -49,10 +49,49 @@
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
+
+
+
     <nav class="header-nav ms-auto">
-        <a class ="btn btn btn-primary new-consignateur m-5" href="{{ route('home.index') }}">Aller sur le site</a>
+      <ul class="d-flex align-items-center">
+        <li>
+          <a class ="btn btn btn-primary new-consignateur m-5" href="{{ route('home.index') }}">Aller sur le site</a>
+        </li>
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="{{ asset('admin/assets/img/profil.png') }}" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2 text-header">
+              Profile
+          </span>
+          </a><!-- End Profile Iamge Icon -->
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li style="margin-left: 10px">
+                <span>
+                  <form class="nav-item" action="{{ route('admin.logout')}}" method="post">
+                    @method("delete")
+                    @csrf
+                    <button class="nav-link">Déconnexion</button>
+                  </form>
+                </span>
+            </li>
+            <li>
+
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('manageAdmin.editPassword') }}">
+                <span>
+                  <button class="nav-link">Modifier mot de passe</button>
+                </span>
+              </a>
+            </li>
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+      </ul>
     </nav><!-- End Icons Navigation -->
 
+
+
+
+
+    
   </header><!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
@@ -62,31 +101,40 @@
       <ul class="sidebar-nav" id="sidebar-nav" style="width: 100%">
 
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'focus' : 'collapsed' }}" href="{{ route('admin.dashboard') }}">
             <i class="bi bi-speedometer"></i>
             <span>Dashboard</span>
           </a>
         </li>
+        @if (Auth::guard('admin')->user() && Auth::guard('admin')->user()->accreditation == 'Super Administrateur')
         <li class="nav-item">
-          <a class="nav-link" href="#">
+            <a class="nav-link {{ request()->routeIs('manageAdmin.index', 'manageAdmin.createForm', 'manageAdmin.edit', 'manageAdmin.search') ? 'focus' : 'collapsed' }}" href="{{ route('manageAdmin.index') }}">
+                <i class="bi bi-person"></i>
+                <span>Administrateur</span>
+            </a>
+        </li>
+        @endif
+
+        {{-- <li class="nav-item">
+          <a class="nav-link" href="">
             <i class="bi bi-person"></i>
             <span>Utilisateur</span>
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('evenement.index') }}">
-            <i class="bi bi-person"></i>
+          <a class="nav-link {{ request()->routeIs('evenement.index') ? 'focus' : 'collapsed' }}" href="{{ route('evenement.index') }}">
+            <i class="bi bi-calendar2-event"></i>
             <span>Evènements</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('payement.inscription') }}">
-            <i class="bi bi-person"></i>
+          <a class="nav-link {{ request()->routeIs('payement.inscription') ? 'focus' : 'collapsed' }}" href="{{ route('payement.inscription') }}">
+            <i class="bi bi-cash"></i>
             <span>Frais de d'inscription</span>
           </a>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('payement.formation') }}">
-            <i class="bi bi-person"></i>
+          <a class="nav-link {{ request()->routeIs('payement.formation') ? 'focus' : 'collapsed' }}" href="{{ route('payement.formation') }}">
+            <i class="bi bi-cash"></i>
             <span>Frais de formation</span>
           </a>
         </li>

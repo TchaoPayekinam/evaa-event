@@ -1,5 +1,5 @@
 @extends('front.layouts.app')
-@section('title', 'Order in progress | Eva\'a Event & Com')
+@section('title', 'Eva\'a Event & Com')
 
 @section('headSection')
      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
@@ -24,7 +24,11 @@
             -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
         }
-        input{
+        .poti-light-bg {
+            background-color: #e5e5e5 !important;
+        }
+
+        .register-form input{
             height: 45px;
             color: #111111;
             padding: 5px 15px;
@@ -66,7 +70,7 @@
             <div class="row evaa-container">
                 <div class="col-lg-12 col-md-12 margin-b-30rem">
                     <div class="card">
-                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.order-in-progress') }} - {{ trans('payment.payment-by-flooz') }} - {{ trans('payment.step-two') }}</h2>
+                        <h2 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('payment.register-fees-payment') }} {{ trans('payment.payment-by-flooz') }} - {{ trans('payment.step-two') }}</h2>
                         <div class="card-body">
                             <p>
                                 {{ trans('payment.thank-you-for-choosing') }}
@@ -178,7 +182,6 @@
                                 </div>  <!-- card -->
                             <div class="text-center m-5">
                                 <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('dashboard') }}">{{ trans('payment.dashboard') }}</a>
-                                <a class="btn btn-color-primary mr-md-4 waves-effect waves-light" role="button" href="{{ route('payment') }}">{{ trans('payment.go-to-payment') }}</a>
                             </div>
                         </div>
                     </div>

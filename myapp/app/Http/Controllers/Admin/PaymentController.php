@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Mail\ConfirmedPaymentNotification;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
+use App\Models\Payment;
 use App\Models\Payment_detail;
+use App\Models\Inscription;
 
-use App\Jobs\SendConfirmedPaymentNotificationEmail;
 
 class PaymentController extends Controller
 {
@@ -26,13 +28,28 @@ class PaymentController extends Controller
         $transactions = Payment_detail::where('status', 'not_confirmed')
                                         ->get();
 
-        return view('admin.transactions.index', compact('transactions'));       
+        return view('admin.transactions.index', compact('transactions'));
     }
 
     public function confirm_transaction($id) {
-        $payement_detail = Payment_detail::find($id);
-        $payement_detail->status = 'confirmed';
-        $payement_detail->save();
+        $payment_detail = Payment_detail::find($id);
+        $payment_detail->status = 'confirmed';
+        $payment_detail->save();
+
+        $payment = Payment::find($payment_detail->payment_id);
+        $payment->status = 'confirmed';
+        $payment->save();
+
+        $inscription = Inscription::find($payment->inscription_id);
+         if($inscription->status == 'pending') {
+             $inscription->status = 'registration_fees_paid';
+         }
+         else {
+             $inscription->status = 'completed';
+         }
+
+
+        $inscription->save();
 
         $user = DB::table('users')->join('inscriptions', 'inscriptions.user_id', '=', 'users.id')
                 ->join('payments', 'payments.inscription_id', '=', 'inscriptions.id')
@@ -41,7 +58,11 @@ class PaymentController extends Controller
                 ->select('users.email')
                 ->first();
 
-        SendConfirmedPaymentNotificationEmail::dispatch($user->email, $id);
+        //SendConfirmedPaymentNotificationEmail::dispatch($user->email, $id);
+
+       // $user = auth()->user();
+
+        Mail::to($user->email)->send(new ConfirmedPaymentNotification($id));
 
         $notification = array(
             'message' => 'Confirmation effectuée avec succès',

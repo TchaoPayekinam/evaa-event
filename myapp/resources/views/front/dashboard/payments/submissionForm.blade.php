@@ -11,11 +11,11 @@
         }
 
         h2 {
-		    font-size: 35px;
-		    margin: .45em 0 .2em;
+            font-size: 35px;
+            margin: .45em 0 .2em;
         }
         h2, h3 {
-		    color: #1d4568;
+            color: #1d4568;
             font-family: "Barlow Condensed", sans-serif;
             font-weight: 600;
             font-style: normal;
@@ -74,47 +74,47 @@
             text-transform: uppercase;
             border-radius: 0;
         }
-	</style>
+    </style>
 @endsection
 @section('content')
-	<section class="section-space-default2-less30">
-		<div class="container">
-			<div class="row row-container">
-				<div class="col-12">
-					<h2 class="barlow-condensed-regular">{{ trans('user-payments.submission-form') }}</h2>
-					<div class="card mt-3 mb-5 d-none">
-		                <h3 class="card-header text-center py-4 mt-0 poti-light-bg poti-teal">Order Details</h3>
-		                <div class="card-body">
+    <section class="section-space-default2-less30">
+        <div class="container">
+            <div class="row row-container">
+                <div class="col-12">
+                    <h2 class="barlow-condensed-regular">{{ trans('user-payments.submission-form') }}</h2>
+                    <div class="card mt-3 mb-5 d-none">
+                        <h3 class="card-header text-center py-4 mt-0 poti-light-bg poti-teal">Order Details</h3>
+                        <div class="card-body">
 
-						    <div class="row">
-						        <div class="col-12 col-lg-8 text-muted">
-						            Course: History of Peacekeeping 2000-2020
-						        </div>
-						        <div class="col-7 col-sm-8 col-md-9 col-lg-2 text-right pr-0 text-muted">1</div>
-						        <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-right">$50.00 USD</div>
-						    </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-8 text-muted">
+                                    Course: History of Peacekeeping 2000-2020
+                                </div>
+                                <div class="col-7 col-sm-8 col-md-9 col-lg-2 text-right pr-0 text-muted">1</div>
+                                <div class="col-5 col-sm-4 col-md-3 col-lg-2 text-right">$50.00 USD</div>
+                            </div>
 
-							<hr class="my-3">
+                            <hr class="my-3">
 
-							<div class="row text-right">
-							    <div class="col-7 col-sm-8 col-md-9 col-lg-10 pr-0">Subtotal</div>
-							    <div class="col-5 col-sm-4 col-md-3 col-lg-2">$50.00 USD</div>
-							</div>
+                            <div class="row text-right">
+                                <div class="col-7 col-sm-8 col-md-9 col-lg-10 pr-0">Subtotal</div>
+                                <div class="col-5 col-sm-4 col-md-3 col-lg-2">$50.00 USD</div>
+                            </div>
 
-							<div class="row text-right font-weight-bold">
-							    <div class="col-7 col-sm-8 col-md-9 col-lg-10 pr-0">Order Total</div>
-							    <div class="col-5 col-sm-4 col-md-3 col-lg-2">$50.00 USD</div>
-							</div>
-			                 <p class="font-italic font-weight-bold font-small">**If the shopping cart information is inaccurate, you will have to re-select the items you would like to purchase.</p>
-		                </div> <!-- card body -->
-		            </div>
-		            <div class="card">
-                		<h3 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('user-payments.payment-information') }}</h3>
-		                <div class="card-body">
+                            <div class="row text-right font-weight-bold">
+                                <div class="col-7 col-sm-8 col-md-9 col-lg-10 pr-0">Order Total</div>
+                                <div class="col-5 col-sm-4 col-md-3 col-lg-2">$50.00 USD</div>
+                            </div>
+                             <p class="font-italic font-weight-bold font-small">**If the shopping cart information is inaccurate, you will have to re-select the items you would like to purchase.</p>
+                        </div> <!-- card body -->
+                    </div>
+                    <div class="card">
+                        <h3 class="card-header text-center py-4 mt-0 poti-light-bg">{{ trans('user-payments.payment-information') }}</h3>
+                        <div class="card-body">
                             <p class="font-weight-bold">@if($payment->type == 'registration_fees') {{ trans('user-payments.registration_fees') }} @else {{ trans('user-payments.training_costs') }} @endif - {{ $payment->event_name }}</p>
-		                    <p class="font-weight-bold">{{ trans('user-payments.inscription_id') }}: {{ $payment->confirmationCode }}</p>
-		                    <p class="font-weight-bold">{{ trans('user-payments.amount') }}: {{ $payment->amount }} FCFA</p>
-		                    <p class="font-weight-bold">{{ trans('user-payments.payment_method') }}: {{ $payment->method }}
+                            <p class="font-weight-bold">{{ trans('user-payments.inscription_id') }}: {{ $payment->confirmationCode }}</p>
+                            <p class="font-weight-bold">{{ trans('user-payments.amount') }}: {{ $payment->amount }} FCFA</p>
+                            <p class="font-weight-bold">{{ trans('user-payments.payment_method') }}: {{ $payment->method }}
                             </p>
                             <form action="{{ route('paymentDetailsSubmissionForm', $payment->id) }}" method="POST">
                                 <!-- novalidate="" maxlength="200"-->
@@ -167,8 +167,8 @@
                             </form>
                         </div> <!-- card body -->
                     </div>
-				</div>
-			</div>
-		</div>
-	</section>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection

@@ -76,16 +76,20 @@
                             <td>{{ $inscription->created_at->format('d/m/Y') }}</td>
                             @if($inscription->status == 'completed')
                                 <td class="text-success">Validé</td>
+                            @elseif($inscription->status == 'registration_fees_paid')
+                                <td class="text-warning">Frais d'inscription payé</td>
                             @else
                                 <td class="text-danger">En attente de paiement</td>
                             @endif
                             <td class="btn-group-sm">
-                                <a class="btn btn-primary h-25 mr-0 mr-md-2 mr-lg-0 waves-effect waves-light" href="#">{{ trans('user-registrations.view-details') }}</a>
+                                
                                 @if($inscription->status == 'pending')
                                 <a class="btn btn-primary h-25 mt-2 mt-lg-0 ml-0 ml-lg-2 waves-effect waves-light" href="{{ route('user.payments') }}">Payer les frais d'inscription</a>
                                 @elseif($inscription->status == 'registration_fees_paid')
                                 <a class="btn btn-primary h-25 mt-2 mt-lg-0 ml-0 ml-lg-2 waves-effect waves-light" href="{{ route('event.trainingCostsPayment', $inscription->id) }}">Payer les frais de formation</a>
                                 @endif
+
+                                <a class="btn btn-primary h-25 mr-0 mr-md-2 mr-lg-0 waves-effect waves-light" href="#">{{ trans('user-registrations.view-details') }}</a>
                                 
                                 <!-- <a class="btn btn-primary h-25 mt-2 ml-0 mt-xl-0 ml-xl-2 waves-effect waves-light" href="/users/basket/pending-payment-input/202407-602O9O38J49NP9/">Enter Payment Details</a> -->
                                 

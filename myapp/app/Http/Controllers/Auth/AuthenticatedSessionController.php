@@ -27,7 +27,7 @@ class AuthenticatedSessionController extends Controller
         ]);
         
         if(Auth::attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-            
+
             // Récupérer l'utilisateur authentifié
             $user = Auth::user();
 
@@ -63,8 +63,9 @@ class AuthenticatedSessionController extends Controller
             $user->last_login_at = \Carbon\Carbon::now();
             $user->save();
 
-            return redirect()->intended(route('home.index'));
-        } else {
+            return redirect()->intended(route('dashboard'));
+            //return redirect()->intended(route('home.index'));
+        } else{
             $notification = array(
                 'message' => __('auth.failed'),
                 'alert-type' => 'error'

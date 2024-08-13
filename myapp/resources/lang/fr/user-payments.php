@@ -10,6 +10,7 @@ return [
 	'date_rec'=> 'Date de réception',
 	'status'=> 'Statut',
 	'awaiting-input' => 'En attente de confirmation',
+	'confirmed-payment' => 'Paiement confirmé',
 	'download-invoice' => 'Télécharger la facture',
 	'view-details' => 'View Details',
 	'enter-payment-details' => 'Entrez les détails de paiement',

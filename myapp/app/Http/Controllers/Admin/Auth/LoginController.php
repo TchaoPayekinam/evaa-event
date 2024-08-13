@@ -54,12 +54,21 @@ class LoginController extends Controller
 
             return redirect()->intended(route('admin.dashboard'));
         } else {
-            $notification = array(
-                'message' => __('auth.failed'),
-                'alert-type' => 'error'
-            );
 
-            return redirect()->route('admin.login')->with('danger', 'Vos identifiants sont incorrects');            
+            return redirect()->route('admin.login')
+                ->withInput()
+                ->with('error','Les identifiants de connexion sont incorrects');         
         }
+    }
+    
+    public function destroy(Request $request)
+    {
+        Auth::guard('admin')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
